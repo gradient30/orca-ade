@@ -11,6 +11,17 @@ export type ReleaseNote = {
 /** Latest 3 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.201",
+    "date": "2026-09-13",
+    "dateLabel": "2026年9月13日",
+    "title": "官方更新",
+    "highlights": [
+      "详见下方完整中文日志。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.201",
+    "href": "/docs/changelog#v1-4-201"
+  },
+  {
     "tag": "v1.4.200",
     "date": "2026-09-11",
     "dateLabel": "2026年9月11日",
@@ -35,19 +46,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.199",
     "href": "/docs/changelog#v1-4-199"
-  },
-  {
-    "tag": "v1.4.198",
-    "date": "2026-09-08",
-    "dateLabel": "2026年9月8日",
-    "title": "结构化聊天与 GitHub 路线图",
-    "highlights": [
-      "在实验设置中开启 Structured Chat 后，Codex 聊天界面支持行内文件 diff、窗格操作、更清晰的工具输出、单独停止任务，以及移动端结构化 Codex 聊天。",
-      "GitHub Projects 的 Roadmap 视图现以时间线呈现；桌面端增加标签滚动、更窄标签，并刷新了通知。",
-      "工作区、渲染器、编辑器、终端、Git 与远程操作更快；SSH 中继和 Windows/WSL 恢复更稳。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.198",
-    "href": "/docs/changelog#v1-4-198"
   }
 ];
 
