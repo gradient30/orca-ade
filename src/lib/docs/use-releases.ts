@@ -4,7 +4,7 @@ import { RELEASES, type ReleaseNote } from "./releases";
 import { getMarkdown } from "./load";
 import { buildChangelogMarkdown, extractVersionSection, toReleaseNote } from "./translate-release";
 
-const CACHE_KEY = "orca-handbook-releases-v2";
+const CACHE_KEY = "orca-handbook-releases-v3";
 const TTL_MS = 6 * 60 * 60 * 1000;
 
 export type ReleasesState = {

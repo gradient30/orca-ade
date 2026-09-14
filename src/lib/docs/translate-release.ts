@@ -28,6 +28,17 @@ const HEADINGS: Record<string, string> = {
   Terminal: "终端",
   "Windows, remote server / SSH": "Windows、远程服务器与 SSH",
   "Performance / reliability": "性能与可靠性",
+  "Workspaces, tabs & browser": "工作区、标签页与浏览器",
+  "Tabs & browser": "标签页与浏览器",
+  "Native chat": "Native Chat",
+  "Agent activity & results": "Agent 活动与结果",
+  "Composer & controls": "编写器与控件",
+  "Chat & workspace routing": "聊天与工作区路由",
+  "Performance: interface, chat & workspaces": "性能：界面、聊天与工作区",
+  "Performance: terminals, tunnels & runtime": "性能：终端、隧道与运行时",
+  "Performance: data & integrations": "性能：数据与集成",
+  "Reliability & maintenance": "可靠性与维护",
+  "What's Changed": "本版本改动",
 };
 
 const TYPES: Record<string, string> = {
@@ -44,6 +55,7 @@ const TYPES: Record<string, string> = {
   infra: "基础设施",
   style: "样式",
   build: "构建",
+  i18n: "本地化",
 };
 
 const PHRASES: [string, string][] = [
@@ -97,6 +109,35 @@ const PHRASES: [string, string][] = [
   ["Remote work holds on better.", "远程工作更稳了。"],
   ["It's quicker.", "更快了。"],
   ["Two things were pulled.", "有两项被撤回。"],
+  [
+    "Native chat: Claude subagent activity and Codex background tasks are now visible in chat. Completed turns show changed files, and task updates stream into the composer.",
+    "Native Chat：Claude 子 Agent 活动与 Codex 后台任务会显示在聊天里。完成的回合会列出变更文件，任务更新会流入编写器。",
+  ],
+  [
+    "Orchestration: Worker-terminal ownership is established at creation. Startup, mobile input, and older federation coordinators have additional recovery safeguards.",
+    "编排：Worker 终端从创建起就有主人。启动、移动端输入以及旧联邦协调器增加了恢复保护。",
+  ],
+  [
+    "Workspace & browser: Background browser tabs load on open, and creating a chat preserves the active worktree.",
+    "工作区与浏览器：后台浏览器标签打开即加载；创建聊天时保留当前 worktree。",
+  ],
+  [
+    "Keep the current worktree selected, and trust a newly opened browser tab to be ready when you visit it.",
+    "保持当前 worktree 选中；新打开的浏览器标签在你访问时已经就绪。",
+  ],
+  [
+    "The conversation gives you a much better read on what an agent did, is doing, and has delegated.",
+    "对话能更清楚地告诉你：Agent 做了什么、正在做什么、以及委托了什么。",
+  ],
+  [
+    "Workers have a clearer owner from their first moment and are less likely to get stranded during recovery, federation, or mobile use.",
+    "Worker 从诞生起就有更明确的主人，在恢复、联邦或移动端使用时更不容易滞留。",
+  ],
+  [
+    "Nothing here changes what you see — it changes how smoothly Orca behaves under real workloads. Expanded below if you want the detail.",
+    "这里的改动不会改变你看到的内容——它们改变的是 Orca 在真实负载下有多顺。需要细节可展开。",
+  ],
+  ["What's Changed", "本版本改动"],
   ["made their first contribution in", "首次贡献于"],
   ["inline file diffs", "行内文件 diff"],
   ["native chat", "Native Chat"],
@@ -262,6 +303,16 @@ function headingZh(text: string, level: number, tag: string): string {
       终端: "terminal",
       "Windows、远程服务器与 SSH": "windows-ssh",
       性能与可靠性: "perf-reliability",
+      "工作区、标签页与浏览器": "workspaces-tabs",
+      "标签页与浏览器": "tabs-browser",
+      "Agent 活动与结果": "agent-activity",
+      编写器与控件: "composer",
+      聊天与工作区路由: "chat-routing",
+      "性能：界面、聊天与工作区": "perf-ui-chat",
+      "性能：终端、隧道与运行时": "perf-term-runtime",
+      "性能：数据与集成": "perf-data",
+      可靠性与维护: "reliability",
+      本版本改动: "changed",
     }[zh] ?? zh.toLowerCase().replace(/[^a-z0-9]+/g, "-");
   return `${"#".repeat(level)} ${zh} {#${tag}-${key}}`;
 }
@@ -274,10 +325,15 @@ export function extractHighlights(body: string): string[] {
     const out: string[] = [];
     for (const line of lines.slice(short + 1)) {
       if (/^##\s+/.test(line)) break;
-      const m = /^\*\*(.+?)\*\*\s*(.*)$/.exec(line.trim());
-      if (!m) continue;
-      const lead = translateProse(m[1]!.trim());
-      out.push(lead);
+      const trimmed = line.trim();
+      const m = /^\*\*(.+?)\*\*\s*(.*)$/.exec(trimmed);
+      if (m) {
+        out.push(translateProse(m[1]!.trim()));
+        if (out.length >= 3) break;
+        continue;
+      }
+      if (!trimmed || trimmed.startsWith("*") || trimmed.startsWith("#") || trimmed.startsWith("<")) continue;
+      out.push(translateProse(trimmed));
       if (out.length >= 3) break;
     }
     if (out.length) return out;
