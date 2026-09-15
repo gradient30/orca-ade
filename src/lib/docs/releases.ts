@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 3 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.203",
+    "date": "2026-09-15",
+    "dateLabel": "2026年9月15日",
+    "title": "Reliability & security:",
+    "highlights": [
+      "Reliability & security:",
+      "Agents & chat:",
+      "Workspaces & mobile:"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.203",
+    "href": "/docs/changelog#v1-4-203"
+  },
+  {
     "tag": "v1.4.201",
     "date": "2026-09-13",
     "dateLabel": "2026年9月13日",
@@ -35,19 +48,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.200",
     "href": "/docs/changelog#v1-4-200"
-  },
-  {
-    "tag": "v1.4.199",
-    "date": "2026-09-09",
-    "dateLabel": "2026年9月9日",
-    "title": "「Add project」又回到你找得到的地方了",
-    "highlights": [
-      "「Add project」又回到你找得到的地方了。",
-      "Structured Chat 更成熟了。",
-      "远程工作更稳了。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.199",
-    "href": "/docs/changelog#v1-4-199"
   }
 ];
 
