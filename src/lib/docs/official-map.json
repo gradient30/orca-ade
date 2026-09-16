@@ -562,13 +562,6 @@
       "yanked": false
     },
     {
-      "tag": "v1.4.202",
-      "publishedAt": "2026-09-14",
-      "lastSeenBodySha": null,
-      "translatedAtBodySha": null,
-      "yanked": true
-    },
-    {
       "tag": "v1.4.201",
       "publishedAt": "2026-09-13",
       "lastSeenBodySha": "31ac90717644",
@@ -630,6 +623,27 @@
       "lastSeenBodySha": "a195c9efe818",
       "translatedAtBodySha": "a195c9efe818",
       "yanked": false
+    },
+    {
+      "tag": "v1.4.192",
+      "publishedAt": "2026-08-29",
+      "lastSeenBodySha": "b4a3fbe0817e",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.191",
+      "publishedAt": "2026-08-28",
+      "lastSeenBodySha": "6ab72dd23b03",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.202",
+      "publishedAt": "2026-09-14",
+      "lastSeenBodySha": null,
+      "translatedAtBodySha": null,
+      "yanked": true
     }
   ]
 }
