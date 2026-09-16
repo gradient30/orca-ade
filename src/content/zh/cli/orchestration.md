@@ -106,12 +106,14 @@ orca orchestration dispatch --task <taskId> --to <workerHandle> --inject --json
 - 默认的 `check` 是绑定 Run 里最旧的未 ack Delivery（FIFO）。重放到 `--ack` 为止。
 - `--peek` / `--all` 不消费邮件。
 - 组地址：`@all`、`@idle`、`@claude`、`@codex`、`@opencode`、`@gemini`、`@droid`、`@grok`、`@cursor`、`@worktree:<id>` —— 绝不要用于 `worker_done` / heartbeat。
+- 除 `@worktree:<id>` 外，每个组都表示发送者自己 Run 里的活 Dispatch，投递到它们的 Dispatch 邮箱（嵌套协调者则投到子 Run 邮箱）。不在任何 Run 中的发送者会被拒绝；`--run` 必须匹配受众，且从不授予成员资格。
+- Run 组不含其所属协调者。worker 上报 blocker 时发到 `run:<id>`。`@worktree:<id>` 会包含该工作区里的协调者。
 - 给 PowerShell 组地址加引号：`--to "@all"`。
 
 ```bash
 orca orchestration send --to @all --subject "Heads up" --body "Pausing dispatches for a review." --json
 orca orchestration send --to @idle --subject "Anyone free?" --json
-orca orchestration send --to @codex --subject "Codex agents only" --json
+orca orchestration send --to @codex --subject "Codex workers in this Run only" --json
 ```
 
 等待进行时，CLI 每 15 秒向 stderr 发出一小行 JSON heartbeat。Stdout 仍然是最终命令结果。

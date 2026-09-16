@@ -7,7 +7,9 @@ Browser-use 配置档让你用特定身份运行 Orca 浏览器——已登录�
 1. 打开 [Settings → Browser → Profiles](/docs/settings)。
 1. 点 **Add profile**，给它一个名字。
 1. 可选地植入 cookies、user-agent 和 viewport 尺寸。
-1. 每个配置档呈现 Electron 自己的 user agent。Orca 不再把它改写成看起来像 Chrome，因为 Cloudflare Turnstile 会拒绝一个长得像 Chrome、却不发送 client hints 的 UA，而接受已声明的 Electron 客户端。唯一例外是 Google 的登录宿主，Orca 在那里呈现 Firefox 身份，以便 Google 签发绑定到嵌入式浏览器的 cookies。**native user agent** 配置档（`orca tab profile create --no-ua-spoof`）也会跳过该 Google 例外。
+1. 默认配置档会从浏览器引擎的 user agent 中去掉 Orca 和 Electron 标记，保留导入会话所期望的 Chrome 形态身份。这是一项有针对性的兼容措施，并不会让内置浏览器与 Chrome 完全相同。Google 登录宿主使用限定范围的 Firefox 身份。如果站点拒绝清洗后的身份（包括部分受 Cloudflare 保护的站点），请创建一个保留 **native Electron user agent** 的配置档。
+
+你也可以在脚本化浏览器配置时，用 CLI 创建 no-spoof 配置档：`orca tab profile create --no-ua-spoof`。
 
 ## Cookie 导入与 Google 登录 {#cookie-import-and-google-sign-in}
 
