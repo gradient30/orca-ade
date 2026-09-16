@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-09-16",
   "officialRef": "main",
-  "docsTreeSha": "f4d3261305433e8e3425b70f47823b90c3712d23",
+  "docsTreeSha": "d2059f89247142c31aacee79454bd042c3308a54",
   "docs": [
     {
       "slug": "quick-guide",
@@ -323,8 +323,8 @@
       "section": "browser",
       "kind": "official",
       "officialPath": "docs/site/content/docs/browser/overview.mdx",
-      "size": 4783,
-      "lastSeenSha": "d248318da694f8533cd3f21510b051a11b67bee2",
+      "size": 4770,
+      "lastSeenSha": "93890cf98bdf639e47252101a9a63b042529bd36",
       "translatedAtSha": "d248318da694f8533cd3f21510b051a11b67bee2"
     },
     {
@@ -332,8 +332,8 @@
       "section": "browser",
       "kind": "official",
       "officialPath": "docs/site/content/docs/browser/profiles.mdx",
-      "size": 2314,
-      "lastSeenSha": "fd9af7176e2574c89e04e21fc534399efb32347b",
+      "size": 2547,
+      "lastSeenSha": "26162fa94bc47c5acd32b30bc0d2bb0bf07ae813",
       "translatedAtSha": "fd9af7176e2574c89e04e21fc534399efb32347b"
     },
     {
