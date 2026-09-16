@@ -12,7 +12,7 @@
 flowchart TB
   ZH["src/content/zh/*.md"]
   ZH --> OFF["官网 57 页 1:1 中文"]
-  ZH --> ADD["本站加页：快速手册 / 更新日志 / 本站架构"]
+  ZH --> ADD["本站加页：快速手册 / 更新日志 / 本站架构 / 对照表"]
   OFF --> LOAD["load.ts：构建时读入全部 md"]
   ADD --> LOAD
   LOAD --> CAT["catalog.ts：PAGES、侧栏、上一篇下一篇"]
@@ -34,7 +34,9 @@ flowchart TB
 | 正文 | 解析 md；`mermaid` 围栏单独画图 | `Markdown.tsx`、`MermaidBlock.tsx` |
 | 发布 | SPA 静态站，base 为 `/orca-ade/` | GitHub Pages 工作流 |
 
-侧栏「从这里开始」的顺序是：快速手册 → 更新日志 → 本站架构 → 官网首页译本。后面的 57 页与 [onorca.dev/docs](https://www.onorca.dev/docs) 目录对齐。
+侧栏「从这里开始」的顺序是：快速手册 → 更新日志 → 本站架构 → 对照表 → 官网首页译本。后面的 57 页与 [onorca.dev/docs](https://www.onorca.dev/docs) 目录对齐。
+
+跟上官网时先看 [对照表](/docs/sitemap)：只比较官方 blob SHA 和 Release 正文指纹，有差异的才打开那一页。
 
 ## 数据更新驱动图 {#data-drive}
 

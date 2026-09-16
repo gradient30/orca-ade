@@ -37,16 +37,24 @@ jobs:
         run: node --experimental-strip-types scripts/sync-releases.ts
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Refresh official docs fingerprints
+        run: node --experimental-strip-types scripts/sync-official-map.ts
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Commit synced fallback if tags moved
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add src/lib/docs/releases.ts src/content/zh/changelog.md
+          git add src/lib/docs/releases.ts src/content/zh/changelog.md src/lib/docs/official-map.json
           if git diff --cached --quiet; then
-            echo "no release changes"
+            echo "no release or map changes"
             exit 0
           fi
-          git commit -m "chore: 同步官方最新 Orca Release"
+          if git diff --cached --name-only | grep -q 'changelog.md\|releases.ts'; then
+            git commit -m "chore: 同步官方最新 Orca Release"
+          else
+            git commit -m "chore: 记录官方手册指纹"
+          fi
           git push
       - run: npm run build:pages
       - uses: actions/upload-pages-artifact@v3

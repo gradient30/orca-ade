@@ -7,8 +7,16 @@ import { getMarkdown, searchDocs } from "@/lib/docs/load";
 import { extractToc, Markdown } from "./Markdown";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { UpdateEntry } from "./UpdateEntry";
+import { SitemapBoard } from "./SitemapBoard";
 import { readStoredTheme } from "@/lib/theme";
 import { useOrcaReleases } from "@/lib/docs/use-releases";
+
+const SITEMAP_TOC = [
+  { id: "how-to-use", text: "怎么用", level: 2 },
+  { id: "map-docs", text: "手册页", level: 2 },
+  { id: "map-releases", text: "Release", level: 2 },
+  { id: "out-of-scope", text: "不纳入对照", level: 2 },
+];
 
 function hrefFor(slug: string) {
   return slug === "index" ? "/" : `/docs/${slug}`;
@@ -148,7 +156,7 @@ export function DocsShell({ slug }: { slug: string }) {
   const baked = getMarkdown(slug) ?? `# 未找到\n\n该章节尚未载入。`;
   const live = useOrcaReleases();
   const md = slug === "changelog" && live.markdown ? live.markdown : baked;
-  const toc = useMemo(() => extractToc(md), [md]);
+  const toc = useMemo(() => (slug === "sitemap" ? SITEMAP_TOC : extractToc(md)), [md, slug]);
   const { prev, next } = neighbors(slug);
   const [drawer, setDrawer] = useState(false);
   const [search, setSearch] = useState(false);
@@ -277,6 +285,7 @@ export function DocsShell({ slug }: { slug: string }) {
             </p>
           ) : null}
           <Markdown source={md} />
+          {slug === "sitemap" ? <SitemapBoard /> : null}
           <Pager prev={prev} next={next} current={slug} />
         </main>
 
