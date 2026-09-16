@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-09-16",
   "officialRef": "main",
-  "docsTreeSha": "7fb8bd832d1229086e1f0aaab88730543c8952d2",
+  "docsTreeSha": "f4d3261305433e8e3425b70f47823b90c3712d23",
   "docs": [
     {
       "slug": "quick-guide",
@@ -233,8 +233,8 @@
       "section": "review",
       "kind": "official",
       "officialPath": "docs/site/content/docs/review/commit-push.mdx",
-      "size": 6398,
-      "lastSeenSha": "7afbcb813c6c858ced499901e1dd45b3a823cb08",
+      "size": 6401,
+      "lastSeenSha": "4fbc09df4ddf80ee70bfbc984b92e867a3294b6c",
       "translatedAtSha": "7afbcb813c6c858ced499901e1dd45b3a823cb08"
     },
     {
@@ -242,8 +242,8 @@
       "section": "review",
       "kind": "official",
       "officialPath": "docs/site/content/docs/review/diff-viewer.mdx",
-      "size": 2010,
-      "lastSeenSha": "00f5f92660ce285f22a016769a915b99180b56d3",
+      "size": 1787,
+      "lastSeenSha": "75925f078c6219ae05b3bb5da3bf385df84df2e7",
       "translatedAtSha": "00f5f92660ce285f22a016769a915b99180b56d3"
     },
     {
@@ -296,8 +296,8 @@
       "section": "editing",
       "kind": "official",
       "officialPath": "docs/site/content/docs/editing/monaco.mdx",
-      "size": 1901,
-      "lastSeenSha": "e5998c904e30ef82e210abd3ff947e139725d1fe",
+      "size": 1798,
+      "lastSeenSha": "2baf82fdfaf51269a9e7d784c6e5ec412184bdd9",
       "translatedAtSha": "e5998c904e30ef82e210abd3ff947e139725d1fe"
     },
     {
@@ -512,8 +512,8 @@
       "section": "recipes",
       "kind": "official",
       "officialPath": "docs/site/content/docs/recipes/review-ai-diff.mdx",
-      "size": 788,
-      "lastSeenSha": "98aaa1db99811df58e5ee4bebf527bcef639262e",
+      "size": 802,
+      "lastSeenSha": "38ec8b52a73c68d3e2cc479218165ecfee661f34",
       "translatedAtSha": "98aaa1db99811df58e5ee4bebf527bcef639262e"
     },
     {
@@ -554,6 +554,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.204",
+      "publishedAt": "2026-09-16",
+      "lastSeenBodySha": "6dfc1bb80869",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.203",
       "publishedAt": "2026-09-15",
@@ -636,7 +643,7 @@
       "publishedAt": "2026-08-28",
       "lastSeenBodySha": "6ab72dd23b03",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.202",
