@@ -39,6 +39,11 @@ const HEADINGS: Record<string, string> = {
   "Performance: data & integrations": "性能：数据与集成",
   "Reliability & maintenance": "可靠性与维护",
   "What's Changed": "本版本改动",
+  "Agent reliability & native chat": "Agent 可靠性与 Native Chat",
+  "Relay & cloud": "中继与云端",
+  "Performance improvements": "性能改进",
+  "Reliability, tests & delivery": "可靠性、测试与交付",
+  "New contributors": "新贡献者",
 };
 
 const TYPES: Record<string, string> = {
@@ -137,8 +142,43 @@ const PHRASES: [string, string][] = [
     "Nothing here changes what you see — it changes how smoothly Orca behaves under real workloads. Expanded below if you want the detail.",
     "这里的改动不会改变你看到的内容——它们改变的是 Orca 在真实负载下有多顺。需要细节可展开。",
   ],
-  ["What's Changed", "本版本改动"],
+  [
+    "Reliability & security: Electron is updated to address a glibc environment use-after-free, browser cookie migration is more reliable, and worktree creation now completes cleanly after post-create failures.",
+    "可靠性与安全：Electron 已升级以修复 glibc environ use-after-free；浏览器 cookie 迁移更稳；worktree 创建即使后续步骤失败也能干净完成。",
+  ],
+  [
+    "Agents & chat: Native chat recovers restart-stranded sends from provider history, agent status no longer depends on a retained runtime row store, and provider/model validation is more resilient.",
+    "Agent 与聊天：Native Chat 能根据提供方历史恢复因重启滞留的发送；Agent 状态不再依赖运行时保留的行存储；提供方/模型校验更抗故障。",
+  ],
+  [
+    "Workspaces & mobile: Folder workspaces retain their saved names and groups, sidebar nesting is easier to work with, and mobile restores push, cold-start, notification, Markdown, and workspace-routing behavior.",
+    "工作区与移动端：文件夹工作区保留已保存的名称与分组；侧栏嵌套更好用；移动端恢复推送、冷启动、通知、Markdown 与工作区路由。",
+  ],
+  [
+    "Performance: Orca reduces cold-switching, browser, terminal, SSH, mobile, history, plugin, and relay overhead across a broad set of targeted improvements.",
+    "性能：一轮针对性优化降低了冷切换、浏览器、终端、SSH、移动端、历史、插件与中继的开销。",
+  ],
+  ["Reliability & security:", "可靠性与安全："],
+  ["Agents & chat:", "Agent 与聊天："],
+  ["Workspaces & mobile:", "工作区与移动端："],
+  [
+    "Safer workspace creation, more reliable browser data, and clearer navigation around your projects.",
+    "工作区创建更安全，浏览器数据更可靠，项目导航更清楚。",
+  ],
+  [
+    "Agents recover more gracefully, and chat makes safer decisions when provider state or configuration changes.",
+    "Agent 恢复更从容；提供方状态或配置变化时，聊天会做更稳妥的决定。",
+  ],
+  [
+    "Mobile restores its notification and startup paths while keeping workspace and Markdown handling responsive.",
+    "移动端恢复通知与启动路径，同时保持工作区与 Markdown 处理跟得上。",
+  ],
+  [
+    "Rollout gates, monitoring, and relay rehoming have stronger compatibility and failure handling.",
+    "放量门禁、监控与中继重新归属的兼容性和失败处理更强。",
+  ],
   ["made their first contribution in", "首次贡献于"],
+  ["What's Changed", "本版本改动"],
   ["inline file diffs", "行内文件 diff"],
   ["native chat", "Native Chat"],
   ["structured chat", "结构化聊天"],
@@ -313,6 +353,10 @@ function headingZh(text: string, level: number, tag: string): string {
       "性能：数据与集成": "perf-data",
       可靠性与维护: "reliability",
       本版本改动: "changed",
+      "Agent 可靠性与 Native Chat": "agent-reliability",
+      中继与云端: "relay-cloud",
+      性能改进: "perf-improvements",
+      "可靠性、测试与交付": "reliability-tests",
     }[zh] ?? zh.toLowerCase().replace(/[^a-z0-9]+/g, "-");
   return `${"#".repeat(level)} ${zh} {#${tag}-${key}}`;
 }
