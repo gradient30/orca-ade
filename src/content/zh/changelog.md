@@ -8,25 +8,25 @@
 
 | 版本 | 日期 | 一句话 |
 | --- | --- | --- |
-| [v1.4.205](#v1-4-205) | 2026年9月17日 | Agent 与聊天： |
-| [v1.4.204](#v1-4-204) | 2026年9月16日 | Agent 与聊天： |
+| [v1.4.205](#v1-4-205) | 2026年9月17日 | 聊天消息轨道，归档失败拦截删除，Codex 扫描提速 |
+| [v1.4.204](#v1-4-204) | 2026年9月16日 | 聊天拖放与 Fast 模式，工作区恢复 |
 | [v1.4.203](#v1-4-203) | 2026年9月15日 | Electron 安全修复，侧栏嵌套，移动推送回归 |
 
-### v1.4.205 · Agent 与聊天： {#v1-4-205-summary}
+### v1.4.205 · 聊天消息轨道，归档失败拦截删除，Codex 扫描提速 {#v1-4-205-summary}
 
 2026年9月17日 · [本页全文](#v1-4-205) · [官方 Release](https://github.com/stablyai/orca/releases/tag/v1.4.205)
 
-- Agent 与聊天：
-- Workspaces, editor & source control:
-- Terminal & remote:
+- Agent 与聊天：Native Chat 增加提问跳转轨道，恢复的对话钉在末尾；超时 hook 会真正终止进程树。
+- 工作区、编辑器与源码管理：归档 hook 失败会拦住 worktree 删除；暂存失败可重试；代码块可复制。
+- 终端与远程：终端重命名与 PTY 句柄在轮换后仍保留；中继失败可按阶段诊断。Codex 冷扫描从数分钟降到一分钟内。
 
-### v1.4.204 · Agent 与聊天： {#v1-4-204-summary}
+### v1.4.204 · 聊天拖放与 Fast 模式，工作区恢复 {#v1-4-204-summary}
 
 2026年9月16日 · [本页全文](#v1-4-204) · [官方 Release](https://github.com/stablyai/orca/releases/tag/v1.4.204)
 
-- Agent 与聊天：
-- 工作区与移动端：
-- Performance:
+- Agent 与聊天：Native Chat 支持文件拖放和按提供方区分的 Fast 模式；重启后能干净恢复结构化聊天。
+- 工作区与移动端：工作区在选择 Agent 后重新播种，能从激活失败中恢复；移动端继续 typed-RPC 迁移。
+- 性能：终端文件链接改为批量检查，浏览器输入在进程内派发，并限制 WSL skill 发现范围。
 
 ### v1.4.203 · Electron 安全修复，侧栏嵌套，移动推送回归 {#v1-4-203-summary}
 
@@ -38,7 +38,7 @@
 
 ## 完整中文日志 {#full-notes}
 
-## v1.4.205 Agent 与聊天： {#v1-4-205}
+## v1.4.205 聊天消息轨道，归档失败拦截删除，Codex 扫描提速 {#v1-4-205}
 
 2026年9月17日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.205)
 
@@ -48,95 +48,95 @@
 
 ### 简要说明 {#v1-4-205-short}
 
-**Agent 与聊天：** Native chat adds a message rail for jumping between your prompts, keeps a resumed transcript pinned to its end, holds a detached reader in place as messages grow, and cancels pending prompts precisely. OMP conversations resume from session history under their saved names, agent-status ingress moves behind a single admission point, and a timed-out hook now actually terminates its process tree.
+**Agent 与聊天：** Native Chat 增加了在提问之间跳转的消息轨道；恢复的对话会钉在末尾；消息变长时保持分离阅读位置；能精确取消待发送的提问。OMP 对话会按保存的名称从会话历史恢复；Agent 状态入口收束到单一准入点；超时的 hook 现在会真正终止其进程树。
 
-**Workspaces, editor & source control:** A failed archive hook blocks worktree removal instead of deleting anyway, and worktree registrations survive prunable git-file states. Stage, unstage and discard failures surface with retry, automations repair cron step expansion and stop tick latency counting against the missed-run grace, code blocks gain a copy button, and Tiptap moves up behind Markdown compatibility guards.
+**工作区、编辑器与源码管理：** 归档 hook 失败时会拦截 worktree 删除，而不是照删不误；worktree 登记能挺过可修剪的 git 文件状态。暂存 / 取消暂存 / 丢弃失败会带重试入口；自动化修复了 cron 步长展开，并把 tick 延迟排除出错过运行的宽限期；代码块增加复制按钮；Tiptap 升级并加了 Markdown 兼容防护。
 
-**Terminal & remote:** Terminal renames survive pane hydration, handles persist across PTY incarnation rotation, and PTY child-process checks preserve an unverifiable verdict instead of guessing. Relay failures become diagnosable by acquisition versus execution phase, and streamed remote records are bounded.
+**终端与远程：** 终端重命名能挺过窗格水合；句柄在 PTY 实例轮换后仍保留；子进程检查在无法核实时保持不确定结论，而不是猜测。中继失败可按获取阶段与执行阶段诊断；远程流式记录有上限。
 
-**Performance:** Codex usage scans do far less work — attribution resolved once per scan, and grown rollouts resumed at the last parsed byte — which takes a large cold scan from minutes to under a minute. They still run on the main process; the worker-thread move lands in a later release.
+**性能：** Codex 用量扫描的工作量大幅下降——每次扫描只解析一次归属，增长中的 rollout 从上次解析字节续扫——一次大型冷扫描从数分钟降到一分钟以内。扫描仍在主进程运行；迁到 worker 线程会在后续版本落地。
 
 ---
 
 ### 产品体验 {#v1-4-205-product}
 
-#### Workspaces, tabs & editor {#v1-4-205-workspaces-tabs-editor}
+#### 工作区、标签页与编辑器 {#v1-4-205-workspaces-tabs-editor}
 
-> Safer worktree removal, clearer failure reporting, and a Tiptap upgrade with Markdown compatibility guards.
+> worktree 删除更安全，失败提示更清楚，Tiptap 升级并加了 Markdown 兼容防护。
 
-- 新增：copy button to code blocks（[@AmethystLiang](https://github.com/AmethystLiang)，[#20357](https://github.com/stablyai/orca/pull/20357)）
-- 修复（composer）：clarify failed attachment drops（[@AmethystLiang](https://github.com/AmethystLiang)，[#20704](https://github.com/stablyai/orca/pull/20704)）
-- Distinguish pane load failures from empty states（[@AmethystLiang](https://github.com/AmethystLiang)，[#20735](https://github.com/stablyai/orca/pull/20735)）
-- 修复（worktrees）：safely remove prunable git-file registrations（[@nwparker](https://github.com/nwparker)，[#20617](https://github.com/stablyai/orca/pull/20617)）
-- 修复（worktrees）：preserve unverifiable disk witness（[@AmethystLiang](https://github.com/AmethystLiang)，[#20713](https://github.com/stablyai/orca/pull/20713)）
-- 修复（worktree）：block removal when the archive hook fails（[@nwparker](https://github.com/nwparker)，[#20153](https://github.com/stablyai/orca/pull/20153)）
-- 修复（automations）：repair cron step expansion and day restriction [HELD — semantic half]（[@nwparker](https://github.com/nwparker)，[#20202](https://github.com/stablyai/orca/pull/20202)）
-- 修复（automations）：stop tick latency counting against the missed-run grace（[@nwparker](https://github.com/nwparker)，[#20819](https://github.com/stablyai/orca/pull/20819)）
-- 改进：microphone permission errors and drop failure reporting（[@AmethystLiang](https://github.com/AmethystLiang)，[#20801](https://github.com/stablyai/orca/pull/20801)）
-- Report clipboard and composer drop failures（[@AmethystLiang](https://github.com/AmethystLiang)，[#20795](https://github.com/stablyai/orca/pull/20795)）
-- 修复（deps）：migrate Tiptap security updates with Markdown compatibility guards（[@OrcaWin](https://github.com/OrcaWin)，[#19376](https://github.com/stablyai/orca/pull/19376)）
-- 新增（design-system）：gate renderer UI with @shadcn/lint（[@nwparker](https://github.com/nwparker)，[#20731](https://github.com/stablyai/orca/pull/20731)）
-- 修复（ui）：contain idle caret paint so agent panes stop burning CPU（[@innocarpe](https://github.com/innocarpe)，[#10554](https://github.com/stablyai/orca/pull/10554)）
+- 新增：给代码块加上复制按钮（[@AmethystLiang](https://github.com/AmethystLiang)，[#20357](https://github.com/stablyai/orca/pull/20357)）
+- 修复（composer）：说清楚附件拖放失败的原因（[@AmethystLiang](https://github.com/AmethystLiang)，[#20704](https://github.com/stablyai/orca/pull/20704)）
+- 区分窗格加载失败和空状态（[@AmethystLiang](https://github.com/AmethystLiang)，[#20735](https://github.com/stablyai/orca/pull/20735)）
+- 修复（worktrees）：安全移除可修剪的 git-file 登记（[@nwparker](https://github.com/nwparker)，[#20617](https://github.com/stablyai/orca/pull/20617)）
+- 修复（worktrees）：保留无法核实的磁盘见证（[@AmethystLiang](https://github.com/AmethystLiang)，[#20713](https://github.com/stablyai/orca/pull/20713)）
+- 修复（worktree）：归档 hook 失败时拦截删除（[@nwparker](https://github.com/nwparker)，[#20153](https://github.com/stablyai/orca/pull/20153)）
+- 修复（automations）：修复 cron 步长展开和日期限制 [HELD — semantic half]（[@nwparker](https://github.com/nwparker)，[#20202](https://github.com/stablyai/orca/pull/20202)）
+- 修复（automations）：tick 延迟不再计入错过运行的宽限期（[@nwparker](https://github.com/nwparker)，[#20819](https://github.com/stablyai/orca/pull/20819)）
+- 改进：麦克风权限错误与拖放失败提示（[@AmethystLiang](https://github.com/AmethystLiang)，[#20801](https://github.com/stablyai/orca/pull/20801)）
+- 报告剪贴板和编写器拖放失败（[@AmethystLiang](https://github.com/AmethystLiang)，[#20795](https://github.com/stablyai/orca/pull/20795)）
+- 修复（deps）：迁移 Tiptap 安全更新，并加 Markdown 兼容防护（[@OrcaWin](https://github.com/OrcaWin)，[#19376](https://github.com/stablyai/orca/pull/19376)）
+- 新增（design-system）：用 @shadcn/lint 门禁渲染器 UI（[@nwparker](https://github.com/nwparker)，[#20731](https://github.com/stablyai/orca/pull/20731)）
+- 修复（ui）：限制空闲光标绘制，避免 Agent 窗格空转烧 CPU（[@innocarpe](https://github.com/innocarpe)，[#10554](https://github.com/stablyai/orca/pull/10554)）
 
-#### Source control {#v1-4-205-source-control}
+#### 源码管理 {#v1-4-205-source-control}
 
-> Staging failures are recoverable and Git spawn errors say what actually went wrong.
+> 暂存失败可恢复，Git 启动错误会说明真正原因。
 
-- Surface stage, unstage and discard failures with retry capability（[@AmethystLiang](https://github.com/AmethystLiang)，[#20423](https://github.com/stablyai/orca/pull/20423)）
-- 修复（source-control）：prevent text wrapping in section headers and action buttons（[@AmethystLiang](https://github.com/AmethystLiang)，[#20046](https://github.com/stablyai/orca/pull/20046)）
-- 修复（git）：distinguish binary absence from missing cwd on spawn ENOENT（[@AmethystLiang](https://github.com/AmethystLiang)，[#20798](https://github.com/stablyai/orca/pull/20798)）
+- 暂存、取消暂存和丢弃失败时给出重试入口（[@AmethystLiang](https://github.com/AmethystLiang)，[#20423](https://github.com/stablyai/orca/pull/20423)）
+- 修复（source-control）：防止分区标题和操作按钮文字换行（[@AmethystLiang](https://github.com/AmethystLiang)，[#20046](https://github.com/stablyai/orca/pull/20046)）
+- 修复（git）：区分二进制不存在和 spawn ENOENT 时缺少 cwd（[@AmethystLiang](https://github.com/AmethystLiang)，[#20798](https://github.com/stablyai/orca/pull/20798)）
 
 ### Agent 与工作流 {#v1-4-205-agents-workflow}
 
 #### Agent 可靠性与 Native Chat {#v1-4-205-agent-reliability}
 
-> Chat navigation and transcript positioning improve, and agent state is reported through one ingress point.
+> 聊天导航和对话定位更好，Agent 状态改由单一入口上报。
 
-- 修复（native-chat）：bound a dispatch reason before it reaches the journal row（[@brennanb2025](https://github.com/brennanb2025)，[#20654](https://github.com/stablyai/orca/pull/20654)）
-- 修复（native-chat）：keep a resumed transcript pinned to its end（[@brennanb2025](https://github.com/brennanb2025)，[#20651](https://github.com/stablyai/orca/pull/20651)）
-- 修复（codex）：settle a structured send on admission, and stop minting a colliding identity（[@brennanb2025](https://github.com/brennanb2025)，[#20138](https://github.com/stablyai/orca/pull/20138)）
-- 修复（omp）：preserve status after terminal title owner rewrite（[@nwparker](https://github.com/nwparker)，[#20610](https://github.com/stablyai/orca/pull/20610)）
-- 修复（agents）：find OMP by its full project name（[@nwparker](https://github.com/nwparker)，[#20647](https://github.com/stablyai/orca/pull/20647)）
-- 修复（omp）：preserve saved conversation names in session history（[@nwparker](https://github.com/nwparker)，[#20636](https://github.com/stablyai/orca/pull/20636)）
-- 修复（agent-session）：honour the backup-recovery fence floor on surface release（[@brennanb2025](https://github.com/brennanb2025)，[#20708](https://github.com/stablyai/orca/pull/20708)）
-- 修复（hooks）：actually terminate a timed-out hook's process tree（[@nwparker](https://github.com/nwparker)，[#20576](https://github.com/stablyai/orca/pull/20576)）
-- 修复（native-chat）：cancel pending prompts precisely（[@brennanb2025](https://github.com/brennanb2025)，[#20601](https://github.com/stablyai/orca/pull/20601)）
-- 修复：resume OMP child conversations from session history（[@nwparker](https://github.com/nwparker)，[#20629](https://github.com/stablyai/orca/pull/20629)）
-- 修复（ai-vault）：expand nested OMP session history（[@nwparker](https://github.com/nwparker)，[#20663](https://github.com/stablyai/orca/pull/20663)）
-- 修复（native-chat）：let a reader park just above the latest message（[@brennanb2025](https://github.com/brennanb2025)，[#20709](https://github.com/stablyai/orca/pull/20709)）
-- 修复（native-chat）：preserve detached transcript position during growth（[@brennanb2025](https://github.com/brennanb2025)，[#20710](https://github.com/stablyai/orca/pull/20710)）
-- 新增（native-chat）：add a message rail for jumping between your prompts（[@brennanb2025](https://github.com/brennanb2025)，[#20719](https://github.com/stablyai/orca/pull/20719)）
-- 重构（agent-status）：isolate legacy status ingress behind one admission point（[@brennanb2025](https://github.com/brennanb2025)，[#20716](https://github.com/stablyai/orca/pull/20716)）
-- 修复（runtime）：apply the tui-idle evidence ranking to mailbox delivery（[@nwparker](https://github.com/nwparker)，[#20578](https://github.com/stablyai/orca/pull/20578)）
-- 修复（orchestration）：require the registered pane key to prove structured worker identity（[@brennanb2025](https://github.com/brennanb2025)，[#20664](https://github.com/stablyai/orca/pull/20664)）
+- 修复（native-chat）：在写入 journal 行之前限制 dispatch reason（[@brennanb2025](https://github.com/brennanb2025)，[#20654](https://github.com/stablyai/orca/pull/20654)）
+- 修复（native-chat）：恢复的对话始终钉在末尾（[@brennanb2025](https://github.com/brennanb2025)，[#20651](https://github.com/stablyai/orca/pull/20651)）
+- 修复（codex）：在准入时结算结构化发送，并停止铸造冲突的身份（[@brennanb2025](https://github.com/brennanb2025)，[#20138](https://github.com/stablyai/orca/pull/20138)）
+- 修复（omp）：终端标题所有者改写后仍保留状态（[@nwparker](https://github.com/nwparker)，[#20610](https://github.com/stablyai/orca/pull/20610)）
+- 修复（agents）：用完整项目名查找 OMP（[@nwparker](https://github.com/nwparker)，[#20647](https://github.com/stablyai/orca/pull/20647)）
+- 修复（omp）：在会话历史中保留已保存的对话名称（[@nwparker](https://github.com/nwparker)，[#20636](https://github.com/stablyai/orca/pull/20636)）
+- 修复（agent-session）：在界面释放时遵守备份恢复围栏下限（[@brennanb2025](https://github.com/brennanb2025)，[#20708](https://github.com/stablyai/orca/pull/20708)）
+- 修复（hooks）：真正终止超时 hook 的进程树（[@nwparker](https://github.com/nwparker)，[#20576](https://github.com/stablyai/orca/pull/20576)）
+- 修复（native-chat）：精确取消待发送的提问（[@brennanb2025](https://github.com/brennanb2025)，[#20601](https://github.com/stablyai/orca/pull/20601)）
+- 修复：从会话历史恢复 OMP 子对话（[@nwparker](https://github.com/nwparker)，[#20629](https://github.com/stablyai/orca/pull/20629)）
+- 修复（ai-vault）：展开嵌套的 OMP 会话历史（[@nwparker](https://github.com/nwparker)，[#20663](https://github.com/stablyai/orca/pull/20663)）
+- 修复（native-chat）：让阅读位置停在最新消息上方（[@brennanb2025](https://github.com/brennanb2025)，[#20709](https://github.com/stablyai/orca/pull/20709)）
+- 修复（native-chat）：对话增长时保留分离阅读位置（[@brennanb2025](https://github.com/brennanb2025)，[#20710](https://github.com/stablyai/orca/pull/20710)）
+- 新增（native-chat）：增加在提问之间跳转的消息轨道（[@brennanb2025](https://github.com/brennanb2025)，[#20719](https://github.com/stablyai/orca/pull/20719)）
+- 重构（agent-status）：把遗留状态入口隔离到单一准入点（[@brennanb2025](https://github.com/brennanb2025)，[#20716](https://github.com/stablyai/orca/pull/20716)）
+- 修复（runtime）：把 tui-idle 证据排序应用到邮箱投递（[@nwparker](https://github.com/nwparker)，[#20578](https://github.com/stablyai/orca/pull/20578)）
+- 修复（orchestration）：要求已登记的窗格键来证明结构化 worker 身份（[@brennanb2025](https://github.com/brennanb2025)，[#20664](https://github.com/stablyai/orca/pull/20664)）
 
 #### 终端 {#v1-4-205-terminal}
 
-> Renames, handles and PTY verdicts survive rotation, hydration and uncertainty.
+> 重命名、句柄和 PTY 判定能挺过轮换、水合和不确定状态。
 
-- 修复（omp）：preserve zsh startup with global aliases（[@nwparker](https://github.com/nwparker)，[#20621](https://github.com/stablyai/orca/pull/20621)）
-- 修复（terminal）：retain renames before renderer pane hydration（[@nwparker](https://github.com/nwparker)，[#20619](https://github.com/stablyai/orca/pull/20619)）
-- 修复：keep OMP terminals when folder workspaces become Git repos（[@nwparker](https://github.com/nwparker)，[#20653](https://github.com/stablyai/orca/pull/20653)）
-- 修复：PTY child process verdict to preserve unverifiable state（[@AmethystLiang](https://github.com/AmethystLiang)，[#20729](https://github.com/stablyai/orca/pull/20729)）
-- 修复（runtime）：preserve terminal handles across PTY incarnation rotation（[@nwparker](https://github.com/nwparker)，[#20779](https://github.com/stablyai/orca/pull/20779)）
-- 修复（pty）：preserve child-process inspection uncertainty（[@AmethystLiang](https://github.com/AmethystLiang)，[#20756](https://github.com/stablyai/orca/pull/20756)）
+- 修复（omp）：保留带全局别名的 zsh 启动（[@nwparker](https://github.com/nwparker)，[#20621](https://github.com/stablyai/orca/pull/20621)）
+- 修复（terminal）：在渲染器窗格水合之前保留重命名（[@nwparker](https://github.com/nwparker)，[#20619](https://github.com/stablyai/orca/pull/20619)）
+- 修复：文件夹工作区变成 Git 仓库时仍保留 OMP 终端（[@nwparker](https://github.com/nwparker)，[#20653](https://github.com/stablyai/orca/pull/20653)）
+- 修复：PTY 子进程判定保留无法核实的状态（[@AmethystLiang](https://github.com/AmethystLiang)，[#20729](https://github.com/stablyai/orca/pull/20729)）
+- 修复（runtime）：PTY 实例轮换时保留终端句柄（[@nwparker](https://github.com/nwparker)，[#20779](https://github.com/stablyai/orca/pull/20779)）
+- 修复（pty）：保留子进程检查的不确定性（[@AmethystLiang](https://github.com/AmethystLiang)，[#20756](https://github.com/stablyai/orca/pull/20756)）
 
 #### 移动端 {#v1-4-205-mobile}
 
-> Mobile continues its typed-RPC migration.
+> 移动端继续 typed-RPC 迁移。
 
-- Bump mobile app.json to 0.0.50（[@brennanb2025](https://github.com/brennanb2025)，[#20661](https://github.com/stablyai/orca/pull/20661)）
-- 重构（mobile）：migrate the small domains onto RpcOperation (step 4)（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20705](https://github.com/stablyai/orca/pull/20705)）
+- 将移动端 app.json 升到 0.0.50（[@brennanb2025](https://github.com/brennanb2025)，[#20661](https://github.com/stablyai/orca/pull/20661)）
+- 重构（mobile）：把小域迁到 RpcOperation（第 4 步）（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20705](https://github.com/stablyai/orca/pull/20705)）
 
 #### 中继与云端 {#v1-4-205-relay-cloud}
 
-> Relay failures are diagnosable by phase, and streamed remote records are bounded.
+> 中继失败可按阶段诊断，远程流式记录有上限。
 
-- 修复（ai-vault）：bound streamed remote JSONL records（[@nwparker](https://github.com/nwparker)，[#20700](https://github.com/stablyai/orca/pull/20700)）
-- 新增（runtime）：stream file uploads instead of buffering whole files（[@mmarabel](https://github.com/mmarabel)，[#16106](https://github.com/stablyai/orca/pull/16106)）
-- Expose preloaded PostgreSQL statement statistics for relay diagnostics（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20712](https://github.com/stablyai/orca/pull/20712)）
-- Diagnose relay PostgreSQL failures by acquisition versus execution phase（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20749](https://github.com/stablyai/orca/pull/20749)）
-- 修复（relay）：open the real null device when detaching Windows stdio（[@nwparker](https://github.com/nwparker)，[#20808](https://github.com/stablyai/orca/pull/20808)）
+- 修复（ai-vault）：限制远程 JSONL 流式记录（[@nwparker](https://github.com/nwparker)，[#20700](https://github.com/stablyai/orca/pull/20700)）
+- 新增（runtime）：流式上传文件，而不是整文件缓冲（[@mmarabel](https://github.com/mmarabel)，[#16106](https://github.com/stablyai/orca/pull/16106)）
+- 暴露预加载的 PostgreSQL 语句统计，用于中继诊断（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20712](https://github.com/stablyai/orca/pull/20712)）
+- 按获取阶段与执行阶段诊断中继 PostgreSQL 失败（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20749](https://github.com/stablyai/orca/pull/20749)）
+- 修复（relay）：在分离 Windows stdio 时打开真正的空设备（[@nwparker](https://github.com/nwparker)，[#20808](https://github.com/stablyai/orca/pull/20808)）
 
 ### 质量与交付 {#v1-4-205-quality}
 
@@ -144,40 +144,40 @@
 
 #### 性能改进 {#v1-4-205-perf-improvements}
 
-> Targeted optimizations remove repeated work from the Codex, OpenCode and Claude usage scanners and from no-op store updates. These reduce the cost of a scan; they do not yet move it off the main process.
+> 针对性优化去掉了 Codex、OpenCode 和 Claude 用量扫描以及空操作 store 更新中的重复工作。这些降低了扫描成本，但还没有把扫描移出主进程。
 
-Highlights include resolving each cwd's worktree once per scan rather than per event, resuming grown Codex rollouts at the last parsed byte behind a boundary digest and inode check, and preserving state identity across no-op updater paths so selectors stop re-running.
+其中包括：每次扫描只解析一次各 cwd 的 worktree（而不是每个事件都解析）；增长中的 Codex rollout 在边界摘要和 inode 检查后从上次解析字节续扫；空操作更新路径保持状态身份，避免 selector 反复跑。
 
-- 修复（store）：stop two no-op writes from re-running every selector in the app（[@OrcaWin](https://github.com/OrcaWin)，[#20641](https://github.com/stablyai/orca/pull/20641)）
-- 修复（store）：preserve state identity across no-op updater paths（[@nwparker](https://github.com/nwparker)，[#20703](https://github.com/stablyai/orca/pull/20703)）
-- 性能（usage）：resolve each cwd's worktree once per scan（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#21130](https://github.com/stablyai/orca/pull/21130)）
-- 性能（codex-usage）：resume rollout scans at the last parsed byte（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#21102](https://github.com/stablyai/orca/pull/21102)）
+- 修复（store）：阻止两次空写导致应用里每个 selector 重跑（[@OrcaWin](https://github.com/OrcaWin)，[#20641](https://github.com/stablyai/orca/pull/20641)）
+- 修复（store）：空操作更新路径保持状态身份（[@nwparker](https://github.com/nwparker)，[#20703](https://github.com/stablyai/orca/pull/20703)）
+- 性能（usage）：每次扫描只解析一次各 cwd 的 worktree（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#21130](https://github.com/stablyai/orca/pull/21130)）
+- 性能（codex-usage）：从上次解析字节续扫 rollout（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#21102](https://github.com/stablyai/orca/pull/21102)）
 
 #### 可靠性、测试与交付 {#v1-4-205-reliability-tests}
 
-- 修复（ci）：stop hourly versions dropping below a tagged or already-shipped build（[@nwparker](https://github.com/nwparker)，[#20699](https://github.com/stablyai/orca/pull/20699)）
-- 测试：add a verified OMP native-chat mock scenario（[@nwparker](https://github.com/nwparker)，[#20655](https://github.com/stablyai/orca/pull/20655)）
-- 测试（mobile）：pin each RPC golden to the recorder inputs that can reach it, not the whole directory（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20662](https://github.com/stablyai/orca/pull/20662)）
-- CI：keep the baseline Git build off the compatibility matrix lanes（[@nwparker](https://github.com/nwparker)，[#20733](https://github.com/stablyai/orca/pull/20733)）
-- 修复（ci）：stop defining pilot mutant tests inside a conditional（[@nwparker](https://github.com/nwparker)，[#20755](https://github.com/stablyai/orca/pull/20755)）
-- 测试（native-chat）：split the windowing test harness out of the suite（[@nwparker](https://github.com/nwparker)，[#20773](https://github.com/stablyai/orca/pull/20773)）
-- 杂项（lint）：add anti-slop oxlint plugin (pinned, all rules off)（[@nwparker](https://github.com/nwparker)，[#20726](https://github.com/stablyai/orca/pull/20726)）
-- 杂项（lint）：enable anti-slop no-reduce-accumulator-copy and no-widen-then-assert（[@nwparker](https://github.com/nwparker)，[#20780](https://github.com/stablyai/orca/pull/20780)）
-- 修复（lint）：keep root postinstall as the sole Electron binary install owner（[@nwparker](https://github.com/nwparker)，[#20788](https://github.com/stablyai/orca/pull/20788)）
-- 测试（package）：let the postinstall contract allow unrelated chained steps（[@nwparker](https://github.com/nwparker)，[#20787](https://github.com/stablyai/orca/pull/20787)）
-- 修复（lint）：enable anti-slop/no-unknown-type-aliases（[@nwparker](https://github.com/nwparker)，[#20784](https://github.com/stablyai/orca/pull/20784)）
-- 重构（lint）：enable anti-slop/no-reflect-apply（[@nwparker](https://github.com/nwparker)，[#20782](https://github.com/stablyai/orca/pull/20782)）
-- 修复（lint）：enable anti-slop/no-module-mocking（[@nwparker](https://github.com/nwparker)，[#20783](https://github.com/stablyai/orca/pull/20783)）
-- 测试（package）：reject an Electron install takeover by exact command（[@nwparker](https://github.com/nwparker)，[#20799](https://github.com/stablyai/orca/pull/20799)）
-- 修复（lint）：enable anti-slop/no-reflect-get（[@nwparker](https://github.com/nwparker)，[#20786](https://github.com/stablyai/orca/pull/20786)）
-- 修复（lint）：enable anti-slop/no-object-parameters（[@nwparker](https://github.com/nwparker)，[#20781](https://github.com/stablyai/orca/pull/20781)）
-- 修复（lint）：enable anti-slop/no-shape-in-symbol-names（[@nwparker](https://github.com/nwparker)，[#20785](https://github.com/stablyai/orca/pull/20785)）
-- 修复（git）：avoid Windows tree kills after the command has exited（[@nwparker](https://github.com/nwparker)，[#20606](https://github.com/stablyai/orca/pull/20606)）
-- 构建（release）：compile the Windows relay process-table addon（[@nwparker](https://github.com/nwparker)，[#20809](https://github.com/stablyai/orca/pull/20809)）
+- 修复（ci）：阻止小时版本落到低于已打 tag 或已发布的构建（[@nwparker](https://github.com/nwparker)，[#20699](https://github.com/stablyai/orca/pull/20699)）
+- 测试：增加已验证的 OMP Native Chat mock 场景（[@nwparker](https://github.com/nwparker)，[#20655](https://github.com/stablyai/orca/pull/20655)）
+- 测试（mobile）：把每条 RPC golden 钉到能到达它的 recorder 输入，而不是整个目录（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20662](https://github.com/stablyai/orca/pull/20662)）
+- CI：把基线 Git 构建排除出兼容性矩阵通道（[@nwparker](https://github.com/nwparker)，[#20733](https://github.com/stablyai/orca/pull/20733)）
+- 修复（ci）：不再在条件分支里定义 pilot mutant 测试（[@nwparker](https://github.com/nwparker)，[#20755](https://github.com/stablyai/orca/pull/20755)）
+- 测试（native-chat）：把窗口测试工具从套件中拆出（[@nwparker](https://github.com/nwparker)，[#20773](https://github.com/stablyai/orca/pull/20773)）
+- 杂项（lint）：加入 anti-slop oxlint 插件（钉版本，规则全关）（[@nwparker](https://github.com/nwparker)，[#20726](https://github.com/stablyai/orca/pull/20726)）
+- 杂项（lint）：启用 anti-slop 的 no-reduce-accumulator-copy 和 no-widen-then-assert（[@nwparker](https://github.com/nwparker)，[#20780](https://github.com/stablyai/orca/pull/20780)）
+- 修复（lint）：保持根 postinstall 作为唯一的 Electron 二进制安装负责人（[@nwparker](https://github.com/nwparker)，[#20788](https://github.com/stablyai/orca/pull/20788)）
+- 测试（package）：让 postinstall 契约允许无关的串联步骤（[@nwparker](https://github.com/nwparker)，[#20787](https://github.com/stablyai/orca/pull/20787)）
+- 修复（lint）：启用 anti-slop/no-unknown-type-aliases（[@nwparker](https://github.com/nwparker)，[#20784](https://github.com/stablyai/orca/pull/20784)）
+- 重构（lint）：启用 anti-slop/no-reflect-apply（[@nwparker](https://github.com/nwparker)，[#20782](https://github.com/stablyai/orca/pull/20782)）
+- 修复（lint）：启用 anti-slop/no-module-mocking（[@nwparker](https://github.com/nwparker)，[#20783](https://github.com/stablyai/orca/pull/20783)）
+- 测试（package）：按精确命令拒绝 Electron 安装接管（[@nwparker](https://github.com/nwparker)，[#20799](https://github.com/stablyai/orca/pull/20799)）
+- 修复（lint）：启用 anti-slop/no-reflect-get（[@nwparker](https://github.com/nwparker)，[#20786](https://github.com/stablyai/orca/pull/20786)）
+- 修复（lint）：启用 anti-slop/no-object-parameters（[@nwparker](https://github.com/nwparker)，[#20781](https://github.com/stablyai/orca/pull/20781)）
+- 修复（lint）：启用 anti-slop/no-shape-in-symbol-names（[@nwparker](https://github.com/nwparker)，[#20785](https://github.com/stablyai/orca/pull/20785)）
+- 修复（git）：命令退出后避免 Windows 上的 tree 强杀（[@nwparker](https://github.com/nwparker)，[#20606](https://github.com/stablyai/orca/pull/20606)）
+- 构建（release）：编译 Windows 中继 process-table 插件（[@nwparker](https://github.com/nwparker)，[#20809](https://github.com/stablyai/orca/pull/20809)）
 
 **完整变更对照：** [v1.4.204...v1.4.205](https://github.com/stablyai/orca/compare/v1.4.204...v1.4.205)
 
-## v1.4.204 Agent 与聊天： {#v1-4-204}
+## v1.4.204 聊天拖放与 Fast 模式，工作区恢复 {#v1-4-204}
 
 2026年9月16日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.204)
 
@@ -187,11 +187,11 @@ Highlights include resolving each cwd's worktree once per scan rather than per e
 
 ### 简要说明 {#v1-4-204-short}
 
-**Agent 与聊天：** Native chat adds file drag-and-drop and provider-aware Fast mode, resumes 结构化聊天s cleanly after restart, hides idle activity, and fixes tail-read cursor and Claude-turn reopening; Grok completion/hook attribution and Claude SessionEnd handling are more correct, and agent status keys rows by agent instead of pane.
+**Agent 与聊天：** Native Chat 支持文件拖放和按提供方区分的 Fast 模式；重启后能干净恢复结构化聊天；隐藏空闲活动；修复了尾读游标和 Claude 回合重开。Grok 的完成/hook 归属与 Claude SessionEnd 处理更准确；Agent 状态按 agent 而不是窗格来索引行。
 
-**工作区与移动端：** Workspaces re-seed after agent selection, recover from activation failures, and retire orphaned chat tabs; mobile continues the typed-RPC migration across settings, source-control, and workspace creation while preserving delivery and fixing streaming jumps.
+**工作区与移动端：** 工作区在选择 Agent 后会重新播种，能从激活失败中恢复，并回收无子聊天的标签。移动端继续把设置、源码管理与工作区创建迁到带类型的 RPC，同时保住投递并修复流式跳动。
 
-**Performance:** Orca batches terminal file-link checks, dispatches browser input in-process, avoids repeated remote capability probes, skips redundant persistence flushes, and bounds WSL skill discovery.
+**性能：** 终端文件链接检查改为批量；浏览器输入在进程内派发；避免重复的远程能力探测；跳过多余的持久化刷新；限制 WSL skill 发现范围。
 
 ---
 
@@ -199,63 +199,63 @@ Highlights include resolving each cwd's worktree once per scan rather than per e
 
 #### 工作区、标签页与浏览器 {#v1-4-204-workspaces-tabs}
 
-> Safer workspace recovery, more responsive browser input, and clearer project views.
+> 工作区恢复更安全，浏览器输入更跟手，项目视图更清楚。
 
-- 修复（worktrees）：retire the chat tab of a chat with no child when its workspace goes（[@brennanb2025](https://github.com/brennanb2025)，[#19970](https://github.com/stablyai/orca/pull/19970)）
-- 修复（browser）：press keys through a US-layout CDP key table instead of a subprocess per keystroke（[@atreidesend](https://github.com/atreidesend)，[#15310](https://github.com/stablyai/orca/pull/15310)）
-- 修复（workspaces）：re-seed a gate-reported empty workspace after an agent selection（[@brennanb2025](https://github.com/brennanb2025)，[#20182](https://github.com/stablyai/orca/pull/20182)）
-- 修复（workspaces）：recover a real terminal when activation throws for a planless agent create（[@brennanb2025](https://github.com/brennanb2025)，[#20190](https://github.com/stablyai/orca/pull/20190)）
-- 修复（github）：name an unfiltered empty project view instead of blaming a filter（[@nwparker](https://github.com/nwparker)，[#20588](https://github.com/stablyai/orca/pull/20588)）
+- 修复（worktrees）：工作区消失时，回收没有子聊天的聊天标签（[@brennanb2025](https://github.com/brennanb2025)，[#19970](https://github.com/stablyai/orca/pull/19970)）
+- 修复（browser）：通过美式布局 CDP 键表按键，而不是每次按键开一个子进程（[@atreidesend](https://github.com/atreidesend)，[#15310](https://github.com/stablyai/orca/pull/15310)）
+- 修复（workspaces）：Agent 选择后，对门禁报告的空工作区重新播种（[@brennanb2025](https://github.com/brennanb2025)，[#20182](https://github.com/stablyai/orca/pull/20182)）
+- 修复（workspaces）：无计划的 Agent 创建在激活抛错时，恢复真正的终端（[@brennanb2025](https://github.com/brennanb2025)，[#20190](https://github.com/stablyai/orca/pull/20190)）
+- 修复（github）：未过滤的空项目视图用自己的名字，而不是怪过滤器（[@nwparker](https://github.com/nwparker)，[#20588](https://github.com/stablyai/orca/pull/20588)）
 
 ### Agent 与工作流 {#v1-4-204-agents-workflow}
 
 #### Agent 可靠性与 Native Chat {#v1-4-204-agent-reliability}
 
-> Chat adds drag-and-drop and Fast mode, recovers more gracefully, and reports agent state more accurately.
+> 聊天增加拖放和 Fast 模式，恢复更从容，Agent 状态上报更准。
 
-- 修复（native-chat）：wait for the runtime capability probe before resolving the creation launch route（[@brennanb2025](https://github.com/brennanb2025)，[#19819](https://github.com/stablyai/orca/pull/19819)）
-- 新增（ai-vault-search）：public session search contract and transports（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20277](https://github.com/stablyai/orca/pull/20277)）
-- 修复（tasks）：preserve repository results under GitHub search quota（[@OrcaWin](https://github.com/OrcaWin)，[#20460](https://github.com/stablyai/orca/pull/20460)）
-- 修复（ai-vault）：stream oversized remote session transcripts（[@OrcaWin](https://github.com/OrcaWin)，[#20455](https://github.com/stablyai/orca/pull/20455)）
-- 修复（grok）：stop replayed Claude/Cursor hooks reporting Grok panes as Claude（[@brennanb2025](https://github.com/brennanb2025)，[#20507](https://github.com/stablyai/orca/pull/20507)）
-- 新增（native-chat）：support file drag and drop（[@brennanb2025](https://github.com/brennanb2025)，[#20494](https://github.com/stablyai/orca/pull/20494)）
-- 重构（attention）：move the agent attention boundary off terminal panes（[@brennanb2025](https://github.com/brennanb2025)，[#20525](https://github.com/stablyai/orca/pull/20525)）
-- 修复（grok）：defer managed hook pane guard expansion to shell（[@brennanb2025](https://github.com/brennanb2025)，[#20534](https://github.com/stablyai/orca/pull/20534)）
-- 重构（orchestration）：derive delivery eligibility from messages（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#19837](https://github.com/stablyai/orca/pull/19837)）
-- 修复（grok）：announce a completion once, when Grok is actually finished（[@brennanb2025](https://github.com/brennanb2025)，[#20523](https://github.com/stablyai/orca/pull/20523)）
-- 新增（native-chat）：add provider-aware Fast mode（[@brennanb2025](https://github.com/brennanb2025)，[#20506](https://github.com/stablyai/orca/pull/20506)）
-- 修复（claude）：subscribe to SessionEnd on capable versions, and correct a false comment（[@brennanb2025](https://github.com/brennanb2025)，[#20530](https://github.com/stablyai/orca/pull/20530)）
-- 新增（agent-status）：run-identity types for keying rows by agent instead of pane（[@brennanb2025](https://github.com/brennanb2025)，[#20531](https://github.com/stablyai/orca/pull/20531)）
-- 修复（hooks）：report a timed-out hook as unverifiable and terminate its process tree（[@nwparker](https://github.com/nwparker)，[#20559](https://github.com/stablyai/orca/pull/20559)）
-- 修复（session-search）：read oversized numeric file IDs on Windows（[@OrcaWin](https://github.com/OrcaWin)，[#20551](https://github.com/stablyai/orca/pull/20551)）
-- 新增（native-chat）：show a drop target on the whole chat pane（[@brennanb2025](https://github.com/brennanb2025)，[#20561](https://github.com/stablyai/orca/pull/20561)）
-- 修复（native-chat）：let the provider reopen a Claude turn it resumed itself（[@brennanb2025](https://github.com/brennanb2025)，[#20518](https://github.com/stablyai/orca/pull/20518)）
-- 修复（native-chat）：resume 结构化聊天s cleanly after restart（[@brennanb2025](https://github.com/brennanb2025)，[#20509](https://github.com/stablyai/orca/pull/20509)）
-- 修复（ai-vault）：ignore non-absolute env overrides for agent scan roots（[@manuaudio](https://github.com/manuaudio)，[#13118](https://github.com/stablyai/orca/pull/13118)）
-- 修复（grok）：stop SessionStart orca-status hook hanging for 10s（[@bjornrun](https://github.com/bjornrun)，[#20090](https://github.com/stablyai/orca/pull/20090)）
-- 修复（native-chat）：stop a bounded tail read from moving the chat cursor past unapplied rows（[@brennanb2025](https://github.com/brennanb2025)，[#20581](https://github.com/stablyai/orca/pull/20581)）
-- 新增（ai-vault-search）：construct the session search indexer in the scanner service behind a setting（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20516](https://github.com/stablyai/orca/pull/20516)）
-- 修复（native-chat）：hide activity while awaiting input（[@brennanb2025](https://github.com/brennanb2025)，[#20496](https://github.com/stablyai/orca/pull/20496)）
+- 修复（native-chat）：在解析创建启动路由前，等待运行时能力探测（[@brennanb2025](https://github.com/brennanb2025)，[#19819](https://github.com/stablyai/orca/pull/19819)）
+- 新增（ai-vault-search）：公开的会话搜索契约与传输（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20277](https://github.com/stablyai/orca/pull/20277)）
+- 修复（tasks）：在 GitHub 搜索配额下仍保留仓库结果（[@OrcaWin](https://github.com/OrcaWin)，[#20460](https://github.com/stablyai/orca/pull/20460)）
+- 修复（ai-vault）：流式传输过大的远程会话 transcript（[@OrcaWin](https://github.com/OrcaWin)，[#20455](https://github.com/stablyai/orca/pull/20455)）
+- 修复（grok）：阻止重放的 Claude/Cursor hook 把 Grok 窗格报成 Claude（[@brennanb2025](https://github.com/brennanb2025)，[#20507](https://github.com/stablyai/orca/pull/20507)）
+- 新增（native-chat）：支持文件拖放（[@brennanb2025](https://github.com/brennanb2025)，[#20494](https://github.com/stablyai/orca/pull/20494)）
+- 重构（attention）：把 Agent 注意力边界从终端窗格上移开（[@brennanb2025](https://github.com/brennanb2025)，[#20525](https://github.com/stablyai/orca/pull/20525)）
+- 修复（grok）：把托管 hook 窗格守卫的展开推迟到 shell（[@brennanb2025](https://github.com/brennanb2025)，[#20534](https://github.com/stablyai/orca/pull/20534)）
+- 重构（orchestration）：从消息推导投递资格（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#19837](https://github.com/stablyai/orca/pull/19837)）
+- 修复（grok）：只在 Grok 真正完成时宣告一次完成（[@brennanb2025](https://github.com/brennanb2025)，[#20523](https://github.com/stablyai/orca/pull/20523)）
+- 新增（native-chat）：增加按提供方区分的 Fast 模式（[@brennanb2025](https://github.com/brennanb2025)，[#20506](https://github.com/stablyai/orca/pull/20506)）
+- 修复（claude）：在有能力的版本上订阅 SessionEnd，并修正一处错误注释（[@brennanb2025](https://github.com/brennanb2025)，[#20530](https://github.com/stablyai/orca/pull/20530)）
+- 新增（agent-status）：用 run-identity 类型按 agent 而不是窗格索引行（[@brennanb2025](https://github.com/brennanb2025)，[#20531](https://github.com/stablyai/orca/pull/20531)）
+- 修复（hooks）：把超时 hook 报为无法核实，并终止其进程树（[@nwparker](https://github.com/nwparker)，[#20559](https://github.com/stablyai/orca/pull/20559)）
+- 修复（session-search）：在 Windows 上读取过大的数字文件 ID（[@OrcaWin](https://github.com/OrcaWin)，[#20551](https://github.com/stablyai/orca/pull/20551)）
+- 新增（native-chat）：在整个聊天窗格显示拖放目标（[@brennanb2025](https://github.com/brennanb2025)，[#20561](https://github.com/stablyai/orca/pull/20561)）
+- 修复（native-chat）：允许提供方重开它自己恢复的 Claude 回合（[@brennanb2025](https://github.com/brennanb2025)，[#20518](https://github.com/stablyai/orca/pull/20518)）
+- 修复（native-chat）：重启后干净恢复结构化聊天（[@brennanb2025](https://github.com/brennanb2025)，[#20509](https://github.com/stablyai/orca/pull/20509)）
+- 修复（ai-vault）：忽略非绝对路径的 agent 扫描根环境覆盖（[@manuaudio](https://github.com/manuaudio)，[#13118](https://github.com/stablyai/orca/pull/13118)）
+- 修复（grok）：阻止 SessionStart 的 orca-status hook 挂起 10 秒（[@bjornrun](https://github.com/bjornrun)，[#20090](https://github.com/stablyai/orca/pull/20090)）
+- 修复（native-chat）：阻止有界尾读把聊天游标移过尚未应用的行（[@brennanb2025](https://github.com/brennanb2025)，[#20581](https://github.com/stablyai/orca/pull/20581)）
+- 新增（ai-vault-search）：在扫描服务中、设置开关后构建会话搜索索引器（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20516](https://github.com/stablyai/orca/pull/20516)）
+- 修复（native-chat）：等待输入时隐藏活动（[@brennanb2025](https://github.com/brennanb2025)，[#20496](https://github.com/stablyai/orca/pull/20496)）
 
 #### 移动端 {#v1-4-204-mobile}
 
-> Mobile continues its typed-RPC migration while keeping delivery and streaming stable.
+> 移动端继续 typed-RPC 迁移，同时保持投递和流式稳定。
 
-- 重构（mobile）：migrate settings reads to RpcOperation（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20499](https://github.com/stablyai/orca/pull/20499)）
-- 修复（mobile）：give Native Chat one tail-follow owner so streaming stops jumping（[@brennanb2025](https://github.com/brennanb2025)，[#20493](https://github.com/stablyai/orca/pull/20493)）
-- 修复（mobile）：preserve delivery ambiguity across transport cutover（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20280](https://github.com/stablyai/orca/pull/20280)）
-- 测试（mobile）：consolidate the RPC migration's verification infrastructure（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20521](https://github.com/stablyai/orca/pull/20521)）
-- 重构（mobile）：send the source-control domain through typed RpcOperations（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20544](https://github.com/stablyai/orca/pull/20544)）
-- 修复（mobile）：two known main bugs the RPC migration preserved（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20563](https://github.com/stablyai/orca/pull/20563)）
-- 测试（mobile）：pin each RPC golden to its own scenario input, not the whole manifest（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20562](https://github.com/stablyai/orca/pull/20562)）
-- 重构（mobile）：send the task workspace-creation domain through typed RpcOperations（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20568](https://github.com/stablyai/orca/pull/20568)）
+- 重构（mobile）：把设置读取迁到 RpcOperation（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20499](https://github.com/stablyai/orca/pull/20499)）
+- 修复（mobile）：给 Native Chat 一个尾随所有者，避免流式跳动（[@brennanb2025](https://github.com/brennanb2025)，[#20493](https://github.com/stablyai/orca/pull/20493)）
+- 修复（mobile）：在传输切换期间保留投递的歧义（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20280](https://github.com/stablyai/orca/pull/20280)）
+- 测试（mobile）：整合 RPC 迁移的验证基础设施（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20521](https://github.com/stablyai/orca/pull/20521)）
+- 重构（mobile）：把源码管理域走带类型的 RpcOperation（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20544](https://github.com/stablyai/orca/pull/20544)）
+- 修复（mobile）：修了 RPC 迁移保留下来的两个已知主线问题（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20563](https://github.com/stablyai/orca/pull/20563)）
+- 测试（mobile）：把每条 RPC golden 钉到自己的场景输入，而不是整个清单（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20562](https://github.com/stablyai/orca/pull/20562)）
+- 重构（mobile）：把任务工作区创建域走带类型的 RpcOperation（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20568](https://github.com/stablyai/orca/pull/20568)）
 
 #### 中继与云端 {#v1-4-204-relay-cloud}
 
-> Probes and identity validation have tighter bounds and failure handling.
+> 探测和身份校验的边界更紧，失败处理更好。
 
-- 修复（rpc）：validate provider-specific fields in TaskProviderIdentity（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20284](https://github.com/stablyai/orca/pull/20284)）
-- 修复（ssh）：bound relay incumbent lsof probe（[@kaluli123123](https://github.com/kaluli123123)，[#18304](https://github.com/stablyai/orca/pull/18304)）
+- 修复（rpc）：校验 TaskProviderIdentity 中提供方特有字段（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20284](https://github.com/stablyai/orca/pull/20284)）
+- 修复（ssh）：限制中继在任 lsof 探测（[@kaluli123123](https://github.com/kaluli123123)，[#18304](https://github.com/stablyai/orca/pull/18304)）
 
 ### 质量与交付 {#v1-4-204-quality}
 
@@ -263,32 +263,32 @@ Highlights include resolving each cwd's worktree once per scan rather than per e
 
 #### 性能改进 {#v1-4-204-perf-improvements}
 
-> Targeted optimizations reduce unnecessary work across terminal, browser, remote, persistence, and skill-discovery paths.
+> 针对性优化减少了终端、浏览器、远程、持久化和 skill 发现路径上的多余工作。
 
-Highlights include batched terminal file-link checks on their owning host, in-process browser pointer dispatch, fewer remote capability probes during file imports, skipped redundant whole-state flushes on terminal reattach, and bounded WSL skill discovery.
+其中包括：在所属主机上批量检查终端文件链接、进程内派发浏览器指针、文件导入时减少远程能力探测、终端重新挂接时跳过多余的整状态刷新，以及有界的 WSL skill 发现。
 
-- 性能（terminal）：batch file-link checks on their owning host（[@OrcaWin](https://github.com/OrcaWin)，[#20463](https://github.com/stablyai/orca/pull/20463)）
-- 性能（skills）：bound WSL installed skill discovery（[@PPP-JH](https://github.com/PPP-JH)，[#12314](https://github.com/stablyai/orca/pull/12314)）
-- 性能（remote）：avoid repeated capability probes during file imports（[@dngur6344](https://github.com/dngur6344)，[#14555](https://github.com/stablyai/orca/pull/14555)）
-- 性能（persistence）：skip redundant whole-state flushes on terminal reattach（[@AmethystLiang](https://github.com/AmethystLiang)，[#20137](https://github.com/stablyai/orca/pull/20137)）
-- 性能（browser）：dispatch coordinate pointer input in process instead of one subprocess per event（[@nwparker](https://github.com/nwparker)，[#20593](https://github.com/stablyai/orca/pull/20593)）
+- 性能（terminal）：在所属主机上批量检查文件链接（[@OrcaWin](https://github.com/OrcaWin)，[#20463](https://github.com/stablyai/orca/pull/20463)）
+- 性能（skills）：限制 WSL 已安装 skill 的发现范围（[@PPP-JH](https://github.com/PPP-JH)，[#12314](https://github.com/stablyai/orca/pull/12314)）
+- 性能（remote）：文件导入时避免重复的能力探测（[@dngur6344](https://github.com/dngur6344)，[#14555](https://github.com/stablyai/orca/pull/14555)）
+- 性能（persistence）：终端重新挂接时跳过多余的整状态刷新（[@AmethystLiang](https://github.com/AmethystLiang)，[#20137](https://github.com/stablyai/orca/pull/20137)）
+- 性能（browser）：在进程内派发坐标指针输入，而不是每个事件一个子进程（[@nwparker](https://github.com/nwparker)，[#20593](https://github.com/stablyai/orca/pull/20593)）
 
 #### 可靠性、测试与交付 {#v1-4-204-reliability-tests}
 
-- 修复（runtime）：reject malformed file Base64 padding（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20283](https://github.com/stablyai/orca/pull/20283)）
-- 修复：show unexpected signout notice only once across versions（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20526](https://github.com/stablyai/orca/pull/20526)）
-- 修复（auth）：report callback failures instead of cancellation（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20535](https://github.com/stablyai/orca/pull/20535)）
-- 修复（git）：skip upstream remote probes when the remote is absent（[@innocarpe](https://github.com/innocarpe)，[#18455](https://github.com/stablyai/orca/pull/18455)）
-- 修复（terminal）：drop the agent gutter from copied selections (#19770)（[@nwparker](https://github.com/nwparker)，[#20545](https://github.com/stablyai/orca/pull/20545)）
-- 修复（pty）：pace the EAGAIN write retry so a stalled reader can't saturate the daemon thread（[@nireak](https://github.com/nireak)，[#15319](https://github.com/stablyai/orca/pull/15319)）
+- 修复（runtime）：拒绝畸形的文件 Base64 填充（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20283](https://github.com/stablyai/orca/pull/20283)）
+- 修复：跨版本只显示一次意外退出登录提示（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20526](https://github.com/stablyai/orca/pull/20526)）
+- 修复（auth）：把回调失败报为失败而不是取消（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#20535](https://github.com/stablyai/orca/pull/20535)）
+- 修复（git）：远程不存在时跳过上游远程探测（[@innocarpe](https://github.com/innocarpe)，[#18455](https://github.com/stablyai/orca/pull/18455)）
+- 修复（terminal）：从复制的选区里去掉 Agent 槽位 (#19770)（[@nwparker](https://github.com/nwparker)，[#20545](https://github.com/stablyai/orca/pull/20545)）
+- 修复（pty）：放缓 EAGAIN 写重试，避免卡住的读取把守护线程打满（[@nireak](https://github.com/nireak)，[#15319](https://github.com/stablyai/orca/pull/15319)）
 
 ### 新贡献者 {#v1-4-204-contributors}
 
-- @atreidesend made their first contribution（[#15310](https://github.com/stablyai/orca/pull/15310)）
-- @PPP-JH made their first contribution（[#12314](https://github.com/stablyai/orca/pull/12314)）
-- @manuaudio made their first contribution（[#13118](https://github.com/stablyai/orca/pull/13118)）
-- @bjornrun made their first contribution（[#20090](https://github.com/stablyai/orca/pull/20090)）
-- @nireak made their first contribution（[#15319](https://github.com/stablyai/orca/pull/15319)）
+- [@atreidesend](https://github.com/atreidesend) 首次贡献于 [#15310](https://github.com/stablyai/orca/pull/15310)
+- [@PPP-JH](https://github.com/PPP-JH) 首次贡献于 [#12314](https://github.com/stablyai/orca/pull/12314)
+- [@manuaudio](https://github.com/manuaudio) 首次贡献于 [#13118](https://github.com/stablyai/orca/pull/13118)
+- [@bjornrun](https://github.com/bjornrun) 首次贡献于 [#20090](https://github.com/stablyai/orca/pull/20090)
+- [@nireak](https://github.com/nireak) 首次贡献于 [#15319](https://github.com/stablyai/orca/pull/15319)
 
 **完整变更对照：** [v1.4.203...v1.4.204](https://github.com/stablyai/orca/compare/v1.4.203...v1.4.204)
 

@@ -10,7 +10,7 @@ const HEADINGS: Record<string, string> = {
   "Settings & localization": "设置与本地化",
   "Agents & workflow": "Agent 与工作流",
   "Agents & native chat": "Agent 与 Native Chat",
-  "Automations": "自动化",
+  Automations: "自动化",
   "Terminal & CLI": "终端与 CLI",
   "Remote & platform": "远程与平台",
   "SSH, relay & remote": "SSH、中继与远程",
@@ -29,6 +29,7 @@ const HEADINGS: Record<string, string> = {
   "Windows, remote server / SSH": "Windows、远程服务器与 SSH",
   "Performance / reliability": "性能与可靠性",
   "Workspaces, tabs & browser": "工作区、标签页与浏览器",
+  "Workspaces, tabs & editor": "工作区、标签页与编辑器",
   "Tabs & browser": "标签页与浏览器",
   "Native chat": "Native Chat",
   "Agent activity & results": "Agent 活动与结果",
@@ -44,6 +45,14 @@ const HEADINGS: Record<string, string> = {
   "Performance improvements": "性能改进",
   "Reliability, tests & delivery": "可靠性、测试与交付",
   "New contributors": "新贡献者",
+  "Source control": "源码管理",
+  "Workspaces, editor & source control": "工作区、编辑器与源码管理",
+  "Terminal & remote": "终端与远程",
+  Performance: "性能",
+  "Agent & chat": "Agent 与聊天",
+  "Agents & chat": "Agent 与聊天",
+  "Workspaces & mobile": "工作区与移动端",
+  "Reliability & security": "可靠性与安全",
 };
 
 const TYPES: Record<string, string> = {
@@ -158,9 +167,41 @@ const PHRASES: [string, string][] = [
     "Performance: Orca reduces cold-switching, browser, terminal, SSH, mobile, history, plugin, and relay overhead across a broad set of targeted improvements.",
     "性能：一轮针对性优化降低了冷切换、浏览器、终端、SSH、移动端、历史、插件与中继的开销。",
   ],
+  [
+    "Native chat adds a message rail for jumping between your prompts, keeps a resumed transcript pinned to its end, holds a detached reader in place as messages grow, and cancels pending prompts precisely. OMP conversations resume from session history under their saved names, agent-status ingress moves behind a single admission point, and a timed-out hook now actually terminates its process tree.",
+    "Native Chat 增加了在提问之间跳转的消息轨道；恢复的对话会钉在末尾；消息变长时保持分离阅读位置；能精确取消待发送的提问。OMP 对话会按保存的名称从会话历史恢复；Agent 状态入口收束到单一准入点；超时的 hook 现在会真正终止其进程树。",
+  ],
+  [
+    "A failed archive hook blocks worktree removal instead of deleting anyway, and worktree registrations survive prunable git-file states. Stage, unstage and discard failures surface with retry, automations repair cron step expansion and stop tick latency counting against the missed-run grace, code blocks gain a copy button, and Tiptap moves up behind Markdown compatibility guards.",
+    "归档 hook 失败时会拦截 worktree 删除，而不是照删不误；worktree 登记能挺过可修剪的 git 文件状态。暂存 / 取消暂存 / 丢弃失败会带重试入口；自动化修复了 cron 步长展开，并把 tick 延迟排除出错过运行的宽限期；代码块增加复制按钮；Tiptap 升级并加了 Markdown 兼容防护。",
+  ],
+  [
+    "Terminal renames survive pane hydration, handles persist across PTY incarnation rotation, and PTY child-process checks preserve an unverifiable verdict instead of guessing. Relay failures become diagnosable by acquisition versus execution phase, and streamed remote records are bounded.",
+    "终端重命名能挺过窗格水合；句柄在 PTY 实例轮换后仍保留；子进程检查在无法核实时保持不确定结论，而不是猜测。中继失败可按获取阶段与执行阶段诊断；远程流式记录有上限。",
+  ],
+  [
+    "Codex usage scans do far less work — attribution resolved once per scan, and grown rollouts resumed at the last parsed byte — which takes a large cold scan from minutes to under a minute. They still run on the main process; the worker-thread move lands in a later release.",
+    "Codex 用量扫描的工作量大幅下降——每次扫描只解析一次归属，增长中的 rollout 从上次解析字节续扫——一次大型冷扫描从数分钟降到一分钟以内。扫描仍在主进程运行；迁到 worker 线程会在后续版本落地。",
+  ],
+  [
+    "Native chat adds file drag-and-drop and provider-aware Fast mode, resumes structured chats cleanly after restart, hides idle activity, and fixes tail-read cursor and Claude-turn reopening; Grok completion/hook attribution and Claude SessionEnd handling are more correct, and agent status keys rows by agent instead of pane.",
+    "Native Chat 支持文件拖放和按提供方区分的 Fast 模式；重启后能干净恢复结构化聊天；隐藏空闲活动；修复了尾读游标和 Claude 回合重开。Grok 的完成/hook 归属与 Claude SessionEnd 处理更准确；Agent 状态按 agent 而不是窗格来索引行。",
+  ],
+  [
+    "Workspaces re-seed after agent selection, recover from activation failures, and retire orphaned chat tabs; mobile continues the typed-RPC migration across settings, source-control, and workspace creation while preserving delivery and fixing streaming jumps.",
+    "工作区在选择 Agent 后会重新播种，能从激活失败中恢复，并回收无子聊天的标签。移动端继续把设置、源码管理与工作区创建迁到带类型的 RPC，同时保住投递并修复流式跳动。",
+  ],
+  [
+    "Orca batches terminal file-link checks, dispatches browser input in-process, avoids repeated remote capability probes, skips redundant persistence flushes, and bounds WSL skill discovery.",
+    "终端文件链接检查改为批量；浏览器输入在进程内派发；避免重复的远程能力探测；跳过多余的持久化刷新；限制 WSL skill 发现范围。",
+  ],
   ["Reliability & security:", "可靠性与安全："],
   ["Agents & chat:", "Agent 与聊天："],
+  ["Agent & chat:", "Agent 与聊天："],
   ["Workspaces & mobile:", "工作区与移动端："],
+  ["Workspaces, editor & source control:", "工作区、编辑器与源码管理："],
+  ["Terminal & remote:", "终端与远程："],
+  ["Performance:", "性能："],
   [
     "Safer workspace creation, more reliable browser data, and clearer navigation around your projects.",
     "工作区创建更安全，浏览器数据更可靠，项目导航更清楚。",
@@ -177,10 +218,57 @@ const PHRASES: [string, string][] = [
     "Rollout gates, monitoring, and relay rehoming have stronger compatibility and failure handling.",
     "放量门禁、监控与中继重新归属的兼容性和失败处理更强。",
   ],
+  [
+    "Safer worktree removal, clearer failure reporting, and a Tiptap upgrade with Markdown compatibility guards.",
+    "worktree 删除更安全，失败提示更清楚，Tiptap 升级并加了 Markdown 兼容防护。",
+  ],
+  [
+    "Staging failures are recoverable and Git spawn errors say what actually went wrong.",
+    "暂存失败可恢复，Git 启动错误会说明真正原因。",
+  ],
+  [
+    "Chat navigation and transcript positioning improve, and agent state is reported through one ingress point.",
+    "聊天导航和对话定位更好，Agent 状态改由单一入口上报。",
+  ],
+  [
+    "Renames, handles and PTY verdicts survive rotation, hydration and uncertainty.",
+    "重命名、句柄和 PTY 判定能挺过轮换、水合和不确定状态。",
+  ],
+  ["Mobile continues its typed-RPC migration.", "移动端继续 typed-RPC 迁移。"],
+  [
+    "Relay failures are diagnosable by phase, and streamed remote records are bounded.",
+    "中继失败可按阶段诊断，远程流式记录有上限。",
+  ],
+  [
+    "Targeted optimizations remove repeated work from the Codex, OpenCode and Claude usage scanners and from no-op store updates. These reduce the cost of a scan; they do not yet move it off the main process.",
+    "针对性优化去掉了 Codex、OpenCode 和 Claude 用量扫描以及空操作 store 更新中的重复工作。这些降低了扫描成本，但还没有把扫描移出主进程。",
+  ],
+  [
+    "Safer workspace recovery, more responsive browser input, and clearer project views.",
+    "工作区恢复更安全，浏览器输入更跟手，项目视图更清楚。",
+  ],
+  [
+    "Chat adds drag-and-drop and Fast mode, recovers more gracefully, and reports agent state more accurately.",
+    "聊天增加拖放和 Fast 模式，恢复更从容，Agent 状态上报更准。",
+  ],
+  [
+    "Mobile continues its typed-RPC migration while keeping delivery and streaming stable.",
+    "移动端继续 typed-RPC 迁移，同时保持投递和流式稳定。",
+  ],
+  [
+    "Probes and identity validation have tighter bounds and failure handling.",
+    "探测和身份校验的边界更紧，失败处理更好。",
+  ],
+  [
+    "Targeted optimizations reduce unnecessary work across terminal, browser, remote, persistence, and skill-discovery paths.",
+    "针对性优化减少了终端、浏览器、远程、持久化和 skill 发现路径上的多余工作。",
+  ],
   ["made their first contribution in", "首次贡献于"],
+  ["made their first contribution", "首次贡献"],
   ["What's Changed", "本版本改动"],
   ["inline file diffs", "行内文件 diff"],
   ["native chat", "Native Chat"],
+  ["structured chats", "结构化聊天"],
   ["structured chat", "结构化聊天"],
   ["worktree switching", "worktree 切换"],
   ["SSH relay", "SSH 中继"],
@@ -198,6 +286,7 @@ PHRASES.sort((a, b) => b[0].length - a[0].length);
 const CONV = /^(fix|feat|perf|docs|doc|test|ci|chore|refactor|revert|infra|style|build)(?:\(([^)]+)\))?:\s*(.+)$/i;
 const BY_IN = /^(.+?)(?: by @([\w-]+))?(?: in (https:\/\/github\.com\/stablyai\/orca\/pull\/\d+))?\s*$/;
 const REVERT = /^(?:Revert|revert)\s+"(.+)"\s*$/;
+const CONTRIB = /^@([\w-]+)\s+made their first contribution/i;
 
 export function dateLabel(iso: string): string {
   if (!iso) return "";
@@ -242,6 +331,34 @@ const START_VERBS: [RegExp, string][] = [
   [/^Let /i, "允许："],
   [/^Add /i, "新增："],
   [/^Fix /i, "修复："],
+  [/^Bump /i, "升级："],
+  [/^Distinguish /i, "区分："],
+  [/^Surface /i, "暴露："],
+  [/^Report /i, "报告："],
+  [/^Expose /i, "暴露："],
+  [/^Diagnose /i, "诊断："],
+  [/^Migrate /i, "迁移："],
+  [/^Clarify /i, "澄清："],
+  [/^Bound /i, "限制："],
+  [/^Hide /i, "隐藏："],
+  [/^Resume /i, "恢复："],
+  [/^Retire /i, "回收："],
+  [/^Reject /i, "拒绝："],
+  [/^Skip /i, "跳过："],
+  [/^Drop /i, "去掉："],
+  [/^Wait /i, "等待："],
+  [/^Defer /i, "推迟："],
+  [/^Derive /i, "推导："],
+  [/^Announce /i, "宣告："],
+  [/^Subscribe /i, "订阅："],
+  [/^Ignore /i, "忽略："],
+  [/^Construct /i, "构建："],
+  [/^Consolidate /i, "整合："],
+  [/^Validate /i, "校验："],
+  [/^Give /i, "给予："],
+  [/^Send /i, "发送："],
+  [/^Pin /i, "钉住："],
+  [/^Compile /i, "编译："],
 ];
 
 function translateProse(raw: string): string {
@@ -302,8 +419,14 @@ function translateItem(line: string): string {
   const title = m?.[1] ?? raw;
   const user = m?.[2] ?? "";
   const url = m?.[3] ?? "";
-  let zh = translateTitle(title);
-  if (title.includes("made their first contribution")) zh = applyPhrases(title);
+  const contrib = CONTRIB.exec(title);
+  if (contrib) {
+    const handle = contrib[1]!;
+    const n = url.split("/").pop();
+    if (n && url) return `- [@${handle}](https://github.com/${handle}) 首次贡献于 [#${n}](${url})`;
+    return `- [@${handle}](https://github.com/${handle}) 首次贡献`;
+  }
+  const zh = translateTitle(title);
   const bits: string[] = [];
   if (user) bits.push(`[@${user}](https://github.com/${user})`);
   if (url) {
@@ -315,7 +438,7 @@ function translateItem(line: string): string {
 }
 
 function headingZh(text: string, level: number, tag: string): string {
-  const zh = HEADINGS[text] ?? text;
+  const zh = HEADINGS[text] ?? applyPhrases(text);
   const key =
     {
       重点变化: "notable",
@@ -344,6 +467,7 @@ function headingZh(text: string, level: number, tag: string): string {
       "Windows、远程服务器与 SSH": "windows-ssh",
       性能与可靠性: "perf-reliability",
       "工作区、标签页与浏览器": "workspaces-tabs",
+      "工作区、标签页与编辑器": "workspaces-tabs-editor",
       "标签页与浏览器": "tabs-browser",
       "Agent 活动与结果": "agent-activity",
       编写器与控件: "composer",
@@ -357,6 +481,13 @@ function headingZh(text: string, level: number, tag: string): string {
       中继与云端: "relay-cloud",
       性能改进: "perf-improvements",
       "可靠性、测试与交付": "reliability-tests",
+      源码管理: "source-control",
+      "工作区、编辑器与源码管理": "workspaces-editor-scm",
+      "终端与远程": "terminal-remote",
+      性能: "performance",
+      "Agent 与聊天": "agents-chat",
+      "工作区与移动端": "workspaces-mobile",
+      "可靠性与安全": "reliability-security",
     }[zh] ?? zh.toLowerCase().replace(/[^a-z0-9]+/g, "-");
   return `${"#".repeat(level)} ${zh} {#${tag}-${key}}`;
 }
@@ -372,7 +503,10 @@ export function extractHighlights(body: string): string[] {
       const trimmed = line.trim();
       const m = /^\*\*(.+?)\*\*\s*(.*)$/.exec(trimmed);
       if (m) {
-        out.push(translateProse(m[1]!.trim()));
+        const head = m[1]!.trim();
+        const rest = (m[2] ?? "").trim();
+        const combined = rest ? `${head.replace(/:$/, "：")} ${rest}` : head;
+        out.push(translateProse(combined));
         if (out.length >= 3) break;
         continue;
       }
@@ -397,7 +531,9 @@ export function extractHighlights(body: string): string[] {
 export function inferTitle(highlights: string[]): string {
   const first = (highlights[0] ?? "").replace(/\*\*/g, "").trim();
   if (!first) return "官方更新";
-  const cut = first.split(/[。；;]/)[0] ?? first;
+  const afterColon = first.replace(/^[^：:]{1,24}[：:]\s*/, "");
+  const source = afterColon.length > 8 ? afterColon : first;
+  const cut = source.split(/[。；;]/)[0] ?? source;
   return cut.length > 28 ? `${cut.slice(0, 28)}…` : cut;
 }
 
