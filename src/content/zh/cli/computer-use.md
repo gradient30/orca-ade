@@ -101,5 +101,6 @@ npx skills add https://github.com/stablyai/orca --skill computer-use
 
 ## 下一步 {#next-steps}
 
+- [命令使用](/docs/cli/commands#computer) —— 当前 `orca help` 里的 Computer Use 命令卡片。
 - [Orca CLI 概览](/docs/cli/overview) —— CLI 的其余能力（worktree、终端、浏览器）。
 - [技能注册表与 MCP](/docs/cli/skills) —— 把这套 CLI 分发给 Agent。

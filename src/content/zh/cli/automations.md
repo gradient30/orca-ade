@@ -131,5 +131,6 @@ orca automations runs --id <automationId> --json
 
 ## 下一步 {#next-steps}
 
+- [命令使用](/docs/cli/commands#automations) —— 当前 `orca help` 里的自动化命令卡片。
 - [Orca CLI 概览](/docs/cli/overview) —— 查看 CLI 其余能力：worktree、终端和浏览器控制。
 - [技能注册表与 MCP](/docs/cli/skills) —— 安装 Orca CLI 技能，让 Agent 能调用同一套命令。

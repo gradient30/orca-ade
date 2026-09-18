@@ -21,6 +21,7 @@
 | [更新日志](src/content/zh/changelog.md) | 打开时抓取官方最新三次 Release 的完整中文译本 |
 | [本站架构](src/content/zh/architecture.md) | 手册框架图、Release 数据更新驱动图 |
 | [对照表](src/content/zh/sitemap.md) | 官网 57 页 SHA + Release 正文指纹，只亮有差异的行 |
+| [命令使用](src/content/zh/cli/commands.md) | 按当前 `orca help` 分类的全部命令：中文说明、用法、可跑示例 |
 
 常用入口：
 
@@ -29,6 +30,7 @@
 - `/docs/changelog` — 更新日志（顶栏「更新」进入）
 - `/docs/architecture` — 本站架构（框架图 + 数据更新驱动图）
 - `/docs/sitemap` — 对照表（官网手册 SHA 与 Release 指纹）
+- `/docs/cli/commands` — 命令使用（按 `orca help` 分类的全部命令）
 - `/docs/install`、`/docs/model/worktrees`、`/docs/agents/hibernation` 等与官网路径对齐
 
 ## 本地运行

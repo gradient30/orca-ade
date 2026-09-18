@@ -8,8 +8,10 @@ import { extractToc, Markdown } from "./Markdown";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { UpdateEntry } from "./UpdateEntry";
 import { SitemapBoard } from "./SitemapBoard";
+import { CommandCatalog } from "./CommandCatalog";
 import { readStoredTheme } from "@/lib/theme";
 import { useOrcaReleases } from "@/lib/docs/use-releases";
+import { CLI_COMMAND_TOC } from "@/lib/docs/cli-commands";
 
 const SITEMAP_TOC = [
   { id: "how-to-use", text: "怎么用", level: 2 },
@@ -130,7 +132,13 @@ function SearchModal({ open, onClose }: { open: boolean; onClose: () => void }) 
             <p className="px-4 py-6 text-sm text-fg-subtle">没有匹配的章节。</p>
           ) : (
             hits.map((h) => (
-              <Link key={h.slug} to={hrefFor(h.slug)} onClick={onClose} className="block px-4 py-2.5 hover:bg-bg-subtle">
+              <Link
+                key={h.hash ? `${h.slug}#${h.hash}` : h.slug}
+                to={hrefFor(h.slug)}
+                hash={h.hash ?? ""}
+                onClick={onClose}
+                className="block px-4 py-2.5 hover:bg-bg-subtle"
+              >
                 <div className="text-sm text-fg">{h.titleLine}</div>
                 <div className="mt-0.5 line-clamp-2 text-xs text-fg-subtle">{h.snippet}</div>
               </Link>
@@ -156,7 +164,11 @@ export function DocsShell({ slug }: { slug: string }) {
   const baked = getMarkdown(slug) ?? `# 未找到\n\n该章节尚未载入。`;
   const live = useOrcaReleases();
   const md = slug === "changelog" && live.markdown ? live.markdown : baked;
-  const toc = useMemo(() => (slug === "sitemap" ? SITEMAP_TOC : extractToc(md)), [md, slug]);
+  const toc = useMemo(() => {
+    if (slug === "sitemap") return SITEMAP_TOC;
+    if (slug === "cli/commands") return CLI_COMMAND_TOC;
+    return extractToc(md);
+  }, [md, slug]);
   const { prev, next } = neighbors(slug);
   const [drawer, setDrawer] = useState(false);
   const [search, setSearch] = useState(false);
@@ -285,6 +297,7 @@ export function DocsShell({ slug }: { slug: string }) {
             </p>
           ) : null}
           <Markdown source={md} />
+          {slug === "cli/commands" ? <CommandCatalog /> : null}
           {slug === "sitemap" ? <SitemapBoard /> : null}
           <Pager prev={prev} next={next} current={slug} />
         </main>

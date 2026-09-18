@@ -97,7 +97,7 @@ orca skills share --skill frontend --skill testing --bundle-name "Team Toolkit" 
 npx skills add https://github.com/stablyai/orca --skill orca-cli --global
 ```
 
-安装后，用 `orca skills get orca-cli` 加载版本匹配的命令指南。见 [Orca CLI](/docs/cli/overview)。
+安装后，用 `orca skills get orca-cli` 加载版本匹配的命令指南。见 [Orca CLI](/docs/cli/overview) 和 [命令使用](/docs/cli/commands)。
 
 ## orchestration {#orchestration}
 

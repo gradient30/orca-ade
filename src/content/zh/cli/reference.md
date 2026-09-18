@@ -2,6 +2,8 @@
 
 `orca` CLI 与正在运行的 Orca 运行时通信。当 shell 脚本或 Agent 需要查看 worktree、启动终端、打开文件、自动化内置浏览器，或把进度回报进 Orca 时使用它。
 
+> 与当前 `orca help` 对齐的命令卡片（中文说明、用法、可跑示例）见 [命令使用](/docs/cli/commands)。本页保留选择器和专题标志；帮助里没写的子命令（例如 `orca artifacts`、`orca agent hooks`、Linear MCP）不会出现在命令使用页。
+
 ## 验证运行时 {#verify-the-runtime}
 
 在 [Settings → General → Orca CLI](/docs/settings) 下注册 CLI，然后确认它能连上 Orca。

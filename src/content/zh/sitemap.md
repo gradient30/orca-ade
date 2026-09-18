@@ -2,7 +2,7 @@
 
 每次跟上官网，不必把 57 页再读一遍。这里记下**每页的官方 blob SHA**和**每个桌面版 Release 的正文指纹**；官方一改，只亮有差异的那几行。
 
-命令、产品名、`/docs/...` 路径保持英文。官网 57 页仍是 1:1 译本；本页和 [快速手册](/docs/quick-guide)、[更新日志](/docs/changelog)、[本站架构](/docs/architecture) 一样，是本站加页。
+命令、产品名、`/docs/...` 路径保持英文。官网 57 页仍是 1:1 译本；本页和 [快速手册](/docs/quick-guide)、[更新日志](/docs/changelog)、[本站架构](/docs/architecture)、[命令使用](/docs/cli/commands) 一样，是本站加页。
 
 ```mermaid
 flowchart LR

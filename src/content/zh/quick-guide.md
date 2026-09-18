@@ -216,4 +216,5 @@ orca skills install --skill orca-cli --skill orchestration
 - 还没装： [安装](/docs/install)
 - 还没跑通过： [第一次三 Agent 会话](/docs/first-session)
 - 要把 Agent 挪下笔记本： [运行 Orca 的方式](/docs/ways-to-run)
+- 当前 CLI 全表（按 `orca help`）： [命令使用](/docs/cli/commands)
 - 命令和选择器全表： [Orca CLI 参考](/docs/cli/reference)

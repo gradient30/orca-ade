@@ -73,6 +73,7 @@ export const PAGES: DocLink[] = [
   { slug: "ssh", title: "SSH Worktrees", description: "在远程机器上跑 Agent，本机保留编辑与 diff。", href: "/docs/ssh" },
   { slug: "remote-servers", title: "远程 Orca 服务器", description: "把桌面或 orca serve 作为持久运行时。", href: "/docs/remote-servers" },
   { slug: "cli/overview", title: "Orca CLI 概览", description: "用命令脚本化 worktree、终端与内置浏览器。", href: "/docs/cli/overview" },
+  { slug: "cli/commands", title: "命令使用", description: "按 orca help 分类的全部命令：中文说明、用法和真实示例。", href: "/docs/cli/commands" },
   { slug: "cli/reference", title: "Orca CLI 参考", description: "选择器、setup 标志、父子 worktree 与完整命令表。", href: "/docs/cli/reference" },
   { slug: "cli/orchestration", title: "编排", description: "用 Run、任务、受监督 worker、消息与决策门协调 Agent。", href: "/docs/cli/orchestration" },
   { slug: "cli/automations", title: "定时自动化", description: "创建、检查、运行和删除计划任务。", href: "/docs/cli/automations" },

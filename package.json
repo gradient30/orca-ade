@@ -19,7 +19,7 @@
     "sync:map": "node --experimental-strip-types scripts/sync-official-map.ts",
     "typecheck": "tsc --noEmit",
     "check:auth": "node scripts/check-auth-invariant.mjs",
-    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/lib/docs/official-map.test.ts",
+    "test": "node --test 'scripts/**/*.test.mjs' && node --experimental-strip-types --test src/lib/app-data/app-data.test.ts src/lib/app-data/readiness-schedule.test.ts src/lib/auth/gate-identity.test.ts src/lib/auth/sign-in-gate.test.ts src/lib/docs/official-map.test.ts src/lib/docs/cli-commands.test.ts",
     "lint": "eslint .",
     "format": "prettier --write ."
   },

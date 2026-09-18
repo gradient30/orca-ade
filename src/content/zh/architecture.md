@@ -2,7 +2,7 @@
 
 这份中文手册自己怎么组成、正文怎么变成页面，以及更新日志怎么跟着官方 Release 走。**不是** Orca ADE 产品架构。
 
-命令、产品名、文件名保持英文。官网 57 页仍是 1:1 译本；本页和 [快速手册](/docs/quick-guide)、[更新日志](/docs/changelog) 一样，是本站加页。
+命令、产品名、文件名保持英文。官网 57 页仍是 1:1 译本；本页和 [快速手册](/docs/quick-guide)、[更新日志](/docs/changelog)、[命令使用](/docs/cli/commands) 一样，是本站加页。
 
 ## 手册框架图 {#site-map}
 
@@ -12,7 +12,7 @@
 flowchart TB
   ZH["src/content/zh/*.md"]
   ZH --> OFF["官网 57 页 1:1 中文"]
-  ZH --> ADD["本站加页：快速手册 / 更新日志 / 本站架构 / 对照表"]
+  ZH --> ADD["本站加页：快速手册 / 更新日志 / 本站架构 / 对照表 / 命令使用"]
   OFF --> LOAD["load.ts：构建时读入全部 md"]
   ADD --> LOAD
   LOAD --> CAT["catalog.ts：PAGES、侧栏、上一篇下一篇"]
@@ -28,9 +28,9 @@ flowchart TB
 | --- | --- | --- |
 | 源文件 | 一页一个 md；官网页保留英文 `{#id}` 锚点 | `src/content/zh/` |
 | 目录 | 标题、简介、侧栏顺序、邻居页 | `src/lib/docs/catalog.ts` |
-| 加载 | 构建时 glob `**/*.md?raw`，按 slug 取正文 | `src/lib/docs/load.ts` |
+| 加载 | 构建时 glob `**/*.md?raw`，按 slug 取正文；搜索也会命中命令表 | `src/lib/docs/load.ts`、`cli-commands.ts` |
 | 路由 | `/` 首页，`/docs/quick-guide` 这类走 splat | `src/routes/index.tsx`、`docs.$.tsx` |
-| 壳 | 顶栏、侧栏、TOC、更新状态行 | `src/components/docs/DocsShell.tsx` |
+| 壳 | 顶栏、侧栏、TOC、更新状态行；命令使用页挂 CommandCatalog | `src/components/docs/DocsShell.tsx`、`CommandCatalog.tsx` |
 | 正文 | 解析 md；`mermaid` 围栏单独画图 | `Markdown.tsx`、`MermaidBlock.tsx` |
 | 发布 | SPA 静态站，base 为 `/orca-ade/` | GitHub Pages 工作流 |
 

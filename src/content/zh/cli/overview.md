@@ -4,6 +4,8 @@ Orca CLI 是 `orca` 命令行界面，用来从任意 shell 脚本化正在运�
 
 它随桌面应用一起提供；在 [Settings → General → Orca CLI](/docs/settings) 下注册。Linux 上命令是 `orca-ide`，因为 GNOME Orca 的屏幕阅读器已经占用 `/usr/bin/orca`——见 [安装 → Linux](/docs/install#linux)。
 
+当前 `orca help` 里的全部命令、中文说明和可跑示例见 [命令使用](/docs/cli/commands)。本页是能力概览；选择器和更深的标志仍在 [Orca CLI 参考](/docs/cli/reference)。
+
 Agent 可以用以下命令安装对应的 Orca CLI 技能：
 
 ```bash
@@ -31,7 +33,7 @@ orca worktree set --worktree active --comment "reproduced bug" --json
 orca worktree rm --worktree id:<id> --force --json
 ```
 
-选择器、setup 标志、父子 worktree 以及更完整的命令表，见 [Orca CLI 参考](/docs/cli/reference)。
+选择器、setup 标志、父子 worktree 以及更完整的命令表，见 [Orca CLI 参考](/docs/cli/reference)。与当前 `orca help` 对齐的卡片式全表见 [命令使用](/docs/cli/commands)。
 
 ## 终端命令 {#terminal-commands}
 
@@ -105,4 +107,4 @@ orca emulator kill --json
 
 脚本需要明确目标时，使用 `--worktree <selector>`、`--device <udid-or-name>` 或 `--emulator <id>`。
 
-> 完整命令面（含标签、等待、cookies 和 frames）见 [Orca CLI 参考](/docs/cli/reference)，然后安装 Orca CLI 技能（见 [技能注册表](/docs/cli/skills)），并把它交给你的 Agent。
+> 与当前 `orca help` 对齐的命令卡片见 [命令使用](/docs/cli/commands)。更深的选择器和专题标志见 [Orca CLI 参考](/docs/cli/reference)，然后安装 Orca CLI 技能（见 [技能注册表](/docs/cli/skills)），并把它交给你的 Agent。

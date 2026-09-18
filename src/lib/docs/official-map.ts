@@ -105,7 +105,7 @@ export function pathToSlug(relPath: string): string {
 }
 
 export function sectionOf(slug: string): string {
-  if (slug === "quick-guide" || slug === "changelog" || slug === "architecture" || slug === "sitemap") return "additive";
+  if (slug === "quick-guide" || slug === "changelog" || slug === "architecture" || slug === "sitemap" || slug === "cli/commands") return "additive";
   if (slug === "index" || slug === "install" || slug === "first-session") return "start";
   if (slug.startsWith("model/")) return "model";
   if (slug.startsWith("agents/")) return "agents";

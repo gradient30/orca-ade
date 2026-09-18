@@ -40,6 +40,15 @@
       "translatedAtSha": null
     },
     {
+      "slug": "cli/commands",
+      "section": "additive",
+      "kind": "additive",
+      "officialPath": null,
+      "size": null,
+      "lastSeenSha": null,
+      "translatedAtSha": null
+    },
+    {
       "slug": "first-session",
       "section": "start",
       "kind": "official",

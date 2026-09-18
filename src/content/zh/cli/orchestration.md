@@ -187,3 +187,5 @@ orca orchestration reset --all --json
 ```bash
 orca skills get orchestration --full
 ```
+
+当前 `orca help` 列出的编排命令卡片见 [命令使用 · 编排](/docs/cli/commands#orchestration)。
