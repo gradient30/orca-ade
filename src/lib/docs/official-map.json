@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-09-20",
+  "capturedAt": "2026-09-21",
   "officialRef": "main",
   "docsTreeSha": "d2059f89247142c31aacee79454bd042c3308a54",
   "docs": [
@@ -244,7 +244,7 @@
       "officialPath": "docs/site/content/docs/review/commit-push.mdx",
       "size": 6401,
       "lastSeenSha": "4fbc09df4ddf80ee70bfbc984b92e867a3294b6c",
-      "translatedAtSha": "7afbcb813c6c858ced499901e1dd45b3a823cb08"
+      "translatedAtSha": "4fbc09df4ddf80ee70bfbc984b92e867a3294b6c"
     },
     {
       "slug": "review/diff-viewer",
@@ -253,7 +253,7 @@
       "officialPath": "docs/site/content/docs/review/diff-viewer.mdx",
       "size": 1787,
       "lastSeenSha": "75925f078c6219ae05b3bb5da3bf385df84df2e7",
-      "translatedAtSha": "00f5f92660ce285f22a016769a915b99180b56d3"
+      "translatedAtSha": "75925f078c6219ae05b3bb5da3bf385df84df2e7"
     },
     {
       "slug": "review/github",
@@ -307,7 +307,7 @@
       "officialPath": "docs/site/content/docs/editing/monaco.mdx",
       "size": 1798,
       "lastSeenSha": "2baf82fdfaf51269a9e7d784c6e5ec412184bdd9",
-      "translatedAtSha": "e5998c904e30ef82e210abd3ff947e139725d1fe"
+      "translatedAtSha": "2baf82fdfaf51269a9e7d784c6e5ec412184bdd9"
     },
     {
       "slug": "editing/viewers",
@@ -334,7 +334,7 @@
       "officialPath": "docs/site/content/docs/browser/overview.mdx",
       "size": 4770,
       "lastSeenSha": "93890cf98bdf639e47252101a9a63b042529bd36",
-      "translatedAtSha": "d248318da694f8533cd3f21510b051a11b67bee2"
+      "translatedAtSha": "93890cf98bdf639e47252101a9a63b042529bd36"
     },
     {
       "slug": "browser/profiles",
@@ -343,7 +343,7 @@
       "officialPath": "docs/site/content/docs/browser/profiles.mdx",
       "size": 2547,
       "lastSeenSha": "26162fa94bc47c5acd32b30bc0d2bb0bf07ae813",
-      "translatedAtSha": "fd9af7176e2574c89e04e21fc534399efb32347b"
+      "translatedAtSha": "26162fa94bc47c5acd32b30bc0d2bb0bf07ae813"
     },
     {
       "slug": "terminal",
@@ -523,7 +523,7 @@
       "officialPath": "docs/site/content/docs/recipes/review-ai-diff.mdx",
       "size": 802,
       "lastSeenSha": "38ec8b52a73c68d3e2cc479218165ecfee661f34",
-      "translatedAtSha": "98aaa1db99811df58e5ee4bebf527bcef639262e"
+      "translatedAtSha": "38ec8b52a73c68d3e2cc479218165ecfee661f34"
     },
     {
       "slug": "settings",
@@ -563,6 +563,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.206",
+      "publishedAt": "2026-09-20",
+      "lastSeenBodySha": "b46b29ed5c78",
+      "translatedAtBodySha": "b46b29ed5c78",
+      "yanked": false
+    },
     {
       "tag": "v1.4.205",
       "publishedAt": "2026-09-17",
@@ -645,7 +652,7 @@
       "publishedAt": "2026-08-31",
       "lastSeenBodySha": "a195c9efe818",
       "translatedAtBodySha": "a195c9efe818",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.192",

@@ -46,6 +46,10 @@ const HEADINGS: Record<string, string> = {
   "Reliability, tests & delivery": "可靠性、测试与交付",
   "New contributors": "新贡献者",
   "Source control": "源码管理",
+  "Source control & GitHub": "源码管理与 GitHub",
+  "Session search": "会话搜索",
+  "Native chat, OMP & providers": "Native Chat、OMP 与提供方",
+  Browser: "浏览器",
   "Workspaces, editor & source control": "工作区、编辑器与源码管理",
   "Terminal & remote": "终端与远程",
   Performance: "性能",
@@ -182,6 +186,22 @@ const PHRASES: [string, string][] = [
   [
     "Codex usage scans do far less work — attribution resolved once per scan, and grown rollouts resumed at the last parsed byte — which takes a large cold scan from minutes to under a minute. They still run on the main process; the worker-thread move lands in a later release.",
     "Codex 用量扫描的工作量大幅下降——每次扫描只解析一次归属，增长中的 rollout 从上次解析字节续扫——一次大型冷扫描从数分钟降到一分钟以内。扫描仍在主进程运行；迁到 worker 线程会在后续版本落地。",
+  ],
+  [
+    "Search your agent session history from the panel, across computers, and from `orca search`. **OpenCode 2** is also now supported. Native chat treats plans as plans, reconnects chats that were running when Orca restarted, and OMP can pick models on desktop and mobile. Source Control AI can generate with OMP.",
+    "可在历史面板、跨机器、以及 `orca search` 里搜 Agent 会话。现已支持 **OpenCode 2**。Native Chat 把计划当计划来渲染，重启时还在跑的聊天可以重连；OMP 能在桌面和移动端选模型。Source Control AI 可用 OMP 生成。",
+  ],
+  [
+    "The compact branch picker is back in the composer, New Workspace can choose a base ref, and diffs can collapse unchanged regions. Review comments support multi-line ranges. Worktree create prefers Git first; WSL delete will not take the twin branch.",
+    "编写器里紧凑分支选择器回来了；New Workspace 可选 base ref；diff 可折叠未改区域。审查评论支持多行范围。创建 worktree 优先 Git；WSL 删除不会带走孪生分支。",
+  ],
+  [
+    "Pick a default terminal shell, search with a match count and Cmd+F parity, and configure URL-click / middle-click. Windows terminals spawn as the shell you asked for. Usage scans for Claude, Codex and OpenCode now run on a worker thread.",
+    "可选默认终端 shell；搜索有匹配计数且与 Cmd+F 对齐；可配置点 URL / 中键。Windows 终端会真的启动你要的 shell。Claude、Codex 与 OpenCode 的用量扫描改在 worker 线程跑。",
+  ],
+  [
+    "Desktop can serve a mobile web bundle over the air. Tasks, files and agent history start moving onto that page shell, with clearer Back controls and a honest “host unreachable” state instead of an endless Connecting via Relay.",
+    "桌面可以空中下发移动端 web bundle。任务、文件和 Agent 历史开始迁到该页面壳上，返回控件更清楚，宿主不可达时给诚实状态，而不是一直 Connecting via Relay。",
   ],
   [
     "Native chat adds file drag-and-drop and provider-aware Fast mode, resumes structured chats cleanly after restart, hides idle activity, and fixes tail-read cursor and Claude-turn reopening; Grok completion/hook attribution and Claude SessionEnd handling are more correct, and agent status keys rows by agent instead of pane.",
@@ -482,6 +502,10 @@ function headingZh(text: string, level: number, tag: string): string {
       性能改进: "perf-improvements",
       "可靠性、测试与交付": "reliability-tests",
       源码管理: "source-control",
+      "源码管理与 GitHub": "source-control-github",
+      会话搜索: "session-search",
+      "Native Chat、OMP 与提供方": "native-chat-omp-providers",
+      浏览器: "browser",
       "工作区、编辑器与源码管理": "workspaces-editor-scm",
       "终端与远程": "terminal-remote",
       性能: "performance",

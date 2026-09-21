@@ -55,4 +55,4 @@
 ## 下一步 {#next-steps}
 
 - [Design Mode](/docs/browser/design-mode) — 把浏览器变成指针到代码的反馈循环。
-- [Browser-use 配置档](/docs/browser/profiles) — 用特定登录、cookie jar 或 user agent 运行浏览器。
+- [Browser-use 配置档](/docs/browser/profiles) — 用特定登录或 cookie jar 运行浏览器。

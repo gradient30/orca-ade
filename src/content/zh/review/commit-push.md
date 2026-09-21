@@ -4,7 +4,7 @@
 
 ## 提交 {#commit}
 
-1. 从 diff 按 hunk 或按文件暂存改动。
+1. 从 Source Control 面板暂存已改文件。
 1. 在底部面板写 commit message，或者想让 Orca 根据已暂存改动起草时用 **Generate with AI**。
 1. 焦点在 Source Control 且主操作为 Commit 时，按 **Commit**（macOS 上 `Cmd-Enter`，Windows / Linux 上 `Ctrl-Enter`）。
 

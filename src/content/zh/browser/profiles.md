@@ -1,15 +1,18 @@
 # Browser-use 配置档 {#browser-use-profiles}
 
-Browser-use 配置档让你用特定身份运行 Orca 浏览器——已登录用户、特定 cookie jar、自定义 user-agent。适合 Agent 需要登录、复现会话相关缺陷，或模拟多个用户时。
+Browser-use 配置档让你用特定身份运行 Orca 浏览器——已登录用户或特定 cookie jar。适合 Agent 需要登录、复现会话相关缺陷，或模拟多个用户时。
 
 ## 创建配置档 {#create-a-profile}
 
 1. 打开 [Settings → Browser → Profiles](/docs/settings)。
 1. 点 **Add profile**，给它一个名字。
-1. 可选地植入 cookies、user-agent 和 viewport 尺寸。
-1. 默认配置档会从浏览器引擎的 user agent 中去掉 Orca 和 Electron 标记，保留导入会话所期望的 Chrome 形态身份。这是一项有针对性的兼容措施，并不会让内置浏览器与 Chrome 完全相同。Google 登录宿主使用限定范围的 Firefox 身份。如果站点拒绝清洗后的身份（包括部分受 Cloudflare 保护的站点），请创建一个保留 **native Electron user agent** 的配置档。
+1. 可选地植入 cookies 和 viewport 尺寸。
 
-你也可以在脚本化浏览器配置时，用 CLI 创建 no-spoof 配置档：`orca tab profile create --no-ua-spoof`。
+## 浏览器身份 {#browser-identity}
+
+浏览器 user agent 是应用级选择，因为文档和 web worker 必须呈现同一套身份。打开 **Settings → Browser → Browser identity**，在清洗后的身份和 Electron 原生身份之间选择。改完后要重启 Orca 才生效。
+
+清洗身份会从浏览器引擎的 user agent 里去掉 Orca 和 Electron 标记，保留导入会话所期望的 Chrome 形态身份。这是一项有针对性的兼容措施，并不会让内置浏览器与 Chrome 完全相同。在 **Cleaned** 模式下，Google 登录宿主使用限定范围的 Firefox 身份。**Native** 模式为拒绝清洗身份的站点（包括部分受 Cloudflare 保护的站点）保留 Electron 身份，但 Google 登录不可用；要登录请切回 **Cleaned** 并重启 Orca。
 
 ## Cookie 导入与 Google 登录 {#cookie-import-and-google-sign-in}
 

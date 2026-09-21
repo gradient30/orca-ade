@@ -9,7 +9,7 @@ Orca 的 diff 查看器是为认真审查 AI 生成的代码而设计的——�
 - **Image diffs** — 二进制图片支持并排、swipe 和 onion-skin 模式。
 - **HTML preview** — 在 **View all** / combined diffs 中，工作树里仍然存在的 HTML 区段会在始终可见的打开文件控件旁边显示 **Open Preview to the Side**（眼睛图标）。预览会在侧边浏览器分屏中打开工作树里的 HTML。已删除的 HTML 以及仅提交的 combined 表面会跳过眼睛图标。
 - **Merge-conflict UI** 带三方视图和行内解决。
-- **Staging by hunk or line** — 和 `git add -p` 一样，但是可视化的。
+- **File staging** 从 Source Control 面板暂存文件。
 
 ## 范围 {#scoping}
 
@@ -25,8 +25,4 @@ Combined diffs 可以在 hunk 旁边显示可折叠的文件树。拖动树的�
 
 ## 键盘快捷键 {#keyboard-shortcuts}
 
-- `j` / `k` — 下一个 / 上一个已改文件。
-- `n` / `p` — 下一个 / 上一个 hunk。
 - `F7` / `Shift+F7` — 活动编辑器中的下一个 / 上一个改动。
-- `s` — 暂存光标所在的 hunk。
-- `c` — 开始评论（[批注 AI Diff](/docs/review/annotate-ai-diff)）。

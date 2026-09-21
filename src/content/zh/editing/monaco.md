@@ -14,7 +14,7 @@ Orca 的代码编辑器是 Monaco——VS Code 用的同一编辑器——带一
 
 ## 改动视图模式 {#changes-view-mode}
 
-在任意编辑器标签里切换 **Changes view mode**，把文件翻成标签内的 HEAD-vs-working-tree diff，而不离开光标位置。快捷键与 [Diff 查看器](/docs/review/diff-viewer) 相同——`n`/`p` 走 hunk，`s` 暂存。再切换一次回到普通文件视图。
+在任意编辑器标签里切换 **Changes view mode**，把文件翻成标签内的 HEAD-vs-working-tree diff，而不离开光标位置。再切换一次回到普通文件视图。
 
 ## 自动换行 {#word-wrap}
 
