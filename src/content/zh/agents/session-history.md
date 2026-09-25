@@ -1,6 +1,6 @@
 # Agent 会话历史 {#agent-session-history}
 
-Orca 扫描受支持 Agent CLI 留在磁盘上的会话 transcript，并在右侧边栏名为 **Agent Session History** 的面板中列出它们。选中过去的会话，点击 **Resume**，Orca 就会在新终端中运行该 Agent 的 resume 命令——同样的 `cwd`、同样的 session ID，无需手动折腾 `--resume` 标志。
+Orca 会扫描受支持 Agent CLI 留在磁盘上的会话 transcript，并在右侧边栏的 **Agent Session History** 面板中列出。选中过去的会话，点击 **Resume**，Orca 会在新终端里运行该 Agent 的 resume 命令——同样的 `cwd`、同样的 session ID，无需手动折腾 `--resume` 标志。
 
 ## 打开面板 {#open-the-panel}
 
@@ -22,7 +22,7 @@ Orca 扫描受支持 Agent CLI 留在磁盘上的会话 transcript，并在右�
 
 视图选项菜单（在搜索框旁边）控制扫描哪些 Agent，以及排序和分组：
 
-- **Agents** — 单独打开或关闭各个 CLI（Claude、Codex、Hermes、Pi、OMP、Prime Agent、Cursor、Gemini、Antigravity、Rovo Dev、Copilot、OpenCode、Grok、OpenClaw、Devin、Droid、Kimi）。禁用的 Agent 在扫描时会被跳过。使用 Agents 标题中的 **Select all** / **Clear** 可一次翻转所有 Agent——**Clear** 会让一个都不选，这样你可以只打开关心的 CLI，而不必取消勾选一长串。空选择会显示 **No agents selected**，而不是通常的空过滤消息。
+- **Agents** — 单独打开或关闭各个 CLI（Claude、Codex、Hermes、Pi、OMP、Prime Agent、Cursor、Gemini、Antigravity、Rovo Dev、Copilot、OpenCode、Grok、OpenClaw、Devin、Droid、Kimi、Muse）。禁用的 Agent 在扫描时会被跳过。使用 Agents 标题中的 **Select all** / **Clear** 可一次翻转所有 Agent——**Clear** 会让一个都不选，这样你可以只打开关心的 CLI，而不必取消勾选一长串。空选择会显示 **No agents selected**，而不是通常的空过滤消息。
 - **Sort** — `Last updated` 或 `Created`。
 - **Group** — `Project`、`Folder`（每个 `cwd` 一个标题），或 `Agent`（每个 CLI 一个标题）。
 - **Hide empty sessions** — 丢掉零条已记录消息的会话。

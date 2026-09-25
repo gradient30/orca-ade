@@ -7,7 +7,7 @@ Orca 可与**任意 CLI agent** 配合——agent combobox 只是在终端里启
 
 ## 权限默认值 {#permissions-default}
 
-新启动时，Orca 会为每个受支持 CLI 预填 permission-bypass 标志——Claude 用 `--dangerously-skip-permissions`，Codex 用 `--dangerously-bypass-approvals-and-sandbox`，Gemini / Cursor / Crush / Kimi / Rovo Dev / Hermes / GitHub Copilot / Command Code 用 `--yolo`，再加上其他所有暴露了等价标志的 Agent 的对应标志。这些标志允许 Agent 在不确认每条 shell 命令的情况下行动；使用前请审视信任边界。
+新启动时，Orca 会为每个受支持 CLI 预填 permission-bypass 标志——Claude 用 `--dangerously-skip-permissions`，Codex 用 `--dangerously-bypass-approvals-and-sandbox`，Gemini / Cursor / Crush / Kimi / Muse / Rovo Dev / Hermes / GitHub Copilot / Command Code 用 `--yolo`，再加上其他所有暴露了等价标志的 Agent 的对应标志。这些标志允许 Agent 在不确认每条 shell 命令的情况下行动；使用前请审视信任边界。
 
 若要把所有未自定义的 Agent 在 **Yolo** 与 **Manual** 启动之间切换，使用 **Settings → Agents → Agent Permissions**。如果你已经覆盖了某个 Agent 的启动参数或环境，Orca 会放过该 Agent，以免全局开关擦掉你的自定义命令。
 
@@ -37,7 +37,7 @@ Orca 可与**任意 CLI agent** 配合——agent combobox 只是在终端里启
 | Autohand           | 自动配置                                                                                                                 | [Autohand](https://github.com/autohandai/code-cli)                                                |
 | Cline              | 自动配置                                                                                                                 | [Cline](https://docs.cline.bot/cline-cli/overview)                                                |
 | Codebuff           | 自动配置                                                                                                                 | [Codebuff](https://www.codebuff.com/docs/help/quick-start)                                        |
-| Freebuff           | 自动配置                                                                                                                 | [Freebuff](https://freebuff.com/cli)                                                              |
+| Muse               | macOS/Linux；启动时信任工作区                                                                                              | [Meta](https://dev.meta.ai/docs/muse-code)                                                        |
 | Command Code       | 自动配置、状态                                                                                                           | [Command Code](https://commandcode.ai/docs/quickstart)                                            |
 | Continue           | 自动配置                                                                                                                 | [Continue](https://docs.continue.dev/guides/cli)                                                  |
 | Cursor CLI         | 深度集成                                                                                                                   | [Cursor](https://cursor.com/cli)                                                                  |
