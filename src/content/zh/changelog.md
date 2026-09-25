@@ -8,9 +8,17 @@
 
 | 版本 | 日期 | 一句话 |
 | --- | --- | --- |
+| [v1.4.210](#v1-4-210) | 2026年9月24日 | 已完成聊天折叠为答案，失败回合不再挂起 |
 | [v1.4.209](#v1-4-209) | 2026年9月23日 | 会话搜索按最新排序，启动提示直达终端 Agent，用量计价更新 |
 | [v1.4.207](#v1-4-207) | 2026年9月22日 | 文件搜索不再闪现旧结果 |
-| [v1.4.206](#v1-4-206) | 2026年9月20日 | 会话历史可搜，OpenCode 2，用量扫描进 worker |
+
+### v1.4.210 · 已完成聊天折叠为答案，失败回合不再挂起 {#v1-4-210-summary}
+
+2026年9月24日 · [本页全文](#v1-4-210) · [官方 Release](https://github.com/stablyai/orca/releases/tag/v1.4.210)
+
+- Agent 与聊天：已完成聊天折叠到答案，失败回合结束而不是挂起，结构化聊天完成时点亮未读，重启恢复留在状态栏。Antigravity 可作为受监督 worker 运行，终端启动会回报所创建的窗格。
+- 终端、编辑器与工作区：终端主题选择覆盖 Ghostty 颜色，Linux daemon 在服务重启后仍存活并干净收割，macOS 会告知如何修复文件夹访问。大 artifact 与冲突列表已虚拟化，搜索列表不再闪旧结果，Monaco 失败被隔离。
+- 远程与可靠性：WSL 访客保留 OpenCode agent variant，重建的 SSH 目标保留 generation floor，同容量中继波次清理失败模板时不触碰后端服务。
 
 ### v1.4.209 · 会话搜索按最新排序，启动提示直达终端 Agent，用量计价更新 {#v1-4-209-summary}
 
@@ -26,15 +34,101 @@
 
 - 文件搜索：Quick Open 与文件浏览器在加载新搜索时不再闪现上一次的结果。
 
-### v1.4.206 · 会话历史可搜，OpenCode 2，用量扫描进 worker {#v1-4-206-summary}
-
-2026年9月20日 · [本页全文](#v1-4-206) · [官方 Release](https://github.com/stablyai/orca/releases/tag/v1.4.206)
-
-- Agent 与聊天：可在历史面板、跨机器、以及 `orca search` 里搜 Agent 会话。现已支持 **OpenCode 2**。Native Chat 把计划当计划渲染，重启时还在跑的聊天可以重连；OMP 能在桌面和移动端选模型。Source Control AI 可用 OMP 生成。
-- 工作区、编辑器与源码管理：编写器里紧凑分支选择器回来了；New Workspace 可选 base ref；diff 可折叠未改区域。审查评论支持多行范围。创建 worktree 优先 Git；WSL 删除不会带走孪生分支。
-- 终端与远程：可选默认终端 shell；搜索有匹配计数且与 Cmd+F 对齐；可配置点 URL / 中键。Windows 终端会真的启动你要的 shell。Claude、Codex 与 OpenCode 的用量扫描改在 worker 线程跑。
-
 ## 完整中文日志 {#full-notes}
+
+## v1.4.210 已完成聊天折叠为答案，失败回合不再挂起 {#v1-4-210}
+
+2026年9月24日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.210)
+
+感谢使用 Orca，也感谢一直以来的支持。
+
+### 简要说明 {#v1-4-210-short}
+
+**Agent 与聊天：** 已完成聊天折叠到答案，失败回合结束而不是挂起，结构化聊天完成时点亮未读，重启恢复留在状态栏。Antigravity 可作为受监督 worker 运行，终端启动会回报所创建的窗格。
+
+**终端、编辑器与工作区：** 终端主题选择覆盖 Ghostty 颜色，Linux daemon 在服务重启后仍存活并干净收割，macOS 会告知如何修复文件夹访问。大 artifact 与冲突列表已虚拟化，搜索列表不再闪旧结果，Monaco 失败被隔离。
+
+**远程与可靠性：** WSL 访客保留 OpenCode agent variant，重建的 SSH 目标保留 generation floor，同容量中继波次清理失败模板时不触碰后端服务。
+
+---
+
+### 产品体验 {#v1-4-210-product}
+
+#### Agent、聊天与启动 {#v1-4-210-agents-chat-launches}
+
+> 结构化聊天干净收束，启动携带上下文，工作区列表保持响应。
+
+- 修复（sidebar）：有结构化聊天的 workspace 不再被读成休眠（[@brennanb2025](https://github.com/brennanb2025)，[#22098](https://github.com/stablyai/orca/pull/22098)）
+- 修复：搜索查询变化时列表仍显示旧结果（[@AmethystLiang](https://github.com/AmethystLiang)，[#22173](https://github.com/stablyai/orca/pull/22173)）
+- 用可复用组件虚拟化 artifacts 列表（[@AmethystLiang](https://github.com/AmethystLiang)，[#22061](https://github.com/stablyai/orca/pull/22061)）
+- 成功投递后清除网站标注（[@AmethystLiang](https://github.com/AmethystLiang)，[#22060](https://github.com/stablyai/orca/pull/22060)）
+- 修复（native-chat）：子 Agent 输出不再冒充生成它的 Agent（[@brennanb2025](https://github.com/brennanb2025)，[#21398](https://github.com/stablyai/orca/pull/21398)）
+- 回退：将子 Agent 归属推迟到联动重构之后（[@brennanb2025](https://github.com/brennanb2025)，[#22058](https://github.com/stablyai/orca/pull/22058)）
+- 修复（native-chat）：已完成回合折叠到其答案（[@brennanb2025](https://github.com/brennanb2025)，[#22029](https://github.com/stablyai/orca/pull/22029)）
+- 修复（native-chat）：Agent 报告失败时结束结构化回合（[@brennanb2025](https://github.com/brennanb2025)，[#22047](https://github.com/stablyai/orca/pull/22047)）
+- 新增（native-chat）：结构化聊天完成时点亮未读指示（[@brennanb2025](https://github.com/brennanb2025)，[#21924](https://github.com/stablyai/orca/pull/21924)）
+- 修复（native-chat）：导航到已打开的历史会话（[@brennanb2025](https://github.com/brennanb2025)，[#21283](https://github.com/stablyai/orca/pull/21283)）
+- 新增（native-chat）：重启恢复入口保留在状态栏（[@brennanb2025](https://github.com/brennanb2025)，[#22031](https://github.com/stablyai/orca/pull/22031)）
+- 修复（floating-workspace）：汇报终端启动所创建的窗格（[@brennanb2025](https://github.com/brennanb2025)，[#22108](https://github.com/stablyai/orca/pull/22108)）
+- 重构（floating-workspace）：通过共享启动器启动默认 Agent（[@brennanb2025](https://github.com/brennanb2025)，[#21390](https://github.com/stablyai/orca/pull/21390)）
+- 新增：支持 Antigravity 作为受监督 worker（[@beattlekid](https://github.com/beattlekid)，[#21705](https://github.com/stablyai/orca/pull/21705)）
+
+#### 用量报告 {#v1-4-210-usage-reporting}
+
+> Claude 用量保持实时，费用总计覆盖最新模型。
+
+- 修复（rate-limits）：Fable 账户在实时会话中继续轮询 Claude 用量（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22071](https://github.com/stablyai/orca/pull/22071)）
+- 修复（usage）：为 GPT-6 Astra 计价，并声明 Codex 费用总计何时遗漏某模型（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22073](https://github.com/stablyai/orca/pull/22073)）
+
+#### 终端 {#v1-4-210-terminal}
+
+> 主题选择优先，后台服务在重启后存活，延迟数字保持诚实。
+
+- 修复（settings）：终端主题选择覆盖 Ghostty 颜色（[@nwparker](https://github.com/nwparker)，[#22069](https://github.com/stablyai/orca/pull/22069)）
+- 修复（daemon）：把终端 daemon 放到独立 systemd scope，服务重启不再杀死所有活着的 PTY（[@LesleyMurfin](https://github.com/LesleyMurfin)，[#19430](https://github.com/stablyai/orca/pull/19430)）
+- 修复（macos）：当 Orca 终端服务无法读取文件夹时告知用户并引导修复（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#21923](https://github.com/stablyai/orca/pull/21923)）
+- 修复（daemon）：关闭时收割终端后代进程（[@OrcaWin](https://github.com/OrcaWin)，[#22232](https://github.com/stablyai/orca/pull/22232)）
+- 修复（linux）：所有者退出时释放孤儿进程（[@OrcaWin](https://github.com/OrcaWin)，[#22247](https://github.com/stablyai/orca/pull/22247)）
+- 修复（perf）：用已呈现的 CI 帧测量终端延迟（[@nwparker](https://github.com/nwparker)，[#22096](https://github.com/stablyai/orca/pull/22096)）
+- 修复（perf）：校准报告预算且不掩盖延迟卡顿（[@nwparker](https://github.com/nwparker)，[#22075](https://github.com/stablyai/orca/pull/22075)）
+
+#### 编辑器、工作区与源码管理 {#v1-4-210-editor-workspaces-source-control}
+
+> 更新下载可靠，大 artifact 与冲突列表保持流畅，编辑器失败被隔离。
+
+- 修复（updater）：发送 gh token 并缓存 release picker 的构建列表（[@AmethystLiang](https://github.com/AmethystLiang)，[#21902](https://github.com/stablyai/orca/pull/21902)）
+- 降低 filter chip 对比度以表示只读状态（[@AmethystLiang](https://github.com/AmethystLiang)，[#21751](https://github.com/stablyai/orca/pull/21751)）
+- 重构编辑器标题文件重命名为 breadcrumb morph UI（[@AmethystLiang](https://github.com/AmethystLiang)，[#21265](https://github.com/stablyai/orca/pull/21265)）
+- 修复（renderer）：隔离 Monaco 初始化失败（[@OrcaWin](https://github.com/OrcaWin)，[#21555](https://github.com/stablyai/orca/pull/21555)）
+- 虚拟化大型冲突文件树（[@AmethystLiang](https://github.com/AmethystLiang)，[#21920](https://github.com/stablyai/orca/pull/21920)）
+- 重构：冲突审查改用通用 VirtualizedList（[@AmethystLiang](https://github.com/AmethystLiang)，[#22092](https://github.com/stablyai/orca/pull/22092)）
+- 修复（browser）：离屏页面导航提交时通知状态（[@AmethystLiang](https://github.com/AmethystLiang)，[#21703](https://github.com/stablyai/orca/pull/21703)）
+
+#### 提供方与助手 {#v1-4-210-providers}
+
+> OpenCode 启动在各宿主上保留 variant 与插件。
+
+- 修复（opencode）：在纯可执行名下支持 v2 插件（[@nwparker](https://github.com/nwparker)，[#22078](https://github.com/stablyai/orca/pull/22078)）
+- 修复（wsl）：在访客中保留 OpenCode agent variant（[@nwparker](https://github.com/nwparker)，[#22089](https://github.com/stablyai/orca/pull/22089)）
+
+#### 远程、SSH 与中继 {#v1-4-210-remote}
+
+> 重建目标保留 floor，失败滚动自行清理。
+
+- 修复（ssh）：重建目标保留 generation floor（相关 PR）
+- 修复（relay）：同容量中继波次清理失败模板且不触碰后端服务（相关 PR）
+
+#### 移动端 {#v1-4-210-mobile}
+
+> 继续 OTA 迁移：页面壳、平台缝、听写、输入与路由更多走页面边界。
+
+- 多项 feat/fix（mobile）：麦克风权限、可选能力声明、host-scoping 重写、历史页拒绝边界、catch-all 深链、Zod 校验、live-input 缝、native/OTA 构建开关、Metro 缓存键、听写拒绝原因、软键盘上的 live input、首帧前保留绘制帧等（[@Jinwoo-H](https://github.com/Jinwoo-H) 系列 PR）
+
+### 新贡献者 {#v1-4-210-contributors}
+
+- [@beattlekid](https://github.com/beattlekid) 首次贡献于 [#21705](https://github.com/stablyai/orca/pull/21705)
+
+**完整变更对照：** [v1.4.209...v1.4.210](https://github.com/stablyai/orca/compare/v1.4.209...v1.4.210)
 
 ## v1.4.209 会话搜索按最新排序，启动提示直达终端 Agent，用量计价更新 {#v1-4-209}
 
@@ -78,23 +172,23 @@
 - 修复：从 console API 读取 OpenCode Go 用量（[@innocarpe](https://github.com/innocarpe)，[#21462](https://github.com/stablyai/orca/pull/21462)）
 - 修复（opencode）：计入 cache 读与写的用量总计（[@nwparker](https://github.com/nwparker)，[#21886](https://github.com/stablyai/orca/pull/21886)）
 - 修复（usage）：为 GPT-6 Astra 计价，并声明 Codex 费用总计何时遗漏某模型（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22073](https://github.com/stablyai/orca/pull/22073)）
-- 修复（usage）：为 GPT-6 Sol/Luna、Opus 5.5 与 Fable 5.1 计价，并修正 GPT-5.6 费率（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22350](https://github.com/stablyai/orca/pull/22350)）
 
 #### 终端 {#v1-4-209-terminal}
 
-> 输入、选择、粘贴、组合文本与远程滚动缓冲更一致。
+> 拖拽选择、中键粘贴与远程滚动缓冲更一致。
 
-- 修复（terminal）：在打开的同步帧中保持 Pi 输入可见（以及后续 release-branch 修复，见 v1.4.207...v1.4.209）
-- 修复（terminal）：重绘时保持拖拽选择稳定（[@nwparker](https://github.com/nwparker)）
-- 修复（terminal）：在鼠标跟踪 TUI 中对中键启用原生粘贴抑制（[@buf0-bot](https://github.com/buf0-bot)，[#21834](https://github.com/stablyai/orca/pull/21834)）
-- 修复（terminal）：在鼠标跟踪窗格中允许 Shift+中键粘贴（[@buf0-bot](https://github.com/buf0-bot)，[#21858](https://github.com/stablyai/orca/pull/21858)）
-- 新增（terminal）：可配置交互式 Unix shell 参数（[@nwparker](https://github.com/nwparker)，[#21904](https://github.com/stablyai/orca/pull/21904)）
-- 修复（terminal）：硬重启后保留已停靠远程窗格的滚动缓冲（[#21295](https://github.com/stablyai/orca/pull/21295) by [@nwparker](https://github.com/nwparker) in [#21367](https://github.com/stablyai/orca/pull/21367)）
-- 修复（mobile）：让 OMP 终端动量与刷新率无关（[@nwparker](https://github.com/nwparker)，[#21687](https://github.com/stablyai/orca/pull/21687)）
+- 修复（terminal）：在开放的同步帧中保持 Pi 输入可见（[@nwparker](https://github.com/nwparker)，[#21708](https://github.com/stablyai/orca/pull/21708)）
+- 修复（terminal）：在 kitty 窗格中保留波兰语与 Option 组合文本（[@nwparker](https://github.com/nwparker)，[#21082](https://github.com/stablyai/orca/pull/21082)）
+- 修复（terminal）：重绘时保持拖拽选择稳定（[@nwparker](https://github.com/nwparker)，release-branch 修复）
+- 修复（terminal）：在鼠标跟踪 TUI 中为中键启用原生粘贴抑制（[@buf0-bot](https://github.com/buf0-bot)，[#21834](https://github.com/stablyai/orca/pull/21834)）
+- 修复（terminal）：允许 Shift+中键在鼠标跟踪窗格中粘贴（[@buf0-bot](https://github.com/buf0-bot)，[#21858](https://github.com/stablyai/orca/pull/21858)）
+- 新增（terminal）：配置交互式 Unix shell 参数（[@nwparker](https://github.com/nwparker)，[#21904](https://github.com/stablyai/orca/pull/21904)）
+- 修复（terminal）：硬重启后保留停泊远程窗格的滚动缓冲（[#21295](https://github.com/stablyai/orca/pull/21295)）（[@nwparker](https://github.com/nwparker)，[#21367](https://github.com/stablyai/orca/pull/21367)）
+- 修复（mobile）：使 OMP 终端动量与刷新率无关（[@nwparker](https://github.com/nwparker)，[#21687](https://github.com/stablyai/orca/pull/21687)）
 
-#### 编辑器、工作区与源码管理 {#v1-4-209-editor-workspaces}
+#### 编辑器、工作区与源码管理 {#v1-4-209-editor}
 
-> PDF 操作、Markdown 导航、worktree 对话框与源码管理悬停状态更一致。
+> PDF 工作、Markdown 导航、worktree 对话框与源码管理悬停状态更一致。
 
 - 修复（editor）：跨标签与重启保持 PDF 缩放（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#21879](https://github.com/stablyai/orca/pull/21879)）
 - 修复（editor）：在富 Markdown 模式下打开普通 details 块（[@SahilZ0810](https://github.com/SahilZ0810)，[#19784](https://github.com/stablyai/orca/pull/19784)）
@@ -163,5 +257,3 @@
 - 修复：搜索查询变化时列表仍显示旧结果（[@AmethystLiang](https://github.com/AmethystLiang)，[#22173](https://github.com/stablyai/orca/pull/22173)）
 
 **完整变更日志**：[v1.4.206...v1.4.207](https://github.com/stablyai/orca/compare/v1.4.206...v1.4.207)
-
-## v1.4.206 会话历史可搜，OpenCode 2，用量扫描进 worker {#v1-4-206}
