@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 3 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.211",
+    "date": "2026-09-25",
+    "dateLabel": "2026年9月25日",
+    "title": "Native chat keeps its live t…",
+    "highlights": [
+      "Agents & chat： Native chat keeps its live tool state intact, shows Codex goals above the composer, and treats active child work as working. Muse Code is now a first-class supervised-worker harness with local usage reporting.",
+      "Workspaces, editor & browser： Large local workspaces can find files by name, preview tabs can be turned off, stale workspace listings cannot retire newly created workspaces, and browser shortcuts stay with the split or floating panel that received them.",
+      "Terminal, remote & reliability： Background-created terminals answer startup queries, explicit closes get enough time for a daemon verdict, and macOS adoption and folder-denial events carry code-identity telemetry. Asia relay capacity grows safely with cell-specific gates, lock-convoy alerts, and safer rehoming."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.211",
+    "href": "/docs/changelog#v1-4-211"
+  },
+  {
     "tag": "v1.4.210",
     "date": "2026-09-24",
     "dateLabel": "2026年9月24日",
@@ -35,17 +48,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.209",
     "href": "/docs/changelog#v1-4-209"
-  },
-  {
-    "tag": "v1.4.207",
-    "date": "2026-09-22",
-    "dateLabel": "2026年9月22日",
-    "title": "文件搜索不再闪现旧结果",
-    "highlights": [
-      "文件搜索：Quick Open 与文件浏览器在加载新搜索时不再闪现上一次的结果。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.207",
-    "href": "/docs/changelog#v1-4-207"
   }
 ];
 

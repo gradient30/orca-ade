@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-09-25",
   "officialRef": "main",
-  "docsTreeSha": "8455d8dffd34d5e9163d0b74d243530591782e51",
+  "docsTreeSha": "64057ae967b48bb427fff559583f87a6b43368bc",
   "docs": [
     {
       "slug": "activity",
@@ -98,8 +98,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
-      "size": 11265,
-      "lastSeenSha": "8f93ec6bb4e5d1062e41f2ace1b38686b98b4cd3",
+      "size": 12449,
+      "lastSeenSha": "6532e04fb58c0d3d35cedd66e5fb92d073cfa53f",
       "translatedAtSha": null
     },
     {
@@ -519,6 +519,13 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.211",
+      "publishedAt": "2026-09-25",
+      "lastSeenBodySha": "80da52140866",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.210",
       "publishedAt": "2026-09-24",
       "lastSeenBodySha": "a37bb49791de",
@@ -600,7 +607,7 @@
       "publishedAt": "2026-09-04",
       "lastSeenBodySha": "0dbf758cf080",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     }
   ]
 }

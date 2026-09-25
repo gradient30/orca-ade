@@ -8,9 +8,17 @@
 
 | 版本 | 日期 | 一句话 |
 | --- | --- | --- |
+| [v1.4.211](#v1-4-211) | 2026年9月25日 | Native chat keeps its live t… |
 | [v1.4.210](#v1-4-210) | 2026年9月24日 | 已完成聊天折叠为答案，失败回合不再挂起 |
 | [v1.4.209](#v1-4-209) | 2026年9月23日 | 会话搜索按最新排序，启动提示直达终端 Agent，用量计价更新 |
-| [v1.4.207](#v1-4-207) | 2026年9月22日 | 文件搜索不再闪现旧结果 |
+
+### v1.4.211 · Native chat keeps its live t… {#v1-4-211-summary}
+
+2026年9月25日 · [本页全文](#v1-4-211) · [官方 Release](https://github.com/stablyai/orca/releases/tag/v1.4.211)
+
+- Agents & chat： Native chat keeps its live tool state intact, shows Codex goals above the composer, and treats active child work as working. Muse Code is now a first-class supervised-worker harness with local usage reporting.
+- Workspaces, editor & browser： Large local workspaces can find files by name, preview tabs can be turned off, stale workspace listings cannot retire newly created workspaces, and browser shortcuts stay with the split or floating panel that received them.
+- Terminal, remote & reliability： Background-created terminals answer startup queries, explicit closes get enough time for a daemon verdict, and macOS adoption and folder-denial events carry code-identity telemetry. Asia relay capacity grows safely with cell-specific gates, lock-convoy alerts, and safer rehoming.
 
 ### v1.4.210 · 已完成聊天折叠为答案，失败回合不再挂起 {#v1-4-210-summary}
 
@@ -28,13 +36,131 @@
 - 终端、编辑器与工作区：拖拽选择在重绘时保持稳定，中键粘贴在鼠标跟踪 TUI 中可用，远程窗格重启后保留滚动缓冲。PDF 缩放跨标签与重启保持，新建 worktree 对话框滚动时按钮仍可见，大 artifact 与冲突列表保持流畅。
 - 远程与可靠性：WSL、SSH 与 Windows 设置恢复更干净，中继 rehome 与 cell 滚动在失败时不会拖垮整个 cell。
 
-### v1.4.207 · 文件搜索不再闪现旧结果 {#v1-4-207-summary}
-
-2026年9月22日 · [本页全文](#v1-4-207) · [官方 Release](https://github.com/stablyai/orca/releases/tag/v1.4.207)
-
-- 文件搜索：Quick Open 与文件浏览器在加载新搜索时不再闪现上一次的结果。
-
 ## 完整中文日志 {#full-notes}
+
+## v1.4.211 Native chat keeps its live t… {#v1-4-211}
+
+2026年9月25日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.211)
+
+感谢使用 Orca，也感谢一直以来的支持。
+
+### 简要说明 {#v1-4-211-short}
+
+**Agent 与聊天：** Native chat keeps its live tool state intact, shows Codex goals above the composer, and treats active child work as working. Muse Code is now a first-class supervised-worker harness with local usage reporting.
+
+**Workspaces, editor & browser:** Large local workspaces can find files by name, preview tabs can be turned off, stale workspace listings cannot retire newly created workspaces, and browser shortcuts stay with the split or floating panel that received them.
+
+**Terminal, remote & reliability:** Background-created terminals answer startup queries, explicit closes get enough time for a daemon verdict, and macOS adoption and folder-denial events carry code-identity telemetry. Asia relay capacity grows safely with cell-specific gates, lock-convoy alerts, and safer rehoming.
+
+**Mobile:** The OTA page gains device Back support, safer draft handling, clearer re-pair and update recovery, and capability-negotiated, gzipped bundle ranges.
+
+---
+
+### 产品体验 {#v1-4-211-product}
+
+#### Editor, workspaces & browser {#v1-4-211-editor-workspaces-browser}
+
+> Workspace lists stay correct, large folders are easier to search, editor behavior is configurable, and browser commands stay in their originating view.
+
+- 修复（cli）：describe Linear write support（[@AtejiMan](https://github.com/AtejiMan)，[#21830](https://github.com/stablyai/orca/pull/21830)）
+- 修复（sidebar）：hang the subagent chevron in the card gutter（[@brennanb2025](https://github.com/brennanb2025)，[#22331](https://github.com/stablyai/orca/pull/22331)）
+- 修复（usage）：price GPT-6 Sol/Luna, Opus 5.5 and Fable 5.1, and correct GPT-5.6 rates（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22350](https://github.com/stablyai/orca/pull/22350)）
+- 修复（usage）：price Codex long context per request, not per aggregate（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22360](https://github.com/stablyai/orca/pull/22360)）
+- 修复（worktrees）：a listing that predates a create can no longer retire the new workspace（[@brennanb2025](https://github.com/brennanb2025)，[#22311](https://github.com/stablyai/orca/pull/22311)）
+- 修复（explorer）：find files by name in large local workspaces（[@nwparker](https://github.com/nwparker)，[#22369](https://github.com/stablyai/orca/pull/22369)）
+- 新增（editor）：add a setting to turn off preview tabs（[@nwparker](https://github.com/nwparker)，[#22398](https://github.com/stablyai/orca/pull/22398)）
+- 修复（editor）：map Salesforce Apex extensions to the apex language id（[@bdJohnson72](https://github.com/bdJohnson72)，[#14287](https://github.com/stablyai/orca/pull/14287)）
+- 新增（sidebar）：copy workspace name from context menu（[@AmethystLiang](https://github.com/AmethystLiang)，[#22338](https://github.com/stablyai/orca/pull/22338)）
+
+#### Orchestration & CLI {#v1-4-211-orchestration-cli}
+
+> Runtime connection denials are reported accurately, and supervised workers accept Muse model and effort settings.
+
+- 修复（cli）：report a denied runtime connection instead of a dead Orca（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22341](https://github.com/stablyai/orca/pull/22341)）
+- 新增（orchestration）：accept Muse model and effort for supervised workers（[@nwparker](https://github.com/nwparker)，[#22383](https://github.com/stablyai/orca/pull/22383)）
+
+#### Agents, chat & launches {#v1-4-211-agents-chat-launches}
+
+> Live chat state stays legible, structured sessions reflect their child work, and Muse Code joins the supported agent harnesses.
+
+- 修复（native-chat）：hide delete for structured history（[@brennanb2025](https://github.com/brennanb2025)，[#22106](https://github.com/stablyai/orca/pull/22106)）
+- 修复（agent-status）：a structured session with live child work reads as working（[@brennanb2025](https://github.com/brennanb2025)，[#22295](https://github.com/stablyai/orca/pull/22295)）
+- 重构（ai-vault）：read Codex's stated subagent parentage instead of a boolean（[@brennanb2025](https://github.com/brennanb2025)，[#22298](https://github.com/stablyai/orca/pull/22298)）
+- 修复（native-chat）：journal rows name the agent that produced them（[@brennanb2025](https://github.com/brennanb2025)，[#22299](https://github.com/stablyai/orca/pull/22299)）
+- 新增（native-chat）：notify on every settled structured turn（[@brennanb2025](https://github.com/brennanb2025)，[#22105](https://github.com/stablyai/orca/pull/22105)）
+- 新增（agents）：add first-class Muse Code harness（[@nwparker](https://github.com/nwparker)，[#22216](https://github.com/stablyai/orca/pull/22216)）
+- 修复（opencode-usage）：read OpenCode 2 session_v2 token totals（[@nwparker](https://github.com/nwparker)，[#22391](https://github.com/stablyai/orca/pull/22391)）
+- 修复（opencode2）：only treat the question tool's form as a pane blocker（[@nwparker](https://github.com/nwparker)，[#22399](https://github.com/stablyai/orca/pull/22399)）
+- 修复（native-chat）：keep a structured agent's tool line between tool calls（[@brennanb2025](https://github.com/brennanb2025)，[#22349](https://github.com/stablyai/orca/pull/22349)）
+- 新增（usage）：add Muse Code local usage provider（[@nwparker](https://github.com/nwparker)，[#22379](https://github.com/stablyai/orca/pull/22379)）
+- 新增（agent-launch）：let a caller reserve the pane its terminal launch creates（[@brennanb2025](https://github.com/brennanb2025)，[#22291](https://github.com/stablyai/orca/pull/22291)）
+- 新增（native-chat）：show a Codex chat's goal above the composer, and set it from goal mode（[@brennanb2025](https://github.com/brennanb2025)，[#22377](https://github.com/stablyai/orca/pull/22377)）
+- 修复（native-chat）：keep one live tool-run header from a call's start to the turn's end（[@brennanb2025](https://github.com/brennanb2025)，[#22432](https://github.com/stablyai/orca/pull/22432)）
+
+#### 终端 {#v1-4-211-terminal}
+
+> Background-created terminals answer startup questions, explicit closes receive a fair daemon verdict, and macOS diagnostics identify the adopted code.
+
+- 新增（telemetry）：report the macOS daemon's code identity on adoption and folder-denial events（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22171](https://github.com/stablyai/orca/pull/22171)）
+- 修复（runtime）：budget explicit terminal close for the daemon's immediate-kill verdict（[@nwparker](https://github.com/nwparker)，[#22385](https://github.com/stablyai/orca/pull/22385)）
+- 修复（runtime）：answer startup terminal queries for background-created terminals（[@nwparker](https://github.com/nwparker)，[#22384](https://github.com/stablyai/orca/pull/22384)）
+
+#### Remote, SSH & relay {#v1-4-211-remote-ssh-relay}
+
+> Asia relay capacity expands with measured gates, lock-aware rehoming, and rollout visibility.
+
+- 新增（relay）：declare Asia cell c30 at the c27 shape（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22375](https://github.com/stablyai/orca/pull/22375)）
+- 修复（cloud）：compare the Asia topology budget gate against the measured 500-connection default（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22386](https://github.com/stablyai/orca/pull/22386)）
+- 修复（cloud）：gate the Asia canary on its own cell's SQL failures, not the directors'（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22405](https://github.com/stablyai/orca/pull/22405)）
+- 杂项（relay）：treat Asia cell c30 as a general cell now that it is promoted（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22439](https://github.com/stablyai/orca/pull/22439)）
+- 修复（relay）：stop rehoming hosts off Asia cells until the lock fix lands（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22443](https://github.com/stablyai/orca/pull/22443)）
+- 新增（relay）：alert on relay cell table lock convoys（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22446](https://github.com/stablyai/orca/pull/22446)）
+- 修复（relay）：lock only the target cell row, last and NOWAIT, in the rehome commit（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22449](https://github.com/stablyai/orca/pull/22449)）
+
+#### 浏览器 {#v1-4-211-browser}
+
+> Browser commands stay with the split or floating panel that received them.
+
+- 修复（browser）：scope back/forward/reload/zoom/grab shortcuts to the originating split（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22340](https://github.com/stablyai/orca/pull/22340)）
+- 修复（browser）：scope floating browser shortcuts to their own panel（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22361](https://github.com/stablyai/orca/pull/22361)）
+
+#### 性能 {#v1-4-211-performance}
+
+> Mobile bundle delivery keeps more work in flight.
+
+- 性能（mobile）：keep four bundle chunk reads in flight across the whole manifest (OTA phase C follow-up)（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22376](https://github.com/stablyai/orca/pull/22376)）
+
+#### Mobile (OTA page) {#v1-4-211-mobile-ota-page-}
+
+> The over-the-air page gains keyboard and navigation behavior, recovery guidance, safer cache cleanup, and efficient bundle delivery. Listed here for visibility only; the mobile app ships on its own release schedule.
+
+- 修复（push）：bound the delivery claim, delete finished batches, and keep a connection for requests（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22307](https://github.com/stablyai/orca/pull/22307)）
+- 修复（mobile）：an accessory Enter ends the field's editing session, and the page's Enter survives a composition（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22300](https://github.com/stablyai/orca/pull/22300)）
+- 新增（mobile）：the device Back key reaches the page（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22308](https://github.com/stablyai/orca/pull/22308)）
+- 新增（mobile）：a failed hybrid-shell update is recorded on the device and shown in Troubleshoot（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22321](https://github.com/stablyai/orca/pull/22321)）
+- 修复（mobile）：the page offers no control whose only effect is a re-dial it cannot make（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22326](https://github.com/stablyai/orca/pull/22326)）
+- 修复（mobile）：removing a host deletes its page cache through the one process store（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22352](https://github.com/stablyai/orca/pull/22352)）
+- 修复（mobile）：Back with an unsaved markdown draft prompts on the page too（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22362](https://github.com/stablyai/orca/pull/22362)）
+- 修复（mobile）：the page's auth-failed banner offers Re-pair again（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22363](https://github.com/stablyai/orca/pull/22363)）
+- 新增（mobile-web-bundle）：gzipped 384 KiB ranges over a capability-negotiated mobileWeb.bundle.range (OTA phase C follow-up)（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22381](https://github.com/stablyai/orca/pull/22381)）
+
+#### Tests, CI & documentation {#v1-4-211-tests-ci-documentation}
+
+> Release checks stay targeted and the mobile recording corpus follows the relevant changes.
+
+- 测试（opencode）：pin the installed OpenCode plugin to a v2-loadable default export（[@nwparker](https://github.com/nwparker)，[#22389](https://github.com/stablyai/orca/pull/22389)）
+- 测试（mobile）：repin the recording corpus to main's tip after #22376（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22394](https://github.com/stablyai/orca/pull/22394)）
+- 文档（wechat）：point community QR code at group 10（[@AmethystLiang](https://github.com/AmethystLiang)，[#22403](https://github.com/stablyai/orca/pull/22403)）
+- 测试（mobile）：repin the recording corpus to main's tip after #22381（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22407](https://github.com/stablyai/orca/pull/22407)）
+- 测试（mobile）：move the session closure pin past the structured tool-line module（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#22430](https://github.com/stablyai/orca/pull/22430)）
+- Optimize cloud-verify workflow to scan HEAD instead of all history（[@AmethystLiang](https://github.com/AmethystLiang)，[#22457](https://github.com/stablyai/orca/pull/22457)）
+
+### 新贡献者 {#v1-4-211-contributors}
+
+- [@AtejiMan](https://github.com/AtejiMan) 首次贡献于 [#21830](https://github.com/stablyai/orca/pull/21830)
+- [@bdJohnson72](https://github.com/bdJohnson72) 首次贡献于 [#14287](https://github.com/stablyai/orca/pull/14287)
+
+**完整变更对照：** [v1.4.210...v1.4.211](https://github.com/stablyai/orca/compare/v1.4.210...v1.4.211)
 
 ## v1.4.210 已完成聊天折叠为答案，失败回合不再挂起 {#v1-4-210}
 
@@ -233,27 +359,3 @@
 - 修复（i18n）：为源码管理 tooltip 键重新生成运行时所需目录（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#21942](https://github.com/stablyai/orca/pull/21942)）
 
 **完整变更日志**：[v1.4.207...v1.4.209](https://github.com/stablyai/orca/compare/v1.4.207...v1.4.209)
-
-## v1.4.207 文件搜索不再闪现旧结果 {#v1-4-207}
-
-2026年9月22日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.207)
-
-感谢使用 Orca，也感谢一直以来的支持。
-
-这是 v1.4.206 之上的补丁。
-
-### 简要说明 {#v1-4-207-short}
-
-**文件搜索：** Quick Open 与文件浏览器在加载新搜索时不再闪现上一次的结果。
-
----
-
-### 产品体验 {#v1-4-207-product}
-
-#### 文件搜索 {#v1-4-207-file-search}
-
-> 新查询在结果到达前不会显示上一次的内容。
-
-- 修复：搜索查询变化时列表仍显示旧结果（[@AmethystLiang](https://github.com/AmethystLiang)，[#22173](https://github.com/stablyai/orca/pull/22173)）
-
-**完整变更日志**：[v1.4.206...v1.4.207](https://github.com/stablyai/orca/compare/v1.4.206...v1.4.207)
