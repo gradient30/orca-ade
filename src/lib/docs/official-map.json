@@ -1,1 +1,606 @@
-{"capturedAt":"2026-09-25","officialRef":"main","docsTreeSha":"8455d8dffd34d5e9163d0b74d0e0e0e0e0e0e0e0","docs":[],"releases":[]}
+{
+  "capturedAt": "2026-09-25",
+  "officialRef": "main",
+  "docsTreeSha": "8455d8dffd34d5e9163d0b74d243530591782e51",
+  "docs": [
+    {
+      "slug": "activity",
+      "section": "notify",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/activity.mdx",
+      "size": 1885,
+      "lastSeenSha": "8a622c06ef8af321717514007a7e3bd0346beb27",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/claude-code",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/claude-code.mdx",
+      "size": 1655,
+      "lastSeenSha": "a0d733abd4a6060343dbfedf40d90bea7429aad5",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/codex-hot-swap",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/codex-hot-swap.mdx",
+      "size": 1962,
+      "lastSeenSha": "2c00f0cff1a245ee24195210e6368dfd3e220a00",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/codex",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/codex.mdx",
+      "size": 2753,
+      "lastSeenSha": "80b8ca1cd0c8dbdd149569709dd23d73a7ab16fc",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/cursor-cli",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/cursor-cli.mdx",
+      "size": 625,
+      "lastSeenSha": "4d93d8161f71eaa916313b3c2172a5fa671e5f90",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/glm-agent",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/glm-agent.mdx",
+      "size": 3997,
+      "lastSeenSha": "8feed727d81ce53b8a17dc6c882406dc111f3f23",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/hibernation",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/hibernation.mdx",
+      "size": 4273,
+      "lastSeenSha": "4e63d96bfc7dc3586211567ea21329ff7cbe544c",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/hooks-memory",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/hooks-memory.mdx",
+      "size": 1848,
+      "lastSeenSha": "303d56343da03627a44461eadff571b568b067c5",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/native-chat",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/native-chat.mdx",
+      "size": 3274,
+      "lastSeenSha": "1a812697e0ad361f888463207347c0c2b8f0a3d5",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/session-history",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/session-history.mdx",
+      "size": 4741,
+      "lastSeenSha": "2218cce349b691f75adb7c29f6381d6284c153d4",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/supported",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/supported.mdx",
+      "size": 11265,
+      "lastSeenSha": "8f93ec6bb4e5d1062e41f2ace1b38686b98b4cd3",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/usage-tracking",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/usage-tracking.mdx",
+      "size": 2253,
+      "lastSeenSha": "6aa491b4a4a2b4c888fb225cf355e582c519c27c",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "android-apk",
+      "section": "mobile",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/android-apk.mdx",
+      "size": 1145,
+      "lastSeenSha": "b262f47ea4b1084d5095a4cfa60fb084cd70472c",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "browser/design-mode",
+      "section": "browser",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/browser/design-mode.mdx",
+      "size": 1162,
+      "lastSeenSha": "2bd8318db6305517d23b5addb39da86416c7e6f1",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "browser/overview",
+      "section": "browser",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/browser/overview.mdx",
+      "size": 4770,
+      "lastSeenSha": "93890cf98bdf639e47252101a9a63b042529bd36",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "browser/profiles",
+      "section": "browser",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/browser/profiles.mdx",
+      "size": 2547,
+      "lastSeenSha": "26162fa94bc47c5acd32b30bc0d2bb0bf07ae813",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "cli/automations",
+      "section": "cli",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/cli/automations.mdx",
+      "size": 5714,
+      "lastSeenSha": "3e2d3ab1578345477c524c9f07dee1424addd4d0",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "cli/computer-use",
+      "section": "cli",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/cli/computer-use.mdx",
+      "size": 4919,
+      "lastSeenSha": "089600aae0af6516c4f1c02e992b02e7a02f8de1",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "cli/orchestration",
+      "section": "cli",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
+      "size": 9630,
+      "lastSeenSha": "d83d27836cfc940cf19ff38c7f6cb53e1845f0de",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "cli/overview",
+      "section": "cli",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/cli/overview.mdx",
+      "size": 4874,
+      "lastSeenSha": "1e966c6217c0843dbce04fe7101b7d90a8b2944e",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "cli/reference",
+      "section": "cli",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/cli/reference.mdx",
+      "size": 17055,
+      "lastSeenSha": "5c0afa52b989fa9eea7db96245dcddcae7edb9f9",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "cli/skills",
+      "section": "cli",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/cli/skills.mdx",
+      "size": 11148,
+      "lastSeenSha": "77ea47ce8adfe5634bd679a9edf423f66f4443e9",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "cli/worktree-checkpoints",
+      "section": "cli",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/cli/worktree-checkpoints.mdx",
+      "size": 1634,
+      "lastSeenSha": "907d1bc72b57b38689d90d09bda4c0ea903cf206",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "editing/file-explorer",
+      "section": "editing",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/editing/file-explorer.mdx",
+      "size": 2224,
+      "lastSeenSha": "170711513b3529e0e0c3797a3afda5bd0cf88c87",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "editing/markdown",
+      "section": "editing",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/editing/markdown.mdx",
+      "size": 4154,
+      "lastSeenSha": "a84c39916117f70ad5f75ef96e7251ad3cdbfc78",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "editing/monaco",
+      "section": "editing",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/editing/monaco.mdx",
+      "size": 1798,
+      "lastSeenSha": "2baf82fdfaf51269a9e7d784c6e5ec412184bdd9",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "editing/viewers",
+      "section": "editing",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/editing/viewers.mdx",
+      "size": 2356,
+      "lastSeenSha": "2b16d9698873d270ba02025d7a5958789a772ad2",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "first-session",
+      "section": "start",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/first-session.mdx",
+      "size": 2746,
+      "lastSeenSha": "1d3cd3c909b0782223fd8cb18e7d5dedaa85b743",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "github-errors",
+      "section": "trouble",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/github-errors.mdx",
+      "size": 10098,
+      "lastSeenSha": "b6b758f102d36cf2d75ced7353467027cbfcc41b",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "index",
+      "section": "start",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/index.mdx",
+      "size": 1983,
+      "lastSeenSha": "5f3f71483d8b98791d37228a7f52a24c38266e57",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "install",
+      "section": "start",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/install.mdx",
+      "size": 9241,
+      "lastSeenSha": "d08e43320ef8da04aa7f794c110a952cfaecfd4d",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "mobile",
+      "section": "mobile",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/mobile.mdx",
+      "size": 12256,
+      "lastSeenSha": "5883cb81fcd113e7f4651e26f7b51a851ab315ff",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "model/agents-sessions",
+      "section": "model",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/model/agents-sessions.mdx",
+      "size": 5150,
+      "lastSeenSha": "afa049bccb159337e18d08cd216e3730fcbe72ea",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "model/quick-open",
+      "section": "model",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/model/quick-open.mdx",
+      "size": 4567,
+      "lastSeenSha": "e47222f2e8274ca5279f903c35b8a3624c4294e8",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "model/session-restore",
+      "section": "model",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/model/session-restore.mdx",
+      "size": 2809,
+      "lastSeenSha": "c45c6eed70896ce98265421736ae211870774948",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "model/tabs-panes-splits",
+      "section": "model",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/model/tabs-panes-splits.mdx",
+      "size": 2447,
+      "lastSeenSha": "b7cb69a531e9debbc5419b90156d7b4fe346d6f0",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "model/worktrees",
+      "section": "model",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/model/worktrees.mdx",
+      "size": 14076,
+      "lastSeenSha": "f71d21c2ca448858a1c60d40f4df24eb9e565234",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "notifications",
+      "section": "notify",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/notifications.mdx",
+      "size": 1454,
+      "lastSeenSha": "8d5e02866f75729582434ee0101fa1b8e4b56a08",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "recipes/design-mode-fix",
+      "section": "recipes",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/recipes/design-mode-fix.mdx",
+      "size": 824,
+      "lastSeenSha": "1a4999ba0f3e8326d3e00fbadb1bab26b2731e2e",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "recipes/jump-worktrees",
+      "section": "recipes",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/recipes/jump-worktrees.mdx",
+      "size": 921,
+      "lastSeenSha": "8e952c69268370a55c5bf3d8c34649f7d5df8b98",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "recipes/parallel-agents",
+      "section": "recipes",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/recipes/parallel-agents.mdx",
+      "size": 974,
+      "lastSeenSha": "d6cad767a23859b726d8b8baad12684cbe26d48b",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "recipes/remote-worktrees",
+      "section": "recipes",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/recipes/remote-worktrees.mdx",
+      "size": 1102,
+      "lastSeenSha": "e34b03a364b51f5eb64d3ff37920ffb11836240a",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "recipes/review-ai-diff",
+      "section": "recipes",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/recipes/review-ai-diff.mdx",
+      "size": 802,
+      "lastSeenSha": "38ec8b52a73c68d3e2cc479218165ecfee661f34",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "remote-servers",
+      "section": "remote",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/remote-servers.mdx",
+      "size": 10175,
+      "lastSeenSha": "f23e3d94a6af1e78677d59591ef79879bd47a6f6",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "review/annotate-ai-diff",
+      "section": "review",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/review/annotate-ai-diff.mdx",
+      "size": 1809,
+      "lastSeenSha": "0744b2c5a9fee9cd8f740e4edc77a947505c808f",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "review/attribution",
+      "section": "review",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/review/attribution.mdx",
+      "size": 832,
+      "lastSeenSha": "b007616208d3649fa8e09b472d86ce15d3bdb64b",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "review/commit-push",
+      "section": "review",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/review/commit-push.mdx",
+      "size": 6401,
+      "lastSeenSha": "4fbc09df4ddf80ee70bfbc984b92e867a3294b6c",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "review/diff-viewer",
+      "section": "review",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/review/diff-viewer.mdx",
+      "size": 1787,
+      "lastSeenSha": "75925f078c6219ae05b3bb5da3bf385df84df2e7",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "review/github",
+      "section": "review",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/review/github.mdx",
+      "size": 6992,
+      "lastSeenSha": "d7f1dca862d8daa6ce9da1de7870a141d556e8cf",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "review/jira",
+      "section": "review",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/review/jira.mdx",
+      "size": 3963,
+      "lastSeenSha": "aeca47e1ef89d96b9ca91f0a1096e98924d467ab",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "review/linear",
+      "section": "review",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/review/linear.mdx",
+      "size": 3587,
+      "lastSeenSha": "451b009963553d477c5f8b08a2ba17461cbbc73c",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "settings",
+      "section": "settings",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/settings.mdx",
+      "size": 14594,
+      "lastSeenSha": "a5bbe9b83f4861b26518384ed9876ae8610ca114",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "ssh",
+      "section": "remote",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/ssh.mdx",
+      "size": 8937,
+      "lastSeenSha": "c97765d3481df5d2a4d48311dddca5d0e1816f0b",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "telemetry",
+      "section": "privacy",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/telemetry.mdx",
+      "size": 3951,
+      "lastSeenSha": "604202e067e12ac87c8e9e24e01ebd28e51da8a6",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "terminal",
+      "section": "terminal",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/terminal.mdx",
+      "size": 7323,
+      "lastSeenSha": "1be3d3892f3ebdc4e9568058b7901d03de9636b0",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "troubleshooting",
+      "section": "trouble",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/troubleshooting.mdx",
+      "size": 3253,
+      "lastSeenSha": "5fb96c33fd9ead50e2aaca72de0eb4da21e1404e",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "ways-to-run",
+      "section": "remote",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/ways-to-run.mdx",
+      "size": 8100,
+      "lastSeenSha": "e35b63eae906e9e88033ec3b60797ea41d2492f0",
+      "translatedAtSha": null
+    }
+  ],
+  "releases": [
+    {
+      "tag": "v1.4.210",
+      "publishedAt": "2026-09-24",
+      "lastSeenBodySha": "a37bb49791de",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.209",
+      "publishedAt": "2026-09-23",
+      "lastSeenBodySha": "63e1cc8ed281",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.207",
+      "publishedAt": "2026-09-22",
+      "lastSeenBodySha": "6e4edf635580",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.206",
+      "publishedAt": "2026-09-20",
+      "lastSeenBodySha": "b46b29ed5c78",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.205",
+      "publishedAt": "2026-09-17",
+      "lastSeenBodySha": "81feea23c78e",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.204",
+      "publishedAt": "2026-09-16",
+      "lastSeenBodySha": "6dfc1bb80869",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.203",
+      "publishedAt": "2026-09-15",
+      "lastSeenBodySha": "98ee9302dccf",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.201",
+      "publishedAt": "2026-09-13",
+      "lastSeenBodySha": "31ac90717644",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.200",
+      "publishedAt": "2026-09-11",
+      "lastSeenBodySha": "31ac90717644",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.199",
+      "publishedAt": "2026-09-09",
+      "lastSeenBodySha": "1b6114fad8b7",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.198",
+      "publishedAt": "2026-09-08",
+      "lastSeenBodySha": "e5ec840a255d",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.197",
+      "publishedAt": "2026-09-04",
+      "lastSeenBodySha": "0dbf758cf080",
+      "translatedAtBodySha": null,
+      "yanked": false
+    }
+  ]
+}
