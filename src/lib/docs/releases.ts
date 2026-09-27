@@ -11,6 +11,18 @@ export type ReleaseNote = {
 /** Latest 3 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.215",
+    "date": "2026-09-27",
+    "dateLabel": "2026年9月27日",
+    "title": "When the JSON and SQLite cop…",
+    "highlights": [
+      "Profile： When the JSON and SQLite copies of your profile disagree, Orca asks whether to keep SQLite or JSON and applies that choice for you.",
+      "---"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.215",
+    "href": "/docs/changelog#v1-4-215"
+  },
+  {
     "tag": "v1.4.214",
     "date": "2026-09-26",
     "dateLabel": "2026年9月26日",
@@ -33,19 +45,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.212",
     "href": "/docs/changelog#v1-4-212"
-  },
-  {
-    "tag": "v1.4.211",
-    "date": "2026-09-25",
-    "dateLabel": "2026年9月25日",
-    "title": "Native chat keeps its live t…",
-    "highlights": [
-      "Agents & chat： Native chat keeps its live tool state intact, shows Codex goals above the composer, and treats active child work as working. Muse Code is now a first-class supervised-worker harness with local usage reporting.",
-      "Workspaces, editor & browser： Large local workspaces can find files by name, preview tabs can be turned off, stale workspace listings cannot retire newly created workspaces, and browser shortcuts stay with the split or floating panel that received them.",
-      "Terminal, remote & reliability： Background-created terminals answer startup queries, explicit closes get enough time for a daemon verdict, and macOS adoption and folder-denial events carry code-identity telemetry. Asia relay capacity grows safely with cell-specific gates, lock-convoy alerts, and safer rehoming."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.211",
-    "href": "/docs/changelog#v1-4-211"
   }
 ];
 

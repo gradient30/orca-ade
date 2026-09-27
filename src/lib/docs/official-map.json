@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-09-27",
   "officialRef": "main",
-  "docsTreeSha": "fac6a09a87bdca13ed71a8311029ceab1ddace39",
+  "docsTreeSha": "64057ae967b48bb427fff559583f87a6b43368bc",
   "docs": [
     {
       "slug": "activity",
@@ -467,8 +467,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 14873,
-      "lastSeenSha": "87a2cbc66a2df37ac2e9674defd3585d33afcf14",
+      "size": 14594,
+      "lastSeenSha": "a5bbe9b83f4861b26518384ed9876ae8610ca114",
       "translatedAtSha": null
     },
     {
@@ -518,6 +518,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.215",
+      "publishedAt": "2026-09-27",
+      "lastSeenBodySha": "34d5182a2277",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.214",
       "publishedAt": "2026-09-26",
@@ -600,7 +607,7 @@
       "publishedAt": "2026-09-11",
       "lastSeenBodySha": "31ac90717644",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.199",
