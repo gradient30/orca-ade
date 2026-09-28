@@ -14,10 +14,9 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.215",
     "date": "2026-09-27",
     "dateLabel": "2026年9月27日",
-    "title": "When the JSON and SQLite cop…",
+    "title": "Profile 双副本冲突时让用户选择保留哪一份",
     "highlights": [
-      "Profile： When the JSON and SQLite copies of your profile disagree, Orca asks whether to keep SQLite or JSON and applies that choice for you.",
-      "---"
+      "Profile：当 JSON 与 SQLite 两份 profile 内容不一致时，Orca 会询问你保留 SQLite 还是 JSON，并按你的选择应用。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.215",
     "href": "/docs/changelog#v1-4-215"
@@ -26,11 +25,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.214",
     "date": "2026-09-26",
     "dateLabel": "2026年9月26日",
-    "title": "Interactive `.ipynb` noteboo…",
+    "title": "原生交互式 .ipynb 笔记本与 Native Chat 增强",
     "highlights": [
-      "Notebooks： Interactive `.ipynb` notebooks now render natively with click-to-edit cells, backed by a persistent Jupyter kernel, automatic virtual environment setup when pip is locked out, and trust boundaries before workspace interpreter execution.",
-      "Agents & chat： Native chat displays real-time context window usage in the composer, adds a hover copy button to sent messages, auto-loads older history on scroll, and lets Codex 0.157+ start cleanly in Orca-managed homes without path-length failures (`SUN_LEN`). Subagent and child work status is tracked across Codex, Claude, Pi, and Grok, while ZCode joins as a first-class supported harness.",
-      "Terminal, editor & workspaces： Single terminal panes gain an explicit close button, remounted SSH tabs keep spawning their shell, and managed WSL terminals automatically provide the Orca CLI. Workspace folder toggles are instant, AI notes UI is revamped, and large file identities on Windows stay distinct."
+      "Notebooks：交互式 `.ipynb` 笔记本现已原生渲染，支持点击编辑单元格，由持久 Jupyter kernel 驱动，pip 受限时自动创建虚拟环境，并在工作区解释器执行前尊重信任边界。",
+      "Agents & chat：Native Chat 在编写器中实时显示上下文窗口用量，发送消息可悬停复制，滚动自动加载更早历史，Codex 0.157+ 可在 Orca 管理的 home 中干净启动（不再因 `SUN_LEN` 失败）。跨 Codex、Claude、Pi、Grok 跟踪子 Agent 与子任务状态，ZCode 成为一等支持 harness。",
+      "Terminal, editor & workspaces：单终端面板增加明确关闭按钮，重新挂载的 SSH 标签会继续启动 shell，托管 WSL 终端自动提供 Orca CLI。工作区文件夹开关即时生效，AI notes UI 焕新，Windows 上大文件身份保持区分。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.214",
     "href": "/docs/changelog#v1-4-214"
@@ -39,9 +38,9 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.212",
     "date": "2026-09-25",
     "dateLabel": "2026年9月25日",
-    "title": "官方更新",
+    "title": "Codex 0.157+ 在 Orca 管理 home 中正常启动",
     "highlights": [
-      "详见下方完整中文日志。"
+      "修复（codex）：Codex 0.157+ 可在 Orca 管理的 home 中启动，不再因 SUN_LEN 失败。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.212",
     "href": "/docs/changelog#v1-4-212"
