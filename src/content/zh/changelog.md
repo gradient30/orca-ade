@@ -8,9 +8,16 @@
 
 | 版本 | 日期 | 一句话 |
 | --- | --- | --- |
+| [v1.4.216](#v1-4-216) | 2026年9月28日 | On smaller screens and narro… |
 | [v1.4.215](#v1-4-215) | 2026年9月27日 | Profile 双副本冲突时让用户选择保留哪一份 |
 | [v1.4.214](#v1-4-214) | 2026年9月26日 | 原生交互式 .ipynb 笔记本与 Native Chat 增强 |
-| [v1.4.212](#v1-4-212) | 2026年9月25日 | Codex 0.157+ 在 Orca 管理 home 中正常启动 |
+
+### v1.4.216 · On smaller screens and narro… {#v1-4-216-summary}
+
+2026年9月28日 · [本页全文](#v1-4-216) · [官方 Release](https://github.com/stablyai/orca/releases/tag/v1.4.216)
+
+- Status bar： On smaller screens and narrow windows, the status bar now stays on a single line instead of wrapping or getting cut off.
+- ---
 
 ### v1.4.215 · Profile 双副本冲突时让用户选择保留哪一份 {#v1-4-215-summary}
 
@@ -26,13 +33,31 @@
 - Agent 与聊天：Native Chat 在编写器里实时显示上下文窗口用量，已发送消息可悬停复制，滚动时自动加载更早的历史；Codex 0.157+ 可以在 Orca 管理的 home 里干净启动，不再因路径长度失败（`SUN_LEN`）。Codex、Claude、Pi、Grok 都会跟踪子 Agent 与子任务状态，ZCode 成为一等支持的 harness。
 - 终端、编辑器与工作区：单终端窗格增加明确的关闭按钮；重新挂载的 SSH 标签会继续启动 shell；托管的 WSL 终端自动提供 Orca CLI。工作区文件夹开关即时生效，AI notes 界面更新，Windows 上的大文件身份保持区分。
 
-### v1.4.212 · Codex 0.157+ 在 Orca 管理 home 中正常启动 {#v1-4-212-summary}
-
-2026年9月25日 · [本页全文](#v1-4-212) · [官方 Release](https://github.com/stablyai/orca/releases/tag/v1.4.212)
-
-- 修复（codex）：Codex 0.157+ 可在 Orca 管理的 home 中启动，不再因 SUN_LEN 失败。
-
 ## 完整中文日志 {#full-notes}
+
+## v1.4.216 On smaller screens and narro… {#v1-4-216}
+
+2026年9月28日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.216)
+
+感谢使用 Orca，也感谢一直以来的支持。
+
+This patch is v1.4.215 plus one fix. Pull requests that landed on main after v1.4.215 are not in this build.
+
+### 简要说明 {#v1-4-216-short}
+
+**Status bar:** On smaller screens and narrow windows, the status bar now stays on a single line instead of wrapping or getting cut off.
+
+---
+
+### Fixes {#v1-4-216-fixes}
+
+> When the window is narrow, the status bar condenses its items so everything fits on one line.
+
+- 修复：status bar on smaller screen（[@AmethystLiang](https://github.com/AmethystLiang)，[#23587](https://github.com/stablyai/orca/pull/23587)）
+
+---
+
+**完整变更对照：** [v1.4.215...v1.4.216](https://github.com/stablyai/orca/compare/v1.4.215...v1.4.216)
 
 ## v1.4.215 Profile 双副本冲突时让用户选择保留哪一份 {#v1-4-215}
 
@@ -340,13 +365,3 @@
 - [@aaryanporwal](https://github.com/aaryanporwal) 首次贡献于 [#22606](https://github.com/stablyai/orca/pull/22606)
 
 **完整变更对照：** [v1.4.212...v1.4.214](https://github.com/stablyai/orca/compare/v1.4.212...v1.4.214)
-
-## v1.4.212 Codex 0.157+ 在 Orca 管理 home 中正常启动 {#v1-4-212}
-
-2026年9月25日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.212)
-
-### Agent 与 Native Chat {#v1-4-212-native-chat}
-
-- 修复（codex）：Codex 0.157+ 可在 Orca 管理的 home 中启动，不再因 SUN_LEN 失败（[@OrcaWin](https://github.com/OrcaWin)，[#22878](https://github.com/stablyai/orca/pull/22878)）
-
-**完整变更对照：** [v1.4.211...v1.4.212](https://github.com/stablyai/orca/compare/v1.4.211...v1.4.212)

@@ -11,6 +11,18 @@ export type ReleaseNote = {
 /** Latest 3 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.216",
+    "date": "2026-09-28",
+    "dateLabel": "2026年9月28日",
+    "title": "On smaller screens and narro…",
+    "highlights": [
+      "Status bar： On smaller screens and narrow windows, the status bar now stays on a single line instead of wrapping or getting cut off.",
+      "---"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.216",
+    "href": "/docs/changelog#v1-4-216"
+  },
+  {
     "tag": "v1.4.215",
     "date": "2026-09-27",
     "dateLabel": "2026年9月27日",
@@ -33,17 +45,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.214",
     "href": "/docs/changelog#v1-4-214"
-  },
-  {
-    "tag": "v1.4.212",
-    "date": "2026-09-25",
-    "dateLabel": "2026年9月25日",
-    "title": "Codex 0.157+ 在 Orca 管理 home 中正常启动",
-    "highlights": [
-      "修复（codex）：Codex 0.157+ 可在 Orca 管理的 home 中启动，不再因 SUN_LEN 失败。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.212",
-    "href": "/docs/changelog#v1-4-212"
   }
 ];
 
