@@ -7,7 +7,7 @@ Orca 可与**任意 CLI agent** 配合——agent combobox 只是在终端里启
 
 ## 权限默认值 {#permissions-default}
 
-新启动时，Orca 会为每个受支持 CLI 预填 permission-bypass 标志——Claude 用 `--dangerously-skip-permissions`，Codex 用 `--dangerously-bypass-approvals-and-sandbox`，Gemini / Cursor / Crush / Kimi / Muse / Rovo Dev / Hermes / GitHub Copilot / Command Code 用 `--yolo`，再加上其他所有暴露了等价标志的 Agent 的对应标志。这些标志允许 Agent 在不确认每条 shell 命令的情况下行动；使用前请审视信任边界。
+新启动时，Orca 会为每个受支持 CLI 预填 permission-bypass 标志——Claude 用 `--dangerously-skip-permissions`，Codex 用 `--dangerously-bypass-approvals-and-sandbox`，Gemini / Cursor / Crush / Kimi / Muse / Rovo Dev / Hermes / GitHub Copilot / Command Code 用 `--yolo`，ZCode 用 `--mode yolo`，再加上其他所有暴露了等价标志的 Agent 的对应标志。这些标志允许 Agent 在不确认每条 shell 命令的情况下行动；使用前请审视信任边界。
 
 若要把所有未自定义的 Agent 在 **Yolo** 与 **Manual** 启动之间切换，使用 **Settings → Agents → Agent Permissions**。如果你已经覆盖了某个 Agent 的启动参数或环境，Orca 会放过该 Agent，以免全局开关擦掉你的自定义命令。
 
@@ -23,22 +23,23 @@ Orca 可与**任意 CLI agent** 配合——agent combobox 只是在终端里启
 | OpenCode           | 自动配置、状态                                                                                                           | [OpenCode](https://opencode.ai/docs/cli/)                                                         |
 | Pi                 | 自动配置、hooks、状态                                                                                                    | [Pi](https://pi.dev)                                                                              |
 | OMP                | 自动配置、hooks、状态                                                                                                    | [OMP](https://omp.sh)                                                                             |
-| Prime Agent        | 自动配置、hooks、状态、会话历史                                                                                          | [Prime](https://docs.primeintellect.ai/prime-cli)                                                 |
+| Prime Agent        | 自动配置、hooks、状态、会话历史                                                                                          | [Prime Intellect](https://github.com/PrimeIntellect-ai/prime-agent)                               |
 | Gemini             | 自动配置                                                                                                                 | [Google](https://github.com/google-gemini/gemini-cli)                                             |
 | Antigravity        | 自动配置、hooks、状态                                                                                                    | [Google](https://antigravity.google/docs/cli-overview)                                            |
 | Ante               | 自动配置、状态                                                                                                           | [Ante](https://github.com/AntigmaLabs/ante-preview)                                               |
-| Aider              | 自动配置                                                                                                                 | [Aider](https://aider.chat)                                                                       |
-| Goose              | 自动配置                                                                                                                 | [Goose](https://block.github.io/goose)                                                            |
-| Amp                | 自动配置                                                                                                                 | [Amp](https://ampcode.com)                                                                        |
-| Kilocode           | 自动配置                                                                                                                 | [Kilocode](https://kilocode.ai)                                                                   |
-| Kiro               | 自动配置                                                                                                                 | [Kiro](https://kiro.dev)                                                                          |
+| Aider              | 自动配置                                                                                                                 | [Aider](https://aider.chat/docs/)                                                                 |
+| Goose              | 自动配置                                                                                                                 | [Block](https://block.github.io/goose/docs/quickstart/)                                           |
+| Amp                | 自动配置                                                                                                                 | [Amp](https://ampcode.com/manual#install)                                                         |
+| Kilocode           | 自动配置                                                                                                                 | [Kilo](https://kilo.ai/docs/cli)                                                                  |
+| Kiro               | 自动配置                                                                                                                 | [Kiro](https://kiro.dev/docs/cli/)                                                                |
 | Charm Crush        | 自动配置                                                                                                                 | [Charm](https://github.com/charmbracelet/crush)                                                   |
 | Auggie             | 自动配置                                                                                                                 | [Augment](https://docs.augmentcode.com/cli/overview)                                              |
 | Autohand           | 自动配置                                                                                                                 | [Autohand](https://github.com/autohandai/code-cli)                                                |
 | Cline              | 自动配置                                                                                                                 | [Cline](https://docs.cline.bot/cline-cli/overview)                                                |
 | Codebuff           | 自动配置                                                                                                                 | [Codebuff](https://www.codebuff.com/docs/help/quick-start)                                        |
-| Muse               | macOS/Linux；启动时信任工作区                                                                                              | [Meta](https://dev.meta.ai/docs/muse-code)                                                        |
 | Command Code       | 自动配置、状态                                                                                                           | [Command Code](https://commandcode.ai/docs/quickstart)                                            |
+| Muse               | macOS/Linux；启动时信任工作区                                                                                            | [Meta](https://dev.meta.ai/docs/muse-code)                                                        |
+| ZCode              | 深度集成；需要带 TUI 的 `zcode` CLI（见下方说明）                                                                        | [Z.ai](https://zcode.z.ai/en/docs)                                                                |
 | Continue           | 自动配置                                                                                                                 | [Continue](https://docs.continue.dev/guides/cli)                                                  |
 | Cursor CLI         | 深度集成                                                                                                                   | [Cursor](https://cursor.com/cli)                                                                  |
 | Devin              | 自动配置                                                                                                                 | [Devin](https://devin.ai/cli)                                                                     |
@@ -51,3 +52,16 @@ Orca 可与**任意 CLI agent** 配合——agent combobox 只是在终端里启
 | Hermes             | 自动配置                                                                                                                 | [Nous](https://hermes-agent.nousresearch.com/docs/)                                               |
 | OpenClaw           | 自动配置                                                                                                                 | [OpenClaw](https://github.com/openclaw/openclaw)                                                  |
 | Trae               | 通过 `traecli`（TRAE CN CLI）自动配置                                                                                    | [Trae](https://www.trae.ai/)                                                                      |
+
+## ZCode：选用带 TUI 的 CLI {#zcode-pick-a-cli-that-ships-the-tui}
+
+Orca 通过 `zcode` 终端 CLI 驱动 ZCode，因此 `PATH` 上的 `zcode` 必须是带 ZCode TUI 的构建。
+
+ZCode **桌面应用**捆绑了 agent 运行时，但不带 TUI。把 `zcode` 指到 `/Applications/ZCode.app/Contents/Resources/glm/zcode.cjs` 能够启动，随后打开会话失败，并报：
+
+```
+Cannot find package '@zcode/tui' imported from .../zcode.cjs
+```
+
+这种状态下 Orca 的 hooks 仍会正确安装，所以看起来像集成坏了，其实是这份 CLI 无法渲染会话。请使用带 TUI 的 `zcode`——从 [`zai-org/ZCode`](https://github.com/zai-org/ZCode) 构建 CLI（`apps/zcode-cli`），或安装把运行时和 TUI 打在一起的发行版。
+
