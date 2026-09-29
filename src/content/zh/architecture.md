@@ -40,7 +40,7 @@ flowchart TB
 
 ## 数据更新驱动图 {#data-drive}
 
-顶栏「更新」只展示最近三次桌面版的**核心摘要**；点进去打开 [完整中文日志](/docs/changelog)，不是 GitHub 英文页。
+顶栏「更新」打开 [完整中文日志](/docs/changelog)：最近五次桌面版的全文，不是一句话摘要，也不是 GitHub 英文页。
 
 两条路径共用同一个官方源：`stablyai/orca` 的 GitHub Releases。浏览器负责打开时刷新；仓库 Actions 负责把底稿写进 git，这样没连上官方源时仍能读到中文。
 
@@ -50,7 +50,7 @@ flowchart TB
 
   subgraph B["路径 A · 访问者打开手册"]
     direction TB
-    B1["打开时 GET 最近 20 条"] --> B2["只留桌面版，缓存 6 小时"]
+    B1["打开时 GET 最近 20 条"] --> B2["只留最近五次桌面版，缓存 6 小时"]
     B2 --> B4{"每个 tag 已有完整中文底稿?"}
     B4 -->|全部已有| B5["直接用 changelog.md"]
     B4 -->|出现新版本| B6["只给新 tag 做词表翻译"]
@@ -60,7 +60,7 @@ flowchart TB
 
   subgraph C["路径 B · 仓库每 6 小时"]
     direction TB
-    C1["Actions：cron / 推送 main / 手动"] --> C2["sync-releases.ts 核对官方 top-3"]
+    C1["Actions：cron / 推送 main / 手动"] --> C2["sync-releases.ts 核对官方最近五次"]
     C2 --> C3{"官方 tag 与底稿相同?"}
     C3 -->|未变| C4["跳过写盘，不碰中文"]
     C3 -->|有新 tag| C5["已有中文节原样合并"]
@@ -74,7 +74,7 @@ flowchart TB
 | 路径 | 何时跑 | 写出什么 | 明确不做什么 |
 | --- | --- | --- | --- |
 | 访问者浏览器 | 打开手册、缓存超过 6 小时 | 内存快照 + `localStorage` | 不改仓库、不调用翻译模型 |
-| GitHub Actions | 每 6 小时，或 `main` 推送 | `releases.ts` 摘要 + `changelog.md` | tag 未变不写盘；已有 `## vX.Y.Z` 中文节不覆盖 |
+| GitHub Actions | 每 6 小时，或 `main` 推送 | `releases.ts` 与完整 `changelog.md` | tag 未变不写盘；已有 `## vX.Y.Z` 中文节不覆盖 |
 | 词表翻译 | 只有**新出现**的桌面版 tag | 标题、类型前缀、常见短语 | 不重写已人工校对的版本 |
 
 过滤规则（两条路径相同）：丢掉 `draft` / `prerelease`，丢掉 tag 或名称里带 android / mobile / ios 的条目，只保留 `v主.次.补` 这种桌面版。

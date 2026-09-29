@@ -117,7 +117,7 @@ export function SitemapBoard() {
         <Card
           label="Release 待办"
           value={relOpen === 0 ? "无" : `${relOpen} 个`}
-          hint={relOpen === 0 ? "顶栏三次已有中文底稿" : "新 tag 或正文被改写"}
+          hint={relOpen === 0 ? "最近五次已有中文底稿" : "新 tag 或正文被改写"}
           alert={relOpen > 0}
         />
         <Card label="指纹日期" value={MAP_SNAPSHOT.capturedAt} hint={`树 ${shortSha(state.treeSha)}`} />
@@ -309,7 +309,7 @@ function RelTr({ row }: { row: RelRow }) {
         </Link>
       </td>
       <td className="px-3 py-2 align-top text-xs text-fg-muted">{row.publishedAt || "—"}</td>
-      <td className="px-3 py-2 align-top text-xs text-fg-muted">{row.inFeatured ? "顶栏三次" : "—"}</td>
+      <td className="px-3 py-2 align-top text-xs text-fg-muted">{row.inFeatured ? "最近五次" : "—"}</td>
       <td className="px-3 py-2 align-top font-mono text-[11px] text-fg-muted">{shaLabel}</td>
       <td className="px-3 py-2 align-top">
         <Pill label={tone.label} tone={tone.tone} />

@@ -20,7 +20,7 @@ export const PAGES: DocLink[] = [
   {
     slug: "changelog",
     title: "更新日志",
-    description: "自动抓取官方最近三次 Release，译成完整中文日志。",
+    description: "最近五次桌面版 Release 的完整中文日志。",
     href: "/docs/changelog",
   },
   {

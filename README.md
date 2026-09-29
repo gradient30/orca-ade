@@ -18,7 +18,7 @@
 | --- | --- |
 | 官网 57 页 1:1 | 安装、工作树、Agent、CLI、评审、浏览器、远程……完整目录与英文锚点 `{#id}` |
 | [快速手册](src/content/zh/quick-guide.md) | 引导介绍、核心特性、日常高频：用法 / 真实示例 / 应用场景 / 价值收益 |
-| [更新日志](src/content/zh/changelog.md) | 打开时抓取官方最新三次 Release 的完整中文译本 |
+| [更新日志](src/content/zh/changelog.md) | 最近五次桌面版 Release 的完整中文译本 |
 | [本站架构](src/content/zh/architecture.md) | 手册框架图、Release 数据更新驱动图 |
 | [对照表](src/content/zh/sitemap.md) | 官网 57 页 SHA + Release 正文指纹，只亮有差异的行 |
 | [命令使用](src/content/zh/cli/commands.md) | 按当前 `orca help` 分类的全部命令：中文说明、用法、可跑示例 |

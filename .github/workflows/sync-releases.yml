@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
     inputs:
       force:
-        description: "Rewrite even if the top-3 tags are unchanged"
+        description: "Rewrite even if the top-5 tags are unchanged"
         type: boolean
         default: false
 

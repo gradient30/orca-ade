@@ -8,16 +8,15 @@ export type ReleaseNote = {
   href: string;
 };
 
-/** Latest 3 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
+/** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
     "tag": "v1.4.216",
     "date": "2026-09-28",
     "dateLabel": "2026年9月28日",
-    "title": "On smaller screens and narro…",
+    "title": "窄窗口里状态栏保持单行",
     "highlights": [
-      "Status bar： On smaller screens and narrow windows, the status bar now stays on a single line instead of wrapping or getting cut off.",
-      "---"
+      "状态栏：在较小的屏幕和窄窗口里，状态栏保持单行，不再换行或被裁切。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.216",
     "href": "/docs/changelog#v1-4-216"
@@ -45,6 +44,30 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.214",
     "href": "/docs/changelog#v1-4-214"
+  },
+  {
+    "tag": "v1.4.212",
+    "date": "2026-09-25",
+    "dateLabel": "2026年9月25日",
+    "title": "Codex 0.157+ 在 Orca 管理 home 中正常启动",
+    "highlights": [
+      "修复（codex）：Codex 0.157+ 可在 Orca 管理的 home 中启动，不再因 SUN_LEN 失败。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.212",
+    "href": "/docs/changelog#v1-4-212"
+  },
+  {
+    "tag": "v1.4.211",
+    "date": "2026-09-25",
+    "dateLabel": "2026年9月25日",
+    "title": "Muse Code 一等支持，Native Chat 保住实时工具状态",
+    "highlights": [
+      "Agent 与聊天：Native Chat 保持实时工具状态，在编写器上方显示 Codex 目标，并把仍在进行的子任务视为正在工作。Muse Code 现已成为一等支持的受监督 worker harness，并带有本地用量报告。",
+      "工作区、编辑器与浏览器：大型本地工作区可以按文件名查找，预览标签可以关闭，过期的工作区列表不能退役刚创建的工作区，浏览器快捷键留在接收它们的分栏或浮动面板上。",
+      "终端、远程与可靠性：后台创建的终端会回答启动查询，显式关闭会留给 daemon 足够的判定时间。亚洲中继容量在按 cell 设门和更安全的 rehome 下增长。移动端 OTA 支持设备返回键与按能力协商的 gzip 打包区间。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.211",
+    "href": "/docs/changelog#v1-4-211"
   }
 ];
 

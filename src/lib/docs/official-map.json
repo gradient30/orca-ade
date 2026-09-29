@@ -109,7 +109,7 @@
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
       "size": 13193,
       "lastSeenSha": "ecc8cfd1305796f5fea375528aed50ca4cb94458",
-      "translatedAtSha": "6532e04fb58c0d3d35cedd66e5fb92d073cfa53f"
+      "translatedAtSha": "ecc8cfd1305796f5fea375528aed50ca4cb94458"
     },
     {
       "slug": "agents/usage-tracking",
@@ -567,7 +567,7 @@
       "tag": "v1.4.216",
       "publishedAt": "2026-09-28",
       "lastSeenBodySha": "b6b47a8f524e",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "b6b47a8f524e",
       "yanked": false
     },
     {
@@ -595,7 +595,7 @@
       "tag": "v1.4.211",
       "publishedAt": "2026-09-25",
       "lastSeenBodySha": "80da52140866",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "80da52140866",
       "yanked": false
     },
     {

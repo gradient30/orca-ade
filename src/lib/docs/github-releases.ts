@@ -19,6 +19,9 @@ export type LiveRelease = {
 export const ORCA_RELEASES_API = "https://api.github.com/repos/stablyai/orca/releases?per_page=20";
 const UA = "orca-handbook (https://github.com/gradient30/orca-ade)";
 
+/** Handbook keeps this many newest desktop releases, in full — not a one-line digest. */
+export const FEATURED_RELEASE_COUNT = 5;
+
 export function isDesktopRelease(r: GithubRelease): boolean {
   if (r.draft || r.prerelease) return false;
   const tag = r.tag_name ?? "";
@@ -36,7 +39,7 @@ export function toLiveRelease(r: GithubRelease): LiveRelease {
   };
 }
 
-export function selectDesktopReleases(raw: GithubRelease[], limit = 3): LiveRelease[] {
+export function selectDesktopReleases(raw: GithubRelease[], limit = FEATURED_RELEASE_COUNT): LiveRelease[] {
   return raw.filter(isDesktopRelease).slice(0, limit).map(toLiveRelease);
 }
 
@@ -45,7 +48,7 @@ export function selectDesktopReleases(raw: GithubRelease[], limit = 3): LiveRele
  * Node / CI: User-Agent + optional token, as GitHub requires UA for unauthenticated calls.
  */
 export async function fetchDesktopReleases(opts?: { token?: string; limit?: number }): Promise<LiveRelease[]> {
-  const limit = opts?.limit ?? 3;
+  const limit = opts?.limit ?? FEATURED_RELEASE_COUNT;
   const headers: Record<string, string> = {};
   const inBrowser = typeof window !== "undefined";
   if (!inBrowser) {

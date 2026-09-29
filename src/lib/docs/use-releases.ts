@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { fetchDesktopReleases, type LiveRelease } from "./github-releases";
+import { fetchDesktopReleases, FEATURED_RELEASE_COUNT, type LiveRelease } from "./github-releases";
 import { RELEASES, type ReleaseNote } from "./releases";
 import { getMarkdown } from "./load";
 import { buildChangelogMarkdown, extractVersionSection, toReleaseNote } from "./translate-release";
 
-const CACHE_KEY = "orca-handbook-releases-v6";
+const CACHE_KEY = "orca-handbook-releases-v7";
 const TTL_MS = 6 * 60 * 60 * 1000;
 
 export type ReleasesState = {
@@ -83,7 +83,7 @@ export function ensureReleasesLoaded() {
   }
   snapshot = { ...snapshot, loading: true };
   emit();
-  inflight = fetchDesktopReleases()
+  inflight = fetchDesktopReleases({ limit: FEATURED_RELEASE_COUNT })
     .then((releases) => {
       if (!releases.length) throw new Error("empty");
       writeCache(releases);

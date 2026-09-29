@@ -50,6 +50,8 @@ const HEADINGS: Record<string, string> = {
   "Session search": "会话搜索",
   "Native chat, OMP & providers": "Native Chat、OMP 与提供方",
   Browser: "浏览器",
+  Fixes: "修复",
+  "Status bar": "状态栏",
   Notebooks: "笔记本",
   "Agents, chat & launches": "Agent、聊天与启动",
   "Editor, workspaces & startup": "编辑器、工作区与启动",
@@ -196,6 +198,22 @@ const PHRASES: [string, string][] = [
   [
     "Codex usage scans do far less work — attribution resolved once per scan, and grown rollouts resumed at the last parsed byte — which takes a large cold scan from minutes to under a minute. They still run on the main process; the worker-thread move lands in a later release.",
     "Codex 用量扫描的工作量大幅下降——每次扫描只解析一次归属，增长中的 rollout 从上次解析字节续扫——一次大型冷扫描从数分钟降到一分钟以内。扫描仍在主进程运行；迁到 worker 线程会在后续版本落地。",
+  ],
+  [
+    "On smaller screens and narrow windows, the status bar now stays on a single line instead of wrapping or getting cut off.",
+    "在较小的屏幕和窄窗口里，状态栏保持单行，不再换行或被裁切。",
+  ],
+  [
+    "When the window is narrow, the status bar condenses its items so everything fits on one line.",
+    "窗口变窄时，状态栏会收紧各项，让内容仍能放在同一行。",
+  ],
+  [
+    "This patch is v1.4.215 plus one fix. Pull requests that landed on main after v1.4.215 are not in this build.",
+    "这个补丁是 v1.4.215 再加一项修复。v1.4.215 之后合入 main 的 pull request 不在这次构建里。",
+  ],
+  [
+    "This patch is v1.4.214 plus one fix. Pull requests that landed on main after v1.4.214 are not in this build.",
+    "这个补丁是 v1.4.214 再加一项修复。v1.4.214 之后合入 main 的 pull request 不在这次构建里。",
   ],
   [
     "Search your agent session history from the panel, across computers, and from `orca search`. **OpenCode 2** is also now supported. Native chat treats plans as plans, reconnects chats that were running when Orca restarted, and OMP can pick models on desktop and mobile. Source Control AI can generate with OMP.",
@@ -698,26 +716,19 @@ export function buildChangelogMarkdown(
   const parts: string[] = [];
   parts.push("# 更新日志 {#changelog}", "");
   parts.push(
-    "顶栏「更新」显示最近三次核心摘要；本页在打开时**自动抓取**官方 [Releases](https://github.com/stablyai/orca/releases)，并译成中文。命令、产品名、模块 scope 与 PR 编号保持英文。",
+    "本页保留最近五次桌面版的**完整中文日志**，不是一句话摘要。打开时自动抓取官方 [Releases](https://github.com/stablyai/orca/releases)，并译成中文。命令、产品名、模块 scope 与 PR 编号保持英文。",
     "",
   );
   parts.push(
     "> 非官方译本。数据源：`stablyai/orca` 的 GitHub Releases（跳过 mobile / android 与预发布）。已有中文底稿的版本不会被英文机翻覆盖。",
     "",
   );
-  parts.push("## 核心摘要 {#highlights}", "");
-  parts.push("| 版本 | 日期 | 一句话 |", "| --- | --- | --- |");
+  parts.push("## 版本索引 {#index}", "");
+  parts.push("| 版本 | 日期 | 标题 |", "| --- | --- | --- |");
   for (const n of notes) {
     parts.push(`| [${n.tag}](#${tagAnchor(n.tag)}) | ${n.dateLabel} | ${n.title} |`);
   }
   parts.push("");
-  for (const n of notes) {
-    const id = tagAnchor(n.tag);
-    parts.push(`### ${n.tag} · ${n.title} {#${id}-summary}`, "");
-    parts.push(`${n.dateLabel} · [本页全文](#${id}) · [官方 Release](${n.url})`, "");
-    for (const h of n.highlights) parts.push(`- ${h}`);
-    parts.push("");
-  }
   parts.push("## 完整中文日志 {#full-notes}", "");
   for (const rel of releases) {
     const baked = existingMd ? extractVersionSection(existingMd, rel.tag) : null;

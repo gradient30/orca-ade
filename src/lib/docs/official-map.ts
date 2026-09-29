@@ -238,7 +238,7 @@ export function compareReleases(
   const snapByTag = new Map(snapshot.releases.map((r) => [r.tag, r]));
   const liveByTag = new Map((live ?? []).map((r) => [r.tag, r]));
   const newestBaked = bakedTags.reduce((best, tag) => (best && cmpTag(tag, best) <= 0 ? best : tag), "");
-  const liveTop3 = new Set((live ?? []).slice(0, 3).map((r) => r.tag));
+  const liveWindow = new Set((live ?? []).slice(0, 5).map((r) => r.tag));
 
   const tags: string[] = [];
   const seen = new Set<string>();
@@ -260,7 +260,7 @@ export function compareReleases(
     let status: RelStatus;
     if (isYanked) status = "yanked";
     else if (!baked.has(tag)) {
-      const inWindow = liveTop3.has(tag) || Boolean(newestBaked && cmpTag(tag, newestBaked) > 0);
+      const inWindow = liveWindow.has(tag) || Boolean(newestBaked && cmpTag(tag, newestBaked) > 0);
       if (!inWindow) continue;
       status = "pending";
     } else if (
