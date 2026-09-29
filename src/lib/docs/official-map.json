@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-09-28",
+  "capturedAt": "2026-09-29",
   "officialRef": "main",
-  "docsTreeSha": "3ccbeccf02fe0b9dbe43214019e4b004af4f185c",
+  "docsTreeSha": "5ff0b79d1a98512a2ad85b420c5dce7abd94fddc",
   "docs": [
     {
       "slug": "activity",
@@ -107,8 +107,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
-      "size": 12945,
-      "lastSeenSha": "0658ce6fd8c3d97f87ad23b0153dd963fc0c60e0",
+      "size": 13193,
+      "lastSeenSha": "ecc8cfd1305796f5fea375528aed50ca4cb94458",
       "translatedAtSha": "6532e04fb58c0d3d35cedd66e5fb92d073cfa53f"
     },
     {
