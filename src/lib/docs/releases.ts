@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.217",
+    "date": "2026-09-29",
+    "dateLabel": "2026年9月29日",
+    "title": "Codex workers start again on…",
+    "highlights": [
+      "Codex： Codex workers start again on current Codex (0.158). Orca had been waiting for a welcome-screen label that Codex 0.158 removed, so every Codex worker timed out; Orca now recognizes Codex's empty input box instead. Starting a Codex worker with a model or reasoning effort no longer hangs either.",
+      "Codex tabs run on their own： On Codex 0.157 and newer, every Codex tab in Orca shared one background server started by the first tab, so status and results were credited to the wrong tab and closing the first tab dropped all the others. Each Codex tab in an Orca terminal now runs its own server, so closing one no longer drops the others. New terminals opened after updating get this; terminals already open keep the old behavior until reopened. To keep the shared server, add `export ORCA_CODEX_ISOLATE=0` to your shell startup file. The trade-off of the default: Codex \"Run in background\", `codex agents`, and opening a session from the Codex desktop app or an IDE won't see sessions started in Orca, and many open tabs use more memory.",
+      "Status bar & workspace UI： The status bar fits small screens: extra agents fold into a \"+N\" badge before status labels shrink to icons. Compact agent rows show unread emphasis, and activity threads from floating terminal agents open the right pane."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.217",
+    "href": "/docs/changelog#v1-4-217"
+  },
+  {
     "tag": "v1.4.216",
     "date": "2026-09-28",
     "dateLabel": "2026年9月28日",
@@ -55,19 +68,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.212",
     "href": "/docs/changelog#v1-4-212"
-  },
-  {
-    "tag": "v1.4.211",
-    "date": "2026-09-25",
-    "dateLabel": "2026年9月25日",
-    "title": "Muse Code 一等支持，Native Chat 保住实时工具状态",
-    "highlights": [
-      "Agent 与聊天：Native Chat 保持实时工具状态，在编写器上方显示 Codex 目标，并把仍在进行的子任务视为正在工作。Muse Code 现已成为一等支持的受监督 worker harness，并带有本地用量报告。",
-      "工作区、编辑器与浏览器：大型本地工作区可以按文件名查找，预览标签可以关闭，过期的工作区列表不能退役刚创建的工作区，浏览器快捷键留在接收它们的分栏或浮动面板上。",
-      "终端、远程与可靠性：后台创建的终端会回答启动查询，显式关闭会留给 daemon 足够的判定时间。亚洲中继容量在按 cell 设门和更安全的 rehome 下增长。移动端 OTA 支持设备返回键与按能力协商的 gzip 打包区间。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.211",
-    "href": "/docs/changelog#v1-4-211"
   }
 ];
 
