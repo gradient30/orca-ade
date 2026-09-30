@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.218",
+    "date": "2026-09-30",
+    "dateLabel": "2026年9月30日",
+    "title": "Settings → Agents has a new …",
+    "highlights": [
+      "Codex terminals： Settings → Agents has a new **\"Run each Codex terminal on its own server\"** switch. It's on by default, which keeps agent status and closing tabs working correctly. Turn it off to go back to Codex's shared server and its agents overview. The switch applies to new terminals. A one-time notice explains the change and links to the switch. Codex started from a cmd.exe tab, by its full path, or after \"wait for setup\" finishes now runs on its own server too. A busy Codex 0.150–0.157 tab no longer shows as idle, and orchestration workers wait out Codex 0.157's startup screen before their brief is typed.",
+      "More agents： DeepSeek Harness, Freebuff, Qoder, and CodeBuddy are built in: you can launch them from Orca, and their status shows in the sidebar. ZCode CLI conversations appear in session history, and its Coding Plan quota shows in usage.",
+      "Terminal： A new **Reset Terminal** item in the terminal's right-click menu clears keyboard and mouse modes a crashed program left on. Orca no longer switches those modes off just because it guessed a program had died, so Shift+Enter and Option/Alt keys keep working in Codex and Claude Code after Ctrl+C. SSH terminals now clean up after a crashed program the same way local ones do. Having hundreds of terminals open no longer stops their output, and a failed terminal save no longer claims your disk is full."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.218",
+    "href": "/docs/changelog#v1-4-218"
+  },
+  {
     "tag": "v1.4.217",
     "date": "2026-09-29",
     "dateLabel": "2026年9月29日",
@@ -57,17 +70,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.214",
     "href": "/docs/changelog#v1-4-214"
-  },
-  {
-    "tag": "v1.4.212",
-    "date": "2026-09-25",
-    "dateLabel": "2026年9月25日",
-    "title": "Codex 0.157+ 在 Orca 管理 home 中正常启动",
-    "highlights": [
-      "修复（codex）：Codex 0.157+ 可在 Orca 管理的 home 中启动，不再因 SUN_LEN 失败。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.212",
-    "href": "/docs/changelog#v1-4-212"
   }
 ];
 

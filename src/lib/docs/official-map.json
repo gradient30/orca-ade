@@ -564,6 +564,13 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.218",
+      "publishedAt": "2026-09-30",
+      "lastSeenBodySha": "a47c8e43d5f0",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.217",
       "publishedAt": "2026-09-29",
       "lastSeenBodySha": "9ac5700a2350",
@@ -645,7 +652,7 @@
       "publishedAt": "2026-09-16",
       "lastSeenBodySha": "6dfc1bb80869",
       "translatedAtBodySha": "6dfc1bb80869",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.203",
