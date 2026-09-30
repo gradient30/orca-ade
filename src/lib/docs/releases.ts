@@ -14,11 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.217",
     "date": "2026-09-29",
     "dateLabel": "2026年9月29日",
-    "title": "Codex workers start again on…",
+    "title": "Codex 0.158 worker 恢复启动，标签各自独立运行",
     "highlights": [
-      "Codex： Codex workers start again on current Codex (0.158). Orca had been waiting for a welcome-screen label that Codex 0.158 removed, so every Codex worker timed out; Orca now recognizes Codex's empty input box instead. Starting a Codex worker with a model or reasoning effort no longer hangs either.",
-      "Codex tabs run on their own： On Codex 0.157 and newer, every Codex tab in Orca shared one background server started by the first tab, so status and results were credited to the wrong tab and closing the first tab dropped all the others. Each Codex tab in an Orca terminal now runs its own server, so closing one no longer drops the others. New terminals opened after updating get this; terminals already open keep the old behavior until reopened. To keep the shared server, add `export ORCA_CODEX_ISOLATE=0` to your shell startup file. The trade-off of the default: Codex \"Run in background\", `codex agents`, and opening a session from the Codex desktop app or an IDE won't see sessions started in Orca, and many open tabs use more memory.",
-      "Status bar & workspace UI： The status bar fits small screens: extra agents fold into a \"+N\" badge before status labels shrink to icons. Compact agent rows show unread emphasis, and activity threads from floating terminal agents open the right pane."
+      "Codex：在当前 Codex（0.158）上 worker 恢复启动。Orca 不再等待 0.158 已去掉的欢迎屏标签，改为识别空输入框；带着模型或推理力度启动也不会卡住。",
+      "Codex 标签各自独立：0.157+ 上每个 Orca 终端里的 Codex 标签各自跑自己的服务器，关掉一个不会拖垮其他标签。更新后新开终端立即生效。若要共用服务器，在 shell 启动文件加 `export ORCA_CODEX_ISOLATE=0`。代价是桌面/IDE 会话看不到 Orca 里启动的会话，多标签更占内存。",
+      "状态栏与工作区：小屏幕上多余 Agent 先收进「+N」，再缩成图标；紧凑行强调未读；浮动终端 Agent 的活动线程打开右侧窗格。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.217",
     "href": "/docs/changelog#v1-4-217"
