@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-01",
   "officialRef": "main",
-  "docsTreeSha": "5ff0b79d1a98512a2ad85b420c5dce7abd94fddc",
+  "docsTreeSha": "12a2f37f04cb0c1ef878eea986f4aa71a0f92e49",
   "docs": [
     {
       "slug": "activity",
@@ -26,8 +26,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 3950,
-      "lastSeenSha": "f7f8568cd959064236ea3cf17afeb4feeae7aa6f",
+      "size": 4372,
+      "lastSeenSha": "2dc4549401da76bb83280506ed42c6789d2479d5",
       "translatedAtSha": "f7f8568cd959064236ea3cf17afeb4feeae7aa6f"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/overview.mdx",
-      "size": 4874,
-      "lastSeenSha": "1e966c6217c0843dbce04fe7101b7d90a8b2944e",
+      "size": 4970,
+      "lastSeenSha": "6d2f07928561e73dcb4534a747ac47bc81f79d0b",
       "translatedAtSha": "1e966c6217c0843dbce04fe7101b7d90a8b2944e"
     },
     {
@@ -197,8 +197,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 17055,
-      "lastSeenSha": "5c0afa52b989fa9eea7db96245dcddcae7edb9f9",
+      "size": 17145,
+      "lastSeenSha": "d4cb4346d65218c1350319412a83a66bcb2724e1",
       "translatedAtSha": "5c0afa52b989fa9eea7db96245dcddcae7edb9f9"
     },
     {
