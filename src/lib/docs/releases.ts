@@ -14,11 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.218",
     "date": "2026-09-30",
     "dateLabel": "2026年9月30日",
-    "title": "Settings → Agents has a new …",
+    "title": "Codex 终端可独立服务器，内置更多 Agent",
     "highlights": [
-      "Codex terminals： Settings → Agents has a new **\"Run each Codex terminal on its own server\"** switch. It's on by default, which keeps agent status and closing tabs working correctly. Turn it off to go back to Codex's shared server and its agents overview. The switch applies to new terminals. A one-time notice explains the change and links to the switch. Codex started from a cmd.exe tab, by its full path, or after \"wait for setup\" finishes now runs on its own server too. A busy Codex 0.150–0.157 tab no longer shows as idle, and orchestration workers wait out Codex 0.157's startup screen before their brief is typed.",
-      "More agents： DeepSeek Harness, Freebuff, Qoder, and CodeBuddy are built in: you can launch them from Orca, and their status shows in the sidebar. ZCode CLI conversations appear in session history, and its Coding Plan quota shows in usage.",
-      "Terminal： A new **Reset Terminal** item in the terminal's right-click menu clears keyboard and mouse modes a crashed program left on. Orca no longer switches those modes off just because it guessed a program had died, so Shift+Enter and Option/Alt keys keep working in Codex and Claude Code after Ctrl+C. SSH terminals now clean up after a crashed program the same way local ones do. Having hundreds of terminals open no longer stops their output, and a failed terminal save no longer claims your disk is full."
+      "Codex 终端：Settings → Agents 新增 **「Run each Codex terminal on its own server」** 开关，默认打开。关掉则回到 Codex 共用服务器。从 cmd.exe、完整路径或等待安装完成后启动的 Codex 也会走独立服务器。忙碌的 0.150–0.157 标签不再显示空闲。",
+      "更多 Agent：内置 DeepSeek Harness、Freebuff、Qoder、CodeBuddy，侧栏显示状态；ZCode CLI 会话进历史，Coding Plan 额度进用量。",
+      "终端：右键新增 **Reset Terminal** 清除崩溃程序留下的键盘/鼠标模式；不再误关仍在运行程序的模式。SSH 清理与本地一致；保存失败不再误报磁盘已满。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.218",
     "href": "/docs/changelog#v1-4-218"
