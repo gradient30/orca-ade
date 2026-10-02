@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-01",
+  "capturedAt": "2026-10-02",
   "officialRef": "main",
   "docsTreeSha": "12a2f37f04cb0c1ef878eea986f4aa71a0f92e49",
   "docs": [
@@ -28,7 +28,7 @@
       "officialPath": "docs/site/content/docs/telemetry.mdx",
       "size": 4372,
       "lastSeenSha": "2dc4549401da76bb83280506ed42c6789d2479d5",
-      "translatedAtSha": "f7f8568cd959064236ea3cf17afeb4feeae7aa6f"
+      "translatedAtSha": "2dc4549401da76bb83280506ed42c6789d2479d5"
     },
     {
       "slug": "agents/codex-hot-swap",
@@ -190,7 +190,7 @@
       "officialPath": "docs/site/content/docs/cli/overview.mdx",
       "size": 4970,
       "lastSeenSha": "6d2f07928561e73dcb4534a747ac47bc81f79d0b",
-      "translatedAtSha": "1e966c6217c0843dbce04fe7101b7d90a8b2944e"
+      "translatedAtSha": "6d2f07928561e73dcb4534a747ac47bc81f79d0b"
     },
     {
       "slug": "cli/reference",
@@ -199,7 +199,7 @@
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
       "size": 17145,
       "lastSeenSha": "d4cb4346d65218c1350319412a83a66bcb2724e1",
-      "translatedAtSha": "5c0afa52b989fa9eea7db96245dcddcae7edb9f9"
+      "translatedAtSha": "d4cb4346d65218c1350319412a83a66bcb2724e1"
     },
     {
       "slug": "cli/skills",
@@ -567,14 +567,14 @@
       "tag": "v1.4.218",
       "publishedAt": "2026-09-30",
       "lastSeenBodySha": "a47c8e43d5f0",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "a47c8e43d5f0",
       "yanked": false
     },
     {
       "tag": "v1.4.217",
       "publishedAt": "2026-09-29",
       "lastSeenBodySha": "9ac5700a2350",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "9ac5700a2350",
       "yanked": false
     },
     {

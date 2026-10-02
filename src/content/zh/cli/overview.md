@@ -50,7 +50,7 @@ orca terminal split --direction vertical --command "npm run dev" --json
 
 ## 文件命令 {#file-commands}
 
-从 shell 在当前活动的 Orca worktree 里打开文件和 diff：
+从 shell 把文件和 diff 作为标签打开到它们所在的 Orca worktree。打开时不会改变你正在看的内容；加上 `--focus` 才会把你带到该文件：
 
 ```
 orca file open src/App.tsx

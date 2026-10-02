@@ -144,7 +144,7 @@ orca file diff src/App.tsx --staged --worktree active --json
 orca file open-changed --mode both --worktree active --json
 ```
 
-路径相对于所选 worktree。`open-changed` 读取 git status，并以 edit、diff 或两者模式打开已更改的文件。
+路径相对于所选 worktree。`open-changed` 读取 git status，并以 edit、diff 或两者模式打开已更改的文件。标签打开时不会改变你正在看的内容；加上 `--focus` 才会把你带到它们。
 
 ## 内置浏览器 {#built-in-browser}
 
