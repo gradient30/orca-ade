@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.219",
+    "date": "2026-10-02",
+    "dateLabel": "2026年10月2日",
+    "title": "When a Codex tab ends up sha…",
+    "highlights": [
+      "Codex terminals： When a Codex tab ends up sharing one background server with your other Codex tabs, a notice now appears at the top of that tab. On that server, closing one tab can end the others and agent status can be wrong. The notice offers a **Fix** that turns the sharing off and shows the exact command it runs. In a terminal that was opened before the update, it offers to open a new terminal instead. Typing `codex` in a plain fish tab now runs Codex on its own server, as it already did in zsh and bash. Opening a terminal no longer removes Orca's status hook from `~/.codex`. Orca no longer writes a second copy of a folder's trust entry into Codex's `config.toml`, which stopped every `codex` command from working, and it cleans up copies it already wrote. The background Codex usage check no longer clicks \"Update now\" in Codex's update prompt and leaves Codex broken. Codex also starts without a trust prompt in worktrees of a bare repository. A Codex pane no longer freezes for about a second while you type.",
+      "Folder trust for agents： When Orca starts Claude Code, Codex, Cursor, Copilot, Qoder, or Antigravity in a folder, it now answers the agent's \"Do you trust this folder?\" question ahead of time. Orchestration workers, automations, and agents started from your phone no longer get stuck waiting at that prompt. You can turn this off in Settings → Agents → \"Trust the folder when Orca starts an agent\".",
+      "Agent status： With several OpenCode 2 panes open, each pane now shows its own Working and Done, not another pane's. On Windows, Claude Code status works again when Claude runs its hooks in Windows PowerShell 5.1. A Codex row stays in the sidebar while Codex runs, even after Codex renames its tab. A freshly started Hermes is shown as ready, not busy."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.219",
+    "href": "/docs/changelog#v1-4-219"
+  },
+  {
     "tag": "v1.4.218",
     "date": "2026-09-30",
     "dateLabel": "2026年9月30日",
@@ -57,19 +70,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.215",
     "href": "/docs/changelog#v1-4-215"
-  },
-  {
-    "tag": "v1.4.214",
-    "date": "2026-09-26",
-    "dateLabel": "2026年9月26日",
-    "title": "原生交互式 .ipynb 笔记本与 Native Chat 增强",
-    "highlights": [
-      "笔记本：交互式 `.ipynb` 笔记本现已原生渲染，支持点击编辑单元格，由持久的 Jupyter kernel 驱动；pip 被锁时会自动创建虚拟环境，并在工作区解释器执行前尊重信任边界。",
-      "Agent 与聊天：Native Chat 在编写器里实时显示上下文窗口用量，已发送消息可悬停复制，滚动时自动加载更早的历史；Codex 0.157+ 可以在 Orca 管理的 home 里干净启动，不再因路径长度失败（`SUN_LEN`）。Codex、Claude、Pi、Grok 都会跟踪子 Agent 与子任务状态，ZCode 成为一等支持的 harness。",
-      "终端、编辑器与工作区：单终端窗格增加明确的关闭按钮；重新挂载的 SSH 标签会继续启动 shell；托管的 WSL 终端自动提供 Orca CLI。工作区文件夹开关即时生效，AI notes 界面更新，Windows 上的大文件身份保持区分。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.214",
-    "href": "/docs/changelog#v1-4-214"
   }
 ];
 

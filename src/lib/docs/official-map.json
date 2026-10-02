@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-02",
   "officialRef": "main",
-  "docsTreeSha": "12a2f37f04cb0c1ef878eea986f4aa71a0f92e49",
+  "docsTreeSha": "b2e8b07d1a19a12f9aa30a7fc963e4b008f6206d",
   "docs": [
     {
       "slug": "activity",
@@ -26,8 +26,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 4372,
-      "lastSeenSha": "2dc4549401da76bb83280506ed42c6789d2479d5",
+      "size": 5067,
+      "lastSeenSha": "a8b8715812a99d6c39b72ba05c42babdbac6b3f2",
       "translatedAtSha": "2dc4549401da76bb83280506ed42c6789d2479d5"
     },
     {
@@ -564,6 +564,13 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.219",
+      "publishedAt": "2026-10-02",
+      "lastSeenBodySha": "97717bba26bb",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.218",
       "publishedAt": "2026-09-30",
       "lastSeenBodySha": "a47c8e43d5f0",
@@ -645,7 +652,7 @@
       "publishedAt": "2026-09-17",
       "lastSeenBodySha": "81feea23c78e",
       "translatedAtBodySha": "81feea23c78e",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.204",
