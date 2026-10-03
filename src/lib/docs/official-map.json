@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-02",
+  "capturedAt": "2026-10-03",
   "officialRef": "main",
   "docsTreeSha": "b2e8b07d1a19a12f9aa30a7fc963e4b008f6206d",
   "docs": [
@@ -28,7 +28,7 @@
       "officialPath": "docs/site/content/docs/telemetry.mdx",
       "size": 5067,
       "lastSeenSha": "a8b8715812a99d6c39b72ba05c42babdbac6b3f2",
-      "translatedAtSha": "2dc4549401da76bb83280506ed42c6789d2479d5"
+      "translatedAtSha": "a8b8715812a99d6c39b72ba05c42babdbac6b3f2"
     },
     {
       "slug": "agents/codex-hot-swap",
@@ -567,7 +567,7 @@
       "tag": "v1.4.219",
       "publishedAt": "2026-10-02",
       "lastSeenBodySha": "97717bba26bb",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "97717bba26bb",
       "yanked": false
     },
     {

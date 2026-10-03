@@ -14,11 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.219",
     "date": "2026-10-02",
     "dateLabel": "2026年10月2日",
-    "title": "When a Codex tab ends up sha…",
+    "title": "Codex 共用服务器会提示，启动 Agent 时预信任文件夹",
     "highlights": [
-      "Codex terminals： When a Codex tab ends up sharing one background server with your other Codex tabs, a notice now appears at the top of that tab. On that server, closing one tab can end the others and agent status can be wrong. The notice offers a **Fix** that turns the sharing off and shows the exact command it runs. In a terminal that was opened before the update, it offers to open a new terminal instead. Typing `codex` in a plain fish tab now runs Codex on its own server, as it already did in zsh and bash. Opening a terminal no longer removes Orca's status hook from `~/.codex`. Orca no longer writes a second copy of a folder's trust entry into Codex's `config.toml`, which stopped every `codex` command from working, and it cleans up copies it already wrote. The background Codex usage check no longer clicks \"Update now\" in Codex's update prompt and leaves Codex broken. Codex also starts without a trust prompt in worktrees of a bare repository. A Codex pane no longer freezes for about a second while you type.",
-      "Folder trust for agents： When Orca starts Claude Code, Codex, Cursor, Copilot, Qoder, or Antigravity in a folder, it now answers the agent's \"Do you trust this folder?\" question ahead of time. Orchestration workers, automations, and agents started from your phone no longer get stuck waiting at that prompt. You can turn this off in Settings → Agents → \"Trust the folder when Orca starts an agent\".",
-      "Agent status： With several OpenCode 2 panes open, each pane now shows its own Working and Done, not another pane's. On Windows, Claude Code status works again when Claude runs its hooks in Windows PowerShell 5.1. A Codex row stays in the sidebar while Codex runs, even after Codex renames its tab. A freshly started Hermes is shown as ready, not busy."
+      "Codex 终端：与其他标签共用后台服务器时顶部出现提示，**Fix** 会关掉共享并显示将执行的命令。fish 里输入 `codex` 也会走独立服务器。打开终端不再剥掉 `~/.codex` 的状态 hook，也不再往 `config.toml` 写重复信任项。",
+      "文件夹信任：启动 Claude Code、Codex、Cursor、Copilot、Qoder 或 Antigravity 时预先回答 “Do you trust this folder?”。可在 Settings → Agents → “Trust the folder when Orca starts an agent” 关掉。",
+      "状态与终端：多个 OpenCode 2 窗格各自显示 Working / Done；Windows PowerShell 5.1 上 Claude Code 状态恢复。文件名带括号或空格的图片可拖入。Hyprland 等桌面在钥匙环解锁时加密保存的密钥。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.219",
     "href": "/docs/changelog#v1-4-219"
