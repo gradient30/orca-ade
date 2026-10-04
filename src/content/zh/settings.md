@@ -42,6 +42,7 @@
 - Ghostty 导入。
 - Warp 主题导入 — 用 **Import themes from Warp**（按操作系统自动发现 Warp 的 themes 文件夹）或 **Import from YAML**（任意 Warp 格式主题文件文件夹）引入你的 Warp YAML 主题。
 - 用于 macOS 日文键盘的 JIS Yen (¥) to Backslash (\\)。
+- **Terminal shell**（本地 macOS / Linux）——系统 shell 或自定义可执行文件，默认以 login 方式启动。**Custom shell → Advanced → Custom args** 为普通本地窗格请求替换参数。见 [启动文件与参数限制](/docs/terminal#macos-and-linux-shell)。
 - Windows 默认 shell（PowerShell 或 CMD）。
 - **Allow TUI Clipboard Writes (OSC 52)** — **默认开启**。让 Zellij、tmux、Neovim、fzf、Grok（以及类似工具）通过 PTY 写入系统剪贴板，包括通过 SSH。如果你更喜欢以前的锁定，关掉它。
 

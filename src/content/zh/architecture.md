@@ -2,7 +2,7 @@
 
 这份中文手册自己怎么组成、正文怎么变成页面，以及更新日志怎么跟着官方 Release 走。**不是** Orca ADE 产品架构。
 
-命令、产品名、文件名保持英文。官网 57 页仍是 1:1 译本；本页和 [快速手册](/docs/quick-guide)、[更新日志](/docs/changelog)、[命令使用](/docs/cli/commands) 一样，是本站加页。
+命令、产品名、文件名保持英文。官网文档页仍是 1:1 译本；本页和 [快速手册](/docs/quick-guide)、[更新日志](/docs/changelog)、[命令使用](/docs/cli/commands) 一样，是本站加页。
 
 ## 手册框架图 {#site-map}
 
@@ -11,7 +11,7 @@
 ```mermaid
 flowchart TB
   ZH["src/content/zh/*.md"]
-  ZH --> OFF["官网 57 页 1:1 中文"]
+  ZH --> OFF["官网文档页 1:1 中文"]
   ZH --> ADD["本站加页：快速手册 / 更新日志 / 本站架构 / 对照表 / 命令使用"]
   OFF --> LOAD["load.ts：构建时读入全部 md"]
   ADD --> LOAD
@@ -34,7 +34,7 @@ flowchart TB
 | 正文 | 解析 md；`mermaid` 围栏单独画图 | `Markdown.tsx`、`MermaidBlock.tsx` |
 | 发布 | SPA 静态站，base 为 `/orca-ade/` | GitHub Pages 工作流 |
 
-侧栏「从这里开始」的顺序是：快速手册 → 更新日志 → 本站架构 → 对照表 → 官网首页译本。后面的 57 页与 [onorca.dev/docs](https://www.onorca.dev/docs) 目录对齐。
+侧栏「从这里开始」的顺序是：快速手册 → 更新日志 → 本站架构 → 对照表 → 官网首页译本。后面的官网文档页与 [onorca.dev/docs](https://www.onorca.dev/docs) 目录对齐。
 
 跟上官网时先看 [对照表](/docs/sitemap)：只比较官方 blob SHA 和 Release 正文指纹，有差异的才打开那一页。
 

@@ -37,10 +37,12 @@ Orca 以 worktree 为原生模型。不是在一份 checkout 上切分支、stas
 Orca 用三种互补方式填这个缺口：
 
 1. **Worktree Shared Paths**（按仓库，在 Settings → Repository）——路径从主 checkout 物化到每个新 worktree（macOS 上尽可能用 APFS clone-copy，否则用符号链接）。
-1. **`orca.yaml` 中的 `worktree.sharedDirectories`** — 检入仓库的 **gitignored 目录** 列表，以同样方式共享（符号链接/共享，不是拷贝）。用于 `node_modules` 或 `.cache` 这类可重建的大树。条目必须在主 checkout 中作为目录存在 **并且** 被 gitignore；已跟踪或缺失的路径会被跳过。
+1. **`orca.yaml` 中的 `worktree.sharedDirectories`** — 检入仓库的 **gitignored 目录** 列表，用链接共享（包括在 APFS 上）。用于 `node_modules` 或 `.cache` 这类可重建的大树。条目必须在主 checkout 中作为目录存在 **并且** 被 gitignore；已跟踪或缺失的路径会被跳过。
 1. **仓库根目录的 `.worktreeinclude`** — **要拷贝**（不是符号链接）进每个新 worktree 的 **gitignored 文件或目录** 列表，这样每个 worktree 拥有自己的副本。典型条目：`.env`、`.vscode/` 下的本地配置。允许空行和 `#` 注释。目前只支持 **字面** 路径——glob 和否定会带警告跳过。已跟踪、缺失、或未被 gitignore 的路径不会被拷贝。
 
 `orca.yaml` 共享目录 **追加到** 每用户的 Worktree Shared Paths 列表；它们从不替换它。已经共享/链接的路径不会再从 `.worktreeinclude` 拷一遍。
+
+见 [orca.yaml 与 .worktreeinclude 参考](/docs/model/orca-yaml)，了解 setup 脚本、默认标签、命令选择、路径规则、限制，以及每项设置从哪份 checkout 读取。
 
 ```yaml
 # orca.yaml (repo root)

@@ -95,6 +95,8 @@ orca worktree rm --worktree id:<worktreeId> --force --json
 
 当 `worktree create` 从 Orca 管理的 worktree 内部运行时，Orca 在能推断关系的情况下会把新 worktree 记录为子项。传 `--parent-worktree active` 以明确指定，或在新工作独立时传 `--no-parent`。
 
+`worktree set --unread` 会在侧栏的 workspace 上打上未读圆点，与 Agent 完成时 Orca 显示的那个相同；`--read` 清除它。
+
 Agent 启动标志：
 
 ```bash
@@ -104,6 +106,22 @@ orca worktree create --name hidden-setup --setup inherit --json
 ```
 
 `--agent` 在第一个终端里启动所选 Agent。`--prompt` 把初始工作发给该 Agent。`--setup run|skip|inherit` 控制仓库 setup hooks；`inherit` 跟随仓库策略。
+
+用已有的 workspace 元数据链接 issue 和 review：
+
+```bash
+orca worktree create --repo id:<repoId> --name review-task --pr 123 --json
+orca worktree create --repo id:<repoId> --name gitlab-task --gitlab-issue 42 --gitlab-mr 77 --json
+orca worktree set --worktree active --gitlab-issue '#42' --gitlab-mr '!77' --json
+orca worktree set --worktree active --gitlab-issue https://gitlab.example.com/group/project/-/work_items/42 --json
+orca worktree set --worktree active --pr null --gitlab-mr null --json
+```
+
+`--pr` 是 GitHub pull request 编号。`--gitlab-issue` 接受 issue 编号或 `#42`；`--gitlab-mr` 接受 merge request 编号或 `!77`。编号必须是正的安全整数。GitLab 标志也接受 HTTP(S) 的 issue 或 merge request URL，包括自建实例和嵌套 group。URL 的 host 和 project 必须与 workspace 已存的 GitLab source context，或仓库已存的 remote 一致。身份缺失或不一致时，命令会在更新元数据之前失败。URL 不能改选另一个 project、更换 checkout，或拉取 review 分支。
+
+省略某个标志则保留对应链接不变。在 `set` 上，字面量 `null` 只清除指名的链接；`create` 拒绝 `null`。每个 provider 有各自的字段，因此设置 GitLab issue 或 merge request 会保留 GitHub 和 Linear 链接。
+
+基于文件夹的仓库可以用这些命令存数字链接，但编号本身不提供 provider 的 host 或 project。没有已有 source context 或已存 remote 时，粘贴的 GitLab URL 会被拒绝，provider 详情或可点击链接也可能不可用。这些标志使用运行时已经支持的字段；早于该字段的旧运行时可能忽略它，写到旧宿主后请用 `worktree show --json` 核对。
 
 ## 终端 {#terminals}
 

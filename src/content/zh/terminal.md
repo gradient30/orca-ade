@@ -44,6 +44,23 @@ Agent 终端标签会显示 Agent 身份以及实时状态：working、waiting f
 
 导入的主题会出现在主题下拉菜单里，与 Orca 内置主题并列。
 
+## macOS 与 Linux shell {#macos-and-linux-shell}
+
+默认情况下，macOS 和 Linux 上的本地终端窗格会以 **login shell**（`-l`）打开系统 shell（`$SHELL`）。使用默认参数时：
+
+- **zsh** 按顺序读取 `.zshenv`、`.zprofile`、`.zshrc` 和 `.zlogin`，来自 `$ZDOTDIR`；未设置时用家目录（`~`）。每个用户文件都跟在对应的系统文件之后（`zshenv`、`zprofile`、`zshrc`、`zlogin`），通常在 `/etc` 或 `/etc/zsh`。
+- **bash** 读取 `/etc/profile`，然后读取 `~/.bash_profile`、`~/.bash_login` 或 `~/.profile` 中第一个存在的文件。它**不会**自行读取 `~/.bashrc`。如果 `PATH` 或版本管理器（nvm、asdf、mise）写在 `~/.bashrc`，请从该 login 文件 source 它；许多发行版默认的 `~/.profile` 或 `~/.bash_profile` 已经这样做：
+
+  ```bash
+  [ -n "${BASH_VERSION:-}" ] && [ -f "$HOME/.bashrc" ] && . "$HOME/.bashrc"
+  ```
+
+  这个守卫避免同样会读 `~/.profile` 的非 bash shell 加载只适用于 bash 的设置，即使开了 `set -u` 也安全。仅当 bash 实际读取的 login 文件还没有 source `~/.bashrc` 时才加上。
+
+当 Orca 使用 bash integration wrapper 时，它用 `--rcfile` 而不是 `-l` 启动 bash。wrapper 会 source 同样的 login 文件，但不会另外 source `~/.bashrc`；bash 本身不处于 login 模式。
+
+要换一个 shell，在 [Settings → Terminal → Terminal shell](/docs/settings) 选择 **Custom shell**。在 **Advanced → Custom args** 里每行一个参数，用来替换普通本地窗格的默认 `-l`。空列表表示不要参数：未包装的交互式 bash 随后会读 `~/.bashrc`，而不是 login 文件。终端 daemon 不可用时，Orca 的 bash 或 zsh integration 可以覆盖自定义参数并保留 login 启动。Agent 启动、startup commands 和一次性 shell 选择不使用这组参数设置。
+
 ## Windows shell {#windows-shell}
 
 Windows 上的默认 shell 可在 PowerShell、Command Prompt 和 WSL 之间配置，见 [Settings → Terminal](/docs/settings)。当 `wsl.exe --status` 成功时会自动提供 WSL。标签栏上的 **+** 下拉还会显示子菜单，方便你开一次性标签用任意 shell，而不改默认值。

@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-03",
+  "capturedAt": "2026-10-04",
   "officialRef": "main",
   "docsTreeSha": "9fc2179a60beb80f9cf63f9905570899d5b9ce00",
   "docs": [
@@ -190,7 +190,7 @@
       "officialPath": "docs/site/content/docs/cli/overview.mdx",
       "size": 5176,
       "lastSeenSha": "b9aecde4fa31d4eb490a58038cce92d772f8c5b6",
-      "translatedAtSha": "6d2f07928561e73dcb4534a747ac47bc81f79d0b"
+      "translatedAtSha": "b9aecde4fa31d4eb490a58038cce92d772f8c5b6"
     },
     {
       "slug": "cli/reference",
@@ -199,7 +199,7 @@
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
       "size": 19167,
       "lastSeenSha": "087caf0e02b42f2503570bcbcebe0cf77eddd905",
-      "translatedAtSha": "d4cb4346d65218c1350319412a83a66bcb2724e1"
+      "translatedAtSha": "087caf0e02b42f2503570bcbcebe0cf77eddd905"
     },
     {
       "slug": "cli/skills",
@@ -343,7 +343,7 @@
       "officialPath": "docs/site/content/docs/model/worktrees.mdx",
       "size": 14252,
       "lastSeenSha": "c90cf45135163f260e89b205bf613dabeec2615c",
-      "translatedAtSha": "f71d21c2ca448858a1c60d40f4df24eb9e565234"
+      "translatedAtSha": "c90cf45135163f260e89b205bf613dabeec2615c"
     },
     {
       "slug": "notifications",
@@ -478,7 +478,7 @@
       "officialPath": "docs/site/content/docs/settings.mdx",
       "size": 14891,
       "lastSeenSha": "1bf6dc79434308712c9589924c664c33d36229b9",
-      "translatedAtSha": "a5bbe9b83f4861b26518384ed9876ae8610ca114"
+      "translatedAtSha": "1bf6dc79434308712c9589924c664c33d36229b9"
     },
     {
       "slug": "ssh",
@@ -496,7 +496,7 @@
       "officialPath": "docs/site/content/docs/terminal.mdx",
       "size": 9173,
       "lastSeenSha": "8db8b24caee7848b74cb8f3f0056954670a06570",
-      "translatedAtSha": "1be3d3892f3ebdc4e9568058b7901d03de9636b0"
+      "translatedAtSha": "8db8b24caee7848b74cb8f3f0056954670a06570"
     },
     {
       "slug": "troubleshooting",
@@ -568,7 +568,7 @@
       "officialPath": "docs/site/content/docs/model/orca-yaml.mdx",
       "size": 17195,
       "lastSeenSha": "0cc790121b2f113388c3ceca75967a0899cf784e",
-      "translatedAtSha": null
+      "translatedAtSha": "0cc790121b2f113388c3ceca75967a0899cf784e"
     }
   ],
   "releases": [
