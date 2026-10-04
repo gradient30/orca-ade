@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.220",
+    "date": "2026-10-04",
+    "dateLabel": "2026年10月4日",
+    "title": "- Native chat (experimental)…",
+    "highlights": [
+      "- **Native chat (experimental):** The **\"Stop\" button** ends Claude's process, including background commands and subagents. If Codex refuses or never answers a stop request, Orca ends it too. Unsent messages stay unsent until Retry, steered messages are not duplicated, and interrupted turns show a clearer status.",
+      "- **Chat polish:** `/clear` switches chats immediately; the first message starts the new agent. Codex connection retries update one warning instead of stacking errors. You can send AI notes to open chats, and older Orca versions preserve newer chat histories as read-only.",
+      "- **Agent status:** Esc cancellation settles Codex panes promptly, while Ctrl+C used to copy or leave `/side` no longer looks like an interruption. OpenCode shows failed and stopped turns correctly. Slow SSH connections no longer make agents look gone."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.220",
+    "href": "/docs/changelog#v1-4-220"
+  },
+  {
     "tag": "v1.4.219",
     "date": "2026-10-02",
     "dateLabel": "2026年10月2日",
@@ -59,17 +72,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.216",
     "href": "/docs/changelog#v1-4-216"
-  },
-  {
-    "tag": "v1.4.215",
-    "date": "2026-09-27",
-    "dateLabel": "2026年9月27日",
-    "title": "Profile 双副本冲突时让用户选择保留哪一份",
-    "highlights": [
-      "Profile：当 JSON 与 SQLite 两份 profile 不一致时，Orca 会询问你保留 SQLite 还是 JSON，并按你的选择应用。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.215",
-    "href": "/docs/changelog#v1-4-215"
   }
 ];
 
