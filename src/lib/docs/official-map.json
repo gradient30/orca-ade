@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-04",
+  "capturedAt": "2026-10-05",
   "officialRef": "main",
-  "docsTreeSha": "5a0df35c4ab80942750840adf14fc466dbd1e0e8",
+  "docsTreeSha": "4fcc4bdc6de970e96357c9d2473a90e1be6e4aba",
   "docs": [
     {
       "slug": "activity",
@@ -179,9 +179,9 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 9630,
-      "lastSeenSha": "d83d27836cfc940cf19ff38c7f6cb53e1845f0de",
-      "translatedAtSha": "d83d27836cfc940cf19ff38c7f6cb53e1845f0de"
+      "size": 9785,
+      "lastSeenSha": "88355cb8c825d11999fe3cade3017e49b5242495",
+      "translatedAtSha": "88355cb8c825d11999fe3cade3017e49b5242495"
     },
     {
       "slug": "cli/overview",
@@ -343,7 +343,7 @@
       "officialPath": "docs/site/content/docs/model/worktrees.mdx",
       "size": 14797,
       "lastSeenSha": "52e432c4b6c96946ba075836dd5468eda77e75f8",
-      "translatedAtSha": "c90cf45135163f260e89b205bf613dabeec2615c"
+      "translatedAtSha": "52e432c4b6c96946ba075836dd5468eda77e75f8"
     },
     {
       "slug": "notifications",
@@ -478,7 +478,7 @@
       "officialPath": "docs/site/content/docs/settings.mdx",
       "size": 15126,
       "lastSeenSha": "4fac0564d48c728e4391dc1212e009c5018b821c",
-      "translatedAtSha": "1bf6dc79434308712c9589924c664c33d36229b9"
+      "translatedAtSha": "4fac0564d48c728e4391dc1212e009c5018b821c"
     },
     {
       "slug": "ssh",
@@ -576,7 +576,7 @@
       "tag": "v1.4.220",
       "publishedAt": "2026-10-04",
       "lastSeenBodySha": "18e8758fde04",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "18e8758fde04",
       "yanked": false
     },
     {

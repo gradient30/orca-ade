@@ -131,6 +131,7 @@
 
 - 完整键位图 — 每个绑定都可重映射。
 - Toggle Sleeping Workspaces 默认未绑定；如果你想要侧栏休眠 worktree 过滤器的直接快捷键，在这里分配。
+- **Toggle Child Workspaces** 默认未绑定；在这里分配，用来显示或隐藏父 worktree 的嵌套子项，与点击其 **N children** 芯片相同。它针对悬停的 worktree，没有悬停时针对当前 worktree。
 - **Toggle Workspace Board** 默认未绑定；在这里分配，以便用一个快捷键打开或关闭 Workspace Board。`workspace.openBoard` 的现有绑定继续有效。
 - 关闭所有编辑器标签在 macOS 上默认为 `Cmd+Option+W`，在 Windows / Linux 上为 `Ctrl+Alt+W`。
 - **Tab navigation defaults (new installs)：** 跨所有类型的下一个/上一个标签是 `Cmd+Shift+]` / `Cmd+Shift+[`（Linux/Windows 上为 Ctrl）。同类型的下一个/上一个是 `Cmd+Option+]` / `Cmd+Option+[`。上一个最近标签是 `Ctrl+Tab`。现有安装把自定义覆盖保留在 `~/.orca/keybindings.json` 下。

@@ -109,6 +109,8 @@ Branch name 字段仅在你从键入的工作区名称或 base 分支创建时�
 
 当 worktree 有嵌套的子 worktree 时（例如来自编排，或带 parent 的 `worktree create`），上下文菜单还可以提供 **Sleep with Descendants (N)** 和 **Delete with Descendants…**。Sleep with descendants 会关闭所选工作区以及同一项目、仓库和主机上每个已验证嵌套子项的活动面板——只有带活动终端或浏览器标签的工作区才会被列为休眠目标。Delete with descendants 把已有的级联删除说清楚。过期的谱系链接、环，以及跨主机或仓库边界的子项会被排除。
 
+父 worktree 会在 **N children** 芯片下显示嵌套子项；点击芯片可展开或收起。要用键盘做同样的事，在 [设置 → Shortcuts](/docs/settings) 里分配 **Toggle Child Workspaces**。它作用于指针下的 worktree，没有悬停时作用于当前 worktree，效果与该卡片芯片完全相同。卡片自己没有芯片时（没有子项，或侧栏过滤把子项都藏起来了），它改用父卡片上的芯片；若也没有，则什么都不做。
+
 双击侧栏中的 worktree 标题可内联重命名。双击卡片其他地方仍会打开完整编辑对话框。在 **Edit Worktree Details** 中，issue 字段接受 **GitHub** 或 **Linear**（字段上的 chip；粘贴 URL 可自动检测）。每个工作区一个已链接 issue——更换供应商或清空字段会取消上一个的链接。对于主机已断开的 SSH 工作区，卡片标题行可以显示内联重连控件（见 [SSH Worktrees](/docs/ssh)）。
 
 ## Resource Manager 清理 {#resource-manager-cleanup}

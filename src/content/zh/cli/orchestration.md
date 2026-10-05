@@ -34,7 +34,7 @@ orca orchestration worker-start --task <taskId> --worktree new-child --name bill
 orca orchestration worker-start --task <taskId> --worktree current --agent claude --model <opaque-model-id> --effort high --json
 ```
 
-`--agent` 可取 worker 服务器上已启用的任意 Orca agent ID，例如 `claude`、`codex`、`cursor`、`antigravity`、`muse`、`opencode` 或 `opencode2`。`--model` 接受 Claude、Codex、Cursor、Antigravity 与 Muse 的不透明 provider 模型 ID（例如 `--agent muse --model muse-spark-1.3`）；其他 Agent（包括 opencode）使用各自配置中的模型。`--effort` 需要 `--model`，并且仅在该 Agent/模型支持该级别时生效。两个标志都不能与 `--terminal`（复用已有窗格）组合。覆盖只应用于那一次启动，并显示在启动回执的 `launch.requested` / `launch.effective` 下。联邦启动需要一个声明支持 launch-preference 的 worker 宿主。
+`--agent` 可取 worker 服务器上已启用的任意 Orca agent ID，例如 `claude`、`codex`、`cursor`、`antigravity`、`muse`、`opencode` 或 `opencode2`。`--model` 接受 Claude、Codex、Cursor、Antigravity 与 Muse 的不透明 provider 模型 ID（例如 `--agent muse --model muse-spark-1.3`）；OpenCode 仅在已有 worktree 中、且执行主机核对其 CLI 版本和模型可用性时，才接受单次启动的模型；OpenCode 的 effort 仍不支持。其他 Agent 使用各自配置中的模型。`--effort` 需要 `--model`，并且仅在该 Agent/模型支持该级别时生效。两个标志都不能与 `--terminal`（复用已有窗格）组合。覆盖只应用于那一次启动，并显示在启动回执的 `launch.requested` / `launch.effective` 下。联邦启动需要一个声明支持 launch-preference 的 worker 宿主。
 
 等待完成（处理一次 Delivery 里的每条消息，然后 ack）：
 

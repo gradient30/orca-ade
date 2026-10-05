@@ -14,11 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.220",
     "date": "2026-10-04",
     "dateLabel": "2026年10月4日",
-    "title": "- Native chat (experimental)…",
+    "title": "Native Chat 的 Stop 会结束进程，SSH 可选自带运行时",
     "highlights": [
-      "- **Native chat (experimental):** The **\"Stop\" button** ends Claude's process, including background commands and subagents. If Codex refuses or never answers a stop request, Orca ends it too. Unsent messages stay unsent until Retry, steered messages are not duplicated, and interrupted turns show a clearer status.",
-      "- **Chat polish:** `/clear` switches chats immediately; the first message starts the new agent. Codex connection retries update one warning instead of stacking errors. You can send AI notes to open chats, and older Orca versions preserve newer chat histories as read-only.",
-      "- **Agent status:** Esc cancellation settles Codex panes promptly, while Ctrl+C used to copy or leave `/side` no longer looks like an interruption. OpenCode shows failed and stopped turns correctly. Slow SSH connections no longer make agents look gone."
+      "Native Chat（实验性）：Stop 会结束 Claude 的进程，包括后台命令和子 Agent。Codex 拒绝或不应答停止时，Orca 也会结束它。未发送的消息保持未发送直到 Retry，被插入的消息不会重复发送。",
+      "SSH 主机：可选的 Orca 运行时不需要主机上的 Node、npm 或编译器；Auto 仍是默认。标准 Windows SSH 账户可用，重连期间的按键会保留。",
+      "工作区与拖放：大仓库创建更快，删除不再卡住聊天或文件，后台完成不再切换视图。Mac 截图缩略图拖进本地 Claude Code 终端时，Agent 能读到可读副本。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.220",
     "href": "/docs/changelog#v1-4-220"
