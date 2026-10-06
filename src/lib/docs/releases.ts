@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.221",
+    "date": "2026-10-05",
+    "dateLabel": "2026年10月5日",
+    "title": "Copilot 配置改为仅所有者可读，Windows Codex 改用 ~/.codex",
+    "highlights": [
+      "Copilot 安全修复：信任文件夹时不再把 ~/.copilot/config.json 留成其他用户可读。v1.4.219 和 v1.4.220 在 SSH 主机上也会这样；现在写入后只对所有者可读，旧文件会在下次添加文件夹时修好。",
+      "Windows 上的 Codex 改用你自己的 ~/.codex，与 Orca 外一致。只在 Orca 里的登录会复制过去；仅 Orca 有的 MCP 需要重加。更新前已打开的终端继续用旧文件夹，不再提示重启。",
+      "worker-start 接受尚未列出的 Codex 模型的 max 和 ultra effort。Qoder、Qwen Code 与独立 GLM Coding Plans 可用；OpenCode 和 Devin 可分开保留账户配置。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.221",
+    "href": "/docs/changelog#v1-4-221"
+  },
+  {
     "tag": "v1.4.220",
     "date": "2026-10-04",
     "dateLabel": "2026年10月4日",
@@ -61,17 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.217",
     "href": "/docs/changelog#v1-4-217"
-  },
-  {
-    "tag": "v1.4.216",
-    "date": "2026-09-28",
-    "dateLabel": "2026年9月28日",
-    "title": "窄窗口里状态栏保持单行",
-    "highlights": [
-      "状态栏：在较小的屏幕和窄窗口里，状态栏保持单行，不再换行或被裁切。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.216",
-    "href": "/docs/changelog#v1-4-216"
   }
 ];
 
