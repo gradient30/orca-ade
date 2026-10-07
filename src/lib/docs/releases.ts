@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.222",
+    "date": "2026-10-07",
+    "dateLabel": "2026年10月7日",
+    "title": "A worker started with `orca …",
+    "highlights": [
+      "- **OpenCode workers:** A worker started with `orca orchestration worker-start --agent opencode` no longer leaves its task sitting unsent in OpenCode's input box on a busy machine; Orca now waits until OpenCode can actually submit it. A worker can use a requested model without changing the default for your other launches, OpenCode 2.0.12 sends its first prompt on its own, and Orca's OpenCode plugin is installed where that terminal's OpenCode actually reads its settings.",
+      "- **Sidebar and workspaces:** A remote computer you reveal in the sidebar no longer disappears again while Orca saves the setting. Dragging a workspace whose children are collapsed now moves it, dragging workspaces can no longer crash the sidebar, the delete dialog stops jumping while its checks load, and Create worktree closes right away while setup scripts are checked in the background.",
+      "- **CSV files:** Large CSV files open without loading the whole file at once. You can resize columns, open links, edit cells, add or remove rows and columns, copy and paste ranges, and sort or filter, and column widths are remembered."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.222",
+    "href": "/docs/changelog#v1-4-222"
+  },
+  {
     "tag": "v1.4.221",
     "date": "2026-10-05",
     "dateLabel": "2026年10月5日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.218",
     "href": "/docs/changelog#v1-4-218"
-  },
-  {
-    "tag": "v1.4.217",
-    "date": "2026-09-29",
-    "dateLabel": "2026年9月29日",
-    "title": "Codex 0.158 worker 恢复启动，标签各自独立运行",
-    "highlights": [
-      "Codex：在当前 Codex（0.158）上 worker 恢复启动。Orca 不再等待 0.158 已去掉的欢迎屏标签，改为识别空输入框；带着模型或推理力度启动也不会卡住。",
-      "Codex 标签各自独立：0.157+ 上每个 Orca 终端里的 Codex 标签各自跑自己的服务器，关掉一个不会拖垮其他标签。更新后新开终端立即生效。若要共用服务器，在 shell 启动文件加 `export ORCA_CODEX_ISOLATE=0`。代价是桌面/IDE 会话看不到 Orca 里启动的会话，多标签更占内存。",
-      "状态栏与工作区：小屏幕上多余 Agent 先收进「+N」，再缩成图标；紧凑行强调未读；浮动终端 Agent 的活动线程打开右侧窗格。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.217",
-    "href": "/docs/changelog#v1-4-217"
   }
 ];
 
