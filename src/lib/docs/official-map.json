@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-07",
   "officialRef": "main",
-  "docsTreeSha": "4fcc4bdc6de970e96357c9d2473a90e1be6e4aba",
+  "docsTreeSha": "29a3865ca4d847dc416a6df4185570f7df295688",
   "docs": [
     {
       "slug": "activity",
@@ -26,8 +26,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 5067,
-      "lastSeenSha": "a8b8715812a99d6c39b72ba05c42babdbac6b3f2",
+      "size": 5201,
+      "lastSeenSha": "305304c951de75332da4ca7591bed9ff88fda874",
       "translatedAtSha": "a8b8715812a99d6c39b72ba05c42babdbac6b3f2"
     },
     {
@@ -404,8 +404,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
-      "size": 10175,
-      "lastSeenSha": "f23e3d94a6af1e78677d59591ef79879bd47a6f6",
+      "size": 10541,
+      "lastSeenSha": "25ad464f0028f1a854f16e15001c147f7440a255",
       "translatedAtSha": "f23e3d94a6af1e78677d59591ef79879bd47a6f6"
     },
     {
