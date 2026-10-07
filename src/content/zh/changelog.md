@@ -22,7 +22,7 @@
 
 感谢使用 Orca，也感谢一直以来的支持。
 
-这个补丁基于 10 月 4 日的 daily build，并拣入了 main 上的修复。那之后合入 main 的 pull request 不在这次构建里。
+Remote Server 仍是实验功能，可能有 bug。Remote Server 2.0 将于本周推出，会消掉其中大部分问题。
 
 ### 简要说明 {#v1-4-221-short}
 
@@ -351,8 +351,6 @@
 ---
 
 **完整变更对照：** [v1.4.220...v1.4.221](https://github.com/stablyai/orca/compare/v1.4.220...v1.4.221)
-
-0...v1.4.221)
 
 ## v1.4.220 Native Chat 的 Stop 会结束进程，SSH 可选自带运行时 {#v1-4-220}
 
