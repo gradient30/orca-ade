@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-08",
   "officialRef": "main",
-  "docsTreeSha": "29a3865ca4d847dc416a6df4185570f7df295688",
+  "docsTreeSha": "b911dbd15f53a760c9f6aeb781743b7072047b07",
   "docs": [
     {
       "slug": "activity",
@@ -44,8 +44,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/codex.mdx",
-      "size": 2753,
-      "lastSeenSha": "80b8ca1cd0c8dbdd149569709dd23d73a7ab16fc",
+      "size": 2752,
+      "lastSeenSha": "5ecf8281d2c7f80cfc4faee732e6b9e5d39bdbd6",
       "translatedAtSha": "80b8ca1cd0c8dbdd149569709dd23d73a7ab16fc"
     },
     {
@@ -161,8 +161,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/automations.mdx",
-      "size": 5714,
-      "lastSeenSha": "3e2d3ab1578345477c524c9f07dee1424addd4d0",
+      "size": 6915,
+      "lastSeenSha": "34f14fff180784b5ef6de3af5acd61bd14540de5",
       "translatedAtSha": "3e2d3ab1578345477c524c9f07dee1424addd4d0"
     },
     {
@@ -573,6 +573,13 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.223",
+      "publishedAt": "2026-10-08",
+      "lastSeenBodySha": "2e0e25d2dc84",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.222",
       "publishedAt": "2026-10-07",
       "lastSeenBodySha": "815bc8eb27f9",
@@ -654,7 +661,7 @@
       "publishedAt": "2026-09-24",
       "lastSeenBodySha": "a37bb49791de",
       "translatedAtBodySha": "a37bb49791de",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.209",

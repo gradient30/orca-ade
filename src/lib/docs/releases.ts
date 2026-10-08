@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.223",
+    "date": "2026-10-08",
+    "dateLabel": "2026年10月8日",
+    "title": "- Native chat (experimental)…",
+    "highlights": [
+      "- **Native chat (experimental):** With \"Use updated structured Native Chat\" turned on (Settings → Chat UI), Grok now opens as a 结构化聊天 on this computer and on paired Orca servers; SSH and WSL keep the terminal chat. You can rewind a conversation to an earlier message, search the model list, pick workspace files by typing `@`, and set text size, code size, width and contrast, or match your terminal, on a new Settings → Chat page. Chats are named after their first message, alert you when they stop to ask for approval, keep an unsent draft through a reload or quit, and use the Command and Arguments saved in Settings → Agents. Claude chats now open for API-key users, and Windows chats no longer refuse to start.",
+      "- **SSH workspaces:** Open files, live agent tabs and paused Claude or Codex resume offers survive an SSH reconnect and a restart, and tabs you closed long ago no longer come back as empty shells. Clicking an SSH worktree whose last tab you closed opens a terminal again.",
+      "- **Remote servers and the phone:** A paired terminal accepts typing again after its host app relaunches, remote browser tabs come back after a network drop, and the phone keeps every terminal after `orca serve` restarts. Starting an agent from the phone shows its tab right away and no longer moves your desktop window; creating a workspace on a remote host no longer pulls other connected desktops to it."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.223",
+    "href": "/docs/changelog#v1-4-223"
+  },
+  {
     "tag": "v1.4.222",
     "date": "2026-10-07",
     "dateLabel": "2026年10月7日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.219",
     "href": "/docs/changelog#v1-4-219"
-  },
-  {
-    "tag": "v1.4.218",
-    "date": "2026-09-30",
-    "dateLabel": "2026年9月30日",
-    "title": "Codex 终端可独立服务器，内置更多 Agent",
-    "highlights": [
-      "Codex 终端：Settings → Agents 新增 **「Run each Codex terminal on its own server」** 开关，默认打开。关掉则回到 Codex 共用服务器。从 cmd.exe、完整路径或等待安装完成后启动的 Codex 也会走独立服务器。忙碌的 0.150–0.157 标签不再显示空闲。",
-      "更多 Agent：内置 DeepSeek Harness、Freebuff、Qoder、CodeBuddy，侧栏显示状态；ZCode CLI 会话进历史，Coding Plan 额度进用量。",
-      "终端：右键新增 **Reset Terminal** 清除崩溃程序留下的键盘/鼠标模式；不再误关仍在运行程序的模式。SSH 清理与本地一致；保存失败不再误报磁盘已满。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.218",
-    "href": "/docs/changelog#v1-4-218"
   }
 ];
 
