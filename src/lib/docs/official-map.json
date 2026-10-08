@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-07",
+  "capturedAt": "2026-10-08",
   "officialRef": "main",
   "docsTreeSha": "29a3865ca4d847dc416a6df4185570f7df295688",
   "docs": [
@@ -28,7 +28,7 @@
       "officialPath": "docs/site/content/docs/telemetry.mdx",
       "size": 5201,
       "lastSeenSha": "305304c951de75332da4ca7591bed9ff88fda874",
-      "translatedAtSha": "a8b8715812a99d6c39b72ba05c42babdbac6b3f2"
+      "translatedAtSha": "305304c951de75332da4ca7591bed9ff88fda874"
     },
     {
       "slug": "agents/codex-hot-swap",
@@ -406,7 +406,7 @@
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
       "size": 10541,
       "lastSeenSha": "25ad464f0028f1a854f16e15001c147f7440a255",
-      "translatedAtSha": "f23e3d94a6af1e78677d59591ef79879bd47a6f6"
+      "translatedAtSha": "25ad464f0028f1a854f16e15001c147f7440a255"
     },
     {
       "slug": "review/annotate-ai-diff",
@@ -576,7 +576,7 @@
       "tag": "v1.4.222",
       "publishedAt": "2026-10-07",
       "lastSeenBodySha": "815bc8eb27f9",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "815bc8eb27f9",
       "yanked": false
     },
     {

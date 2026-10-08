@@ -14,11 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.222",
     "date": "2026-10-07",
     "dateLabel": "2026年10月7日",
-    "title": "A worker started with `orca …",
+    "title": "OpenCode worker 等可提交后再交任务，大 CSV 可表格编辑",
     "highlights": [
-      "- **OpenCode workers:** A worker started with `orca orchestration worker-start --agent opencode` no longer leaves its task sitting unsent in OpenCode's input box on a busy machine; Orca now waits until OpenCode can actually submit it. A worker can use a requested model without changing the default for your other launches, OpenCode 2.0.12 sends its first prompt on its own, and Orca's OpenCode plugin is installed where that terminal's OpenCode actually reads its settings.",
-      "- **Sidebar and workspaces:** A remote computer you reveal in the sidebar no longer disappears again while Orca saves the setting. Dragging a workspace whose children are collapsed now moves it, dragging workspaces can no longer crash the sidebar, the delete dialog stops jumping while its checks load, and Create worktree closes right away while setup scripts are checked in the background.",
-      "- **CSV files:** Large CSV files open without loading the whole file at once. You can resize columns, open links, edit cells, add or remove rows and columns, copy and paste ranges, and sort or filter, and column widths are remembered."
+      "OpenCode worker 会等到 OpenCode 能提交再交任务，不再把任务留在输入框。可用指定模型而不改其他启动的默认；OpenCode 2.0.12 自己发首条 prompt，插件装到该终端实际读取设置的位置。",
+      "侧栏里显示的远程计算机在保存设置时不再消失。折叠子项的工作区可以拖动且不再把侧栏拖崩；删除对话框不再跳动；Create worktree 立刻关闭，设置脚本在后台检查。",
+      "大 CSV 不必一次载入整文件，可调列宽、打开链接、编辑单元格、增删行列、复制粘贴和排序筛选，并记住列宽。确认日文、中文或韩文的 Enter 不再同时提交字段。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.222",
     "href": "/docs/changelog#v1-4-222"

@@ -147,6 +147,8 @@ orca-ide serve --port 6768 --pairing-address 100.64.1.20
 
 同一时间只使用一种主机模式。如果 Orca 桌面应用已经在分享那台计算机，不要为同一套设置再启动第二个 `orca serve` 进程。
 
+`orca serve` 默认跑在 Orca 自己的 Node 服务器（orcad）上。如果 orcad 在这台计算机上无法提供服务，它会改用桌面应用的服务器，并打印一行说明原因。在打包的 macOS 应用上，它目前始终使用桌面应用的服务器，这样已配对客户端仍然可以更新它。若要始终使用桌面应用的服务器，设置 `ORCA_SERVE_RUNTIME=electron`。
+
 ### 从无头服务器用于移动端 {#mobile-from-a-headless-server}
 
 对于 Orca 移动应用，请求移动端范围的二维码和链接：
