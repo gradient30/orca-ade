@@ -14,11 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.223",
     "date": "2026-10-08",
     "dateLabel": "2026年10月8日",
-    "title": "- Native chat (experimental)…",
+    "title": "实验性 Native Chat 可回退对话，SSH 重连后保留标签",
     "highlights": [
-      "- **Native chat (experimental):** With \"Use updated structured Native Chat\" turned on (Settings → Chat UI), Grok now opens as a 结构化聊天 on this computer and on paired Orca servers; SSH and WSL keep the terminal chat. You can rewind a conversation to an earlier message, search the model list, pick workspace files by typing `@`, and set text size, code size, width and contrast, or match your terminal, on a new Settings → Chat page. Chats are named after their first message, alert you when they stop to ask for approval, keep an unsent draft through a reload or quit, and use the Command and Arguments saved in Settings → Agents. Claude chats now open for API-key users, and Windows chats no longer refuse to start.",
-      "- **SSH workspaces:** Open files, live agent tabs and paused Claude or Codex resume offers survive an SSH reconnect and a restart, and tabs you closed long ago no longer come back as empty shells. Clicking an SSH worktree whose last tab you closed opens a terminal again.",
-      "- **Remote servers and the phone:** A paired terminal accepts typing again after its host app relaunches, remote browser tabs come back after a network drop, and the phone keeps every terminal after `orca serve` restarts. Starting an agent from the phone shows its tab right away and no longer moves your desktop window; creating a workspace on a remote host no longer pulls other connected desktops to it."
+      "打开「Use updated structured native chat」后，Grok 在本机和已配对服务器上以结构化聊天打开；SSH 和 WSL 仍用终端聊天。可回退到更早消息、搜索模型、用 @ 选工作区文件，并在设置 → Chat 调整文字、代码、宽度、对比度或匹配终端。聊天按第一条消息命名，请求批准时会提醒，草稿在重载或退出后仍在，并使用已保存的 Command 和 Arguments。API key 用户可打开 Claude 聊天，Windows 也不再拒绝启动。",
+      "SSH 工作区在重连和重启后仍保留打开的文件、正在运行的 Agent 标签和暂停的 Claude 或 Codex 恢复提议。很久以前关掉的标签不再以空壳回来。最后那个标签已关掉的 SSH worktree，点开后会再开一个终端。",
+      "宿主应用重启后已配对终端又能输入；断网后远程浏览器标签会回来；`orca serve` 重启后手机仍保留每个终端。从手机启动 Agent 会立刻显示标签，也不再挪动桌面窗口。在远程宿主上创建工作区，不再把其他已连接桌面拉过去。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.223",
     "href": "/docs/changelog#v1-4-223"

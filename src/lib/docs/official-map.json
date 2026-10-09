@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-08",
+  "capturedAt": "2026-10-09",
   "officialRef": "main",
   "docsTreeSha": "b911dbd15f53a760c9f6aeb781743b7072047b07",
   "docs": [
@@ -46,7 +46,7 @@
       "officialPath": "docs/site/content/docs/agents/codex.mdx",
       "size": 2752,
       "lastSeenSha": "5ecf8281d2c7f80cfc4faee732e6b9e5d39bdbd6",
-      "translatedAtSha": "80b8ca1cd0c8dbdd149569709dd23d73a7ab16fc"
+      "translatedAtSha": "5ecf8281d2c7f80cfc4faee732e6b9e5d39bdbd6"
     },
     {
       "slug": "agents/cursor-cli",
@@ -163,7 +163,7 @@
       "officialPath": "docs/site/content/docs/cli/automations.mdx",
       "size": 6915,
       "lastSeenSha": "34f14fff180784b5ef6de3af5acd61bd14540de5",
-      "translatedAtSha": "3e2d3ab1578345477c524c9f07dee1424addd4d0"
+      "translatedAtSha": "34f14fff180784b5ef6de3af5acd61bd14540de5"
     },
     {
       "slug": "cli/computer-use",
@@ -575,8 +575,8 @@
     {
       "tag": "v1.4.223",
       "publishedAt": "2026-10-08",
-      "lastSeenBodySha": "2e0e25d2dc84",
-      "translatedAtBodySha": null,
+      "lastSeenBodySha": "617dc04ea348",
+      "translatedAtBodySha": "617dc04ea348",
       "yanked": false
     },
     {

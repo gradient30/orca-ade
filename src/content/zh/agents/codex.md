@@ -24,9 +24,9 @@ Codex 是 OpenAI 的 agentic CLI。Orca 的 Codex 集成是应用中最深的之
 
 当 Codex 生成 Task subagents 时，Orca 可以在 worktree agent 列表和 [Agent Dashboard](/docs/model/agents-sessions#agent-dashboard) 上把它们显示为父 Agent 下的子行。展开 chevron 查看每个子项；点击子项会聚焦到父终端（subagents 并不拥有单独窗格）。
 
-## 在新会话中继续 {#continue-in-a-new-session}
+## 移交给另一个 Agent {#hand-off-to-another-agent}
 
-从 Agent 终端的 header 或上下文菜单选择 **Continue in New Session…**。Orca 启动一个全新的 Agent 会话（相同或不同的 CLI），并从先前的 transcript 或捕获的上下文注入一份篇幅受限的 handoff prompt。原会话不受影响——这不是 `codex resume`。
+从 Agent 终端的 header 或上下文菜单选择 **Hand Off to Another Agent**。Orca 启动一个全新的 Agent 会话（相同或不同的 CLI），并从先前的 transcript 或捕获的上下文注入一份篇幅受限的 handoff prompt。原会话不受影响——这不是 `codex resume`。
 
 ## 重启芯片 {#restart-chip}
 

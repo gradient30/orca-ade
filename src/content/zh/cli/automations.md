@@ -100,6 +100,25 @@ orca automations create \
 
 用 `orca automations edit <automationId> --fresh-session --json` 把自动化切回每次运行使用全新终端。
 
+## 额外的 Agent 参数 {#extra-agent-arguments}
+
+给单条自动化的 Agent 命令追加参数，例如换一个模型：
+
+```bash
+orca automations create \
+  --name "Docs pass" \
+  --trigger daily \
+  --prompt "Tidy the docs" \
+  --provider claude \
+  --extra-agent-args="--model opus --add-dir docs"
+```
+
+每次全新运行时，Orca 从该宿主上这个 Agent 的默认 Arguments 起步，再追加这些额外参数。额外参数里的 model 或 effort 选项会替换默认值里的同名选项。因为值以 `--` 开头，请用 `=` 传入。
+
+保存的额外参数在每台宿主（包括 Windows）上使用同一套引号：含空格的值用单引号或双引号包起来；要保留路径里的反斜杠时用单引号，例如 `--add-dir 'C:\\work\\my docs'`。Orca 把它们当作字面参数传递，不支持 shell 命令和展开。
+
+额外参数只接受 model 与 effort 选项，以及 Claude 的 `--add-dir`，适用于 Claude、Codex、CodeBuddy、Cursor、Grok 和 OMP。权限、配置、prompt 和会话选项会被拒绝。额外参数要求每次运行都是全新会话，因此不能和 `--reuse-session` 一起用。用 `orca automations edit <automationId> --extra-agent-args=` 清除它们。
+
 ## 审查并启用 {#review-and-enable}
 
 启用之前先列出并查看自动化：
@@ -131,6 +150,5 @@ orca automations runs --id <automationId> --json
 
 ## 下一步 {#next-steps}
 
-- [命令使用](/docs/cli/commands#automations) —— 当前 `orca help` 里的自动化命令卡片。
 - [Orca CLI 概览](/docs/cli/overview) —— 查看 CLI 其余能力：worktree、终端和浏览器控制。
 - [技能注册表与 MCP](/docs/cli/skills) —— 安装 Orca CLI 技能，让 Agent 能调用同一套命令。
