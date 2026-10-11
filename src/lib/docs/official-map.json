@@ -579,8 +579,7 @@
       "publishedAt": "2026-10-10",
       "lastSeenBodySha": "dd5fc6f4c1de",
       "translatedAtBodySha": "dd5fc6f4c1de",
-      "yanked": false,
-      "translatedAt": "2026-10-11"
+      "yanked": false
     },
     {
       "tag": "v1.4.223",
