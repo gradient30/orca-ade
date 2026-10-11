@@ -123,6 +123,34 @@ orca worktree set --worktree active --pr null --gitlab-mr null --json
 
 基于文件夹的仓库可以用这些命令存数字链接，但编号本身不提供 provider 的 host 或 project。没有已有 source context 或已存 remote 时，粘贴的 GitLab URL 会被拒绝，provider 详情或可点击链接也可能不可用。这些标志使用运行时已经支持的字段；早于该字段的旧运行时可能忽略它，写到旧宿主后请用 `worktree show --json` 核对。
 
+## References {#references}
+
+工作区可以链接多个审查和 issue，包括其仓库之外的来源。
+
+```bash
+orca reference list --worktree name:api --json
+orca reference add https://github.com/acme/api/pull/5123 https://linear.app/acme/issue/STA-1234 --worktree name:api --json
+orca reference remove https://github.com/acme/api/pull/5123 --worktree name:api --json
+orca reference remove --key '<key-from-list>' --worktree name:api --json
+orca worktree create --name fix --reference https://github.com/acme/api/pull/5123 --reference https://linear.app/acme/issue/STA-1234 --json
+orca reference find STA-1234 --json
+```
+
+- **写入：** 仅完整 URL；无自定义简写。`remove --key` 支持没有 URL 的旧条目。来源未知的旧链接无法匹配精确 URL；存储时原生 issue 键仍可搜索。重复添加和不存在的移除是空操作。无关链接和当前选择会被保留。没有安全增量合并的旧宿主会拒绝写入。
+- **创建：** 重复 `--reference`；与 `--pr`、`--issue`、`--linear-issue`、`--gitlab-issue` 和 `--gitlab-mr` 不兼容。引用在设置或 Agent 启动前持久化。
+- **查找：** 完整 URL 或原生 issue 键；裸数字被拒绝。键搜索所有匹配来源。读取存储的元数据，不向提供方请求或搜索对话。对话文本使用 `orca search`。
+- **范围：** `--worktree` 选择 worktree 或文件夹工作区。查找也接受 `--repo` 代替，加上 `--include-archived` 和 `--limit`（默认 50 个工作区）。`truncated: true` 表示还有更多匹配。远程选择器指执行宿主；`current` 仅本地。
+- **输出：** list 返回带不透明 `key` 和 `selected` 的 `references`；写入也返回 `changes`。Worktree show/list/ps 保留 `linkedItems`。Find 返回工作区匹配和带 `linked`、`liveness` 以及可用 `terminal`/`mailbox` 地址的 Agent。`linked: false` 表示所有权未知；共享工作区不是充分证据。
+
+从 `find` 中选择一个 Agent，然后使用其精确地址：
+
+```bash
+orca terminal send --terminal '<terminal-from-find>' --text 'Status?' --enter
+orca orchestration send --to '<mailbox-from-find>' --subject 'Status?' --type question
+```
+
+邮箱是 `dispatch:<id>` 或 `orca_session_id:<id>`；`run:<id>` 寻址协调器。Find 从不发送消息或分配所有权。从 shell 添加引用不会把该 shell 与 Agent 关联。
+
 ## 终端 {#terminals}
 
 ```bash

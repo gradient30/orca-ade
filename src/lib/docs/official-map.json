@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-10",
+  "capturedAt": "2026-10-11",
   "officialRef": "main",
-  "docsTreeSha": "b382e38c8fa7d89c76fb32ebcebbb595a76d0044",
+  "docsTreeSha": "65944218662ce29f2581e0c257b62fed45774b7e",
   "docs": [
     {
       "slug": "activity",
@@ -199,7 +199,8 @@
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
       "size": 21640,
       "lastSeenSha": "46e995e0b47b459d443c3a2280eaacb59ea9e6ae",
-      "translatedAtSha": "087caf0e02b42f2503570bcbcebe0cf77eddd905"
+      "translatedAtSha": "46e995e0b47b459d443c3a2280eaacb59ea9e6ae",
+      "translatedAt": "2026-10-11"
     },
     {
       "slug": "cli/skills",
@@ -404,9 +405,10 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
-      "size": 10541,
-      "lastSeenSha": "25ad464f0028f1a854f16e15001c147f7440a255",
-      "translatedAtSha": "25ad464f0028f1a854f16e15001c147f7440a255"
+      "size": 10557,
+      "lastSeenSha": "7b11d097f53328bc394cd8d7af0319f73faae1ef",
+      "translatedAtSha": "7b11d097f53328bc394cd8d7af0319f73faae1ef",
+      "translatedAt": "2026-10-11"
     },
     {
       "slug": "review/annotate-ai-diff",
@@ -576,8 +578,9 @@
       "tag": "v1.4.224",
       "publishedAt": "2026-10-10",
       "lastSeenBodySha": "dd5fc6f4c1de",
-      "translatedAtBodySha": null,
-      "yanked": false
+      "translatedAtBodySha": "dd5fc6f4c1de",
+      "yanked": false,
+      "translatedAt": "2026-10-11"
     },
     {
       "tag": "v1.4.223",
