@@ -1,1 +1,16 @@
-PLACEHOLDER
+{
+  "capturedAt": "2026-10-12",
+  "officialRef": "main",
+  "docsTreeSha": "65944218662ce29f2581e0c257b62fed45774b7e",
+  "docs": [
+    {
+      "slug": "activity",
+      "section": "notify",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/activity.mdx",
+      "size": 1885,
+      "lastSeenSha": "8a622c06ef8af321717514007a7e3bd0346beb27",
+      "translatedAtSha": "8a622c06ef8af321717514007a7e3bd0346beb27"
+    }
+  ]
+}
