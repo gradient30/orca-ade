@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-12",
   "officialRef": "main",
-  "docsTreeSha": "65944218662ce29f2581e0c257b62fed45774b7e",
+  "docsTreeSha": "ccd2c1c93bce215243143d3a6b2022505bd84d78",
   "docs": [
     {
       "slug": "activity",
@@ -207,8 +207,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/skills.mdx",
-      "size": 11148,
-      "lastSeenSha": "77ea47ce8adfe5634bd679a9edf423f66f4443e9",
+      "size": 11759,
+      "lastSeenSha": "3674c42f07f92cfccc511a546a62f0eda9314d10",
       "translatedAtSha": "77ea47ce8adfe5634bd679a9edf423f66f4443e9"
     },
     {
