@@ -67,6 +67,47 @@ Windows 上的默认 shell 可在 PowerShell、Command Prompt 和 WSL 之间配�
 
 对于位于 WSL 文件系统（`\\wsl.localhost\...`）上的仓库，Orca 通过 `wsl.exe -d <distro>` 启动。对于在 WSL 中打开的 Windows 路径仓库，Orca 会把 cwd 翻译成 `/mnt/<drive>/...`，并让你进入 login bash。
 
+## Windows 管理员模式 {#windows-administrator-mode}
+
+打开 **Settings → Terminal → Administrator mode** 查看 Orca 应用
+是以 **Administrator** 还是 **Standard user** 运行。**Unable to determine**
+表示 Orca 无法读取其 Windows 提升状态。已有的终端可能
+与应用拥有不同的权限。
+
+在已安装的 Windows 应用中，选择 **Restart as administrator**，查看
+确认，然后用你的常用账户批准 Windows 的提示。批准后，
+Orca 会替换其当前本地终端宿主。这会结束该宿主的
+终端和正在运行的 Agent；恢复的终端标签会打开新的管理员
+shell。SSH 和 WSL 权限仍由它们的宿主控制。位于
+保留的较旧宿主上的终端保持原来的权限。
+
+如果你取消 Windows 的提示或提升失败，Orca 会以之前的
+权限重新打开并保留其终端会话。
+
+手动启动时，完成你的本地终端工作并退出 Orca。在
+Windows 开始菜单中找到 Orca，右键它，选择 **Run as administrator**。
+如果新终端仍只有普通权限，使用 **Settings → Terminal →
+Manage Sessions → Restart daemon**。这会结束当前本地
+宿主上的终端；新打开的本地 shell 会继承管理员应用的权限。
+该设置的手动说明包含到 Manage Sessions 的直接链接。
+
+要检查某个 PowerShell 终端自身的权限，运行：
+
+```powershell
+([Security.Principal.WindowsPrincipal][Security.Principal.WindowsIdentity]::GetCurrent()).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
+```
+
+`True` 表示该 PowerShell 进程拥有管理员权限。
+
+管理员模式适用于整个应用。在外部 PowerShell 窗口中运行 `orca` 命令时，
+请用与 Orca 相同的管理员模式运行该窗口。
+
+要回到普通权限，完成并关闭所有本地终端会话，
+退出 Orca，然后正常启动它。关闭会话让保留的
+终端宿主在 Orca 断开后退休；让会话继续运行可能会在应用退出后
+仍保留管理员宿主。Administrator 状态提供
+**Standard mode guide**，包含这些步骤。
+
 ## 快捷键 {#shortcuts}
 
 - `Cmd-T` — 在当前 worktree 中新建终端标签。

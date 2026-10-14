@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-13",
+  "capturedAt": "2026-10-14",
   "officialRef": "main",
-  "docsTreeSha": "b8fcd8b14952d3f7397220aa0da252c5d2e8ae41",
+  "docsTreeSha": "392b3d636e57210bb5e4a2d3f6c579915086faef",
   "docs": [
     {
       "slug": "activity",
@@ -209,7 +209,7 @@
       "officialPath": "docs/site/content/docs/cli/skills.mdx",
       "size": 11759,
       "lastSeenSha": "3674c42f07f92cfccc511a546a62f0eda9314d10",
-      "translatedAtSha": "77ea47ce8adfe5634bd679a9edf423f66f4443e9"
+      "translatedAtSha": "3674c42f07f92cfccc511a546a62f0eda9314d10"
     },
     {
       "slug": "cli/worktree-checkpoints",
@@ -299,7 +299,7 @@
       "officialPath": "docs/site/content/docs/mobile.mdx",
       "size": 12199,
       "lastSeenSha": "dd02717a23851862a4d8324da0adfe2cc29a4e24",
-      "translatedAtSha": "5883cb81fcd113e7f4651e26f7b51a851ab315ff"
+      "translatedAtSha": "dd02717a23851862a4d8324da0adfe2cc29a4e24"
     },
     {
       "slug": "model/agents-sessions",
@@ -496,9 +496,9 @@
       "section": "terminal",
       "kind": "official",
       "officialPath": "docs/site/content/docs/terminal.mdx",
-      "size": 9173,
-      "lastSeenSha": "8db8b24caee7848b74cb8f3f0056954670a06570",
-      "translatedAtSha": "8db8b24caee7848b74cb8f3f0056954670a06570"
+      "size": 11366,
+      "lastSeenSha": "80b8767ac15aeb8c9a4917f5d81b547c6c421aa9",
+      "translatedAtSha": "80b8767ac15aeb8c9a4917f5d81b547c6c421aa9"
     },
     {
       "slug": "troubleshooting",

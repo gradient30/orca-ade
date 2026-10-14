@@ -41,15 +41,15 @@ orca skills get orca-linear --json
 
 当 Orca 发布了比全局已安装更新的技能包时，应用可以：
 
-- 显示 **update available** 提示（当某份拷贝过期且更新器无法安全改写时，则显示 **Needs attention**）。
-- 打开 **Update skills** —— 列出放置位置和跳过原因，然后无界面运行 **`npx --yes skills update <names> --global -y`**（不嵌入终端）。
+- 显示 **update available** 提示，针对 Orca 安装的技能（当某份拷贝过期且更新器无法安全改写时，则显示 **Needs attention**）。
+- 打开 **Update skills** —— 列出放置位置和跳过原因，每项技能有一个复选框。Orca 自己的技能默认勾选；从别处安装的同名技能标记为 **Not from Orca** 并默认不勾选。选中的技能会无界面重新安装（不嵌入终端），使用 **`npx --yes skills@1.7.2 add https://github.com/stablyai/orca/tree/<commit> --skill <name>… --global -y`**，固定到当前运行的 Orca 构建所基于的 commit（因此对 hourly、daily、RC 和 stable 构建都适用），并固定到已知的 skills CLI 版本。
 - 把运行保持在 **background**：关闭对话框不会取消它。状态栏一段显示进度（运行时是 spinner，成功时短暂打勾，失败会一直显示直到你处理）。点击该段可重新打开对话框。
 - 在 **Settings → Agents** 上为已安装技能展示新鲜度（全局安装栏），某行需要审查时包括 **Details**。
 
-手动等价命令（桌面 Settings 仍显示同一条 `npx` 形式）：
+手动等价命令（桌面 Settings 为当前运行构建显示同样的固定形式）：
 
 ```bash
-npx skills update orca-cli orchestration computer-use --global
+npx skills@1.7.2 add https://github.com/stablyai/orca/tree/<commit> --skill orca-cli --skill orchestration --global
 ```
 
 在没有 Settings UI 的无头宿主（SSH、容器、CI、`orca serve`）上，使用本地 CLI 包装——它们解析同一套 `npx` 命令、加上非交互标志，并且 **不** 需要正在运行的 Orca 运行时：
@@ -65,7 +65,7 @@ orca skills update --skill orca-cli --dry-run
 
 - 默认范围是 **global**（`--global`）；只针对当前项目时传 `--local`。
 - `install` 针对 Orca 在宿主上检测到的 Agent（外加共享的 `.agents/skills` 目录）。用 `--agent <name>[,<name>…]` 或 `--agent universal` 覆盖；如果没有检测到 Agent，则必须提供 `--agent`。
-- `update` 只刷新已经安装的技能。
+- `update` 运行与 `install` 相同的固定 `skills add`。没有检测到 Agent 时，它只针对 `.agents/skills`，而不是拒绝。
 - `--dry-run` 打印解析后的命令；`--json` 只在列出 / `--dry-run` 时有效。
 
 Orca 提供应用内更新器时优先用它，这样应用扫描到的同一批全局放置会被改写。标为 **Skipped** 的行会说明该技能为何无法自动更新（例如缺少源注册）——修好放置位置，然后重新检查。
