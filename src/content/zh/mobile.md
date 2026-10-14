@@ -3,7 +3,7 @@
 Orca 移动伴侣是一款 iOS/Android 应用，与你的桌面 Orca 配对，提供以只读为主的运行中 Agent 视图——Agent 状态、最近的终端回滚缓冲，以及你在手机上真正想要的控件（回复 prompt、休眠 worktree、审查源代码管理、切换 Agent 账户）。配对是一次性的，桌面始终是事实来源。
 
 > **测试版**
-> 移动伴侣处于测试版。从 [App Store](https://apps.apple.com/us/app/orca-ide/id6766130217) 安装 iOS，加入 [TestFlight 预览频道](https://testflight.apple.com/join/YjeGMQBA)，或从 [当前 APK 0.0.48](https://github.com/stablyai/orca/releases/download/mobile-android-v0.0.48/app-release.apk) 安装 Android。
+> 移动伴侣处于测试版。从 [App Store](https://apps.apple.com/us/app/orca-ide/id6766130217) 安装 iOS，加入 [TestFlight 预览频道](https://testflight.apple.com/join/YjeGMQBA)，或从 [当前 APK](https://www.onorca.dev/download/android) 安装 Android。
 
 ## 在移动端能做什么 {#what-you-can-do-from-mobile}
 
