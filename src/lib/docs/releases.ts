@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.225",
+    "date": "2026-10-14",
+    "dateLabel": "2026年10月14日",
+    "title": "- SSH and managed servers: N…",
+    "highlights": [
+      "- **SSH and managed servers:** New SSH connections now use Orca's managed server. Terminals left running by v1.4.224 keep working in their existing tabs through the upgrade and reconnect; new terminals open on the managed server. Saved port forwards return, Windows managed-host terminals get the `orca` CLI, and managed Claude chats keep their provider running after the desktop disconnects. Hosts that cannot run the managed server show a clear reason; the old SSH fallback is no longer available.",
+      "- **Native chat (experimental):** Code blocks and shell commands are highlighted, attached files show as filename pills, and you can edit a queued message even while the agent is asking a question. Codex offers Ultrafast and can stop background commands and subagents; Grok can list and stop its background commands too. A new chat saves its first message immediately, closed chats stay closed, and interrupted replies put **Continue** in the explanation card. Mermaid diagrams work better in dark mode, and chat visuals can open in their own tab.",
+      "- **Agents and accounts:** Kiro reports agent status and appears in Session History. Claude accounts use separate folders and offer **Copy sign-in link instead**. Orchestration workers can start as Native Chats for supported agents, agent launch settings are edited on the workspace's own host, and account switching and MCP settings stay with the selected host."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.225",
+    "href": "/docs/changelog#v1-4-225"
+  },
+  {
     "tag": "v1.4.224",
     "date": "2026-10-10",
     "dateLabel": "2026年10月10日",
@@ -18,7 +31,8 @@ export const RELEASES: ReleaseNote[] = [
     "highlights": [
       "自动化现在可以为每次运行指定 Agent 的模型和 effort（在 Advanced 填 Extra agent arguments，或用 --extra-agent-args）。目前支持 Claude、Codex、Grok、CodeBuddy、Cursor 和 OMP，每次运行开启全新会话。已有工作区的定时任务会交给启动后读取的 Agent。",
       "SSH 主机现在运行 Orca 自带的托管服务器，连接时自动设置，不再因 Node 版本或缺少构建工具失败。无打开终端的主机下次连接时切换并带上项目和标签；有终端的提供 Move to a managed Orca server。可在 Settings → Managed servers 查看、更新、回滚、Recover 或 Forget。",
-      "实验性 Native Chat：Chat UI 打开且默认为聊天时，支持的 Agent 默认以结构化聊天打开。可在标签右键或 Session History 中在聊天与终端间移动。OpenCode（含 2.x）、Pi、OMP 支持结构化聊天；可在回复内绘制图表（可关闭），Cmd/Ctrl+F 搜索，Add to chat 引用，数字键回答问题。"],
+      "实验性 Native Chat：Chat UI 打开且默认为聊天时，支持的 Agent 默认以结构化聊天打开。可在标签右键或 Session History 中在聊天与终端间移动。OpenCode（含 2.x）、Pi、OMP 支持结构化聊天；可在回复内绘制图表（可关闭），Cmd/Ctrl+F 搜索，Add to chat 引用，数字键回答问题。"
+    ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.224",
     "href": "/docs/changelog#v1-4-224"
   },
@@ -60,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.221",
     "href": "/docs/changelog#v1-4-221"
-  },
-  {
-    "tag": "v1.4.220",
-    "date": "2026-10-04",
-    "dateLabel": "2026年10月4日",
-    "title": "Native Chat 的 Stop 会结束进程，SSH 可选自带运行时",
-    "highlights": [
-      "Native Chat（实验性）：Stop 会结束 Claude 的进程，包括后台命令和子 Agent。Codex 拒绝或不应答停止时，Orca 也会结束它。未发送的消息保持未发送直到 Retry，被插入的消息不会重复发送。",
-      "SSH 主机：可选的 Orca 运行时不需要主机上的 Node、npm 或编译器；Auto 仍是默认。标准 Windows SSH 账户可用，重连期间的按键会保留。",
-      "工作区与拖放：大仓库创建更快，删除不再卡住聊天或文件，后台完成不再切换视图。Mac 截图缩略图拖进本地 Claude Code 终端时，Agent 能读到可读副本。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.220",
-    "href": "/docs/changelog#v1-4-220"
   }
 ];
 
