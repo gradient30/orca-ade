@@ -11,8 +11,14 @@ Jira 在任务抽屉里与 GitHub 和 Linear 并列。浏览 Jira 议题、更�
 **Cloud**
 
 - **Jira Cloud site URL** — 例如 `https://example.atlassian.net`。
-- **Atlassian email** — 你 Atlassian 账户上的地址。
-- **Atlassian API token** — 在 [id.atlassian.com → Security → API tokens](https://id.atlassian.com/manage-profile/security/api-tokens) 创建。
+- **Atlassian email** — 你 Atlassian 账户上的地址。对 scoped tokens 可选：留空则使用 Bearer 认证。
+- **Atlassian API token** — 在 [id.atlassian.com → Security → API tokens](https://id.atlassian.com/manage-profile/security/api-tokens) 创建，可带或不带 scopes。
+
+Scoped tokens 需要 `read:jira-work` 才能浏览议题，`write:jira-work` 才能创建或编辑议题与评论，`read:jira-user` 才能验证账户并选择 assignee。看板列排序还额外需要 `read:board-scope:jira-software`、`read:board-scope.admin:jira-software` 和 `read:project:jira`；没有这些时，status 按字母排序。
+
+Orca 在不发送 token 的情况下查找站点的 cloud ID，然后把 scoped-token API 请求路由到 `https://api.atlassian.com/ex/jira/<cloudId>`。有 email 时，它先尝试站点，仅在 401 后重试网关。浏览链接仍使用站点 URL。缺少 scope 时会报告端点和所需访问权限，而不移除已保存的凭据。
+
+对于 SSH 连接，远程运行时拥有 token 和 API 请求。较旧的远程运行时仍要求 email 和非 scoped token；更新远程运行时以启用 scoped tokens。
 
 **Self-hosted**
 

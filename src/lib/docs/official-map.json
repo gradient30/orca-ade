@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-14",
+  "capturedAt": "2026-10-15",
   "officialRef": "main",
-  "docsTreeSha": "6e98edfbc10ef2b57adba896ad7392d63254b1a6",
+  "docsTreeSha": "dd5f4786a6e3f957f703d821fc13d0493b1037af",
   "docs": [
     {
       "slug": "activity",
@@ -161,9 +161,9 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/automations.mdx",
-      "size": 6915,
-      "lastSeenSha": "34f14fff180784b5ef6de3af5acd61bd14540de5",
-      "translatedAtSha": "34f14fff180784b5ef6de3af5acd61bd14540de5"
+      "size": 6714,
+      "lastSeenSha": "5d4351cb0204cfbc58daae971830a5cb37abf04b",
+      "translatedAtSha": "5d4351cb0204cfbc58daae971830a5cb37abf04b"
     },
     {
       "slug": "cli/computer-use",
@@ -199,7 +199,7 @@
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
       "size": 21960,
       "lastSeenSha": "f0e2061242cb3c28d76a292975599910703f0ed4",
-      "translatedAtSha": "46e995e0b47b459d443c3a2280eaacb59ea9e6ae",
+      "translatedAtSha": "f0e2061242cb3c28d76a292975599910703f0ed4",
       "translatedAt": "2026-10-11"
     },
     {
@@ -462,7 +462,7 @@
       "officialPath": "docs/site/content/docs/review/jira.mdx",
       "size": 4988,
       "lastSeenSha": "76e227f5223fe32e7f1531d3eae2f3a4890e1ffd",
-      "translatedAtSha": "aeca47e1ef89d96b9ca91f0a1096e98924d467ab"
+      "translatedAtSha": "76e227f5223fe32e7f1531d3eae2f3a4890e1ffd"
     },
     {
       "slug": "review/linear",
@@ -578,7 +578,7 @@
       "tag": "v1.4.225",
       "publishedAt": "2026-10-14",
       "lastSeenBodySha": "3ead9da46c2b",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "3ead9da46c2b",
       "yanked": false
     },
     {

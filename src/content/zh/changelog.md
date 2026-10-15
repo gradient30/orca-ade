@@ -8,7 +8,7 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
-| [v1.4.225](#v1-4-225) | 2026年10月14日 | - SSH and managed servers: N… |
+| [v1.4.225](#v1-4-225) | 2026年10月14日 | SSH 与托管服务器：新连接使用托管服务器，旧终端继续工作 |
 | [v1.4.224](#v1-4-224) | 2026年10月10日 | 自动化可按次指定模型与 effort，SSH 主机改跑托管 Orca 服务器 |
 | [v1.4.223](#v1-4-223) | 2026年10月8日 | 实验性 Native Chat 可回退对话，SSH 重连后保留标签 |
 | [v1.4.222](#v1-4-222) | 2026年10月7日 | OpenCode worker 等可提交后再交任务，大 CSV 可表格编辑 |
@@ -16,7 +16,7 @@
 
 ## 完整中文日志 {#full-notes}
 
-## v1.4.225 - SSH and managed servers: N… {#v1-4-225}
+## v1.4.225 SSH 与托管服务器：新连接使用托管服务器，旧终端继续工作 {#v1-4-225}
 
 2026年10月14日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.225)
 
@@ -24,17 +24,20 @@
 
 ### 简要说明 {#v1-4-225-short}
 
-- **SSH and managed servers:** New SSH connections now use Orca's managed server. Terminals left running by v1.4.224 keep working in their existing tabs through the upgrade and reconnect; new terminals open on the managed server. Saved port forwards return, Windows managed-host terminals get the `orca` CLI, and managed Claude chats keep their provider running after the desktop disconnects. Hosts that cannot run the managed server show a clear reason; the old SSH fallback is no longer available.
-- **Native chat (experimental):** Code blocks and shell commands are highlighted, attached files show as filename pills, and you can edit a queued message even while the agent is asking a question. Codex offers Ultrafast and can stop background commands and subagents; Grok can list and stop its background commands too. A new chat saves its first message immediately, closed chats stay closed, and interrupted replies put **Continue** in the explanation card. Mermaid diagrams work better in dark mode, and chat visuals can open in their own tab.
-- **Agents and accounts:** Kiro reports agent status and appears in Session History. Claude accounts use separate folders and offer **Copy sign-in link instead**. Orchestration workers can start as Native Chats for supported agents, agent launch settings are edited on the workspace's own host, and account switching and MCP settings stay with the selected host.
-- **Remote work:** The Ports panel scans and stops ports on the workspace's own computer, Resource Manager lists that host's processes, and Agent Dashboard can show terminal previews from the owning host. Files, project creation, pull request and merge request actions, account results and settings follow the computer that owns them. Re-pairing the same server keeps its environment, and one unreadable saved record no longer makes the whole server unusable.
-- **Serving and updates:** `orca serve --supervise` gains a supervisor that runs from a copy outside the app, and `orca serve service install`, `status` and `uninstall` manage a service. Updates preserve Codex sign-in before a headless restart, macOS terminal permissions survive app updates, and automatic terminal restores are paced and limited to avoid runaway restarts. Linux keeps AppImage copies that are still in use and shows a persistent restart banner if a terminal background service's files are gone.
-- **Phone and iPad:** Grok, OpenCode, OMP and Pi chats open on the phone. iPad keeps chat drafts and the host sidebar reachable, workspace badges show SSH host health, tool results stay with the right command, and terminal views accept a fresh snapshot after a stream ends.
-- **Workspaces and automations:** You can copy stable tab references and manage workspace references from the CLI, and launch an agent in an existing workspace from the CLI. Folder workspaces appear as automation targets, multi-day schedules display correctly, removed folder workspaces no longer leave blank sidebar rows, and the **worktree is ready** notification stays until you dismiss it. Feature branches no longer borrow unrelated pull requests.
-- **Windows, WSL and Linux:** Windows notifications no longer freeze Orca, CodeBuddy hooks work without PowerShell 7, and quitting Claude or Codex in cmd.exe or Git Bash removes it from the running list. WSL paths open in Cursor's WSL mode, background work leaves stopped distributions asleep, Windows-drive searches use the host's ripgrep, and Wayland clipboard text stays current.
-- **Reliability and performance:** Orca is more reliable and responsive, with safer terminal restores, stronger connection recovery, less main-thread work, and faster background and CI workflows.
-- **Also:** Nim and Typst highlighting no longer lets a long line freeze the window, HTML previews load authorized web fonts, links open in Orca tabs like they do in Chrome, cancelled browser-tab drags leave tabs clickable, and terminal output, usage counting and project discovery do less work on the main thread.
+- **SSH 与托管服务器：** 新的 SSH 连接现在使用 Orca 的托管服务器。v1.4.224 留下的正在运行的终端在升级和重连后仍在其现有标签中继续工作；新终端在托管服务器上打开。已保存的端口转发恢复，Windows 托管主机终端获得 `orca` CLI，托管的 Claude 聊天在桌面断开后仍保持其提供方运行。无法运行托管服务器的主机会显示明确原因；旧的 SSH 回退不再可用。
+- **Native Chat（实验性）：** 代码块和 shell 命令会高亮，附加文件显示为文件名药丸，即使 Agent 正在提问时你也可以编辑排队消息。Codex 提供 Ultrafast，并可停止后台命令和子 Agent；Grok 也可以列出并停止其后台命令。新聊天立即保存其第一条消息，已关闭的聊天保持关闭，被中断的回复会在解释卡片中放入 **Continue**。Mermaid 图在暗色模式下更好，聊天可视化可以在自己的标签中打开。
+- **Agent 与账户：** Kiro 报告 Agent 状态并出现在 Session History 中。Claude 账户使用单独文件夹并提供 **Copy sign-in link instead**。编排 worker 可以为支持的 Agent 以 Native Chat 启动，Agent 启动设置在工作区自己的宿主上编辑，账户切换和 MCP 设置跟随选定的宿主。
+- **远程工作：** Ports 面板在工作区自己的计算机上扫描并停止端口，Resource Manager 列出该宿主的进程，Agent Dashboard 可以从拥有宿主显示终端预览。文件、项目创建、pull request 和 merge request 操作、账户结果和设置跟随拥有它们的计算机。重新配对同一服务器会保留其环境，一条不可读的已保存记录不再使整个服务器不可用。
+- **服务与更新：** `orca serve --supervise` 获得一个从应用外副本运行的监督器，`orca serve service install`、`status` 和 `uninstall` 管理服务。更新在无头重启前保留 Codex 登录，macOS 终端权限在应用更新后幸存，自动终端恢复被节拍和限制以避免失控重启。Linux 保留仍在使用的 AppImage 副本，如果终端后台服务的文件消失则显示持久重启横幅。
+- **手机与 iPad：** Grok、OpenCode、OMP 和 Pi 聊天在手机上打开。iPad 保持聊天草稿和宿主侧栏可访问，工作区徽章显示 SSH 宿主健康，工具结果跟随正确的命令，终端视图在流结束后接受新快照。
+- **工作区与自动化：** 你可以从 CLI 复制稳定的标签引用并管理工作区引用，并从 CLI 在现有工作区中启动 Agent。文件夹工作区作为自动化目标出现，多日计划正确显示，已移除的文件夹工作区不再留下空白侧栏行，**worktree is ready** 通知保持直到你关闭它。特性分支不再借用无关的 pull request。
+- **Windows、WSL 与 Linux：** Windows 通知不再冻结 Orca，CodeBuddy hooks 无需 PowerShell 7 即可工作，在 cmd.exe 或 Git Bash 中退出 Claude 或 Codex 会从运行列表中移除它。WSL 路径在 Cursor 的 WSL 模式中打开，后台工作让已停止的发行版保持休眠，Windows 驱动器搜索使用宿主的 ripgrep，Wayland 剪贴板文本保持当前。
+- **可靠性与性能：** Orca 更可靠且响应更快，具有更安全的终端恢复、更强的连接恢复、更少的主线程工作和更快的后台与 CI 工作流。
+- **其他：** Nim 和 Typst 高亮不再让长行冻结窗口，HTML 预览加载授权的 Web 字体，链接像在 Chrome 中一样在 Orca 标签中打开，取消的浏览器标签拖动留下可点击的标签，终端输出、用量计数和项目发现在主线程上做更少工作。
 
+### 已知问题 {#v1-4-225-known-issues}
+
+**较旧 SSH 终端中的 `orca` 命令：** 从 v1.4.224 保持运行的终端仍接受输入、输出和调整大小，但那些较旧终端内 `orca` 命令不可用。在同一宿主上的新终端中运行它们（#27787）。
 ### Known issues {#v1-4-225-known-issues}
 
 **SSH hosts that cannot run the managed server:** This version no longer falls back to the old SSH runtime. If the host is unsupported, Settings → SSH Hosts explains why. Use an older Orca version to keep connecting to a host the managed server cannot support (#27214).

@@ -129,7 +129,7 @@ orca automations show <automationId> --json
 orca automations edit <automationId> --enabled --json
 ```
 
-在桌面自动化列表里，计划很多时用搜索框按 **name**、**project** 或 **prompt** 文本过滤。住在 SSH 宿主上的外部自动化，在该宿主断开时仍会作为你可以管理（包括删除）的任务出现——删除一条计划并不需要一次活动的 SSH 会话。
+在桌面自动化列表里，计划很多时用搜索框按 **name**、**project** 或 **prompt** 文本过滤。
 
 用 **Filters** 按 **Host**、**Enabled** 或 **Paused** 状态、上次运行结果（**Failed**、**Succeeded** 或 **Never ran**），或一个或多个 **Agents** 收窄列表。列表很长时在 Agent 子菜单里搜索；活动过滤器会作为可移除的 pills 出现在表上方。表格显示每条自动化的宿主、上次运行结果和相对时间。点击 **Name** 或 **Last run** 列排序；名称按字母排序，上次运行默认最新在前。
 
