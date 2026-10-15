@@ -11,30 +11,6 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
-    "tag": "v1.4.226",
-    "date": "2026-10-15",
-    "dateLabel": "2026年10月15日",
-    "title": "官方更新",
-    "highlights": [
-      "详见下方完整中文日志。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.226",
-    "href": "/docs/changelog#v1-4-226"
-  },
-  {
-    "tag": "v1.4.225",
-    "date": "2026-10-14",
-    "dateLabel": "2026年10月14日",
-    "title": "- SSH and managed servers: N…",
-    "highlights": [
-      "- **SSH and managed servers:** New SSH connections now use Orca's managed server. Terminals left running by v1.4.224 keep working in their existing tabs through the upgrade and reconnect; new terminals open on the managed server. Saved port forwards return, Windows managed-host terminals get the `orca` CLI, and managed Claude chats keep their provider running after the desktop disconnects. Hosts that cannot run the managed server show a clear reason; the old SSH fallback is no longer available.",
-      "- **Native chat (experimental):** Code blocks and shell commands are highlighted, attached files show as filename pills, and you can edit a queued message even while the agent is asking a question. Codex offers Ultrafast and can stop background commands and subagents; Grok can list and stop its background commands too. A new chat saves its first message immediately, closed chats stay closed, and interrupted replies put **Continue** in the explanation card. Mermaid diagrams work better in dark mode, and chat visuals can open in their own tab.",
-      "- **Agents and accounts:** Kiro reports agent status and appears in Session History. Claude accounts use separate folders and offer **Copy sign-in link instead**. Orchestration workers can start as Native Chats for supported agents, agent launch settings are edited on the workspace's own host, and account switching and MCP settings stay with the selected host."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.225",
-    "href": "/docs/changelog#v1-4-225"
-  },
-  {
     "tag": "v1.4.224",
     "date": "2026-10-10",
     "dateLabel": "2026年10月10日",
@@ -72,6 +48,32 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.222",
     "href": "/docs/changelog#v1-4-222"
+  },
+  {
+    "tag": "v1.4.221",
+    "date": "2026-10-05",
+    "dateLabel": "2026年10月5日",
+    "title": "- Security fix for Copilot: …",
+    "highlights": [
+      "- **Security fix for Copilot:** When Orca marked a folder as trusted for GitHub Copilot, it could leave `~/.copilot/config.json` readable by other users on the same machine. That file can hold your Copilot login tokens. v1.4.219 and v1.4.220 did this on SSH hosts too, where other people often share the machine. The file is now owner-only after Orca writes to it. A file an older Orca already opened up is fixed the next time Orca adds a new folder to it.",
+      "- **Codex on Windows uses your own `~/.codex`:** Codex in Orca now uses the same folder as Codex outside Orca, as it already did on macOS and Linux. If you only signed in inside Orca, that sign-in is copied over so you stay logged in. Codex may ask again to trust a folder or approve a command, and MCP servers you added only inside Orca need to be added again; a one-time message explains this. Codex terminals that were open before the update keep working on Orca's old folder, keep their Orca-only MCP servers, and no longer show a restart dialog.",
+      "- **Codex workers:** `worker-start` now accepts `max` and `ultra` effort for Codex models Orca doesn't list yet, such as the gpt-6.x models, instead of refusing them."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.221",
+    "href": "/docs/changelog#v1-4-221"
+  },
+  {
+    "tag": "v1.4.220",
+    "date": "2026-10-04",
+    "dateLabel": "2026年10月4日",
+    "title": "- Native chat (experimental)…",
+    "highlights": [
+      "- **Native chat (experimental):** The **\"Stop\" button** ends Claude's process, including background commands and subagents. If Codex refuses or never answers a stop request, Orca ends it too. Unsent messages stay unsent until Retry, steered messages are not duplicated, and interrupted turns show a clearer status.",
+      "- **Chat polish:** `/clear` switches chats immediately; the first message starts the new agent. Codex connection retries update one warning instead of stacking errors. You can send AI notes to open chats, and older Orca versions preserve newer chat histories as read-only.",
+      "- **Agent status:** Esc cancellation settles Codex panes promptly, while Ctrl+C used to copy or leave `/side` no longer looks like an interruption. OpenCode shows failed and stopped turns correctly. Slow SSH connections no longer make agents look gone."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.220",
+    "href": "/docs/changelog#v1-4-220"
   }
 ];
 
