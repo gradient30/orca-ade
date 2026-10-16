@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.227",
+    "date": "2026-10-16",
+    "dateLabel": "2026年10月16日",
+    "title": "- Native chats have their ow…",
+    "highlights": [
+      "- **Native chats have their own permission mode.** Choose permissions for each new Claude or Codex chat from Settings → Chat → Behavior; existing chats keep the mode they were already using, and changing models no longer resets it.",
+      "- **Native chat sessions are easier to continue.** You can resume large terminal conversations in a new Native Chat, recover chats whose only work ran in the background after a restart, and see every supported chat provider accurately in Session History.",
+      "- **Claude accounts and Codex chat setup are smoother.** Claude accounts again use separate folders, the sign-in link can be copied, Codex chats require version 0.136.0 or later, and Codex Ultrafast is available as a speed choice."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.227",
+    "href": "/docs/changelog#v1-4-227"
+  },
+  {
     "tag": "v1.4.224",
     "date": "2026-10-10",
     "dateLabel": "2026年10月10日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.221",
     "href": "/docs/changelog#v1-4-221"
-  },
-  {
-    "tag": "v1.4.220",
-    "date": "2026-10-04",
-    "dateLabel": "2026年10月4日",
-    "title": "- Native chat (experimental)…",
-    "highlights": [
-      "- **Native chat (experimental):** The **\"Stop\" button** ends Claude's process, including background commands and subagents. If Codex refuses or never answers a stop request, Orca ends it too. Unsent messages stay unsent until Retry, steered messages are not duplicated, and interrupted turns show a clearer status.",
-      "- **Chat polish:** `/clear` switches chats immediately; the first message starts the new agent. Codex connection retries update one warning instead of stacking errors. You can send AI notes to open chats, and older Orca versions preserve newer chat histories as read-only.",
-      "- **Agent status:** Esc cancellation settles Codex panes promptly, while Ctrl+C used to copy or leave `/side` no longer looks like an interruption. OpenCode shows failed and stopped turns correctly. Slow SSH connections no longer make agents look gone."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.220",
-    "href": "/docs/changelog#v1-4-220"
   }
 ];
 
