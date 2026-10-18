@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.229",
+    "date": "2026-10-17",
+    "dateLabel": "2026年10月17日",
+    "title": "实验性 Native Chat 可逐轮审查编辑，共享技能支持更多 Agent",
+    "highlights": [
+      "实验性 Native Chat：可在对话内逐轮审查编辑、展开图表平移缩放、一键分享聊天视觉内容，并查看 Claude 目标与 Codex 上下文用量。键盘回答、未读分隔线与选中复制让长对话更易浏览。",
+      "共享技能：共享技能安装现支持额外 20 个 Agent，WSL 发现范围更广，并为 Kiro、Qoder、CodeBuddy 等工具提供正确安装位置。",
+      "手机端：工作区筛选、分组与排序跟随桌面共享选择。长按查看关联问题与笔记，可操作服务器工作区与浏览器页面，或在新终端对话中继续支持的聊天。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.229",
+    "href": "/docs/changelog#v1-4-229"
+  },
+  {
     "tag": "v1.4.227",
     "date": "2026-10-16",
     "dateLabel": "2026年10月16日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.222",
     "href": "/docs/changelog#v1-4-222"
-  },
-  {
-    "tag": "v1.4.221",
-    "date": "2026-10-05",
-    "dateLabel": "2026年10月5日",
-    "title": "- Security fix for Copilot: …",
-    "highlights": [
-      "- **Security fix for Copilot:** When Orca marked a folder as trusted for GitHub Copilot, it could leave `~/.copilot/config.json` readable by other users on the same machine. That file can hold your Copilot login tokens. v1.4.219 and v1.4.220 did this on SSH hosts too, where other people often share the machine. The file is now owner-only after Orca writes to it. A file an older Orca already opened up is fixed the next time Orca adds a new folder to it.",
-      "- **Codex on Windows uses your own `~/.codex`:** Codex in Orca now uses the same folder as Codex outside Orca, as it already did on macOS and Linux. If you only signed in inside Orca, that sign-in is copied over so you stay logged in. Codex may ask again to trust a folder or approve a command, and MCP servers you added only inside Orca need to be added again; a one-time message explains this. Codex terminals that were open before the update keep working on Orca's old folder, keep their Orca-only MCP servers, and no longer show a restart dialog.",
-      "- **Codex workers:** `worker-start` now accepts `max` and `ultra` effort for Codex models Orca doesn't list yet, such as the gpt-6.x models, instead of refusing them."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.221",
-    "href": "/docs/changelog#v1-4-221"
   }
 ];
 
