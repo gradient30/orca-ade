@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-19",
   "officialRef": "main",
-  "docsTreeSha": "7e220d2c59cd1c1284ae69019101bd2f54f38695",
+  "docsTreeSha": "2269c4efc9766625335e35a621ede6739745d297",
   "docs": [
     {
       "slug": "activity",
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 22404,
-      "lastSeenSha": "0dd5b586207ef7205c9c9f5573d61317b22cf20e",
+      "size": 22479,
+      "lastSeenSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0",
       "translatedAtSha": "0dd5b586207ef7205c9c9f5573d61317b22cf20e"
     },
     {
@@ -431,8 +431,8 @@
       "section": "review",
       "kind": "official",
       "officialPath": "docs/site/content/docs/review/commit-push.mdx",
-      "size": 6401,
-      "lastSeenSha": "4fbc09df4ddf80ee70bfbc984b92e867a3294b6c",
+      "size": 6755,
+      "lastSeenSha": "d30bde7e6003762ad9aff8e4fd538e81da77f3c4",
       "translatedAtSha": "4fbc09df4ddf80ee70bfbc984b92e867a3294b6c"
     },
     {
@@ -494,8 +494,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 5201,
-      "lastSeenSha": "305304c951de75332da4ca7591bed9ff88fda874",
+      "size": 6006,
+      "lastSeenSha": "55334050fdc03d8429256ccad983bd410c5843db",
       "translatedAtSha": "305304c951de75332da4ca7591bed9ff88fda874"
     },
     {
@@ -527,6 +527,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.230",
+      "publishedAt": "2026-10-19",
+      "lastSeenBodySha": "7ab88d626761",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.229",
       "publishedAt": "2026-10-17",
@@ -609,7 +616,7 @@
       "publishedAt": "2026-09-27",
       "lastSeenBodySha": "34d5182a2277",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     }
   ]
 }

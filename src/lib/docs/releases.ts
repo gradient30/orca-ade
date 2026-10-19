@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.230",
+    "date": "2026-10-19",
+    "dateLabel": "2026年10月19日",
+    "title": "- Native chat (experimental)…",
+    "highlights": [
+      "- **Native chat (experimental):** Use Antigravity in chat, choose which agents open as chats, and install a missing agent from the chat itself. Paste copied files as attachments, queue images, and see clearer feedback while attachments and queue actions are pending.",
+      "- **Accounts & agents:** After switching Claude accounts, restart running sessions on the new account. Remove downloaded agent runtimes from Settings, and edit or delete Linear comments through the Orca CLI.",
+      "- **Phone:** Edit queued messages in place, follow tool runs with desktop-style cards, and see your conversation immediately when resuming from history. Landscape phones put session tabs in the top bar, and Tasks makes clear which desktop you’re using."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.230",
+    "href": "/docs/changelog#v1-4-230"
+  },
+  {
     "tag": "v1.4.229",
     "date": "2026-10-17",
     "dateLabel": "2026年10月17日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.223",
     "href": "/docs/changelog#v1-4-223"
-  },
-  {
-    "tag": "v1.4.222",
-    "date": "2026-10-07",
-    "dateLabel": "2026年10月7日",
-    "title": "OpenCode worker 等可提交后再交任务，大 CSV 可表格编辑",
-    "highlights": [
-      "OpenCode worker 会等到 OpenCode 能提交再交任务，不再把任务留在输入框。可用指定模型而不改其他启动的默认；OpenCode 2.0.12 自己发首条 prompt，插件装到该终端实际读取设置的位置。",
-      "侧栏里显示的远程计算机在保存设置时不再消失。折叠子项的工作区可以拖动且不再把侧栏拖崩；删除对话框不再跳动；Create worktree 立刻关闭，设置脚本在后台检查。",
-      "大 CSV 不必一次载入整文件，可调列宽、打开链接、编辑单元格、增删行列、复制粘贴和排序筛选，并记住列宽。确认日文、中文或韩文的 Enter 不再同时提交字段。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.222",
-    "href": "/docs/changelog#v1-4-222"
   }
 ];
 
