@@ -56,7 +56,9 @@ orca worktree show --worktree issue:123 --json
 orca host list --json
 ```
 
-结果包括本机、已注册的 [SSH 目标](/docs/ssh)，以及已配对的 [远程 Orca 服务器](/docs/remote-servers)。本机用 `--host local`，SSH 目标用 `--host ssh:<target-id>`，已配对服务器用 `--environment <server-name>`。SSH 行在目标连接后包含检测到的远程平台（`linux`、`darwin` 或 `win32`）；较旧或已断开的目标报告 `platform unknown`。它们也包含 `connected`，以及已知时的 SSH 生命周期 `connectionStatus`。SSH 标签和已配对服务器名称在唯一时也能解析；名称冲突时使用 `host list` 里的 ID。如果你把机器名放在了错误的选择器上，Orca 会报告匹配的机器以及应使用的标志，而不是返回空结果。
+结果包括本机、已注册的 [SSH 目标](/docs/ssh)，以及已配对的 [远程 Orca 服务器](/docs/remote-servers)。本机用 `--host local`，SSH 目标用 `--host ssh:<target-id>`，已配对服务器用 `--environment <server-name>`。SSH 行在目标连接后包含检测到的远程平台（`linux`、`darwin` 或 `win32`）；较旧或已断开的目标报告 `platform unknown`。它们也包含 `connected`，以及已知时的 SSH 生命周期 `connectionStatus`。如果你把机器名放在了错误的选择器上，Orca 会报告匹配的机器以及应使用的标志，而不是返回空结果。
+
+`--host` 也接受 `name` 列显示的裸名称，在任一轴上——`--host trader-local` 到达与 `--host ssh:ssh-1783599077486-fyasux` 相同的机器。名称仅在唯一时解析：被两个 SSH 目标、两个已配对服务器、或各一个持有的名称会被拒绝，错误会把每个候选的 id 形式交还——SSH 目标用 `--host ssh:<target-id>`，已配对服务器用 `--host runtime:<environment-id>`。用那些来确定，因为 `--environment <server-name>` 无法区分两个同名的服务器。
 
 ## 运行时命令 {#runtime-commands}
 

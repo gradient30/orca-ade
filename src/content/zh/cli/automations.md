@@ -64,10 +64,12 @@ orca automations create \
   --prompt "Triage open issues" \
   --provider claude \
   --project <projectId> \
-  --host <hostId> \
+  --host <host> \
   --disabled \
   --json
 ```
+
+`--project` 接受项目 id，或 `orca project list` 显示的名称。`--host` 接受 `local`、`ssh:<target-id>`、`runtime:<environment-id>`，或 `orca host list` 里的裸名称；当项目只在一台宿主上设置时，可以完全省略它——Orca 会使用那一台。当项目在多台宿主上设置时，错误会列出每一台宿主以及用来选择它的标志。
 
 已有 setup id 时使用 `--project-host-setup <id>`。可选的 `--source-context '<json>'` 把任务/provider 数据钉到某个宿主/账号（编辑时传 `null` 以清除）。
 
