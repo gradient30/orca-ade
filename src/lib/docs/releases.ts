@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.233",
+    "date": "2026-10-20",
+    "dateLabel": "2026年10月20日",
+    "title": "- SSH & remote workspaces: C…",
+    "highlights": [
+      "- **SSH & remote workspaces:** Connecting to an SSH host works when neither machine can download Node.js, with a one-click mirror Orca remembers and retries. Older Windows hosts (Windows 10 1809 and Server 2019) can run Orca's server, and tunnels recover when a port is held by an old SSH connection.",
+      "- **Remote servers in Settings:** Remote Orca Servers is one list instead of six sections, and SSH hosts can be removed in bulk and stay removed. Orca tells you when the same server was saved twice, and adding a server you already saved updates it instead.",
+      "- **Phone:** Creating a workspace from the phone is much faster, the workspace list stays in step with the desktop, and session tab icons keep their size beside long titles."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.233",
+    "href": "/docs/changelog#v1-4-233"
+  },
+  {
     "tag": "v1.4.232",
     "date": "2026-10-20",
     "dateLabel": "2026年10月20日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.227",
     "href": "/docs/changelog#v1-4-227"
-  },
-  {
-    "tag": "v1.4.224",
-    "date": "2026-10-10",
-    "dateLabel": "2026年10月10日",
-    "title": "自动化可按次指定模型与 effort，SSH 主机改跑托管 Orca 服务器",
-    "highlights": [
-      "自动化现在可以为每次运行指定 Agent 的模型和 effort（在 Advanced 填 Extra agent arguments，或用 --extra-agent-args）。目前支持 Claude、Codex、Grok、CodeBuddy、Cursor 和 OMP，每次运行开启全新会话。已有工作区的定时任务会交给启动后读取的 Agent。",
-      "SSH 主机现在运行 Orca 自带的托管服务器，连接时自动设置，不再因 Node 版本或缺少构建工具失败。无打开终端的主机下次连接时切换并带上项目和标签；有终端的提供 Move to a managed Orca server。可在 Settings → Managed servers 查看、更新、回滚、Recover 或 Forget。",
-      "实验性 Native Chat：Chat UI 打开且默认为聊天时，支持的 Agent 默认以结构化聊天打开。可在标签右键或 Session History 中在聊天与终端间移动。OpenCode（含 2.x）、Pi、OMP 支持结构化聊天；可在回复内绘制图表（可关闭），Cmd/Ctrl+F 搜索，Add to chat 引用，数字键回答问题。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.224",
-    "href": "/docs/changelog#v1-4-224"
   }
 ];
 
