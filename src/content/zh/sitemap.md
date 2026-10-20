@@ -20,5 +20,6 @@ flowchart LR
 4. **官方已删** = 指纹里有、官网上没了。
 5. **Release 待汉化 / 正文有改动** = 新桌面版 tag，或同一 tag 的说明被改写（例如 v1.4.202 下架后由 v1.4.203 取代）。
 6. **复制待办** 只复制差异清单，给下一次汉化当工单。
+7. **读者红点**（与上表独立）：每次汉化合入后，维护者可改写 `src/lib/docs/sync-highlights.json`（或 `npm run sync:map -- --mark-translated … --highlight slug=sec1+sec2`）。侧栏与本页目录会出现红点，标出**本次刚更新的中文译本**；读者可点「清除全部红点」。官网 SHA「待更新」仍只给译者用。
 
 一致的页保持静默。内部目录 `docs/reference` 等不在这张表里。
