@@ -21,6 +21,7 @@
 | [更新日志](src/content/zh/changelog.md) | 最近五次桌面版 Release 的完整中文译本 |
 | [本站架构](src/content/zh/architecture.md) | 手册框架图、Release 数据更新驱动图 |
 | [对照表](src/content/zh/sitemap.md) | 官网 57 页 SHA + Release 正文指纹，只亮有差异的行 |
+| 同步红点 `sync-highlights.json` | 侧栏 / 本页目录红点：标出**本次刚汉化**的页与章节（读者向；可清除） |
 | [命令使用](src/content/zh/cli/commands.md) | 按当前 `orca help` 分类的全部命令：中文说明、用法、可跑示例 |
 
 常用入口：
@@ -63,6 +64,7 @@ npm run sync:map
 
 ```bash
 npm run sync:map -- --mark-translated browser/profiles,cli/orchestration,v1.4.203
+npm run sync:map -- --mark-translated remote-servers,ssh --highlight remote-servers=limit-terminal-memory-on-a-linux-server,ssh=macos-hosts-local-network-access
 ```
 
 产物在 `.output/public`。

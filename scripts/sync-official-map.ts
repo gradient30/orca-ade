@@ -5,6 +5,7 @@
  * - Updates lastSeenSha / lastSeenBodySha / docsTreeSha when GitHub moved.
  * - Never changes translatedAtSha / translatedAtBodySha (those mark a finished 汉化).
  * - --mark-translated slug,v1.4.204   copy lastSeen* → translatedAt* for those keys.
+ * - --highlight slug=sec1+sec2,other   with --mark-translated, rewrite sync-highlights.json for reader red dots.
  * - Skip write when last-seen fingerprints already match, unless FORCE_SYNC=1.
  */
 import { readFileSync, writeFileSync } from "node:fs";
@@ -148,6 +149,36 @@ async function main() {
   }
   writeFileSync(file, `${JSON.stringify(next, null, 2)}\n`);
   console.log("wrote", file);
+
+  // Optional reader red-dot batch: --highlight slug=sec1+sec2,changelog=v1-4-230
+  // Rewrites src/lib/docs/sync-highlights.json for the nav/TOC SyncDot UI.
+  const highlightArg = process.argv.find((a) => a.startsWith("--highlight")) ?? "";
+  const highlightValue = highlightArg.includes("=")
+    ? highlightArg.slice(highlightArg.indexOf("=") + 1)
+    : process.argv[process.argv.indexOf("--highlight") + 1];
+  if (highlightValue && !highlightValue.startsWith("-") && (marks.slugs.size > 0 || marks.tags.size > 0)) {
+    const pages: { slug: string; sections: string[] }[] = [];
+    for (const token of highlightValue.split(",").map((s) => s.trim()).filter(Boolean)) {
+      const [slug, secs] = token.split("=");
+      if (!slug) continue;
+      pages.push({
+        slug,
+        sections: secs ? secs.split("+").map((s) => s.trim()).filter(Boolean) : [],
+      });
+    }
+    if (pages.length) {
+      const highlightFile = join(root, "src/lib/docs/sync-highlights.json");
+      const batch = {
+        id: `${today()}-${pages.map((pg) => pg.slug.split("/").pop()).join("-")}`.slice(0, 80),
+        label: `${today()} 同步`,
+        at: today(),
+        summary: `已汉化：${pages.map((pg) => pg.slug).join("、")}`,
+        pages,
+      };
+      writeFileSync(highlightFile, `${JSON.stringify(batch, null, 2)}\n`);
+      console.log("wrote", highlightFile);
+    }
+  }
 }
 
 main().catch((err) => {

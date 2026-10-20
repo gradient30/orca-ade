@@ -1,0 +1,39 @@
+{
+  "id": "2026-10-20-restore-placeholders-v1430",
+  "label": "2026-10-20 同步",
+  "at": "2026-10-20",
+  "summary": "恢复 remote-servers/ssh 占位页；跟上 cli/reference、commit-push、telemetry；润色 changelog v1.4.230",
+  "pages": [
+    {
+      "slug": "remote-servers",
+      "sections": [
+        "2-add-the-server-on-your-laptop",
+        "limit-terminal-memory-on-a-linux-server"
+      ]
+    },
+    {
+      "slug": "ssh",
+      "sections": ["macos-hosts-local-network-access"]
+    },
+    {
+      "slug": "cli/reference",
+      "sections": ["terminals"]
+    },
+    {
+      "slug": "review/commit-push",
+      "sections": ["source-control-panel"]
+    },
+    {
+      "slug": "telemetry",
+      "sections": ["what-we-collect"]
+    },
+    {
+      "slug": "changelog",
+      "sections": [
+        "v1-4-230",
+        "v1-4-230-short",
+        "v1-4-230-compatibility-upgrade-notes"
+      ]
+    }
+  ]
+}
