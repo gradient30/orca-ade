@@ -10,7 +10,7 @@
 | --- | --- | --- |
 | [v1.4.230](#v1-4-230) | 2026年10月19日 | 实验性 Native Chat 支持 Antigravity，可选择 Agent 并在聊天内安装 |
 | [v1.4.229](#v1-4-229) | 2026年10月17日 | 实验性 Native Chat 可逐轮审查编辑，共享技能支持更多 Agent |
-| [v1.4.227](#v1-4-227) | 2026年10月16日 | - Native chats have their ow… |
+| [v1.4.227](#v1-4-227) | 2026年10月16日 | Native Chat 拥有独立权限模式，会话更易继续 |
 | [v1.4.224](#v1-4-224) | 2026年10月10日 | - Automations can now set th… |
 | [v1.4.223](#v1-4-223) | 2026年10月8日 | - Native chat (experimental)… |
 
