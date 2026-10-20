@@ -46,6 +46,8 @@
 
 顶部的 branch context 行把当前分支（或 detached HEAD）叠在比较基线之上（`branch → base`），因此 Create PR 和远程操作永远不会藏起你在哪条分支上。当分支有可用的 merge base 时，一个紧凑芯片会显示相对该分叉点新增和删除的总行数（一次范围 diff，不是 staged/unstaged 区域的求和）。当宿主发布拆分时，悬停芯片可看 **Code breakdown**：**Source**、**Tests** 和 **Generated**（Generated 仅在非零时显示）——只是路径启发式，不是内容分析。长分支名会截断，以免盖住芯片。
 
+**Committed on Branch** 显示相对所选基线共同祖先以来的改动。只在基线上发生的改动会被排除。如果某个未跟踪文件与从该祖先删除或重命名的文件重叠，行数芯片会清掉先前显示的数字，直到再次有精确总数可用。暂存该文件会恢复精确总数。
+
 右键已改文件可 **Copy Path** / **Copy Relative Path**（相对 worktree 根）。
 
 面板底部的主按钮随状态切换，让下一步有用的操作始终一键可达：有未暂存改动时是 **Stage Files**，然后是 **Commit**，再然后是 **Push** / **Pull** / **Sync**，取决于分支相对其 upstream 的位置。
