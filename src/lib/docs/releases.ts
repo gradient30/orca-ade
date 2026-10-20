@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.232",
+    "date": "2026-10-20",
+    "dateLabel": "2026年10月20日",
+    "title": "- Auto permissions, in chat …",
+    "highlights": [
+      "- **Auto permissions, in chat and terminal:** Choose **Manual | Auto | Yolo** in Settings → Agents. Auto lets supported Claude and Codex agents handle approvals, and new Native Chats follow your choice too. You can choose a separate permission mode for other agents; existing chats keep their own settings.",
+      "- **Native chat (experimental):** Open OpenCode 2 directly in chat, find Codex skills by typing `$`, and pan and zoom image previews. Rewind works in long conversations, and usage limits show when they reset with a **Continue** button to pick the conversation back up.",
+      "- **A better phone composer:** Attach files as well as photos, insert skills inline, and choose model, effort and permissions from one sheet. Faster recovery after switching apps and more responsive terminal scrolling make it easier to keep working away from your desk."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.232",
+    "href": "/docs/changelog#v1-4-232"
+  },
+  {
     "tag": "v1.4.230",
     "date": "2026-10-19",
     "dateLabel": "2026年10月19日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.224",
     "href": "/docs/changelog#v1-4-224"
-  },
-  {
-    "tag": "v1.4.223",
-    "date": "2026-10-08",
-    "dateLabel": "2026年10月8日",
-    "title": "实验性 Native Chat 可回退对话，SSH 重连后保留标签",
-    "highlights": [
-      "打开「Use updated structured native chat」后，Grok 在本机和已配对服务器上以结构化聊天打开；SSH 和 WSL 仍用终端聊天。可回退到更早消息、搜索模型、用 @ 选工作区文件，并在设置 → Chat 调整文字、代码、宽度、对比度或匹配终端。聊天按第一条消息命名，请求批准时会提醒，草稿在重载或退出后仍在，并使用已保存的 Command 和 Arguments。API key 用户可打开 Claude 聊天，Windows 也不再拒绝启动。",
-      "SSH 工作区在重连和重启后仍保留打开的文件、正在运行的 Agent 标签和暂停的 Claude 或 Codex 恢复提议。很久以前关掉的标签不再以空壳回来。最后那个标签已关掉的 SSH worktree，点开后会再开一个终端。",
-      "宿主应用重启后已配对终端又能输入；断网后远程浏览器标签会回来；`orca serve` 重启后手机仍保留每个终端。从手机启动 Agent 会立刻显示标签，也不再挪动桌面窗口。在远程宿主上创建工作区，不再把其他已连接桌面拉过去。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.223",
-    "href": "/docs/changelog#v1-4-223"
   }
 ];
 
