@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/cn";
@@ -9,9 +9,18 @@ import { ThemeSwitch } from "./ThemeSwitch";
 import { UpdateEntry } from "./UpdateEntry";
 import { SitemapBoard } from "./SitemapBoard";
 import { CommandCatalog } from "./CommandCatalog";
+import { SyncDot } from "./SyncDot";
 import { readStoredTheme } from "@/lib/theme";
 import { useOrcaReleases } from "@/lib/docs/use-releases";
 import { CLI_COMMAND_TOC } from "@/lib/docs/cli-commands";
+import {
+  activeHighlightCount,
+  groupHasHighlight,
+  highlightedSections,
+  isPageHighlighted,
+  isSectionHighlighted,
+} from "@/lib/docs/sync-highlights";
+import { useSyncHighlights } from "@/lib/docs/use-sync-highlights";
 
 const SITEMAP_TOC = [
   { id: "how-to-use", text: "怎么用", level: 2 },
@@ -24,11 +33,34 @@ function hrefFor(slug: string) {
   return slug === "index" ? "/" : `/docs/${slug}`;
 }
 
-function NavList({ current, onNavigate }: { current: string; onNavigate?: () => void }) {
+type NavHighlightProps = {
+  pageHighlighted: (slug: string) => boolean;
+  groupHighlighted: (childSlugs: string[]) => boolean;
+  onVisitPage?: (slug: string) => void;
+};
+
+function NavList({
+  current,
+  onNavigate,
+  pageHighlighted,
+  groupHighlighted,
+  onVisitPage,
+}: {
+  current: string;
+  onNavigate?: () => void;
+} & NavHighlightProps) {
   return (
     <nav className="space-y-4 pb-10">
       {NAV.map((node, i) => (
-        <NavItem key={i} node={node} current={current} onNavigate={onNavigate} />
+        <NavItem
+          key={i}
+          node={node}
+          current={current}
+          onNavigate={onNavigate}
+          pageHighlighted={pageHighlighted}
+          groupHighlighted={groupHighlighted}
+          onVisitPage={onVisitPage}
+        />
       ))}
     </nav>
   );
@@ -38,11 +70,14 @@ function NavItem({
   node,
   current,
   onNavigate,
+  pageHighlighted,
+  groupHighlighted,
+  onVisitPage,
 }: {
   node: NavNode;
   current: string;
   onNavigate?: () => void;
-}) {
+} & NavHighlightProps) {
   if (node.kind === "label") {
     return (
       <div className="px-3 pt-2 text-xs font-medium tracking-[0.14em] text-fg-subtle uppercase">
@@ -52,16 +87,21 @@ function NavItem({
   }
   if (node.kind === "link") {
     const active = current === node.slug;
+    const hot = pageHighlighted(node.slug);
     return (
       <Link
         to={node.href}
-        onClick={onNavigate}
+        onClick={() => {
+          onVisitPage?.(node.slug);
+          onNavigate?.();
+        }}
         className={cn(
-          "block rounded-sm px-3 py-2 text-sm leading-5",
+          "flex items-center gap-2 rounded-sm px-3 py-2 text-sm leading-5",
           active ? "bg-bg-subtle text-fg" : "text-fg-muted hover:bg-bg-subtle hover:text-fg",
         )}
       >
-        {node.title}
+        <span className="min-w-0 flex-1 truncate">{node.title}</span>
+        {hot ? <SyncDot /> : null}
       </Link>
     );
   }
@@ -70,31 +110,43 @@ function NavItem({
   useEffect(() => {
     if (openDefault) setOpen(true);
   }, [openDefault]);
+  const childSlugs = node.children.map((c) => c.slug);
+  const groupHot = groupHighlighted(childSlugs);
   return (
     <div>
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex min-h-11 w-full items-center justify-between rounded-sm px-3 py-2 text-left text-sm text-fg-muted hover:text-fg"
+        className="flex min-h-11 w-full items-center justify-between gap-2 rounded-sm px-3 py-2 text-left text-sm text-fg-muted hover:text-fg"
       >
-        {node.title}
-        <ChevronDown className={cn("size-3.5 transition-transform", open ? "rotate-0" : "-rotate-90")} />
+        <span className="inline-flex min-w-0 items-center gap-2">
+          <span className="truncate">{node.title}</span>
+          {groupHot ? <SyncDot /> : null}
+        </span>
+        <ChevronDown className={cn("size-3.5 shrink-0 transition-transform", open ? "rotate-0" : "-rotate-90")} />
       </button>
       {open ? (
         <div className="ml-2 border-l border-border pl-1">
-          {node.children.map((c) => (
-            <Link
-              key={c.slug}
-              to={c.href}
-              onClick={onNavigate}
-              className={cn(
-                "block rounded-sm px-3 py-2 text-sm leading-5",
-                current === c.slug ? "bg-bg-subtle text-fg" : "text-fg-muted hover:bg-bg-subtle hover:text-fg",
-              )}
-            >
-              {c.title}
-            </Link>
-          ))}
+          {node.children.map((c) => {
+            const hot = pageHighlighted(c.slug);
+            return (
+              <Link
+                key={c.slug}
+                to={c.href}
+                onClick={() => {
+                  onVisitPage?.(c.slug);
+                  onNavigate?.();
+                }}
+                className={cn(
+                  "flex items-center gap-2 rounded-sm px-3 py-2 text-sm leading-5",
+                  current === c.slug ? "bg-bg-subtle text-fg" : "text-fg-muted hover:bg-bg-subtle hover:text-fg",
+                )}
+              >
+                <span className="min-w-0 flex-1 truncate">{c.title}</span>
+                {hot ? <SyncDot /> : null}
+              </Link>
+            );
+          })}
         </div>
       ) : null}
     </div>
@@ -174,6 +226,16 @@ export function DocsShell({ slug }: { slug: string }) {
   const [search, setSearch] = useState(false);
   const [colorful, setColorful] = useState(false);
   const hash = useRouterState({ select: (s) => s.location.hash });
+  const { batch, seen, dismiss, seePage, seeSection } = useSyncHighlights();
+  const pageHot = useMemo(() => isPageHighlighted(batch, seen, slug), [batch, seen, slug]);
+  const sectionHotIds = useMemo(() => highlightedSections(batch, seen, slug), [batch, seen, slug]);
+  const sectionHotSet = useMemo(() => new Set(sectionHotIds), [sectionHotIds]);
+  const openHighlightCount = useMemo(() => activeHighlightCount(batch, seen), [batch, seen]);
+  const pageHighlighted = useCallback((s: string) => isPageHighlighted(batch, seen, s), [batch, seen]);
+  const groupHighlighted = useCallback(
+    (childSlugs: string[]) => groupHasHighlight(batch, seen, childSlugs),
+    [batch, seen],
+  );
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
@@ -198,6 +260,11 @@ export function DocsShell({ slug }: { slug: string }) {
     const t = window.setTimeout(() => scrollToHash(hash || window.location.hash), 40);
     return () => window.clearTimeout(t);
   }, [slug, hash, md]);
+
+  useEffect(() => {
+    const id = decodeURIComponent((hash || "").replace(/^#/, ""));
+    if (id && sectionHotSet.has(id)) seeSection(slug, id);
+  }, [hash, slug, sectionHotSet, seeSection]);
 
   useEffect(() => {
     const onHash = () => scrollToHash(window.location.hash);
@@ -263,7 +330,12 @@ export function DocsShell({ slug }: { slug: string }) {
 
       <div className="mx-auto flex max-w-[1320px]">
         <aside className="sticky top-12 hidden h-[calc(100svh-3rem)] w-64 shrink-0 overflow-y-auto border-r border-border px-2 py-5 md:block">
-          <NavList current={slug} />
+          <NavList
+            current={slug}
+            pageHighlighted={pageHighlighted}
+            groupHighlighted={groupHighlighted}
+            onVisitPage={seePage}
+          />
         </aside>
 
         {drawer ? (
@@ -276,7 +348,13 @@ export function DocsShell({ slug }: { slug: string }) {
                   <X className="size-5" />
                 </button>
               </div>
-              <NavList current={slug} onNavigate={() => setDrawer(false)} />
+              <NavList
+                current={slug}
+                onNavigate={() => setDrawer(false)}
+                pageHighlighted={pageHighlighted}
+                groupHighlighted={groupHighlighted}
+                onVisitPage={seePage}
+              />
             </div>
           </div>
         ) : null}
@@ -296,7 +374,31 @@ export function DocsShell({ slug }: { slug: string }) {
                       : "尚未连上官方源，先显示内置译本"}
             </p>
           ) : null}
-          <Markdown source={md} />
+          {openHighlightCount > 0 ? (
+            <div
+              className="mt-4 flex flex-wrap items-start gap-3 rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2.5 text-sm text-fg"
+              data-sync-highlight-banner={batch.id}
+            >
+              <SyncDot className="mt-1.5" />
+              <div className="min-w-0 flex-1">
+                <div className="font-medium">{batch.label} · {openHighlightCount} 页有红点</div>
+                <p className="mt-0.5 text-xs text-fg-muted">{batch.summary}</p>
+                {pageHot || sectionHotIds.length > 0 ? (
+                  <p className="mt-1 text-xs text-fg-subtle">
+                    本页红点标出本次改动的章节；点右侧「本页」目录或标题旁红点可逐条清除。
+                  </p>
+                ) : null}
+              </div>
+              <button
+                type="button"
+                onClick={dismiss}
+                className="h-9 shrink-0 rounded-md border border-border bg-bg-elevated px-2.5 text-xs text-fg-muted hover:text-fg"
+              >
+                清除全部红点
+              </button>
+            </div>
+          ) : null}
+          <Markdown source={md} highlightSectionIds={sectionHotSet} />
           {slug === "cli/commands" ? <CommandCatalog /> : null}
           {slug === "sitemap" ? <SitemapBoard /> : null}
           <Pager prev={prev} next={next} current={slug} />
@@ -305,16 +407,26 @@ export function DocsShell({ slug }: { slug: string }) {
         <aside className="sticky top-12 hidden h-[calc(100svh-3rem)] w-52 shrink-0 overflow-y-auto py-8 pr-4 xl:block">
           <div className="text-xs font-medium tracking-[0.14em] text-fg-subtle uppercase">本页</div>
           <ul className="mt-3 space-y-1.5">
-            {toc.map((t) => (
-              <li key={t.id}>
-                <a
-                  href={`#${t.id}`}
-                  className={cn("block text-xs leading-5 text-fg-subtle hover:text-fg", t.level === 3 && "pl-3")}
-                >
-                  {t.text}
-                </a>
-              </li>
-            ))}
+            {toc.map((item) => {
+              const hot = isSectionHighlighted(batch, seen, slug, item.id);
+              return (
+                <li key={item.id}>
+                  <a
+                    href={`#${item.id}`}
+                    onClick={() => {
+                      if (hot) seeSection(slug, item.id);
+                    }}
+                    className={cn(
+                      "flex items-start gap-1.5 text-xs leading-5 text-fg-subtle hover:text-fg",
+                      item.level === 3 && "pl-3",
+                    )}
+                  >
+                    <span className="min-w-0 flex-1">{item.text}</span>
+                    {hot ? <SyncDot className="mt-1" /> : null}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </aside>
       </div>

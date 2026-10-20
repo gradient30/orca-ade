@@ -226,16 +226,38 @@ const hClass: Record<number, string> = {
   4: "mt-6 text-base font-medium text-fg",
 };
 
-export function Markdown({ source }: { source: string }) {
+export function Markdown({
+  source,
+  highlightSectionIds,
+}: {
+  source: string;
+  /** Heading ids from the current sync-highlights batch. */
+  highlightSectionIds?: ReadonlySet<string> | string[];
+}) {
   const blocks = parse(source);
+  const highlighted = highlightSectionIds
+    ? highlightSectionIds instanceof Set
+      ? highlightSectionIds
+      : new Set(highlightSectionIds)
+    : null;
   return (
     <div className="docs-prose max-w-3xl">
       {blocks.map((b, i) => {
         if (b.t === "h") {
           const Tag = (`h${b.level}` as unknown) as "h1";
+          const showDot = Boolean(highlighted?.has(b.id));
           return (
             <Tag key={i} id={b.id} className={cn("scroll-mt-24", hClass[b.level])}>
-              <Inline text={b.text} />
+              <span className="inline-flex items-center gap-2">
+                <Inline text={b.text} />
+                {showDot ? (
+                  <span
+                    className="inline-block size-1.5 shrink-0 rounded-full bg-destructive"
+                    title="本次同步更新"
+                    aria-label="本次同步更新"
+                  />
+                ) : null}
+              </span>
             </Tag>
           );
         }
