@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-20",
   "officialRef": "main",
-  "docsTreeSha": "2269c4efc9766625335e35a621ede6739745d297",
+  "docsTreeSha": "e264958088175aacd5c8d36313a8a767ca3298d9",
   "docs": [
     {
       "slug": "activity",
@@ -485,8 +485,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/ssh.mdx",
-      "size": 10719,
-      "lastSeenSha": "fcbe26c6f2d2a3f32a3552117c5d4efa23a30257",
+      "size": 10974,
+      "lastSeenSha": "8e3952de8f4b4b98fed6469ffd966a667e4650d5",
       "translatedAtSha": "fcbe26c6f2d2a3f32a3552117c5d4efa23a30257"
     },
     {
