@@ -190,7 +190,7 @@
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
       "size": 22479,
       "lastSeenSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0",
-      "translatedAtSha": "0dd5b586207ef7205c9c9f5573d61317b22cf20e"
+      "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
       "slug": "cli/skills",
@@ -433,7 +433,7 @@
       "officialPath": "docs/site/content/docs/review/commit-push.mdx",
       "size": 6755,
       "lastSeenSha": "d30bde7e6003762ad9aff8e4fd538e81da77f3c4",
-      "translatedAtSha": "4fbc09df4ddf80ee70bfbc984b92e867a3294b6c"
+      "translatedAtSha": "d30bde7e6003762ad9aff8e4fd538e81da77f3c4"
     },
     {
       "slug": "review/diff-viewer",
@@ -496,7 +496,7 @@
       "officialPath": "docs/site/content/docs/telemetry.mdx",
       "size": 6006,
       "lastSeenSha": "55334050fdc03d8429256ccad983bd410c5843db",
-      "translatedAtSha": "305304c951de75332da4ca7591bed9ff88fda874"
+      "translatedAtSha": "55334050fdc03d8429256ccad983bd410c5843db"
     },
     {
       "slug": "terminal",
@@ -531,7 +531,7 @@
       "tag": "v1.4.230",
       "publishedAt": "2026-10-19",
       "lastSeenBodySha": "7ab88d626761",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "7ab88d626761",
       "yanked": false
     },
     {
