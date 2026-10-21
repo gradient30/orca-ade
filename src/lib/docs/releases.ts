@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.237",
+    "date": "2026-10-21",
+    "dateLabel": "2026年10月21日",
+    "title": "- More done from your phone:…",
+    "highlights": [
+      "- **More done from your phone:** Create and edit notes, save Markdown on headless hosts, follow relative file links, and see embedded images. Buffered terminal drafts can now survive workspace navigation, too.",
+      "- **Chats you can come back to:** Codex chats reopen correctly after undo, Claude keeps its rewound context across Orca rollbacks, and screenshots stay with the conversation. Codex’s skill picker now reflects the skills Codex actually loaded.",
+      "- **Your work stays protected:** Discard pauses autosave of the same file across workspaces. Read-only Markdown and CSV views protect your unsaved edits, and new, unstaged Markdown documents open straight into the rich editor."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.237",
+    "href": "/docs/changelog#v1-4-237"
+  },
+  {
     "tag": "v1.4.235",
     "date": "2026-10-20",
     "dateLabel": "2026年10月20日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.230",
     "href": "/docs/changelog#v1-4-230"
-  },
-  {
-    "tag": "v1.4.229",
-    "date": "2026-10-17",
-    "dateLabel": "2026年10月17日",
-    "title": "实验性 Native Chat 可逐轮审查编辑，共享技能支持更多 Agent",
-    "highlights": [
-      "实验性 Native Chat：可在对话内逐轮审查编辑、展开图表平移缩放、一键分享聊天视觉内容，并查看 Claude 目标与 Codex 上下文用量。键盘回答、未读分隔线与选中复制让长对话更易浏览。",
-      "共享技能：共享技能安装现支持额外 20 个 Agent，WSL 发现范围更广，并为 Kiro、Qoder、CodeBuddy 等工具提供正确安装位置。",
-      "手机端：工作区筛选、分组与排序跟随桌面共享选择。长按查看关联问题与笔记，可操作服务器工作区与浏览器页面，或在新终端对话中继续支持的聊天。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.229",
-    "href": "/docs/changelog#v1-4-229"
   }
 ];
 
