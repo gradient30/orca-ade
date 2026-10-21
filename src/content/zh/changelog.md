@@ -8,13 +8,133 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
+| [v1.4.235](#v1-4-235) | 2026年10月20日 | Use Rewind to here on a mess… |
 | [v1.4.233](#v1-4-233) | 2026年10月20日 | - SSH & remote workspaces: C… |
 | [v1.4.232](#v1-4-232) | 2026年10月20日 | - Auto permissions, in chat … |
 | [v1.4.230](#v1-4-230) | 2026年10月19日 | 实验性 Native Chat 支持 Antigravity，可选择 Agent 并在聊天内安装 |
 | [v1.4.229](#v1-4-229) | 2026年10月17日 | 实验性 Native Chat 可逐轮审查编辑，共享技能支持更多 Agent |
-| [v1.4.227](#v1-4-227) | 2026年10月16日 | Native Chat 拥有独立权限模式，会话更易继续 |
 
 ## 完整中文日志 {#full-notes}
+
+## v1.4.235 Use Rewind to here on a mess… {#v1-4-235}
+
+2026年10月20日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.235)
+
+感谢使用 Orca，也感谢一直以来的支持。
+
+This release makes conversations easier to revisit, keeps more of your agent's work, and cuts background editor activity when you're juggling workspaces.
+
+### 简要说明 {#v1-4-235-short}
+
+- **Rewind Claude chats:** Use **Rewind to here** on a message that started a turn, edit your prompt, and take the conversation in a new direction. Claude continues from the history you kept.
+- **Your chat, your settings:** Each conversation remembers its own model, effort and Fast settings. Switching models keeps compatible choices, and changes to an agent's defaults no longer silently move a chat that has recorded its settings.
+- **Keep more of your agent's work:** Completed replies and tool results are saved in full rather than cut off at the preview limit. Use **Show full output** on desktop or phone, or **Show full message** on phone, to load more content from shortened previews.
+- **Less waiting, less background work:** New Chat opens the composer immediately, Codex chats get the time they need to start, and the workspace jump palette is preloaded. The editor watches active, recent and at-risk workspaces instead of every workspace with an open tab.
+- **A better phone experience:** Live chats reconnect from where they left off, project groups stay in step with desktop, and ready cloud dictation models can be selected from the phone. Workspace creation starts preparing the checkout while you fill in the form.
+- **Everyday polish:** Edit images in queued desktop messages, see machine labels only when project names collide, and get more reliable workspace lists, file-conflict handling and remote workflows.
+
+**Phone updates:** Updating Orca on your desktop also updates the app on your connected phone—the phone loads it directly from your desktop.
+
+### Compatibility & upgrade notes {#v1-4-235-compatibility-upgrade-notes}
+
+**Native chat (experimental):** Keep paired and SSH hosts updated alongside Orca for the latest chat features. Full-content loading requires host support; content discarded by older versions cannot be recovered. Very large items may still be shortened for display or delivery.
+
+**Cloud dictation:** Select a ready cloud model from the phone's dictation setup or **Settings → Voice**. Configure its API key on the computer serving the phone first.
+
+---
+
+### 产品体验 {#v1-4-235-product}
+
+#### Native chat (experimental) {#v1-4-235-native-chat-experimental-}
+
+> Revisit Claude conversations, keep each chat’s settings consistent, and work with images and long outputs more comfortably.
+
+- Rewind Claude chats from messages that started a turn, continuing with the conversation you kept（[@brennanb2025](https://github.com/brennanb2025)，[#30400](https://github.com/stablyai/orca/pull/30400)）
+- Remember model, effort, speed and Fast choices per conversation, including across restarts（[@brennanb2025](https://github.com/brennanb2025)，[#30561](https://github.com/stablyai/orca/pull/30561)）
+- Save completed replies and tool results in full, with controls to load more from shortened previews（[@brennanb2025](https://github.com/brennanb2025)，[#29982](https://github.com/stablyai/orca/pull/29982)）
+- Edit images in queued desktop messages: remove, paste, drop or attach（[@brennanb2025](https://github.com/brennanb2025)，[#30815](https://github.com/stablyai/orca/pull/30815)）
+- 打开：the New Chat composer immediately while the host gets ready（[@brennanb2025](https://github.com/brennanb2025)，[#29358](https://github.com/stablyai/orca/pull/29358)）
+- 等待：for Codex when opening or resuming a chat instead of failing after 30 seconds（[@brennanb2025](https://github.com/brennanb2025)，[#30395](https://github.com/stablyai/orca/pull/30395)）
+- Name chats from the first message immediately, even if automatic title generation fails（[@brennanb2025](https://github.com/brennanb2025)，[#30392](https://github.com/stablyai/orca/pull/30392)）
+- 避免：starting user MCP servers and hooks for background Claude runs（[@brennanb2025](https://github.com/brennanb2025)，[#30939](https://github.com/stablyai/orca/pull/30939)）
+- 澄清：labels for switching agents between terminal and chat（[@AmethystLiang](https://github.com/AmethystLiang)，[#31134](https://github.com/stablyai/orca/pull/31134)）
+- Polish the appearance of chat question options（[@AmethystLiang](https://github.com/AmethystLiang)，[#31219](https://github.com/stablyai/orca/pull/31219)）
+
+#### Phone {#v1-4-235-phone}
+
+> 保持：conversations and project groups current, create workspaces with less waiting, and select cloud dictation models directly from your phone.
+
+- Reconnect a chat’s live feed from its last received row when the stream ends（[@brennanb2025](https://github.com/brennanb2025)，[#29007](https://github.com/stablyai/orca/pull/29007)）
+- 更新：projects, project groups and workspace rows together so phone grouping stays in sync（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31102](https://github.com/stablyai/orca/pull/31102)）
+- Prepare the worktree checkout while the new-workspace form is open（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#31167](https://github.com/stablyai/orca/pull/31167)）
+- Select ready cloud dictation models from setup and Settings → Voice（[@nwparker](https://github.com/nwparker)，[#31221](https://github.com/stablyai/orca/pull/31221)）
+- 显示：mobile home statistics when connected to an `orca serve` host（[@nwparker](https://github.com/nwparker)，[#31197](https://github.com/stablyai/orca/pull/31197)）
+- 保持：chat composer controls inside their row（[@brennanb2025](https://github.com/brennanb2025)，[#28983](https://github.com/stablyai/orca/pull/28983)）
+- 保持：session tab icons full size beside long titles（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#31169](https://github.com/stablyai/orca/pull/31169)）
+
+#### Editor, performance & file safety {#v1-4-235-editor-performance-file-safety}
+
+> 减小：background file watching, speed up workspace navigation, and make reloads and save conflicts more dependable across tabs and devices.
+
+- Watch active, recent and at-risk workspaces; refresh open files when you return to an unwatched workspace（[@nwparker](https://github.com/nwparker)，[#30415](https://github.com/stablyai/orca/pull/30415)）
+- Preload the workspace jump palette before first use（[@brennanb2025](https://github.com/brennanb2025)，[#30935](https://github.com/stablyai/orca/pull/30935)）
+- 改进：save-conflict checks, Undo after reload, autosave during heavy file activity and chat-start error messages（[@nwparker](https://github.com/nwparker)，[#31216](https://github.com/stablyai/orca/pull/31216)）
+- Release superseded and closed editor-tab watch probes and disk-check records（[@nwparker](https://github.com/nwparker)，[#31128](https://github.com/stablyai/orca/pull/31128)）
+- 避免：reapplying terminal bindings that already match when saving state（[@AmethystLiang](https://github.com/AmethystLiang)，[#31033](https://github.com/stablyai/orca/pull/31033)）
+
+#### Workspaces, SSH & remote servers {#v1-4-235-workspaces-ssh-remote-servers}
+
+> 保持：workspace lists current, make same-named projects easier to distinguish, and improve remote server transitions and permissions.
+
+- 显示：machine labels only when projects have the same name（[@nwparker](https://github.com/nwparker)，[#31233](https://github.com/stablyai/orca/pull/31233)）
+- 保持：the desktop workspace list current while hidden and include workspaces created on paired servers or other clients（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31090](https://github.com/stablyai/orca/pull/31090)）
+- Refuse ambiguous same-path project routing instead of following the Active Server selection（[@nwparker](https://github.com/nwparker)，[#31119](https://github.com/stablyai/orca/pull/31119)）
+- 允许：an older SSH host to move to its managed server while a relay shell identified by its tab remains running（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31093](https://github.com/stablyai/orca/pull/31093)）
+- Make `orca open-url` on a manually started server ask for a paired desktop rather than an SSH setting（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31120](https://github.com/stablyai/orca/pull/31120)）
+- Respect the login umask for remote worktrees instead of making them owner-only（[@AmethystLiang](https://github.com/AmethystLiang)，[#31135](https://github.com/stablyai/orca/pull/31135)）
+- 改进：WSL migration checks for path casing, panes without restore folders and stale agent records（[@nwparker](https://github.com/nwparker)，[#31211](https://github.com/stablyai/orca/pull/31211)）
+
+#### Settings & security {#v1-4-235-settings-security}
+
+> 保持：Experimental settings accessible after language updates and tighten permissions for newly created Codex configuration files.
+
+- 防止：Experimental settings from crashing after language-pack updates（[@nwparker](https://github.com/nwparker)，[#31202](https://github.com/stablyai/orca/pull/31202)）
+- Create new Codex `config.toml` files with owner-only permissions（[@nwparker](https://github.com/nwparker)，[#31228](https://github.com/stablyai/orca/pull/31228)）
+
+#### Relay service {#v1-4-235-relay-service}
+
+> 给予：each relay director revision its own instance limit during rollouts.
+
+- Use a separate instance maximum per director revision rather than splitting a shared service cap（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31178](https://github.com/stablyai/orca/pull/31178)）
+
+#### Tests, CI & maintenance {#v1-4-235-tests-ci-maintenance}
+
+> compatibility and regression coverage, leaner release builds, and continued terminal-layout groundwork. Layout-owner changes below remain behind a feature switch and are not enabled product features in this release进一步增强。
+
+- Layout groundwork (disabled): open CLI- and phone-requested files in the visible tab group（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31123](https://github.com/stablyai/orca/pull/31123)）
+- Layout groundwork (disabled): surface running terminals without visible panes and determine startup reconnections（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31118](https://github.com/stablyai/orca/pull/31118)）
+- Test custom terminal titles with older phone layouts（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31127](https://github.com/stablyai/orca/pull/31127)）
+- Include headless server specs in the manually enabled layout CI run（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31108](https://github.com/stablyai/orca/pull/31108)）
+- Layout groundwork (disabled): advertise layout-change support to paired desktops（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31131](https://github.com/stablyai/orca/pull/31131)）
+- Test terminal readiness after a layout-owner server restart loses a pane binding（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31132](https://github.com/stablyai/orca/pull/31132)）
+- Test file opening from older phone layouts against a layout-owner build（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31138](https://github.com/stablyai/orca/pull/31138)）
+- Layout groundwork (disabled): use consistent file identities in layout updates（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31140](https://github.com/stablyai/orca/pull/31140)）
+- Test that windowless host reloads preserve terminals created by main（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31144](https://github.com/stablyai/orca/pull/31144)）
+- Layout groundwork (disabled): apply individual layout records instead of rebuilding the whole session（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31152](https://github.com/stablyai/orca/pull/31152)）
+- Layout groundwork (disabled): render paired-server workspaces from the server’s layout stream（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31181](https://github.com/stablyai/orca/pull/31181)）
+- Format the files changed by the full chat-output update（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31184](https://github.com/stablyai/orca/pull/31184)）
+- Layout groundwork (disabled): let main create, start and close terminal tabs and panes（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31130](https://github.com/stablyai/orca/pull/31130)）
+- 更新：nine end-to-end specs to match intended product behavior（[@brennanb2025](https://github.com/brennanb2025)，[#30897](https://github.com/stablyai/orca/pull/30897)）
+- 升级：the mobile app to 0.0.58 and Android versionCode to 22（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31194](https://github.com/stablyai/orca/pull/31194)）
+- 保持：Windows daemon teardown tests from counting processes with reused parent IDs（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31192](https://github.com/stablyai/orca/pull/31192)）
+- Layout groundwork (disabled): restore each terminal pane once at its saved size and identify sleeping or held panes（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#31171](https://github.com/stablyai/orca/pull/31171)）
+- 新增：checks for host-aware repository routing and migrate existing callers（[@nwparker](https://github.com/nwparker)，[#31096](https://github.com/stablyai/orca/pull/31096)）
+- Test that SSH health probes stay responsive while the SSH layer is stuck（[@nwparker](https://github.com/nwparker)，[#31193](https://github.com/stablyai/orca/pull/31193)）
+- 更新：Zod to 4.6.7 for recursive schema type compatibility（[@nwparker](https://github.com/nwparker)，[#31222](https://github.com/stablyai/orca/pull/31222)）
+- Test Claude dispatch metadata received after stopping a turn（[@nwparker](https://github.com/nwparker)，[#31229](https://github.com/stablyai/orca/pull/31229)）
+- 减小：duplicate release builds and history downloads（[@nwparker](https://github.com/nwparker)，[#31227](https://github.com/stablyai/orca/pull/31227)）
+
+**完整变更对照：** [v1.4.233...v1.4.235](https://github.com/stablyai/orca/compare/v1.4.233...v1.4.235)
 
 ## v1.4.233 - SSH & remote workspaces: C… {#v1-4-233}
 
@@ -1897,119 +2017,3 @@ The remaining changes are listed in the [complete release notes](https://github.
 ---
 
 **完整变更对照：** [v1.4.227...v1.4.229](https://github.com/stablyai/orca/compare/v1.4.227...v1.4.229)
-
-## v1.4.227 Native Chat 拥有独立权限模式，会话更易继续 {#v1-4-227}
-
-2026年10月16日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.227)
-
-感谢使用 Orca，也感谢一直以来的支持。
-
-### 简要说明 {#v1-4-227-short}
-
-- **Native chats have their own permission mode.** Choose permissions for each new Claude or Codex chat from Settings → Chat → Behavior; existing chats keep the mode they were already using, and changing models no longer resets it.
-- **Native chat sessions are easier to continue.** You can resume large terminal conversations in a new Native Chat, recover chats whose only work ran in the background after a restart, and see every supported chat provider accurately in Session History.
-- **Claude accounts and Codex chat setup are smoother.** Claude accounts again use separate folders, the sign-in link can be copied, Codex chats require version 0.136.0 or later, and Codex Ultrafast is available as a speed choice.
-- **Browser automation gives your keyboard back reliably.** Agent browser commands target the intended page, and browser popups behave more like Chrome.
-- **Also:** worktree cleanup is safer, read macOS notifications disappear from Notification Center, long chats load better on phones, and cold session-history reads avoid unnecessary reindexing.
-
----
-
-### 产品体验 {#v1-4-227-product}
-
-#### UI / workspace {#v1-4-227-ui-workspace}
-
-> Safer worktree cleanup, tidier macOS notifications and small translation cleanup.
-
-- 修复（worktrees）：never delete a folder git no longer tracks（[@brennanb2025](https://github.com/brennanb2025)，[#25075](https://github.com/stablyai/orca/pull/25075)）
-- 修复（notifications）：remove read macOS notifications from Notification Center by pane thread（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#28425](https://github.com/stablyai/orca/pull/28425)）
-- 修复（i18n）：drop chat-mode keys removed from en.json in #28113（[@nwparker](https://github.com/nwparker)，[#28131](https://github.com/stablyai/orca/pull/28131)）
-
-#### Orchestration {#v1-4-227-orchestration}
-
-> Retries no longer leave failed worker starts piling up as live agents.
-
-- 修复（orchestration）：stop retried failed worker starts from piling up live agents（[@brennanb2025](https://github.com/brennanb2025)，[#27795](https://github.com/stablyai/orca/pull/27795)）
-
-#### Agent 与 Native Chat {#v1-4-227-native-chat}
-
-> Each Claude and Codex chat keeps its own permission mode, chats are easier to resume and manage, Claude accounts return with safer sign-in, and chat settings and model handling are more consistent.
-
-- 新增（native-chat）：each Claude/Codex chat gets its own permission mode（[@brennanb2025](https://github.com/brennanb2025)，[#26116](https://github.com/stablyai/orca/pull/26116)）
-- 修复（native-chat）：chats from before permission modes keep the mode they were running with（[@brennanb2025](https://github.com/brennanb2025)，[#28099](https://github.com/stablyai/orca/pull/28099)）
-- 修复（native-chat）：seed the chat permission default from Claude's and Codex's own arguments（[@brennanb2025](https://github.com/brennanb2025)，[#28100](https://github.com/stablyai/orca/pull/28100)）
-- 新增（settings）：move Permissions for new chats into the Chat page's Behavior section（[@brennanb2025](https://github.com/brennanb2025)，[#28212](https://github.com/stablyai/orca/pull/28212)）
-- 修复（native-chat）：store a chat's permission mode on its own, so a model pick can't reset it（[@brennanb2025](https://github.com/brennanb2025)，[#28268](https://github.com/stablyai/orca/pull/28268)）
-- 新增（native-chat）：require Codex 0.136.0 for chats（[@brennanb2025](https://github.com/brennanb2025)，[#26684](https://github.com/stablyai/orca/pull/26684)）
-- 新增（native-chat）：offer Codex Ultrafast as a speed choice（[@brennanb2025](https://github.com/brennanb2025)，[#26962](https://github.com/stablyai/orca/pull/26962)）
-- Re-land Claude per-account folders (#24434, #26405) with the upgrade and proxy fixes（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#26801](https://github.com/stablyai/orca/pull/26801)）
-- 新增："Copy sign-in link instead" for Claude accounts (STA-9912)（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#26990](https://github.com/stablyai/orca/pull/26990)）
-- 修复（native-chat）：offer resume after restart for chats whose only work was in the background（[@brennanb2025](https://github.com/brennanb2025)，[#27167](https://github.com/stablyai/orca/pull/27167)）
-- 修复（native-chat）：resume large terminal conversations in a new Native Chat（[@brennanb2025](https://github.com/brennanb2025)，[#29056](https://github.com/stablyai/orca/pull/29056)）
-- Terminal header button: Resume in New Native Chat replaces Show chat view（[@brennanb2025](https://github.com/brennanb2025)，[#27184](https://github.com/stablyai/orca/pull/27184)）
-- 修复（tab-bar）：offer Resume in New Native Chat only while the tab's agent is running（[@brennanb2025](https://github.com/brennanb2025)，[#27520](https://github.com/stablyai/orca/pull/27520)）
-- Session History shows OpenCode, Grok, OMP and Pi chats as chats and refuses a second terminal writer（[@brennanb2025](https://github.com/brennanb2025)，[#27183](https://github.com/stablyai/orca/pull/27183)）
-- Session History: resume folder workspace chats in their own folder（[@brennanb2025](https://github.com/brennanb2025)，[#27209](https://github.com/stablyai/orca/pull/27209)）
-- 恢复：dialog: show a finished resume as a result, not a picker（[@brennanb2025](https://github.com/brennanb2025)，[#27732](https://github.com/stablyai/orca/pull/27732)）
-- Save a new chat's first message during create（[@brennanb2025](https://github.com/brennanb2025)，[#26332](https://github.com/stablyai/orca/pull/26332)）
-- 修复（native-chat）：settle a reply cut off by a server restart（[@brennanb2025](https://github.com/brennanb2025)，[#26460](https://github.com/stablyai/orca/pull/26460)）
-- 打开：a chat visual in its own tab instead of the sidebar（[@brennanb2025](https://github.com/brennanb2025)，[#26728](https://github.com/stablyai/orca/pull/26728)）
-- 允许：a Codex chat stop a command it left running in the background（[@brennanb2025](https://github.com/brennanb2025)，[#26780](https://github.com/stablyai/orca/pull/26780)）
-- 修复（native-chat）：preserve running subagent rows in long chats（[@brennanb2025](https://github.com/brennanb2025)，[#26798](https://github.com/stablyai/orca/pull/26798)）
-- A new Pi chat names the model it will run on its first frame（[@brennanb2025](https://github.com/brennanb2025)，[#26821](https://github.com/stablyai/orca/pull/26821)）
-- 保持：Chat UI users with a Terminal default on the terminal, with a chat mode switch in the upgrade tip（[@brennanb2025](https://github.com/brennanb2025)，[#26915](https://github.com/stablyai/orca/pull/26915)）
-- Floating-workspace chats of every native-chat agent keep links in the folder they started in（[@brennanb2025](https://github.com/brennanb2025)，[#26981](https://github.com/stablyai/orca/pull/26981)）
-- Every agent reports its learned default model once, when a chat starts（[@brennanb2025](https://github.com/brennanb2025)，[#26982](https://github.com/stablyai/orca/pull/26982)）
-- 允许：a Grok chat list and stop the commands it left running in the background（[@brennanb2025](https://github.com/brennanb2025)，[#27022](https://github.com/stablyai/orca/pull/27022)）
-- 允许：a Codex chat stop a sub-agent from the background-tasks strip（[@brennanb2025](https://github.com/brennanb2025)，[#27026](https://github.com/stablyai/orca/pull/27026)）
-- 修复（native-chat）：a new chat's model and effort pickers match their first frame before the agent starts（[@brennanb2025](https://github.com/brennanb2025)，[#27031](https://github.com/stablyai/orca/pull/27031)）
-- Native chat: every agent launches through one composed launch path（[@brennanb2025](https://github.com/brennanb2025)，[#27204](https://github.com/stablyai/orca/pull/27204)）
-- Edit agent launch settings on the workspace host（[@brennanb2025](https://github.com/brennanb2025)，[#26479](https://github.com/stablyai/orca/pull/26479)）
-- One shared subagent tracker for Claude, Codex and Grok chat rows（[@brennanb2025](https://github.com/brennanb2025)，[#27228](https://github.com/stablyai/orca/pull/27228)）
-- Native chat: read one saved row per subagent (part 1 of 2)（[@brennanb2025](https://github.com/brennanb2025)，[#27914](https://github.com/stablyai/orca/pull/27914)）
-- 新增（chat）：host writes one saved row per subagent（[@brennanb2025](https://github.com/brennanb2025)，[#27947](https://github.com/stablyai/orca/pull/27947)）
-- 新增（settings）：move Chat UI's chat settings from Experimental to the Chat page（[@brennanb2025](https://github.com/brennanb2025)，[#28050](https://github.com/stablyai/orca/pull/28050)）
-- 修复（tab-bar）：Native Chat tabs show their recorded provider, not one guessed from the title（[@brennanb2025](https://github.com/brennanb2025)，[#28082](https://github.com/stablyai/orca/pull/28082)）
-- Replace chat upgrade switch with primary Enable Now button（[@nwparker](https://github.com/nwparker)，[#28113](https://github.com/stablyai/orca/pull/28113)）
-- Make Enable Now the full-width action in the chat upgrade tip（[@brennanb2025](https://github.com/brennanb2025)，[#28199](https://github.com/stablyai/orca/pull/28199)）
-
-#### Remote server / SSH {#v1-4-227-remote-server-ssh}
-
-> Paired devices are identified by their device ID instead of a credential.
-
-- Native Chat: identify a paired device by its device id, never its credential（[@brennanb2025](https://github.com/brennanb2025)，[#26777](https://github.com/stablyai/orca/pull/26777)）
-
-#### 浏览器 {#v1-4-227-browser}
-
-> Popups follow Chrome’s behavior more closely, while agent browser actions stay focused on the intended page and return the keyboard when they finish.
-
-- 打开：links and window.open in Orca tabs the way Chrome does（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#26976](https://github.com/stablyai/orca/pull/26976)）
-- 修复：browser login popups and menu actions in native windows（[@AmethystLiang](https://github.com/AmethystLiang)，[#28474](https://github.com/stablyai/orca/pull/28474)）
-- Auto-hide menu bar in web popups and re-layout when revealed（[@AmethystLiang](https://github.com/AmethystLiang)，[#28388](https://github.com/stablyai/orca/pull/28388)）
-- 修复（browser）：agent bringToFront and activateTarget no longer take your keyboard (1/3)（[@nwparker](https://github.com/nwparker)，[#28452](https://github.com/stablyai/orca/pull/28452)）
-- 修复（browser）：agent keys and text go to the page, never into your terminal (2/3)（[@nwparker](https://github.com/nwparker)，[#28453](https://github.com/stablyai/orca/pull/28453)）
-- 修复（browser）：agent clicks give your keyboard back (3/3)（[@nwparker](https://github.com/nwparker)，[#28454](https://github.com/stablyai/orca/pull/28454)）
-- 修复（browser）：require a target for ambiguous keypress commands（[@nwparker](https://github.com/nwparker)，[#28221](https://github.com/stablyai/orca/pull/28221)）
-- 修复（browser）：refuse web pages on the agent-browser CDP proxy（[@OrcaWin](https://github.com/OrcaWin)，[#27415](https://github.com/stablyai/orca/pull/27415)）
-
-#### GitHub / source control {#v1-4-227-github-source-control}
-
-> AI commit messages now start from the same shell environment that chats use.
-
-- Start AI commit messages from the same shell environment chats use（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#26808](https://github.com/stablyai/orca/pull/26808)）
-
-#### 性能 {#v1-4-227-performance}
-
-> Windows notifications no longer freeze Orca, and cold session-history reads skip unchanged transcript reindexing.
-
-- 性能（notifications）：stop every Windows notification from freezing Orca（[@brennanb2025](https://github.com/brennanb2025)，[#27731](https://github.com/stablyai/orca/pull/27731)）
-- 跳过：reindexing unchanged transcripts on cold session list reads（[@AmethystLiang](https://github.com/AmethystLiang)，[#28798](https://github.com/stablyai/orca/pull/28798)）
-
-#### 移动端 {#v1-4-227-mobile}
-
-> Long chats preserve each update within its limit, remember the reader’s place, and open every supported native-chat provider on the phone.
-
-- 修复（native-chat）：load long chats on the phone by keeping every update within its limit（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#28203](https://github.com/stablyai/orca/pull/28203)）
-- 修复（mobile）：keep the chat where the reader scrolled to（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#28413](https://github.com/stablyai/orca/pull/28413)）
-- 修复（mobile）：open Grok, OpenCode, OMP and Pi chats on the phone（[@brennanb2025](https://github.com/brennanb2025)，[#27212](https://github.com/stablyai/orca/pull/27212)）
-
-**完整变更对照：** [v1.4.224...v1.4.227](https://github.com/stablyai/orca/compare/v1.4.224...v1.4.227)

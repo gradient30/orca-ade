@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.235",
+    "date": "2026-10-20",
+    "dateLabel": "2026年10月20日",
+    "title": "Use Rewind to here on a mess…",
+    "highlights": [
+      "- **Rewind Claude chats:** Use **Rewind to here** on a message that started a turn, edit your prompt, and take the conversation in a new direction. Claude continues from the history you kept.",
+      "- **Your chat, your settings:** Each conversation remembers its own model, effort and Fast settings. Switching models keeps compatible choices, and changes to an agent's defaults no longer silently move a chat that has recorded its settings.",
+      "- **Keep more of your agent's work:** Completed replies and tool results are saved in full rather than cut off at the preview limit. Use **Show full output** on desktop or phone, or **Show full message** on phone, to load more content from shortened previews."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.235",
+    "href": "/docs/changelog#v1-4-235"
+  },
+  {
     "tag": "v1.4.233",
     "date": "2026-10-20",
     "dateLabel": "2026年10月20日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.229",
     "href": "/docs/changelog#v1-4-229"
-  },
-  {
-    "tag": "v1.4.227",
-    "date": "2026-10-16",
-    "dateLabel": "2026年10月16日",
-    "title": "Native Chat 拥有独立权限模式，会话更易继续",
-    "highlights": [
-      "Native Chat 拥有自己的权限模式。从 Settings → Chat → Behavior 为每个新的 Claude 或 Codex 聊天选择权限；现有聊天保持已使用的模式，更换模型不再重置它。",
-      "Native Chat 会话更容易继续。可以在新 Native Chat 中恢复大型终端对话，恢复后台工作的聊天，并在 Session History 中准确显示每一个支持的聊天提供方。",
-      "Claude 账户和 Codex 聊天设置更顺畅。Claude 账户再次使用单独文件夹，可复制登录链接，Codex 聊天要求 0.136.0 或更高，Codex Ultrafast 可作为速度选择。浏览器自动化可靠归还键盘。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.227",
-    "href": "/docs/changelog#v1-4-227"
   }
 ];
 
