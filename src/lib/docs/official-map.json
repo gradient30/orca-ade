@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-22",
   "officialRef": "main",
-  "docsTreeSha": "e264958088175aacd5c8d36313a8a767ca3298d9",
+  "docsTreeSha": "004630660c4e448d718cdee89e13c6695b6c0fb2",
   "docs": [
     {
       "slug": "activity",
@@ -503,8 +503,8 @@
       "section": "terminal",
       "kind": "official",
       "officialPath": "docs/site/content/docs/terminal.mdx",
-      "size": 11366,
-      "lastSeenSha": "80b8767ac15aeb8c9a4917f5d81b547c6c421aa9",
+      "size": 12237,
+      "lastSeenSha": "6922a6ab6f1b14ce017541ca32beb8c3030d9665",
       "translatedAtSha": "80b8767ac15aeb8c9a4917f5d81b547c6c421aa9"
     },
     {
