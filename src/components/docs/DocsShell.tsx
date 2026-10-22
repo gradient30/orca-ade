@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
-import { ChevronDown, Menu, Search, X } from "lucide-react";
+import { ChevronDown, Folder, FolderOpen, Layers, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { NAV, neighbors, pageBySlug, type DocLink, type NavNode } from "@/lib/docs/catalog";
 import { getMarkdown, searchDocs } from "@/lib/docs/load";
@@ -81,8 +81,12 @@ function NavItem({
 } & NavHighlightProps) {
   if (node.kind === "label") {
     return (
-      <div className="px-3 pt-2 text-xs font-medium tracking-[0.14em] text-fg-subtle uppercase">
-        {node.title}
+      <div
+        className="mt-1 flex items-center gap-2 px-3 pb-1 pt-3 text-[11px] font-bold tracking-[0.12em] text-accent uppercase"
+        role="presentation"
+      >
+        <Layers className="size-3.5 shrink-0 opacity-90" aria-hidden />
+        <span className="min-w-0 truncate">{node.title}</span>
       </div>
     );
   }
@@ -118,13 +122,22 @@ function NavItem({
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex min-h-11 w-full items-center justify-between gap-2 rounded-sm px-3 py-2 text-left text-sm text-fg-muted hover:text-fg"
+        aria-expanded={open}
+        className="flex min-h-11 w-full items-center justify-between gap-2 rounded-sm px-3 py-2 text-left text-sm font-semibold text-accent hover:bg-bg-subtle hover:text-accent"
       >
         <span className="inline-flex min-w-0 items-center gap-2">
+          {open ? (
+            <FolderOpen className="size-4 shrink-0 opacity-90" aria-hidden />
+          ) : (
+            <Folder className="size-4 shrink-0 opacity-90" aria-hidden />
+          )}
           <span className="truncate">{node.title}</span>
           {groupHot ? <SyncDot size="lg" /> : null}
         </span>
-        <ChevronDown className={cn("size-3.5 shrink-0 transition-transform", open ? "rotate-0" : "-rotate-90")} />
+        <ChevronDown
+          className={cn("size-3.5 shrink-0 text-accent/80 transition-transform", open ? "rotate-0" : "-rotate-90")}
+          aria-hidden
+        />
       </button>
       {open ? (
         <div className="ml-2 border-l border-border pl-1">
