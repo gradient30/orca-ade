@@ -101,7 +101,7 @@ function NavItem({
         )}
       >
         <span className="min-w-0 flex-1 truncate">{node.title}</span>
-        {hot ? <SyncDot /> : null}
+        {hot ? <SyncDot size="lg" /> : null}
       </Link>
     );
   }
@@ -121,7 +121,7 @@ function NavItem({
       >
         <span className="inline-flex min-w-0 items-center gap-2">
           <span className="truncate">{node.title}</span>
-          {groupHot ? <SyncDot /> : null}
+          {groupHot ? <SyncDot size="lg" /> : null}
         </span>
         <ChevronDown className={cn("size-3.5 shrink-0 transition-transform", open ? "rotate-0" : "-rotate-90")} />
       </button>
@@ -143,7 +143,7 @@ function NavItem({
                 )}
               >
                 <span className="min-w-0 flex-1 truncate">{c.title}</span>
-                {hot ? <SyncDot /> : null}
+                {hot ? <SyncDot size="lg" /> : null}
               </Link>
             );
           })}
@@ -255,6 +255,11 @@ export function DocsShell({ slug }: { slug: string }) {
   useEffect(() => {
     setDrawer(false);
   }, [slug]);
+
+  // Visiting a highlighted page clears its sidebar red dot (banner / deep links / pager too).
+  useEffect(() => {
+    if (isPageHighlighted(batch, seen, slug)) seePage(slug);
+  }, [slug, batch, seen, seePage]);
 
   useEffect(() => {
     const t = window.setTimeout(() => scrollToHash(hash || window.location.hash), 40);
@@ -379,15 +384,41 @@ export function DocsShell({ slug }: { slug: string }) {
               className="mt-4 flex flex-wrap items-start gap-3 rounded-md border border-destructive/40 bg-destructive/10 px-3 py-2.5 text-sm text-fg"
               data-sync-highlight-banner={batch.id}
             >
-              <SyncDot className="mt-1.5" />
+              <SyncDot size="md" className="mt-1.5" />
               <div className="min-w-0 flex-1">
-                <div className="font-medium">{batch.label} · {openHighlightCount} 页有红点</div>
-                <p className="mt-0.5 text-xs text-fg-muted">{batch.summary}</p>
+                <div className="font-medium">{batch.label} · 还有 {openHighlightCount} 页未读</div>
+                <p className="mt-0.5 text-xs text-fg-muted">
+                  本次同步有更新的页面（点链接跳转；打开后该页左侧红点会消失）：
+                </p>
+                <ul className="mt-1.5 flex flex-wrap gap-x-3 gap-y-1 text-xs">
+                  {batch.pages.map((pg) => {
+                    const cleared = seen.dismissed || seen.pages.includes(pg.slug);
+                    const meta = pageBySlug(pg.slug);
+                    const title = meta?.title ?? pg.slug;
+                    return (
+                      <li key={pg.slug}>
+                        <Link
+                          to={hrefFor(pg.slug)}
+                          onClick={() => seePage(pg.slug)}
+                          className={
+                            cleared
+                              ? "text-fg-subtle line-through"
+                              : "font-medium text-accent underline-offset-2 hover:underline"
+                          }
+                        >
+                          {title}
+                        </Link>
+                      </li>
+                    );
+                  })}
+                </ul>
                 {pageHot || sectionHotIds.length > 0 ? (
-                  <p className="mt-1 text-xs text-fg-subtle">
-                    本页红点标出本次改动的章节；点右侧「本页」目录或标题旁红点可逐条清除。
+                  <p className="mt-1.5 text-xs text-fg-subtle">
+                    本页右侧「本页」目录与正文标题旁的红点标出改动章节；点击对应条目即可清除。
                   </p>
-                ) : null}
+                ) : (
+                  <p className="mt-1.5 text-xs text-fg-subtle">左侧目录大红点标出未读更新页。</p>
+                )}
               </div>
               <button
                 type="button"
@@ -422,7 +453,7 @@ export function DocsShell({ slug }: { slug: string }) {
                     )}
                   >
                     <span className="min-w-0 flex-1">{item.text}</span>
-                    {hot ? <SyncDot className="mt-1" /> : null}
+                    {hot ? <SyncDot size="md" className="mt-1" /> : null}
                   </a>
                 </li>
               );
