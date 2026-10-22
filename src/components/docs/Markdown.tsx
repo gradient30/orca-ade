@@ -1,3 +1,4 @@
+import { memo, useMemo } from "react";
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/cn";
 import { SyncDot } from "./SyncDot";
@@ -244,7 +245,7 @@ const hClass: Record<number, string> = {
   4: "mt-6 text-base font-medium text-fg",
 };
 
-export function Markdown({
+function MarkdownImpl({
   source,
   highlightSectionIds,
 }: {
@@ -252,12 +253,11 @@ export function Markdown({
   /** Heading ids from the current sync-highlights batch. */
   highlightSectionIds?: ReadonlySet<string> | string[];
 }) {
-  const blocks = parse(source);
-  const highlighted = highlightSectionIds
-    ? highlightSectionIds instanceof Set
-      ? highlightSectionIds
-      : new Set(highlightSectionIds)
-    : null;
+  const blocks = useMemo(() => parse(source), [source]);
+  const highlighted = useMemo(() => {
+    if (!highlightSectionIds) return null;
+    return highlightSectionIds instanceof Set ? highlightSectionIds : new Set(highlightSectionIds);
+  }, [highlightSectionIds]);
   return (
     <div className="docs-prose max-w-3xl">
       {blocks.map((b, i) => {
@@ -364,3 +364,5 @@ export function Markdown({
     </div>
   );
 }
+
+export const Markdown = memo(MarkdownImpl);

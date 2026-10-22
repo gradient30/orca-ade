@@ -1,7 +1,7 @@
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { cn } from "@/lib/cn";
 
-type Status = "loading" | "ready" | "error";
+type Status = "idle" | "loading" | "ready" | "error";
 
 function cssVar(name: string, fallback: string) {
   const value = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -70,7 +70,8 @@ function renderDiagram(id: string, source: string): Promise<string> {
       securityLevel: "strict",
       theme: "base",
       themeVariables: readThemeVariables(),
-      fontFamily: '"IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif',
+      fontFamily:
+        '"IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif',
       flowchart: {
         htmlLabels: true,
         curve: "basis",
@@ -91,19 +92,46 @@ function renderDiagram(id: string, source: string): Promise<string> {
   return job;
 }
 
+/**
+ * Mermaid is expensive (large JS + sync-ish SVG work). Do not load/render until
+ * the figure is near the viewport — below-fold diagrams stay cheap placeholders.
+ */
 export function MermaidBlock({ code }: { code: string }) {
   const reactId = useId().replace(/[^a-zA-Z0-9]/g, "");
+  const hostRef = useRef<HTMLElement | null>(null);
+  const [inView, setInView] = useState(false);
   const [svg, setSvg] = useState("");
-  const [status, setStatus] = useState<Status>("loading");
+  const [status, setStatus] = useState<Status>("idle");
   const [themeTick, setThemeTick] = useState(0);
 
   useEffect(() => {
-    const obs = new MutationObserver(() => setThemeTick((n) => n + 1));
-    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    const el = hostRef.current;
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setInView(true);
+      return;
+    }
+    const obs = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          setInView(true);
+          obs.disconnect();
+        }
+      },
+      { rootMargin: "240px 0px", threshold: 0.01 },
+    );
+    obs.observe(el);
     return () => obs.disconnect();
   }, []);
 
   useEffect(() => {
+    if (!inView) return;
+    const obs = new MutationObserver(() => setThemeTick((n) => n + 1));
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => obs.disconnect();
+  }, [inView]);
+
+  useEffect(() => {
+    if (!inView) return;
     let cancelled = false;
     setStatus((prev) => (prev === "ready" ? prev : "loading"));
     const id = `mmd${reactId}${++renderSeq}`;
@@ -121,7 +149,7 @@ export function MermaidBlock({ code }: { code: string }) {
     return () => {
       cancelled = true;
     };
-  }, [code, reactId, themeTick]);
+  }, [code, reactId, themeTick, inView]);
 
   if (status === "error") {
     return (
@@ -133,14 +161,21 @@ export function MermaidBlock({ code }: { code: string }) {
 
   return (
     <figure
+      ref={hostRef}
       className={cn(
         "mermaid-block mt-6 overflow-x-auto rounded-md border border-border bg-bg-elevated p-3 sm:p-4",
-        status === "loading" && !svg && "min-h-40",
+        (status === "idle" || status === "loading") && !svg && "min-h-40",
       )}
       aria-label="流程图"
     >
-      {status === "loading" && !svg ? (
-        <p className="px-2 py-10 text-center text-sm text-fg-subtle">正在绘制图表…</p>
+      {(status === "idle" || status === "loading") && !svg ? (
+        <div className="space-y-2 px-2 py-8" aria-hidden>
+          <div className="mx-auto h-3 w-2/3 max-w-xs animate-pulse rounded bg-bg-subtle" />
+          <div className="mx-auto h-24 max-w-md animate-pulse rounded-md bg-bg-subtle" />
+          <p className="pt-2 text-center text-xs text-fg-subtle">
+            {status === "idle" ? "图表将在滚入视口后绘制" : "正在绘制图表…"}
+          </p>
+        </div>
       ) : (
         <div
           className="mermaid-svg min-w-0 [&_svg]:mx-auto [&_svg]:h-auto [&_svg]:max-w-full"
