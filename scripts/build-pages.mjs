@@ -5,12 +5,20 @@
  * TanStack Start SPA emits client/ + server/. Pages only needs the client shell
  * at the artifact root, plus 404.html so /docs/... deep links hydrate.
  */
-import { spawn } from "node:child_process";
+import { spawn, spawnSync } from "node:child_process";
 import { copyFileSync, cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 process.env.GITHUB_PAGES = "1";
 process.env.VITE_AUTH_ENABLED = "false";
+
+{
+  const gen = spawnSync(process.execPath, ["scripts/generate-search-index.mjs"], {
+    stdio: "inherit",
+    env: process.env,
+  });
+  if (gen.status !== 0) process.exit(gen.status ?? 1);
+}
 
 const child = spawn(process.execPath, ["scripts/with-app-env.mjs", "vite", "build"], {
   stdio: "inherit",

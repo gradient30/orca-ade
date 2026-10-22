@@ -1,8 +1,6 @@
 import { useEffect, useState } from "react";
-import { fetchDesktopReleases, FEATURED_RELEASE_COUNT, type LiveRelease } from "./github-releases";
+import { FEATURED_RELEASE_COUNT, type LiveRelease } from "./github-releases";
 import { RELEASES, type ReleaseNote } from "./releases";
-import { getMarkdown } from "./load";
-import { buildChangelogMarkdown, extractVersionSection, toReleaseNote } from "./translate-release";
 
 const CACHE_KEY = "orca-handbook-releases-v7";
 const TTL_MS = 6 * 60 * 60 * 1000;
@@ -55,12 +53,13 @@ function writeCache(releases: LiveRelease[]) {
   }
 }
 
-function applyFrom(releases: LiveRelease[], source: "cache" | "live", at: number) {
-  const existing = getMarkdown("changelog") ?? "";
+async function applyFrom(releases: LiveRelease[], source: "cache" | "live", at: number) {
+  const { getMarkdown } = await import("./load");
+  const { buildChangelogMarkdown, extractVersionSection, toReleaseNote } = await import("./translate-release");
+  const existing = (await getMarkdown("changelog")) ?? "";
   const allBaked = releases.every((r) => !!extractVersionSection(existing, r.tag));
   snapshot = {
     notes: releases.map((r) => RELEASES.find((n) => n.tag === r.tag) ?? toReleaseNote(r)),
-    // Prefer the hand-tuned Chinese page whenever every live tag already has a baked section.
     markdown: allBaked ? null : buildChangelogMarkdown(releases, existing, RELEASES),
     latestTag: releases[0]?.tag ?? snapshot.latestTag,
     source,
@@ -71,23 +70,25 @@ function applyFrom(releases: LiveRelease[], source: "cache" | "live", at: number
   emit();
 }
 
+/** Fetch/cache desktop releases. Safe to call multiple times; only runs when needed. */
 export function ensureReleasesLoaded() {
   if (inflight) return inflight;
-  // Already confirmed against GitHub in this tab — keep "live" instead of
-  // dropping to cache just because a second mount (changelog page) ran.
   if (snapshot.source === "live") return Promise.resolve();
   const cached = typeof localStorage !== "undefined" ? readCache() : null;
   if (cached) {
-    applyFrom(cached.releases, "cache", cached.at);
-    return Promise.resolve();
+    inflight = applyFrom(cached.releases, "cache", cached.at).finally(() => {
+      inflight = null;
+    });
+    return inflight;
   }
   snapshot = { ...snapshot, loading: true };
   emit();
-  inflight = fetchDesktopReleases({ limit: FEATURED_RELEASE_COUNT })
-    .then((releases) => {
+  inflight = import("./github-releases")
+    .then(({ fetchDesktopReleases }) => fetchDesktopReleases({ limit: FEATURED_RELEASE_COUNT }))
+    .then(async (releases) => {
       if (!releases.length) throw new Error("empty");
       writeCache(releases);
-      applyFrom(releases, "live", Date.now());
+      await applyFrom(releases, "live", Date.now());
     })
     .catch((err: unknown) => {
       snapshot = {
@@ -103,14 +104,19 @@ export function ensureReleasesLoaded() {
   return inflight;
 }
 
-export function useOrcaReleases(): ReleasesState {
+/**
+ * Subscribe to release snapshot. Does NOT fetch unless `autoload` is true
+ * (changelog page / explicit refresh). Header chips should pass autoload=false.
+ */
+export function useOrcaReleases(opts: { autoload?: boolean } = {}): ReleasesState {
+  const autoload = Boolean(opts.autoload);
   const [state, setState] = useState(snapshot);
   useEffect(() => {
     listeners.add(setState);
-    void ensureReleasesLoaded();
+    if (autoload) void ensureReleasesLoaded();
     return () => {
       listeners.delete(setState);
     };
-  }, []);
+  }, [autoload]);
   return state;
 }

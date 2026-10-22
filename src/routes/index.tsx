@@ -1,8 +1,16 @@
+import { lazy, Suspense } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { DocsShell } from "@/components/docs/DocsShell";
+
+const DocsShell = lazy(() =>
+  import("@/components/docs/DocsShell").then((m) => ({ default: m.DocsShell })),
+);
 
 export const Route = createFileRoute("/")({ component: Home });
 
 function Home() {
-  return <DocsShell slug="index" />;
+  return (
+    <Suspense fallback={<p className="p-8 text-sm text-fg-subtle">正在载入手册…</p>}>
+      <DocsShell slug="index" />
+    </Suspense>
+  );
 }

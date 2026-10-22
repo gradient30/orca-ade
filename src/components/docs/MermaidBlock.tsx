@@ -20,7 +20,7 @@ function readThemeVariables() {
   return {
     darkMode: theme === "dark",
     background: elevated,
-    fontFamily: '"IBM Plex Sans", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif',
+    fontFamily: '"IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif',
     primaryColor: subtle,
     primaryTextColor: fg,
     primaryBorderColor: border,
@@ -70,7 +70,7 @@ function renderDiagram(id: string, source: string): Promise<string> {
       securityLevel: "strict",
       theme: "base",
       themeVariables: readThemeVariables(),
-      fontFamily: '"IBM Plex Sans", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif',
+      fontFamily: '"IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", ui-sans-serif, system-ui, sans-serif',
       flowchart: {
         htmlLabels: true,
         curve: "basis",

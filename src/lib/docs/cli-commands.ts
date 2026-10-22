@@ -341,8 +341,5 @@ export const CLI_COMMANDS: CliCommand[] = CLI_CATEGORIES.flatMap((c) => c.comman
 
 export const CLI_COMMAND_COUNT = CLI_COMMANDS.length;
 
-export const CLI_COMMAND_TOC = [
-  { id: "conventions", text: "使用约定", level: 2 as const },
-  ...CLI_CATEGORIES.map((c) => ({ id: c.id, text: c.title, level: 2 as const })),
-];
+export { CLI_COMMAND_TOC } from "./cli-toc";
 

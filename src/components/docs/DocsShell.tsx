@@ -1,19 +1,17 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Folder, FolderOpen, Layers, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { NAV, neighbors, pageBySlug, type DocLink, type NavNode } from "@/lib/docs/catalog";
-import { getMarkdown, searchDocs } from "@/lib/docs/load";
+import { getMarkdown } from "@/lib/docs/load";
+import { searchDocs } from "@/lib/docs/search";
 import { extractToc, Markdown } from "./Markdown";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { UpdateEntry } from "./UpdateEntry";
-import { SitemapBoard } from "./SitemapBoard";
-import { RoleGuide } from "./RoleGuide";
-import { CommandCatalog } from "./CommandCatalog";
 import { SyncDot } from "./SyncDot";
 import { readStoredTheme } from "@/lib/theme";
 import { useOrcaReleases } from "@/lib/docs/use-releases";
-import { CLI_COMMAND_TOC } from "@/lib/docs/cli-commands";
+import { CLI_COMMAND_TOC } from "@/lib/docs/cli-toc";
 import {
   activeHighlightCount,
   groupHasHighlight,
@@ -22,6 +20,14 @@ import {
   isSectionHighlighted,
 } from "@/lib/docs/sync-highlights";
 import { useSyncHighlights } from "@/lib/docs/use-sync-highlights";
+
+
+const CommandCatalog = lazy(() =>
+  import("./CommandCatalog").then((m) => ({ default: m.CommandCatalog })),
+);
+const SitemapBoard = lazy(() => import("./SitemapBoard").then((m) => ({ default: m.SitemapBoard })));
+const RoleGuide = lazy(() => import("./RoleGuide").then((m) => ({ default: m.RoleGuide })));
+
 
 const SITEMAP_TOC = [
   { id: "how-to-use", text: "怎么用", level: 2 },
@@ -227,10 +233,24 @@ function scrollToHash(raw: string) {
 
 export function DocsShell({ slug }: { slug: string }) {
   const page = pageBySlug(slug);
-  const baked = getMarkdown(slug) ?? `# 未找到\n\n该章节尚未载入。`;
-  const live = useOrcaReleases();
+  const live = useOrcaReleases({ autoload: slug === "changelog" });
+  const [baked, setBaked] = useState<string>("");
+  const [mdLoading, setMdLoading] = useState(true);
+  useEffect(() => {
+    let cancelled = false;
+    setMdLoading(true);
+    void getMarkdown(slug).then((body) => {
+      if (cancelled) return;
+      setBaked(body ?? `# 未找到\n\n该章节尚未载入。`);
+      setMdLoading(false);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, [slug]);
   const md = slug === "changelog" && live.markdown ? live.markdown : baked;
   const toc = useMemo(() => {
+    if (!md) return [];
     if (slug === "sitemap") return SITEMAP_TOC;
     if (slug === "cli/commands") return CLI_COMMAND_TOC;
     if (slug === "roles") return extractToc(md, { minLevel: 2, maxLevel: 2 });
@@ -446,10 +466,16 @@ export function DocsShell({ slug }: { slug: string }) {
               </button>
             </div>
           ) : null}
-          <Markdown source={md} highlightSectionIds={sectionHotSet} />
-          {slug === "cli/commands" ? <CommandCatalog /> : null}
-          {slug === "sitemap" ? <SitemapBoard /> : null}
-          {slug === "roles" ? <RoleGuide /> : null}
+          {mdLoading && !md ? (
+            <p className="mt-8 text-sm text-fg-subtle">正在载入章节…</p>
+          ) : (
+            <Markdown source={md} highlightSectionIds={sectionHotSet} />
+          )}
+          <Suspense fallback={null}>
+            {slug === "cli/commands" ? <CommandCatalog /> : null}
+            {slug === "sitemap" ? <SitemapBoard /> : null}
+            {slug === "roles" ? <RoleGuide /> : null}
+          </Suspense>
           <Pager prev={prev} next={next} current={slug} />
         </main>
 

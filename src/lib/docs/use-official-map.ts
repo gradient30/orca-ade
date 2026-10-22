@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { fetchOfficialDocsBlobs, type OfficialDocsFetch } from "./github-docs";
 import { fetchDesktopReleases } from "./github-releases";
-import { getMarkdown } from "./load";
 import {
   MAP_SNAPSHOT,
   bakedTagsFromChangelog,
@@ -31,8 +30,18 @@ type CacheShape = { at: number; treeSha: string; blobs: OfficialDocsFetch["blobs
 
 const listeners = new Set<(s: OfficialMapState) => void>();
 
+function bakedTagsFallback(): string[] {
+  return RELEASES.map((n) => n.tag);
+}
+
+async function resolveBakedTags(): Promise<string[]> {
+  const { getMarkdown } = await import("./load");
+  const md = (await getMarkdown("changelog")) ?? "";
+  return md ? bakedTagsFromChangelog(md) : bakedTagsFallback();
+}
+
 function fallbackState(): OfficialMapState {
-  const bakedTags = bakedTagsFromChangelog(getMarkdown("changelog") ?? "");
+  const bakedTags = bakedTagsFallback();
   return {
     docs: compareDocs(MAP_SNAPSHOT, null),
     releases: compareReleases(
@@ -81,8 +90,8 @@ function writeCache(value: CacheShape) {
   }
 }
 
-function apply(live: CacheShape, source: "cache" | "live") {
-  const bakedTags = bakedTagsFromChangelog(getMarkdown("changelog") ?? "");
+async function apply(live: CacheShape, source: "cache" | "live") {
+  const bakedTags = await resolveBakedTags();
   snapshot = {
     docs: compareDocs(MAP_SNAPSHOT, live.blobs),
     releases: compareReleases(
@@ -119,16 +128,18 @@ export function ensureOfficialMapLoaded(force = false) {
   if (!force) {
     const cached = typeof localStorage !== "undefined" ? readCache() : null;
     if (cached) {
-      apply(cached, "cache");
-      return Promise.resolve();
+      inflight = apply(cached, "cache").finally(() => {
+        inflight = null;
+      });
+      return inflight;
     }
   }
   snapshot = { ...snapshot, loading: true, error: null };
   emit();
   inflight = fetchLive()
-    .then((live) => {
+    .then(async (live) => {
       writeCache(live);
-      apply(live, "live");
+      await apply(live, "live");
     })
     .catch((err: unknown) => {
       snapshot = {
