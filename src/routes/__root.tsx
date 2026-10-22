@@ -30,9 +30,12 @@ export const Route = createRootRoute({
             { rel: "manifest" as const, href: "/__grok/manifest.webmanifest" },
             { rel: "apple-touch-icon" as const, href: "/__grok/icon-180.png" },
           ]),
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
         rel: "stylesheet",
-        href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap",
+        // Latin UI only — CJK falls through to system stack in styles.css (no Noto SC download).
+        href: "https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap",
       },
     ],
   }),

@@ -62,9 +62,9 @@ html[data-theme="color"] {
 }
 
 @theme {
-  --font-sans: "IBM Plex Sans", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "IBM Plex Mono", "Noto Sans Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-  --font-display: "IBM Plex Sans", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, "Microsoft YaHei Mono", monospace;
+  --font-display: "IBM Plex Sans", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", ui-sans-serif, system-ui, sans-serif;
 
   --color-bg: var(--app-bg);
   --color-bg-elevated: var(--app-bg-elevated);
