@@ -3,7 +3,7 @@
 Orca 是一款桌面 IDE，用来并排运行多个 AI 编程 Agent。每个任务拥有自己的 git worktree、自己的 Agent 终端，以及自己的浏览器标签——这样你可以把工作扇出给 Claude Code、Codex、Cursor CLI 等，而不用 stash、来回切分支，也不会打断心流。
 
 > **先看日常入口**
-> 不想把整本手册读完再开工，从 [快速手册](/docs/quick-guide) 开始：核心能力、最高频 8 件事，以及执行 / 复核 / 探针怎么拆。
+> 想按「高频 / 核心 / 官方推荐」和标准工程路径学：从 [特性手册](/docs/features) 开始。只想每天最高频 8 件事：看 [快速手册](/docs/quick-guide)。按岗位切入：看 [按角色上手](/docs/roles)。
 
 ## 什么时候该用 Orca {#when-to-use-orca}
 

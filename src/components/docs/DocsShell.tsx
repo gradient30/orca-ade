@@ -27,6 +27,9 @@ const CommandCatalog = lazy(() =>
 );
 const SitemapBoard = lazy(() => import("./SitemapBoard").then((m) => ({ default: m.SitemapBoard })));
 const RoleGuide = lazy(() => import("./RoleGuide").then((m) => ({ default: m.RoleGuide })));
+const FeatureGuide = lazy(() =>
+  import("./FeatureGuide").then((m) => ({ default: m.FeatureGuide })),
+);
 
 
 const SITEMAP_TOC = [
@@ -270,7 +273,7 @@ export function DocsShell({ slug }: { slug: string }) {
     if (!md) return [];
     if (slug === "sitemap") return SITEMAP_TOC;
     if (slug === "cli/commands") return CLI_COMMAND_TOC;
-    if (slug === "roles") return extractToc(md, { minLevel: 2, maxLevel: 2 });
+    if (slug === "roles" || slug === "features") return extractToc(md, { minLevel: 2, maxLevel: 2 });
     // Changelog has many repeated 「已知问题」 H3s — right rail only lists version (H2) titles.
     if (slug === "changelog") return extractToc(md, { minLevel: 2, maxLevel: 2 });
     return extractToc(md);
@@ -504,6 +507,7 @@ export function DocsShell({ slug }: { slug: string }) {
             {slug === "cli/commands" ? <CommandCatalog /> : null}
             {slug === "sitemap" ? <SitemapBoard /> : null}
             {slug === "roles" ? <RoleGuide /> : null}
+            {slug === "features" ? <FeatureGuide /> : null}
           </Suspense>
           <Pager prev={prev} next={next} current={slug} />
         </main>

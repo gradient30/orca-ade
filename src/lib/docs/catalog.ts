@@ -12,6 +12,12 @@ export type NavNode =
 
 export const PAGES: DocLink[] = [
   {
+    slug: "features",
+    title: "特性手册",
+    description: "高频 / 核心 / 官方推荐特性的可视化教学，以及用 Orca 走标准软件工程路径。",
+    href: "/docs/features",
+  },
+  {
     slug: "quick-guide",
     title: "快速手册",
     description: "核心能力与日常最高频用法：真实示例、场景和收益。",
@@ -104,6 +110,7 @@ export const PAGES: DocLink[] = [
 
 export const NAV: NavNode[] = [
   { kind: "label", title: "从这里开始" },
+  { kind: "link", slug: "features", title: "特性手册", href: "/docs/features" },
   { kind: "link", slug: "roles", title: "按角色上手", href: "/docs/roles" },
   { kind: "link", slug: "quick-guide", title: "快速手册", href: "/docs/quick-guide" },
   { kind: "link", slug: "changelog", title: "更新日志", href: "/docs/changelog" },
