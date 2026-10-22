@@ -18,6 +18,12 @@ export const PAGES: DocLink[] = [
     href: "/docs/quick-guide",
   },
   {
+    slug: "roles",
+    title: "按角色上手",
+    description: "产品经理、测试、程序三条路径：对照矩阵映射到真实手册页。",
+    href: "/docs/roles",
+  },
+  {
     slug: "changelog",
     title: "更新日志",
     description: "最近五次桌面版 Release 的完整中文日志。",
@@ -98,6 +104,7 @@ export const PAGES: DocLink[] = [
 
 export const NAV: NavNode[] = [
   { kind: "label", title: "从这里开始" },
+  { kind: "link", slug: "roles", title: "按角色上手", href: "/docs/roles" },
   { kind: "link", slug: "quick-guide", title: "快速手册", href: "/docs/quick-guide" },
   { kind: "link", slug: "changelog", title: "更新日志", href: "/docs/changelog" },
   { kind: "link", slug: "architecture", title: "本站架构", href: "/docs/architecture" },

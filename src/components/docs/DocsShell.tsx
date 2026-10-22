@@ -8,6 +8,7 @@ import { extractToc, Markdown } from "./Markdown";
 import { ThemeSwitch } from "./ThemeSwitch";
 import { UpdateEntry } from "./UpdateEntry";
 import { SitemapBoard } from "./SitemapBoard";
+import { RoleGuide } from "./RoleGuide";
 import { CommandCatalog } from "./CommandCatalog";
 import { SyncDot } from "./SyncDot";
 import { readStoredTheme } from "@/lib/theme";
@@ -219,6 +220,9 @@ export function DocsShell({ slug }: { slug: string }) {
   const toc = useMemo(() => {
     if (slug === "sitemap") return SITEMAP_TOC;
     if (slug === "cli/commands") return CLI_COMMAND_TOC;
+    if (slug === "roles") return extractToc(md, { minLevel: 2, maxLevel: 2 });
+    // Changelog has many repeated 「已知问题」 H3s — right rail only lists version (H2) titles.
+    if (slug === "changelog") return extractToc(md, { minLevel: 2, maxLevel: 2 });
     return extractToc(md);
   }, [md, slug]);
   const { prev, next } = neighbors(slug);
@@ -286,10 +290,10 @@ export function DocsShell({ slug }: { slug: string }) {
   }, []);
 
   return (
-    <div className="min-h-svh overflow-x-hidden bg-bg text-fg">
+    <div className="flex h-svh flex-col overflow-hidden bg-bg text-fg">
       <header
         className={cn(
-          "sticky top-0 z-40 flex h-12 items-center gap-2 overflow-visible border-b bg-bg/90 px-2 backdrop-blur-md sm:gap-3 sm:px-3 md:px-4",
+          "z-40 flex h-12 shrink-0 items-center gap-2 overflow-visible border-b bg-bg/90 px-2 backdrop-blur-md sm:gap-3 sm:px-3 md:px-4",
           colorful ? "border-accent" : "border-border",
         )}
       >
@@ -333,8 +337,8 @@ export function DocsShell({ slug }: { slug: string }) {
         </div>
       </header>
 
-      <div className="mx-auto flex max-w-[1320px]">
-        <aside className="sticky top-12 hidden h-[calc(100svh-3rem)] w-64 shrink-0 overflow-y-auto border-r border-border px-2 py-5 md:block">
+      <div className="mx-auto flex min-h-0 w-full max-w-[1320px] flex-1 overflow-hidden">
+        <aside className="hidden h-full w-64 shrink-0 overflow-y-auto border-r border-border px-2 py-5 md:block">
           <NavList
             current={slug}
             pageHighlighted={pageHighlighted}
@@ -364,7 +368,7 @@ export function DocsShell({ slug }: { slug: string }) {
           </div>
         ) : null}
 
-        <main className="min-w-0 flex-1 px-4 py-8 sm:px-8 lg:px-10">
+        <main className="min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain px-4 py-8 sm:px-8 lg:px-10">
           {page ? <p className="text-xs tracking-wide text-fg-subtle">{page.description}</p> : null}
           {slug === "changelog" ? (
             <p className="mt-1 text-xs text-fg-subtle" data-release-source={live.source}>
@@ -432,16 +436,18 @@ export function DocsShell({ slug }: { slug: string }) {
           <Markdown source={md} highlightSectionIds={sectionHotSet} />
           {slug === "cli/commands" ? <CommandCatalog /> : null}
           {slug === "sitemap" ? <SitemapBoard /> : null}
+          {slug === "roles" ? <RoleGuide /> : null}
           <Pager prev={prev} next={next} current={slug} />
         </main>
 
-        <aside className="sticky top-12 hidden h-[calc(100svh-3rem)] w-52 shrink-0 overflow-y-auto py-8 pr-4 xl:block">
+        <aside className="hidden h-full w-52 shrink-0 overflow-y-auto overscroll-contain py-8 pr-4 xl:block">
           <div className="text-xs font-medium tracking-[0.14em] text-fg-subtle uppercase">本页</div>
-          <ul className="mt-3 space-y-1.5">
-            {toc.map((item) => {
+          {/* key=slug forces full replace on route change — never append leftover TOC nodes */}
+          <ul key={slug} className="mt-3 space-y-1.5">
+            {toc.map((item, index) => {
               const hot = isSectionHighlighted(batch, seen, slug, item.id);
               return (
-                <li key={item.id}>
+                <li key={`${slug}:${item.id}:${index}`}>
                   <a
                     href={`#${item.id}`}
                     onClick={() => {

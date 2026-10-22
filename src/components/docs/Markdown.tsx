@@ -26,9 +26,18 @@ function slugify(s: string): string {
     .slice(0, 80);
 }
 
-export function extractToc(source: string): { id: string; text: string; level: number }[] {
+export type TocItem = { id: string; text: string; level: number };
+
+/** Build TOC from headings. IDs are uniquified so React keys never collide across repeats
+ *  (e.g. many 「已知问题」 / Known issues sections in the changelog). */
+export function extractToc(
+  source: string,
+  opts: { minLevel?: number; maxLevel?: number } = {},
+): TocItem[] {
+  const minLevel = opts.minLevel ?? 2;
+  const maxLevel = opts.maxLevel ?? 3;
   return parse(source)
-    .filter((b): b is Extract<Block, { t: "h" }> => b.t === "h" && b.level >= 2 && b.level <= 3)
+    .filter((b): b is Extract<Block, { t: "h" }> => b.t === "h" && b.level >= minLevel && b.level <= maxLevel)
     .map((b) => ({ id: b.id, text: b.text.replace(/[*`]/g, ""), level: b.level }));
 }
 
@@ -48,9 +57,17 @@ function parseHeading(line: string): Extract<Block, { t: "h" }> | null {
   return { t: "h", level, text, id };
 }
 
+function uniquifyId(raw: string, used: Map<string, number>): string {
+  const base = raw || "section";
+  const n = (used.get(base) ?? 0) + 1;
+  used.set(base, n);
+  return n === 1 ? base : `${base}-${n}`;
+}
+
 function parse(src: string): Block[] {
   const lines = src.replace(/\r\n/g, "\n").split("\n");
   const blocks: Block[] = [];
+  const usedIds = new Map<string, number>();
   let i = 0;
   while (i < lines.length) {
     const line = lines[i] ?? "";
@@ -91,7 +108,7 @@ function parse(src: string): Block[] {
     }
     const heading = parseHeading(line);
     if (heading) {
-      blocks.push(heading);
+      blocks.push({ ...heading, id: uniquifyId(heading.id, usedIds) });
       i += 1;
       continue;
     }
