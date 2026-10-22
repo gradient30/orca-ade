@@ -13,5 +13,10 @@ export function getRouter() {
     routeTree,
     defaultErrorComponent: AppErrorComponent,
     basepath: appBasepath(),
+    // Hover/focus warms route chunks; MD bodies use prefetchMarkdown separately.
+    defaultPreload: "intent",
+    defaultPreloadDelay: 50,
+    // Cheap cross-fade of main content (see styles.css view-transition rules).
+    defaultViewTransition: true,
   });
 }

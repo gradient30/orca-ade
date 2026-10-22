@@ -1,6 +1,7 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { HandbookApp } from "@/components/docs/HandbookApp";
 import appCss from "../styles.css?url";
 
 const APP_NAME = "Orca 中文使用手册";
@@ -48,6 +49,8 @@ export const Route = createRootRoute({
       <body>
         <PreviewHostBridge />
         <AuthProvider>
+          <HandbookApp />
+          {/* Routes stay for URL matching; shell is owned once above. */}
           <Outlet />
         </AuthProvider>
         <Scripts />

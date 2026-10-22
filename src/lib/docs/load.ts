@@ -21,12 +21,26 @@ for (const [path, loader] of Object.entries(modules)) {
 
 const cache = new Map<string, string>();
 
+function keyOf(slug: string): string {
+  return slug === "" || slug === "docs" ? "index" : slug.replace(/\/$/, "");
+}
+
 export function listDocSlugs(): string[] {
   return [...bySlug.keys()].sort();
 }
 
+/** Sync read of an already-fetched body (nav revisits / hover prefetch hits). */
+export function peekMarkdown(slug: string): string | undefined {
+  return cache.get(keyOf(slug));
+}
+
+/** Fire-and-forget warm of a slug chunk into cache. Safe to call on hover/focus. */
+export function prefetchMarkdown(slug: string): void {
+  void getMarkdown(slug);
+}
+
 export async function getMarkdown(slug: string): Promise<string | undefined> {
-  const key = slug === "" || slug === "docs" ? "index" : slug.replace(/\/$/, "");
+  const key = keyOf(slug);
   const hit = cache.get(key);
   if (hit !== undefined) return hit;
   const loader = bySlug.get(key);
@@ -38,5 +52,17 @@ export async function getMarkdown(slug: string): Promise<string | undefined> {
 
 /** Drop a cached body (e.g. after live changelog rebuild replaces display source). */
 export function invalidateMarkdown(slug: string): void {
-  cache.delete(slug === "" || slug === "docs" ? "index" : slug.replace(/\/$/, ""));
+  cache.delete(keyOf(slug));
+}
+
+/** Map router pathname (basepath already stripped) → handbook slug. */
+export function slugFromPathname(pathname: string): string {
+  const p = pathname.replace(/\/$/, "") || "/";
+  if (p === "/" || p === "") return "index";
+  if (p === "/docs") return "index";
+  if (p.startsWith("/docs/")) {
+    const rest = p.slice("/docs/".length);
+    return rest || "index";
+  }
+  return "index";
 }

@@ -1,9 +1,9 @@
-import { lazy, Suspense, useCallback, useEffect, useMemo, useState } from "react";
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { Link, useRouterState } from "@tanstack/react-router";
 import { ChevronDown, Folder, FolderOpen, Layers, Menu, Search, X } from "lucide-react";
 import { cn } from "@/lib/cn";
 import { NAV, neighbors, pageBySlug, type DocLink, type NavNode } from "@/lib/docs/catalog";
-import { getMarkdown } from "@/lib/docs/load";
+import { getMarkdown, peekMarkdown, prefetchMarkdown } from "@/lib/docs/load";
 import { searchDocs } from "@/lib/docs/search";
 import { extractToc, Markdown } from "./Markdown";
 import { ThemeSwitch } from "./ThemeSwitch";
@@ -102,6 +102,9 @@ function NavItem({
     return (
       <Link
         to={node.href}
+        preload="intent"
+        onMouseEnter={() => prefetchMarkdown(node.slug)}
+        onFocus={() => prefetchMarkdown(node.slug)}
         onClick={() => {
           onVisitPage?.(node.slug);
           onNavigate?.();
@@ -153,6 +156,9 @@ function NavItem({
               <Link
                 key={c.slug}
                 to={c.href}
+                preload="intent"
+                onMouseEnter={() => prefetchMarkdown(c.slug)}
+                onFocus={() => prefetchMarkdown(c.slug)}
                 onClick={() => {
                   onVisitPage?.(c.slug);
                   onNavigate?.();
@@ -208,6 +214,9 @@ function SearchModal({ open, onClose }: { open: boolean; onClose: () => void }) 
                 key={h.hash ? `${h.slug}#${h.hash}` : h.slug}
                 to={hrefFor(h.slug)}
                 hash={h.hash ?? ""}
+                preload="intent"
+                onMouseEnter={() => prefetchMarkdown(h.slug)}
+                onFocus={() => prefetchMarkdown(h.slug)}
                 onClick={onClose}
                 className="block px-4 py-2.5 hover:bg-bg-subtle"
               >
@@ -234,11 +243,19 @@ function scrollToHash(raw: string) {
 export function DocsShell({ slug }: { slug: string }) {
   const page = pageBySlug(slug);
   const live = useOrcaReleases({ autoload: slug === "changelog" });
-  const [baked, setBaked] = useState<string>("");
-  const [mdLoading, setMdLoading] = useState(true);
+  const [baked, setBaked] = useState<string>(() => peekMarkdown(slug) ?? "");
+  const [mdLoading, setMdLoading] = useState(() => peekMarkdown(slug) === undefined);
+  const mainRef = useRef<HTMLElement | null>(null);
   useEffect(() => {
+    const cached = peekMarkdown(slug);
+    if (cached !== undefined) {
+      setBaked(cached);
+      setMdLoading(false);
+      return;
+    }
     let cancelled = false;
     setMdLoading(true);
+    setBaked("");
     void getMarkdown(slug).then((body) => {
       if (cancelled) return;
       setBaked(body ?? `# 未找到\n\n该章节尚未载入。`);
@@ -259,6 +276,10 @@ export function DocsShell({ slug }: { slug: string }) {
     return extractToc(md);
   }, [md, slug]);
   const { prev, next } = neighbors(slug);
+  useEffect(() => {
+    if (prev) prefetchMarkdown(prev.slug);
+    if (next) prefetchMarkdown(next.slug);
+  }, [slug, prev, next]);
   const [drawer, setDrawer] = useState(false);
   const [search, setSearch] = useState(false);
   const [colorful, setColorful] = useState(false);
@@ -299,7 +320,12 @@ export function DocsShell({ slug }: { slug: string }) {
   }, [slug, batch, seen, seePage]);
 
   useEffect(() => {
-    const t = window.setTimeout(() => scrollToHash(hash || window.location.hash), 40);
+    const raw = hash || (typeof window !== "undefined" ? window.location.hash : "");
+    const id = decodeURIComponent(raw.replace(/^#/, ""));
+    if (!id && mainRef.current) {
+      mainRef.current.scrollTop = 0;
+    }
+    const t = window.setTimeout(() => scrollToHash(raw), 40);
     return () => window.clearTimeout(t);
   }, [slug, hash, md]);
 
@@ -401,7 +427,7 @@ export function DocsShell({ slug }: { slug: string }) {
           </div>
         ) : null}
 
-        <main className="min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain px-4 py-8 sm:px-8 lg:px-10">
+        <main ref={mainRef} className="docs-main min-h-0 min-w-0 flex-1 overflow-y-auto overscroll-contain px-4 py-8 sm:px-8 lg:px-10">
           {page ? <p className="text-xs tracking-wide text-fg-subtle">{page.description}</p> : null}
           {slug === "changelog" ? (
             <p className="mt-1 text-xs text-fg-subtle" data-release-source={live.source}>
@@ -436,6 +462,9 @@ export function DocsShell({ slug }: { slug: string }) {
                       <li key={pg.slug}>
                         <Link
                           to={hrefFor(pg.slug)}
+                          preload="intent"
+                          onMouseEnter={() => prefetchMarkdown(pg.slug)}
+                          onFocus={() => prefetchMarkdown(pg.slug)}
                           onClick={() => seePage(pg.slug)}
                           className={
                             cleared
@@ -515,7 +544,13 @@ function Pager({ prev, next, current }: { prev?: DocLink; next?: DocLink; curren
   return (
     <div className="mt-14 grid gap-3 border-t border-border pt-6 sm:grid-cols-2">
       {prev && prev.slug !== current ? (
-        <Link to={prev.href} className="rounded-md border border-border bg-bg-elevated px-4 py-3 hover:border-border-strong">
+        <Link
+          to={prev.href}
+          preload="intent"
+          onMouseEnter={() => prefetchMarkdown(prev.slug)}
+          onFocus={() => prefetchMarkdown(prev.slug)}
+          className="rounded-md border border-border bg-bg-elevated px-4 py-3 hover:border-border-strong"
+        >
           <div className="text-xs text-fg-subtle">上一篇</div>
           <div className="mt-1 text-sm text-fg">{prev.title}</div>
         </Link>
@@ -525,6 +560,9 @@ function Pager({ prev, next, current }: { prev?: DocLink; next?: DocLink; curren
       {next ? (
         <Link
           to={next.href}
+          preload="intent"
+          onMouseEnter={() => prefetchMarkdown(next.slug)}
+          onFocus={() => prefetchMarkdown(next.slug)}
           className="rounded-md border border-border bg-bg-elevated px-4 py-3 text-right hover:border-border-strong"
         >
           <div className="text-xs text-fg-subtle">下一篇</div>
