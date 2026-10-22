@@ -2317,17 +2317,6 @@ The remaining changes are listed in the [complete release notes](https://github.
 ### 已知问题 {#v1-4-225-known-issues}
 
 **较旧 SSH 终端中的 `orca` 命令：** 从 v1.4.224 保持运行的终端仍接受输入、输出和调整大小，但那些较旧终端内 `orca` 命令不可用。在同一宿主上的新终端中运行它们（#27787）。
-### Known issues {#v1-4-225-known-issues}
-
-**SSH hosts that cannot run the managed server:** This version no longer falls back to the old SSH runtime. If the host is unsupported, Settings → SSH Hosts explains why. Use an older Orca version to keep connecting to a host the managed server cannot support (#27214).
-
-**The `orca` command in older SSH terminals:** Terminals kept running from v1.4.224 still accept typing, output and resizing, but `orca` commands are unavailable inside those older terminals. Run them in a new terminal on the same host (#27787).
-
-**Tab order after a cold restart:** If the terminal background process is killed before Orca reopens, the saved terminal-tab order can disagree with the tab bar. This remains a known layout issue (#27353).
-
-**OpenCode 2:** If you update from v1.4.219 or earlier, OpenCode 2 panes that were already running may show no status until you restart OpenCode in them. If you downgrade Orca after updating, duplicate OpenCode status plugins are left behind. After `opencode run` exits, its pane can keep showing "Done"; a fix is pending in #24472.
-
----
 
 ### 产品体验 {#v1-4-225-product}
 
