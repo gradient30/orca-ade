@@ -12,18 +12,17 @@ import {
 } from "./sync-highlights.ts";
 
 describe("sync-highlights batch", () => {
-  it("ships the restore/sync pages with section anchors", () => {
+  it("ships human-friendly summary without process paths", () => {
+    assert.match(SYNC_HIGHLIGHTS.summary, /本次同步/);
+    assert.doesNotMatch(SYNC_HIGHLIGHTS.summary, /hostedtoolcache|\/node\b|\\node\b/);
+    assert.doesNotMatch(SYNC_HIGHLIGHTS.summary, /^已汉化：\//);
     const slugs = SYNC_HIGHLIGHTS.pages.map((p) => p.slug).sort();
-    assert.deepEqual(slugs, [
-      "changelog",
-      "cli/reference",
-      "remote-servers",
-      "review/commit-push",
-      "ssh",
-      "telemetry",
-    ]);
-    const remote = SYNC_HIGHLIGHTS.pages.find((p) => p.slug === "remote-servers");
-    assert.ok(remote?.sections.includes("limit-terminal-memory-on-a-linux-server"));
+    assert.ok(slugs.includes("ssh"));
+    assert.ok(slugs.includes("changelog"));
+    for (const slug of slugs) {
+      assert.doesNotMatch(slug, /^\//);
+      assert.doesNotMatch(slug, /hostedtoolcache/);
+    }
   });
 });
 
@@ -31,25 +30,24 @@ describe("highlight visibility", () => {
   it("hides dismissed batches and seen pages/sections", () => {
     const seen = emptySeen();
     assert.equal(isPageHighlighted(SYNC_HIGHLIGHTS, seen, "ssh"), true);
-    assert.equal(isSectionHighlighted(SYNC_HIGHLIGHTS, seen, "ssh", "macos-hosts-local-network-access"), true);
+    const sshSecs = SYNC_HIGHLIGHTS.pages.find((p) => p.slug === "ssh")?.sections ?? [];
+    assert.ok(sshSecs.length > 0);
+    assert.equal(isSectionHighlighted(SYNC_HIGHLIGHTS, seen, "ssh", sshSecs[0]!), true);
 
     const afterPage: SyncSeenState = { ...seen, pages: ["ssh"] };
     assert.equal(isPageHighlighted(SYNC_HIGHLIGHTS, afterPage, "ssh"), false);
     // body/toc section dots remain until section cleared
-    assert.equal(
-      isSectionHighlighted(SYNC_HIGHLIGHTS, afterPage, "ssh", "macos-hosts-local-network-access"),
-      true,
-    );
+    assert.equal(isSectionHighlighted(SYNC_HIGHLIGHTS, afterPage, "ssh", sshSecs[0]!), true);
 
     const afterSection: SyncSeenState = {
       ...afterPage,
-      sections: { ssh: ["macos-hosts-local-network-access"] },
+      sections: { ssh: [...sshSecs] },
     };
     assert.deepEqual(highlightedSections(SYNC_HIGHLIGHTS, afterSection, "ssh"), []);
 
     const dismissed: SyncSeenState = { dismissed: true, pages: [], sections: {} };
     assert.equal(activeHighlightCount(SYNC_HIGHLIGHTS, dismissed), 0);
-    assert.equal(groupHasHighlight(SYNC_HIGHLIGHTS, dismissed, ["ssh", "remote-servers"]), false);
+    assert.equal(groupHasHighlight(SYNC_HIGHLIGHTS, dismissed, ["ssh", "changelog"]), false);
     assert.equal(groupHasHighlight(SYNC_HIGHLIGHTS, seen, ["ssh", "install"]), true);
   });
 });

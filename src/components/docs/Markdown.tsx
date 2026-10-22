@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { cn } from "@/lib/cn";
+import { SyncDot } from "./SyncDot";
 import { MermaidBlock } from "./MermaidBlock";
 
 type Block =
@@ -250,13 +251,7 @@ export function Markdown({
             <Tag key={i} id={b.id} className={cn("scroll-mt-24", hClass[b.level])}>
               <span className="inline-flex items-center gap-2">
                 <Inline text={b.text} />
-                {showDot ? (
-                  <span
-                    className="inline-block size-1.5 shrink-0 rounded-full bg-destructive"
-                    title="本次同步更新"
-                    aria-label="本次同步更新"
-                  />
-                ) : null}
+                {showDot ? <SyncDot size="md" label="本次同步更新了此章节" /> : null}
               </span>
             </Tag>
           );

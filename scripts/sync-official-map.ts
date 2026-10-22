@@ -30,17 +30,57 @@ function today(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
-function markSet(): { slugs: Set<string>; tags: Set<string> } {
-  const arg = process.argv.find((a) => a.startsWith("--mark-translated")) ?? "";
-  const value = arg.includes("=") ? arg.slice(arg.indexOf("=") + 1) : process.argv[process.argv.indexOf("--mark-translated") + 1];
+/** Read `--flag=value` or `--flag value`. Returns undefined when the flag is absent
+ *  so we never fall through to `argv[0]` (the node binary path on CI). */
+export function readArgValue(argv: string[], flag: string): string | undefined {
+  const eq = argv.find((a) => a === flag || a.startsWith(`${flag}=`));
+  if (!eq) return undefined;
+  if (eq.startsWith(`${flag}=`)) return eq.slice(flag.length + 1);
+  const idx = argv.indexOf(flag);
+  if (idx < 0) return undefined;
+  const next = argv[idx + 1];
+  if (!next || next.startsWith("-")) return undefined;
+  return next;
+}
+
+function looksLikeDocSlug(token: string): boolean {
+  if (!token || token.startsWith("-") || token.startsWith("/")) return false;
+  if (token.includes("hostedtoolcache") || token.includes("node_modules")) return false;
+  if (/^[A-Za-z]:\\/.test(token)) return false; // Windows path
+  if (token.endsWith("/node") || token.endsWith("\\node") || token.endsWith("/node.exe")) return false;
+  return /^[a-z0-9][a-z0-9/_-]*$/i.test(token);
+}
+
+function markSet(argv: string[] = process.argv): { slugs: Set<string>; tags: Set<string> } {
+  const value = readArgValue(argv, "--mark-translated");
   const slugs = new Set<string>();
   const tags = new Set<string>();
-  if (!value || value.startsWith("-")) return { slugs, tags };
+  if (!value) return { slugs, tags };
   for (const token of value.split(",").map((s) => s.trim()).filter(Boolean)) {
     if (/^v\d+\.\d+\.\d+$/.test(token)) tags.add(token);
-    else slugs.add(token);
+    else if (looksLikeDocSlug(token)) slugs.add(token);
   }
   return { slugs, tags };
+}
+
+function parseHighlightPages(argv: string[] = process.argv): { slug: string; sections: string[] }[] {
+  const value = readArgValue(argv, "--highlight");
+  if (!value) return [];
+  const pages: { slug: string; sections: string[] }[] = [];
+  for (const token of value.split(",").map((s) => s.trim()).filter(Boolean)) {
+    const [slug, secs] = token.split("=");
+    if (!slug || !looksLikeDocSlug(slug)) continue;
+    pages.push({
+      slug,
+      sections: secs ? secs.split("+").map((s) => s.trim()).filter(Boolean) : [],
+    });
+  }
+  return pages;
+}
+
+function highlightSummary(pages: { slug: string }[]): string {
+  const names = pages.map((pg) => pg.slug);
+  return `本次同步更新了：${names.join("、")}。点左侧红点可跳转；打开该页后红点会清除。`;
 }
 
 function fingerprintKey(snap: MapSnapshot): string {
@@ -152,32 +192,19 @@ async function main() {
 
   // Optional reader red-dot batch: --highlight slug=sec1+sec2,changelog=v1-4-230
   // Rewrites src/lib/docs/sync-highlights.json for the nav/TOC SyncDot UI.
-  const highlightArg = process.argv.find((a) => a.startsWith("--highlight")) ?? "";
-  const highlightValue = highlightArg.includes("=")
-    ? highlightArg.slice(highlightArg.indexOf("=") + 1)
-    : process.argv[process.argv.indexOf("--highlight") + 1];
-  if (highlightValue && !highlightValue.startsWith("-") && (marks.slugs.size > 0 || marks.tags.size > 0)) {
-    const pages: { slug: string; sections: string[] }[] = [];
-    for (const token of highlightValue.split(",").map((s) => s.trim()).filter(Boolean)) {
-      const [slug, secs] = token.split("=");
-      if (!slug) continue;
-      pages.push({
-        slug,
-        sections: secs ? secs.split("+").map((s) => s.trim()).filter(Boolean) : [],
-      });
-    }
-    if (pages.length) {
-      const highlightFile = join(root, "src/lib/docs/sync-highlights.json");
-      const batch = {
-        id: `${today()}-${pages.map((pg) => pg.slug.split("/").pop()).join("-")}`.slice(0, 80),
-        label: `${today()} 同步`,
-        at: today(),
-        summary: `已汉化：${pages.map((pg) => pg.slug).join("、")}`,
-        pages,
-      };
-      writeFileSync(highlightFile, `${JSON.stringify(batch, null, 2)}\n`);
-      console.log("wrote", highlightFile);
-    }
+  // Only when --highlight is explicitly passed (never invent pages from argv[0]/node).
+  const pages = parseHighlightPages(process.argv);
+  if (pages.length && (marks.slugs.size > 0 || marks.tags.size > 0)) {
+    const highlightFile = join(root, "src/lib/docs/sync-highlights.json");
+    const batch = {
+      id: `${today()}-${pages.map((pg) => pg.slug.split("/").pop()).join("-")}`.slice(0, 80),
+      label: `${today()} 同步`,
+      at: today(),
+      summary: highlightSummary(pages),
+      pages,
+    };
+    writeFileSync(highlightFile, `${JSON.stringify(batch, null, 2)}\n`);
+    console.log("wrote", highlightFile);
   }
 }
 
