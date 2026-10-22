@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-21",
+  "capturedAt": "2026-10-22",
   "officialRef": "main",
   "docsTreeSha": "e264958088175aacd5c8d36313a8a767ca3298d9",
   "docs": [
@@ -487,7 +487,7 @@
       "officialPath": "docs/site/content/docs/ssh.mdx",
       "size": 10974,
       "lastSeenSha": "8e3952de8f4b4b98fed6469ffd966a667e4650d5",
-      "translatedAtSha": "fcbe26c6f2d2a3f32a3552117c5d4efa23a30257"
+      "translatedAtSha": "8e3952de8f4b4b98fed6469ffd966a667e4650d5"
     },
     {
       "slug": "telemetry",
@@ -531,28 +531,28 @@
       "tag": "v1.4.237",
       "publishedAt": "2026-10-21",
       "lastSeenBodySha": "1b14fd773f10",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "1b14fd773f10",
       "yanked": false
     },
     {
       "tag": "v1.4.235",
       "publishedAt": "2026-10-20",
       "lastSeenBodySha": "33cfe4ece07f",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "33cfe4ece07f",
       "yanked": false
     },
     {
       "tag": "v1.4.233",
       "publishedAt": "2026-10-20",
       "lastSeenBodySha": "34746af357e1",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "34746af357e1",
       "yanked": false
     },
     {
       "tag": "v1.4.232",
       "publishedAt": "2026-10-20",
       "lastSeenBodySha": "0dfaddcbe910",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "0dfaddcbe910",
       "yanked": false
     },
     {

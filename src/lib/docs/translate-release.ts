@@ -16,6 +16,12 @@ const HEADINGS: Record<string, string> = {
   "SSH, relay & remote": "SSH、中继与远程",
   "Windows & WSL": "Windows 与 WSL",
   Mobile: "移动端",
+  Phone: "手机端",
+  "Voice & agent launches": "语音与 Agent 启动",
+  "Editor, files & performance": "编辑器、文件与性能",
+  "Terminals, SSH & remote servers": "终端、SSH 与远程服务器",
+  "History, projects & source control": "历史、项目与源码管理",
+  "Tests, builds & maintenance": "测试、构建与维护",
   "Quality & delivery": "质量与交付",
   "Performance: interface & workspace": "性能：界面与工作区",
   "Performance: terminal & remote": "性能：终端与远程",
@@ -89,6 +95,65 @@ const TYPES: Record<string, string> = {
 };
 
 const PHRASES: [string, string][] = [
+
+  ["More done from your phone:", "手机端能做的更多："],
+  ["Chats you can come back to:", "聊完还能回来："],
+  ["Your work stays protected:", "工作更受保护："],
+  ["Voice beyond the desktop:", "桌面之外的语音："],
+  ["Smoother remote work:", "更顺的远程工作："],
+  ["Small details, better flow:", "小细节，更顺手："],
+  ["Phone updates:", "手机更新："],
+  ["Native chat (experimental):", "实验性 Native Chat："],
+  ["Headless dictation:", "无头听写："],
+  ["CLI launch choice:", "CLI 启动选择："],
+  ["Create and edit notes, save Markdown on headless hosts, follow relative file links, and see embedded images. Buffered terminal drafts can now survive workspace navigation, too.", "创建和编辑笔记，在无头宿主上保存 Markdown，跟随相对文件链接，并查看内嵌图片。缓冲的终端草稿在切换工作区后也能保留。"],
+  ["Codex chats reopen correctly after undo, Claude keeps its rewound context across Orca rollbacks, and screenshots stay with the conversation. Codex’s skill picker now reflects the skills Codex actually loaded.", "Codex 聊天在撤销后能正确重开，Claude 在 Orca 回滚后仍保留已 Rewind 的上下文，截图会跟着对话走。Codex 技能选择器现在反映 Codex 实际加载的技能。"],
+  ["Codex chats reopen correctly after undo, Claude keeps its rewound context across Orca rollbacks, and screenshots stay with the conversation. Codex's skill picker now reflects the skills Codex actually loaded.", "Codex 聊天在撤销后能正确重开，Claude 在 Orca 回滚后仍保留已 Rewind 的上下文，截图会跟着对话走。Codex 技能选择器现在反映 Codex 实际加载的技能。"],
+  ["Discard pauses autosave of the same file across workspaces. Read-only Markdown and CSV views protect your unsaved edits, and new, unstaged Markdown documents open straight into the rich editor.", "Discard 会暂停跨工作区对同一文件的自动保存。只读 Markdown / CSV 视图保护未保存编辑；新建、未暂存的 Markdown 会直接进入富文本编辑器。"],
+  ["Phone dictation works again through headless `orca serve` hosts, with a CLI command to configure the host’s OpenAI key.", "通过无头 `orca serve` 宿主，手机听写再次可用，并可用 CLI 配置宿主的 OpenAI key。"],
+  ["Phone dictation works again through headless `orca serve` hosts, with a CLI command to configure the host's OpenAI key.", "通过无头 `orca serve` 宿主，手机听写再次可用，并可用 CLI 配置宿主的 OpenAI key。"],
+  ["Reconnect hidden terminal tabs after a restart, keep browser logins when hosts pair again, and search SSH configurations with thousands of hosts without freezing the interface.", "重启后重连隐藏的终端标签，宿主再次配对时保留浏览器登录，在有数千台主机的 SSH 配置里搜索而不卡死界面。"],
+  ["Phone tabs follow desktop order, landscape layouts show the session title, keyboard controls keep their height, and worktree safety sweeps skip unchanged workspaces.", "手机标签跟随桌面顺序，横屏布局显示会话标题，键盘控件保持高度，worktree 安全扫描会跳过未改动的工作区。"],
+  ["Updating Orca on the computer serving your phone also updates the phone’s served interface. Persistent terminal drafts additionally require an updated mobile shell.", "更新为手机提供服务的那台电脑上的 Orca，也会更新手机端被提供的界面。持久终端草稿还需要更新过的 mobile shell。"],
+  ["Updating Orca on the computer serving your phone also updates the phone's served interface. Persistent terminal drafts additionally require an updated mobile shell.", "更新为手机提供服务的那台电脑上的 Orca，也会更新手机端被提供的界面。持久终端草稿还需要更新过的 mobile shell。"],
+  ["Orca just crossed **100,000 stars on GitHub**! Every bug report, pull request, shared workflow and recommendation has helped us get here. Thank you for building with Orca and helping shape what comes next. ❤️", "Orca 刚刚突破 GitHub **100,000 star**！每一份 bug 报告、pull request、共享工作流与推荐都帮我们走到这里。感谢与我们一起用 Orca 构建，并塑造接下来的方向。❤️"],
+  ["To celebrate, this release brings a more capable phone experience, more dependable agent conversations, and fixes that keep your work moving across desktops and remote machines.", "为表庆祝，本版带来更强的手机体验、更可靠的 Agent 对话，以及让工作在桌面与远程机器间持续推进的修复。"],
+  ["100,000 stars. Thank you! ⭐🐳", "十万星标，感谢！⭐🐳"],
+
+  ["Pick the skills Codex actually loaded, return to conversations with confidence, and keep your chat history and attachments intact.", "挑选 Codex 实际加载的技能，自信地回到对话，并完整保留聊天历史与附件。"],
+  ["Move between workspaces without losing your draft, work on Markdown without an open desktop window, and enjoy a more consistent interface.", "在工作区之间切换而不丢失草稿，无需打开桌面窗口即可处理 Markdown，界面也更一致。"],
+  ["Use Codex’s own loaded-skill catalog in chat; desktop selections identify the exact skill file, including when names overlap", "在聊天中使用 Codex 自己已加载的技能目录；桌面选择会定位到确切的技能文件，即使名称重复也能区分"],
+  ["Use Codex's own loaded-skill catalog in chat; desktop selections identify the exact skill file, including when names overlap", "在聊天中使用 Codex 自己已加载的技能目录；桌面选择会定位到确切的技能文件，即使名称重复也能区分"],
+  ["Reopen Codex chats after undo and continue with the correct conversation history", "撤销后重开 Codex 聊天，并以正确的对话历史继续"],
+  ["Keep Claude’s rewound context intact even after rolling back Orca", "即使回滚 Orca，仍保持 Claude 已 Rewind 的上下文完整"],
+  ["Keep Claude's rewound context intact even after rolling back Orca", "即使回滚 Orca，仍保持 Claude 已 Rewind 的上下文完整"],
+  ["Show prompts sent mid-turn and `!` commands where Claude actually received them", "在 Claude 实际收到的位置显示回合中途发送的 prompt 与 `!` 命令"],
+  ["Keep screenshots dragged into a chat available for the lifetime of that chat", "拖入聊天的截图在该聊天生命周期内保持可用"],
+  ["Retry failed chat names, show naming errors on the tab hover card, and offer **Regenerate name**", "重试失败的聊天命名，在标签悬停卡片上显示命名错误，并提供 **Regenerate name**"],
+  ["Keep resumed Claude chats ready to receive messages after settings updates", "设置更新后，已恢复的 Claude 聊天仍可立即接收消息"],
+  ["Show **Working** only while Claude, Pi or ACP is handling work, while keeping Claude chat workers running", "仅在 Claude、Pi 或 ACP 处理工作时显示 **Working**，同时保持 Claude 聊天 worker 运行"],
+  ["Show sleeping native-chat workspaces as asleep and hide them when the sidebar filter calls for it", "将休眠的 Native Chat 工作区显示为休眠，并在侧栏筛选要求时隐藏它们"],
+  ["Tie finished notifications to the correct hook-driven turn", "将完成通知关联到正确的 hook 驱动回合"],
+  ["Clarify how to continue conversations between chat and terminal agents", "澄清如何在聊天与终端 Agent 之间继续对话"],
+  ["Open a worktree on the tab currently shown on desktop", "在桌面当前显示的标签上打开 worktree"],
+  ["List session tabs in the same order as the desktop tab bar", "按与桌面标签栏相同的顺序列出会话标签"],
+  ["Keep unsent buffered terminal commands when leaving and reopening a workspace", "离开并重新打开工作区时保留未发送的缓冲终端命令"],
+  ["Create and edit notes on headless hosts", "在无头宿主上创建和编辑笔记"],
+  ["Read and save Markdown tabs without an open desktop window, with conflict checks that protect unsaved desktop edits", "无需打开桌面窗口即可读取和保存 Markdown 标签，并用冲突检查保护未保存的桌面编辑"],
+  ["Keep a Markdown save on its original host if the workspace moves while saving", "保存过程中若工作区迁移，仍把 Markdown 保存在原宿主上"],
+  ["Open relative file links from Markdown", "从 Markdown 打开相对文件链接"],
+  ["Show embedded images in Markdown previews", "在 Markdown 预览中显示内嵌图片"],
+  ["Refresh staged files when returning from review", "从审查返回时刷新已暂存文件"],
+  ["Show the session title beside tabs when the phone is in landscape", "手机横屏时在标签旁显示会话标题"],
+  ["Blend the status-bar area into the workspace header", "将状态栏区域融入工作区标题栏"],
+  ["Match the home-indicator area to the terminal input panel", "让 Home Indicator 区域与终端输入面板对齐"],
+  ["Preserve live terminal palettes when the selected theme has not changed", "所选主题未变时保留实时终端配色"],
+  ["Keep Claude chats intact after renaming their pane", "重命名窗格后保持 Claude 聊天完整"],
+  ["Show the bundled whale icon on DeepSeek Build tabs", "在 DeepSeek Build 标签上显示内置鲸鱼图标"],
+  ["Keep the keyboard accessory row at a stable height when the dismiss button appears", "出现关闭按钮时保持键盘附属行高度稳定"],
+  ["Keep dictation controls in sync with the host’s settings", "听写控件与宿主设置保持同步"],
+  ["Keep dictation controls in sync with the host's settings", "听写控件与宿主设置保持同步"],
+  ["Simplify chat by removing the Tools toggle and its open-everything mode", "移除 Tools 开关及其一键全开模式，简化聊天"],
   ["Thank you so much for using Orca and for your continued support! ❤️", "感谢使用 Orca，也感谢一直以来的支持。"],
   ["Thank you so much for using Orca and for your continued support!", "感谢使用 Orca，也感谢一直以来的支持。"],
   [
@@ -707,16 +772,27 @@ export function extractVersionSection(md: string, tag: string): string | null {
   return section.trim();
 }
 
+export function listVersionTags(md: string): string[] {
+  const tags: string[] = [];
+  const re = /^## (v\d+\.\d+\.\d+) /gm;
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(md))) {
+    if (m[1] && !tags.includes(m[1])) tags.push(m[1]);
+  }
+  return tags;
+}
+
 export function buildChangelogMarkdown(
   releases: LiveRelease[],
   existingMd = "",
   bakedNotes: ReleaseNote[] = [],
 ): string {
   const notes = releases.map((rel) => bakedNotes.find((n) => n.tag === rel.tag) ?? toReleaseNote(rel));
+  const featuredTags = new Set(releases.map((r) => r.tag));
   const parts: string[] = [];
   parts.push("# 更新日志 {#changelog}", "");
   parts.push(
-    "本页保留最近五次桌面版的**完整中文日志**，不是一句话摘要。打开时自动抓取官方 [Releases](https://github.com/stablyai/orca/releases)，并译成中文。命令、产品名、模块 scope 与 PR 编号保持英文。",
+    "本页**置顶最近五次**桌面版的完整中文日志，并**永久保留**更早版本的译本。打开时自动抓取官方 [Releases](https://github.com/stablyai/orca/releases)；同步脚本只追加/刷新新版本，**不会删除历史条目**。命令、产品名、模块 scope 与 PR 编号保持英文。",
     "",
   );
   parts.push(
@@ -728,20 +804,36 @@ export function buildChangelogMarkdown(
   for (const n of notes) {
     parts.push(`| [${n.tag}](#${tagAnchor(n.tag)}) | ${n.dateLabel} | ${n.title} |`);
   }
+  // Historical tags appear in the archive index below the featured five.
+  const historicalTags = existingMd
+    ? listVersionTags(existingMd).filter((tag) => !featuredTags.has(tag))
+    : [];
+  if (historicalTags.length) {
+    parts.push("", "更早版本（同步时保留，不删除）：");
+    for (const tag of historicalTags) {
+      const baked = extractVersionSection(existingMd, tag);
+      const titleLine = baked?.split("\n", 1)[0] ?? `## ${tag}`;
+      const title = titleLine.replace(/^##\s+v[\d.]+\s+/, "").replace(/\s*\{#[^}]+\}\s*$/, "").trim() || tag;
+      parts.push(`| [${tag}](#${tagAnchor(tag)}) | — | ${title} |`);
+    }
+  }
   parts.push("");
   parts.push("## 完整中文日志 {#full-notes}", "");
+  // Featured top-N always rebuild from live notes so sync refreshes them.
+  // Hand-tuned Chinese for titles/highlights comes from bakedNotes (releases.ts);
+  // body prose comes from translateBody + PHRASES. Historical tags below are preserved.
   for (const rel of releases) {
-    const baked = existingMd ? extractVersionSection(existingMd, rel.tag) : null;
-    if (baked) {
-      parts.push(baked, "");
-      continue;
-    }
     const note = notes.find((n) => n.tag === rel.tag) ?? toReleaseNote(rel);
     const id = tagAnchor(rel.tag);
     parts.push(`## ${rel.tag} ${note.title} {#${id}}`, "");
     parts.push(`${note.dateLabel} 发布 · [官方原文](${rel.url})`, "");
     parts.push(...translateBody(rel));
     parts.push("");
+  }
+  // Append older sections unchanged — never drop history on sync.
+  for (const tag of historicalTags) {
+    const baked = extractVersionSection(existingMd, tag);
+    if (baked) parts.push(baked, "");
   }
   return parts.join("\n").replace(/\n{3,}/g, "\n\n").trim() + "\n";
 }
