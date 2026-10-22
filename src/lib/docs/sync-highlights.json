@@ -1,38 +1,29 @@
 {
-  "id": "2026-10-20-restore-placeholders-v1430",
-  "label": "2026-10-20 同步",
-  "at": "2026-10-20",
-  "summary": "恢复 remote-servers/ssh 占位页；跟上 cli/reference、commit-push、telemetry；润色 changelog v1.4.230",
+  "id": "2026-10-22-ssh-changelog-top5",
+  "label": "2026-10-22 同步",
+  "at": "2026-10-22",
+  "summary": "汉化置顶五版更新日志；同步 ssh「使用目标」首次连接说明；日志同步改为增量保留历史",
   "pages": [
     {
-      "slug": "remote-servers",
-      "sections": [
-        "2-add-the-server-on-your-laptop",
-        "limit-terminal-memory-on-a-linux-server"
-      ]
-    },
-    {
       "slug": "ssh",
-      "sections": ["macos-hosts-local-network-access"]
-    },
-    {
-      "slug": "cli/reference",
-      "sections": ["terminals"]
-    },
-    {
-      "slug": "review/commit-push",
-      "sections": ["source-control-panel"]
-    },
-    {
-      "slug": "telemetry",
-      "sections": ["what-we-collect"]
+      "sections": [
+        "use-a-target"
+      ]
     },
     {
       "slug": "changelog",
       "sections": [
+        "v1-4-237",
+        "v1-4-237-short",
+        "v1-4-237-compatibility-upgrade-notes",
+        "v1-4-235",
+        "v1-4-235-short",
+        "v1-4-233",
+        "v1-4-233-short",
+        "v1-4-232",
+        "v1-4-232-short",
         "v1-4-230",
-        "v1-4-230-short",
-        "v1-4-230-compatibility-upgrade-notes"
+        "v1-4-230-short"
       ]
     }
   ]

@@ -6,6 +6,10 @@
  * Skips the write when the official top-5 tags already match src/lib/docs/releases.ts
  * so a hand-tuned Chinese page is not overwritten. Set FORCE_SYNC=1 to rewrite anyway.
  * Each kept release is the full note, not a one-line summary.
+ *
+ * Changelog history is incremental: buildChangelogMarkdown refreshes/prepends the
+ * featured top-5 and ALWAYS appends older version sections from the existing file.
+ * Sync must never delete historical ## vX.Y.Z entries.
  */
 import { writeFileSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";

@@ -11,70 +11,70 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
-    "tag": "v1.4.237",
-    "date": "2026-10-21",
-    "dateLabel": "2026年10月21日",
-    "title": "- More done from your phone:…",
-    "highlights": [
-      "- **More done from your phone:** Create and edit notes, save Markdown on headless hosts, follow relative file links, and see embedded images. Buffered terminal drafts can now survive workspace navigation, too.",
-      "- **Chats you can come back to:** Codex chats reopen correctly after undo, Claude keeps its rewound context across Orca rollbacks, and screenshots stay with the conversation. Codex’s skill picker now reflects the skills Codex actually loaded.",
-      "- **Your work stays protected:** Discard pauses autosave of the same file across workspaces. Read-only Markdown and CSV views protect your unsaved edits, and new, unstaged Markdown documents open straight into the rich editor."
+    tag: "v1.4.237",
+    date: "2026-10-21",
+    dateLabel: "2026年10月21日",
+    title: "手机端能做的更多：笔记、无头 Markdown，以及更稳的聊天与远程",
+    highlights: [
+      "手机端能做的更多：创建和编辑笔记，在无头宿主上保存 Markdown，跟随相对文件链接，并查看内嵌图片。缓冲的终端草稿在切换工作区后也能保留。",
+      "聊完还能回来：Codex 聊天在撤销后能正确重开，Claude 在 Orca 回滚后仍保留已 Rewind 的上下文，截图会跟着对话走。Codex 技能选择器现在反映 Codex 实际加载的技能。",
+      "工作更受保护：Discard 会暂停跨工作区对同一文件的自动保存。只读 Markdown / CSV 视图保护未保存编辑；新建、未暂存的 Markdown 会直接进入富文本编辑器。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.237",
-    "href": "/docs/changelog#v1-4-237"
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.237",
+    href: "/docs/changelog#v1-4-237",
   },
   {
-    "tag": "v1.4.235",
-    "date": "2026-10-20",
-    "dateLabel": "2026年10月20日",
-    "title": "Use Rewind to here on a mess…",
-    "highlights": [
-      "- **Rewind Claude chats:** Use **Rewind to here** on a message that started a turn, edit your prompt, and take the conversation in a new direction. Claude continues from the history you kept.",
-      "- **Your chat, your settings:** Each conversation remembers its own model, effort and Fast settings. Switching models keeps compatible choices, and changes to an agent's defaults no longer silently move a chat that has recorded its settings.",
-      "- **Keep more of your agent's work:** Completed replies and tool results are saved in full rather than cut off at the preview limit. Use **Show full output** on desktop or phone, or **Show full message** on phone, to load more content from shortened previews."
+    tag: "v1.4.235",
+    date: "2026-10-20",
+    dateLabel: "2026年10月20日",
+    title: "Claude 聊天可 Rewind 到任意一轮，每段对话记住自己的模型设置",
+    highlights: [
+      "Rewind Claude 聊天：在开启一轮的消息上使用 **Rewind to here**，编辑 prompt，把对话带向新方向。Claude 从你保留的历史继续。",
+      "你的聊天，你的设置：每段对话记住自己的模型、effort 与 Fast 设置。切换模型会保留兼容选项；改 Agent 默认值不会再静默挪动已记录设置的聊天。",
+      "保留更多 Agent 产出：已完成回复与工具结果完整保存，而不在预览上限处截断。桌面或手机用 **Show full output**，手机也可用 **Show full message**，从缩短预览加载更多内容。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.235",
-    "href": "/docs/changelog#v1-4-235"
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.235",
+    href: "/docs/changelog#v1-4-235",
   },
   {
-    "tag": "v1.4.233",
-    "date": "2026-10-20",
-    "dateLabel": "2026年10月20日",
-    "title": "- SSH & remote workspaces: C…",
-    "highlights": [
-      "- **SSH & remote workspaces:** Connecting to an SSH host works when neither machine can download Node.js, with a one-click mirror Orca remembers and retries. Older Windows hosts (Windows 10 1809 and Server 2019) can run Orca's server, and tunnels recover when a port is held by an old SSH connection.",
-      "- **Remote servers in Settings:** Remote Orca Servers is one list instead of six sections, and SSH hosts can be removed in bulk and stay removed. Orca tells you when the same server was saved twice, and adding a server you already saved updates it instead.",
-      "- **Phone:** Creating a workspace from the phone is much faster, the workspace list stays in step with the desktop, and session tab icons keep their size beside long titles."
+    tag: "v1.4.233",
+    date: "2026-10-20",
+    dateLabel: "2026年10月20日",
+    title: "SSH 与远程工作区：无下载也能连通，Settings 里远程服务器更清晰",
+    highlights: [
+      "SSH 与远程工作区：双方都无法下载 Node.js 时仍可连接 SSH 主机，Orca 会记住并重试一键镜像。更旧的 Windows 主机（Windows 10 1809 与 Server 2019）可跑 Orca 服务器；端口被旧 SSH 连接占用时隧道能恢复。",
+      "Settings 中的远程服务器：Remote Orca Servers 收成一份列表而不是六个分区；SSH 主机可批量移除且保持移除。同一服务器保存两次时会提示；再次添加已保存的服务器会更新它。",
+      "手机端：从手机创建工作区更快，工作区列表与桌面保持同步，会话标签图标在长标题旁仍保持尺寸。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.233",
-    "href": "/docs/changelog#v1-4-233"
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.233",
+    href: "/docs/changelog#v1-4-233",
   },
   {
-    "tag": "v1.4.232",
-    "date": "2026-10-20",
-    "dateLabel": "2026年10月20日",
-    "title": "- Auto permissions, in chat …",
-    "highlights": [
-      "- **Auto permissions, in chat and terminal:** Choose **Manual | Auto | Yolo** in Settings → Agents. Auto lets supported Claude and Codex agents handle approvals, and new Native Chats follow your choice too. You can choose a separate permission mode for other agents; existing chats keep their own settings.",
-      "- **Native chat (experimental):** Open OpenCode 2 directly in chat, find Codex skills by typing `$`, and pan and zoom image previews. Rewind works in long conversations, and usage limits show when they reset with a **Continue** button to pick the conversation back up.",
-      "- **A better phone composer:** Attach files as well as photos, insert skills inline, and choose model, effort and permissions from one sheet. Faster recovery after switching apps and more responsive terminal scrolling make it easier to keep working away from your desk."
+    tag: "v1.4.232",
+    date: "2026-10-20",
+    dateLabel: "2026年10月20日",
+    title: "自动权限进聊天与终端，Native Chat 支持 OpenCode 2 与 $ 技能",
+    highlights: [
+      "自动权限，聊天与终端通用：在 Settings → Agents 选择 **Manual | Auto | Yolo**。Auto 让受支持的 Claude 与 Codex Agent 处理批准，新的 Native Chat 也跟随你的选择。可为其他 Agent 单独选权限模式；已有聊天保留各自设置。",
+      "实验性 Native Chat：直接在聊天中打开 OpenCode 2，输入 `$` 查找 Codex 技能，并可平移缩放图片预览。长对话支持 Rewind；用量上限会显示何时重置，并提供 **Continue** 按钮接上对话。",
+      "更好的手机输入区：可附加文件与照片，内联插入技能，并在同一面板选择模型、effort 与权限。切换应用后恢复更快，终端滚动更跟手，离开桌面也能继续工作。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.232",
-    "href": "/docs/changelog#v1-4-232"
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.232",
+    href: "/docs/changelog#v1-4-232",
   },
   {
-    "tag": "v1.4.230",
-    "date": "2026-10-19",
-    "dateLabel": "2026年10月19日",
-    "title": "实验性 Native Chat 支持 Antigravity，可选择 Agent 并在聊天内安装",
-    "highlights": [
+    tag: "v1.4.230",
+    date: "2026-10-19",
+    dateLabel: "2026年10月19日",
+    title: "实验性 Native Chat 支持 Antigravity，可选择 Agent 并在聊天内安装",
+    highlights: [
       "实验性 Native Chat：在聊天中使用 Antigravity，选择哪些 Agent 以聊天形式打开，并在聊天内安装缺失的 Agent。将复制的文件粘贴为附件、排队图片，并在附件与队列操作进行中看到更清晰的反馈。",
       "账号与 Agent：切换 Claude 账号后，重启正在运行的会话到新账号。从 Settings 移除已下载的 Agent 运行时，并通过 Orca CLI 编辑或删除 Linear 评论。",
-      "手机端：就地编辑队列中的消息，用桌面风格卡片跟随工具运行，从历史恢复时立即看到对话。横屏手机把会话标签放在顶栏，Tasks 清楚显示你正在使用哪个桌面。"
+      "手机端：就地编辑队列中的消息，用桌面风格卡片跟随工具运行，从历史恢复时立即看到对话。横屏手机把会话标签放在顶栏，Tasks 清楚显示你正在使用哪个桌面。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.230",
-    "href": "/docs/changelog#v1-4-230"
-  }
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.230",
+    href: "/docs/changelog#v1-4-230",
+  },
 ];
 
 export const RELEASES_INDEX_URL = "https://github.com/stablyai/orca/releases";

@@ -29,6 +29,8 @@ Orca 会对照你生效的 OpenSSH `known_hosts` 文件以及它先前保存的�
 - 通过 SSH 连接在远程运行 Agent。
 - 同步文件事件，让编辑器、diff 和浏览器仍然像在本地一样。
 
+首次连接时，Orca 会通过你自己的 SSH 连接在主机上安装自身；Settings 里这些主机会列在 **Orca on your SSH hosts** 下。你的代码和文件仍留在原处。只有 Orca 的项目列表、标签页和终端会迁到该主机。
+
 ## 高级连接选项 {#advanced-connection-options}
 
 打开 **Settings → SSH**，编辑一个目标，当主机需要代理、跳板机或 SSH multiplexing 覆盖时展开 **Advanced Connection**。Orca 默认启用 **Reuse SSH connection for faster setup**，在 macOS 和 Linux 上使用 OpenSSH 连接复用，这样 setup 命令不必每次都付一次全新的 SSH 握手。仅当主机的 SSH 策略拒绝复用会话时才关掉它。
