@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-23",
   "officialRef": "main",
-  "docsTreeSha": "088da7e317702612133f9e78b8bc1e9d7e630486",
+  "docsTreeSha": "0f22fc16ca0a951f33ece4c75bf407e0cbec0566",
   "docs": [
     {
       "slug": "activity",
@@ -80,8 +80,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/native-chat.mdx",
-      "size": 3274,
-      "lastSeenSha": "1a812697e0ad361f888463207347c0c2b8f0a3d5",
+      "size": 5465,
+      "lastSeenSha": "849ad525052bf873f1e0e50ea2a34b38774f4c07",
       "translatedAtSha": "1a812697e0ad361f888463207347c0c2b8f0a3d5"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 15126,
-      "lastSeenSha": "4fac0564d48c728e4391dc1212e009c5018b821c",
+      "size": 15245,
+      "lastSeenSha": "6ea10a0ba16abe4519eadcbb339bf6c16f7cb7e3",
       "translatedAtSha": "4fac0564d48c728e4391dc1212e009c5018b821c"
     },
     {
@@ -494,8 +494,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 6006,
-      "lastSeenSha": "55334050fdc03d8429256ccad983bd410c5843db",
+      "size": 6578,
+      "lastSeenSha": "be513f9eda17f12c8778be759d95168ed0d28e3a",
       "translatedAtSha": "55334050fdc03d8429256ccad983bd410c5843db"
     },
     {
