@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.239",
+    "date": "2026-10-24",
+    "dateLabel": "2026年10月24日",
+    "title": "- Skills, ready wherever you…",
+    "highlights": [
+      "- **Skills, ready wherever you work:** Install Orca’s skills in one click from setup screens, and install or update them on paired servers and SSH hosts with Orca’s own installer.",
+      "- **A browser that fits your projects:** Choose shared, per-repo or per-workspace profiles for new tabs. Keep local app logins separate, use a familiar page context menu, and get clearer explanations when a page cannot load.",
+      "- **More fluid agent conversations:** Split into a fresh chat beside your current one, continue with a terminal agent from the pane header, and keep queued messages and multiple 图片附件 intact."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.239",
+    "href": "/docs/changelog#v1-4-239"
+  },
+  {
     "tag": "v1.4.238",
     "date": "2026-10-23",
     "dateLabel": "2026年10月23日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.233",
     "href": "/docs/changelog#v1-4-233"
-  },
-  {
-    "tag": "v1.4.232",
-    "date": "2026-10-20",
-    "dateLabel": "2026年10月20日",
-    "title": "自动权限进聊天与终端，Native Chat 支持 OpenCode 2 与 $ 技能",
-    "highlights": [
-      "自动权限，聊天与终端通用：在 Settings → Agents 选择 **Manual | Auto | Yolo**。Auto 让受支持的 Claude 与 Codex Agent 处理批准，新的 Native Chat 也跟随你的选择。可为其他 Agent 单独选权限模式；已有聊天保留各自设置。",
-      "实验性 Native Chat：直接在聊天中打开 OpenCode 2，输入 `$` 查找 Codex 技能，并可平移缩放图片预览。长对话支持 Rewind；用量上限会显示何时重置，并提供 **Continue** 按钮接上对话。",
-      "更好的手机输入区：可附加文件与照片，内联插入技能，并在同一面板选择模型、effort 与权限。切换应用后恢复更快，终端滚动更跟手，离开桌面也能继续工作。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.232",
-    "href": "/docs/changelog#v1-4-232"
   }
 ];
 
