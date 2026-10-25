@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-25",
   "officialRef": "main",
-  "docsTreeSha": "fc15e11484944435dcd4ba582a8e13e9113cf9f4",
+  "docsTreeSha": "ee3e955b68653d5582d01499a4b155031b75f6d8",
   "docs": [
     {
       "slug": "activity",
@@ -134,8 +134,8 @@
       "section": "browser",
       "kind": "official",
       "officialPath": "docs/site/content/docs/browser/overview.mdx",
-      "size": 4770,
-      "lastSeenSha": "93890cf98bdf639e47252101a9a63b042529bd36",
+      "size": 5344,
+      "lastSeenSha": "e71297a9ba2608360339388e82ddcd37da8cbe74",
       "translatedAtSha": "93890cf98bdf639e47252101a9a63b042529bd36"
     },
     {
