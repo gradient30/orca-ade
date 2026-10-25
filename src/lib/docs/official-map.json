@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-10-24",
+  "capturedAt": "2026-10-25",
   "officialRef": "main",
   "docsTreeSha": "fc15e11484944435dcd4ba582a8e13e9113cf9f4",
   "docs": [
@@ -528,6 +528,13 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.240",
+      "publishedAt": "2026-10-25",
+      "lastSeenBodySha": "f6173197d033",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.239",
       "publishedAt": "2026-10-24",
       "lastSeenBodySha": "911ad663e12e",
@@ -609,7 +616,7 @@
       "publishedAt": "2026-10-07",
       "lastSeenBodySha": "815bc8eb27f9",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.221",

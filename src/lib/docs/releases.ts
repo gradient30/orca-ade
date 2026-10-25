@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.240",
+    "date": "2026-10-25",
+    "dateLabel": "2026年10月25日",
+    "title": "- Conversations that stay wi…",
+    "highlights": [
+      "- **Conversations that stay with you:** Claude chats now show turns made outside Orca. Retained messages return after reconnect without reopening the chat, and crash recovery no longer guesses that a sent message was undelivered.",
+      "- **A browser with a better memory:** Search your browsing history, reopen pages, remove unwanted suggestions, and clear history with Undo. Pages can also use files you pick, save or drop through File System Access.",
+      "- **Remote work with fewer interruptions:** Slow connections survive missed wake probes, reconnect notices explain what is happening, SSH terminals wait for sign-in, and new splits stay on the paired server."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.240",
+    "href": "/docs/changelog#v1-4-240"
+  },
+  {
     "tag": "v1.4.239",
     "date": "2026-10-24",
     "dateLabel": "2026年10月24日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.235",
     "href": "/docs/changelog#v1-4-235"
-  },
-  {
-    "tag": "v1.4.233",
-    "date": "2026-10-20",
-    "dateLabel": "2026年10月20日",
-    "title": "SSH 与远程工作区：无下载也能连通，Settings 里远程服务器更清晰",
-    "highlights": [
-      "SSH 与远程工作区：双方都无法下载 Node.js 时仍可连接 SSH 主机，Orca 会记住并重试一键镜像。更旧的 Windows 主机（Windows 10 1809 与 Server 2019）可跑 Orca 服务器；端口被旧 SSH 连接占用时隧道能恢复。",
-      "Settings 中的远程服务器：Remote Orca Servers 收成一份列表而不是六个分区；SSH 主机可批量移除且保持移除。同一服务器保存两次时会提示；再次添加已保存的服务器会更新它。",
-      "手机端：从手机创建工作区更快，工作区列表与桌面保持同步，会话标签图标在长标题旁仍保持尺寸。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.233",
-    "href": "/docs/changelog#v1-4-233"
   }
 ];
 
