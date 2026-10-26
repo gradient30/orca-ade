@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.241",
+    "date": "2026-10-26",
+    "dateLabel": "2026年10月26日",
+    "title": "- Chats that follow your set…",
+    "highlights": [
+      "- **Chats that follow your settings:** New chats use each agent’s permission from Settings → Agents, renamed chats keep their names in Session History, and a chat won’t write a conversation a terminal is still running.",
+      "- **A browser closer to Chrome:** Dock DevTools inside the pane, mute tabs playing sound, see a link’s URL on hover, and use Orca shortcuts and mouse back/forward inside pages.",
+      "- **Watch agents browse:** A cursor and badge show where an agent is clicking or typing, chat jumps you to the page, and links from terminals and chat open beside their source."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.241",
+    "href": "/docs/changelog#v1-4-241"
+  },
+  {
     "tag": "v1.4.240",
     "date": "2026-10-25",
     "dateLabel": "2026年10月25日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.237",
     "href": "/docs/changelog#v1-4-237"
-  },
-  {
-    "tag": "v1.4.235",
-    "date": "2026-10-20",
-    "dateLabel": "2026年10月20日",
-    "title": "Claude 聊天可 Rewind 到任意一轮，每段对话记住自己的模型设置",
-    "highlights": [
-      "Rewind Claude 聊天：在开启一轮的消息上使用 **Rewind to here**，编辑 prompt，把对话带向新方向。Claude 从你保留的历史继续。",
-      "你的聊天，你的设置：每段对话记住自己的模型、effort 与 Fast 设置。切换模型会保留兼容选项；改 Agent 默认值不会再静默挪动已记录设置的聊天。",
-      "保留更多 Agent 产出：已完成回复与工具结果完整保存，而不在预览上限处截断。桌面或手机用 **Show full output**，手机也可用 **Show full message**，从缩短预览加载更多内容。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.235",
-    "href": "/docs/changelog#v1-4-235"
   }
 ];
 

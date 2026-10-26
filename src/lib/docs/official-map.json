@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-25",
+  "capturedAt": "2026-10-26",
   "officialRef": "main",
-  "docsTreeSha": "ee3e955b68653d5582d01499a4b155031b75f6d8",
+  "docsTreeSha": "d2b0de99c44a584b6e3723ab601897eaf551ca3d",
   "docs": [
     {
       "slug": "activity",
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 23354,
-      "lastSeenSha": "59180bf6ba858a8188e09169587bc000d69b288a",
+      "size": 23520,
+      "lastSeenSha": "c58df5bd9ebbb5174e13158645d7f77be644c4a5",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -251,8 +251,8 @@
       "section": "start",
       "kind": "official",
       "officialPath": "docs/site/content/docs/first-session.mdx",
-      "size": 2746,
-      "lastSeenSha": "1d3cd3c909b0782223fd8cb18e7d5dedaa85b743",
+      "size": 3003,
+      "lastSeenSha": "d9f9df3cfdf2cfeb5f17e254e9f18c195644a1cc",
       "translatedAtSha": "1d3cd3c909b0782223fd8cb18e7d5dedaa85b743"
     },
     {
@@ -314,8 +314,8 @@
       "section": "model",
       "kind": "official",
       "officialPath": "docs/site/content/docs/model/quick-open.mdx",
-      "size": 4567,
-      "lastSeenSha": "e47222f2e8274ca5279f903c35b8a3624c4294e8",
+      "size": 4478,
+      "lastSeenSha": "3db536e10e46774025db4830e351358cf3ba1097",
       "translatedAtSha": "e47222f2e8274ca5279f903c35b8a3624c4294e8"
     },
     {
@@ -368,8 +368,8 @@
       "section": "recipes",
       "kind": "official",
       "officialPath": "docs/site/content/docs/recipes/jump-worktrees.mdx",
-      "size": 921,
-      "lastSeenSha": "8e952c69268370a55c5bf3d8c34649f7d5df8b98",
+      "size": 891,
+      "lastSeenSha": "e6c2559e21843dc1043086b70ab60a24a4094350",
       "translatedAtSha": "8e952c69268370a55c5bf3d8c34649f7d5df8b98"
     },
     {
@@ -377,8 +377,8 @@
       "section": "recipes",
       "kind": "official",
       "officialPath": "docs/site/content/docs/recipes/parallel-agents.mdx",
-      "size": 974,
-      "lastSeenSha": "d6cad767a23859b726d8b8baad12684cbe26d48b",
+      "size": 1121,
+      "lastSeenSha": "311da3d261cb30df8fe57319c7f4a495d442ba83",
       "translatedAtSha": "d6cad767a23859b726d8b8baad12684cbe26d48b"
     },
     {
@@ -404,8 +404,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
-      "size": 12016,
-      "lastSeenSha": "7e7021ed967f8b9a572151460f9d1f45a81112f8",
+      "size": 13147,
+      "lastSeenSha": "d9be9701a257c12c1cfad3168544beec1632cbfd",
       "translatedAtSha": "7e7021ed967f8b9a572151460f9d1f45a81112f8"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 15245,
-      "lastSeenSha": "6ea10a0ba16abe4519eadcbb339bf6c16f7cb7e3",
+      "size": 15541,
+      "lastSeenSha": "73468e4d9c25c1e211f48979b407c7c783163c0a",
       "translatedAtSha": "4fac0564d48c728e4391dc1212e009c5018b821c"
     },
     {
@@ -527,6 +527,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.241",
+      "publishedAt": "2026-10-26",
+      "lastSeenBodySha": "84f8767639b0",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.240",
       "publishedAt": "2026-10-25",
@@ -609,7 +616,7 @@
       "publishedAt": "2026-10-08",
       "lastSeenBodySha": "617dc04ea348",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.222",
