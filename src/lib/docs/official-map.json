@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-27",
   "officialRef": "main",
-  "docsTreeSha": "c2b6f1352040c668650d57f54714b9648e615f2a",
+  "docsTreeSha": "e14881b864adf0645c116e47060d6ab3df054a2e",
   "docs": [
     {
       "slug": "activity",
@@ -35,8 +35,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/codex.mdx",
-      "size": 2752,
-      "lastSeenSha": "5ecf8281d2c7f80cfc4faee732e6b9e5d39bdbd6",
+      "size": 3513,
+      "lastSeenSha": "ddca9cb10d5a74f75cfe67b438eaa365788b472b",
       "translatedAtSha": "5ecf8281d2c7f80cfc4faee732e6b9e5d39bdbd6"
     },
     {
@@ -323,8 +323,8 @@
       "section": "model",
       "kind": "official",
       "officialPath": "docs/site/content/docs/model/session-restore.mdx",
-      "size": 2809,
-      "lastSeenSha": "c45c6eed70896ce98265421736ae211870774948",
+      "size": 3774,
+      "lastSeenSha": "5439549344929dc46622994ff1c0dd444a73f298",
       "translatedAtSha": "c45c6eed70896ce98265421736ae211870774948"
     },
     {
