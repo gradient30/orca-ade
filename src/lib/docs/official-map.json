@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-27",
   "officialRef": "main",
-  "docsTreeSha": "e14881b864adf0645c116e47060d6ab3df054a2e",
+  "docsTreeSha": "a9c704adb9a82f52fa3d39a5bdc5188a3d248579",
   "docs": [
     {
       "slug": "activity",
@@ -62,8 +62,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/hibernation.mdx",
-      "size": 4273,
-      "lastSeenSha": "4e63d96bfc7dc3586211567ea21329ff7cbe544c",
+      "size": 4444,
+      "lastSeenSha": "cb1d15780a2e17f1f4f4918a25799d0f43377ea8",
       "translatedAtSha": "4e63d96bfc7dc3586211567ea21329ff7cbe544c"
     },
     {
