@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.242",
+    "date": "2026-10-27",
+    "dateLabel": "2026年10月27日",
+    "title": "- Open Claude subagents from…",
+    "highlights": [
+      "- **Open Claude subagents from the sidebar:** Click a Claude subagent row in the sidebar or dashboard to open its transcript in the same terminal, then click the parent to go back. An eye marks the one you’re viewing.",
+      "- **Chats that ask first:** Codex chats in Ask mode now ask before editing your workspace, remote Claude terminals on paired servers can continue in Chat, and chats that can’t start tell you why.",
+      "- **Agents resume as you left them:** Resumed Claude sessions keep their effort level and launch flags, Codex keeps the permission you last gave it, and Session History finds chats in more folders and on servers."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.242",
+    "href": "/docs/changelog#v1-4-242"
+  },
+  {
     "tag": "v1.4.241",
     "date": "2026-10-26",
     "dateLabel": "2026年10月26日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.238",
     "href": "/docs/changelog#v1-4-238"
-  },
-  {
-    "tag": "v1.4.237",
-    "date": "2026-10-21",
-    "dateLabel": "2026年10月21日",
-    "title": "手机端能做的更多：笔记、无头 Markdown，以及更稳的聊天与远程",
-    "highlights": [
-      "手机端能做的更多：创建和编辑笔记，在无头宿主上保存 Markdown，跟随相对文件链接，并查看内嵌图片。缓冲的终端草稿在切换工作区后也能保留。",
-      "聊完还能回来：Codex 聊天在撤销后能正确重开，Claude 在 Orca 回滚后仍保留已 Rewind 的上下文，截图会跟着对话走。Codex 技能选择器现在反映 Codex 实际加载的技能。",
-      "工作更受保护：Discard 会暂停跨工作区对同一文件的自动保存。只读 Markdown / CSV 视图保护未保存编辑；新建、未暂存的 Markdown 会直接进入富文本编辑器。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.237",
-    "href": "/docs/changelog#v1-4-237"
   }
 ];
 
