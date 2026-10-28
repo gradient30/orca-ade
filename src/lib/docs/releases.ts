@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.243",
+    "date": "2026-10-28",
+    "dateLabel": "2026年10月28日",
+    "title": "- Chrome extensions (experim…",
+    "highlights": [
+      "- **Chrome extensions (experimental):** Add extensions from the Chrome Web Store with **Add to Orca**, so password managers like Bitwarden and 1Password can fill logins in Orca’s browser. Off by default.",
+      "- **Convert a terminal agent session live into a chat ui:** Once you quit Claude or Codex in a terminal, the same conversation can continue in Chat while the terminal tab stays open. Claude chats also keep their saved approval choice across model changes, and closing a chat that’s still working asks first.",
+      "- **Worktrees sooner after a restart:** Local worktrees load before terminals restore, and the sidebar says discovery is still running instead of showing an empty list."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.243",
+    "href": "/docs/changelog#v1-4-243"
+  },
+  {
     "tag": "v1.4.242",
     "date": "2026-10-27",
     "dateLabel": "2026年10月27日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.239",
     "href": "/docs/changelog#v1-4-239"
-  },
-  {
-    "tag": "v1.4.238",
-    "date": "2026-10-23",
-    "dateLabel": "2026年10月23日",
-    "title": "- Your edits stay together: …",
-    "highlights": [
-      "- **Your edits stay together:** Tabs of the same file share unsaved text across workspaces. Conflict review sees that live text, workspace deletion lists unsaved files, and stale Markdown or notebook edits no longer overwrite newer work.",
-      "- **Chats that keep up:** Codex and Pi show turns made outside the chat. Long pastes can become text attachments, Codex questions get answer cards, and OMP gains image sending and actionable plan-review cards.",
-      "- **More control over agents:** Pick chat or terminal when creating a workspace, set that choice for your default agent, add Claude and Codex accounts on supported remote servers, and install shared skills for 11 more agents."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.238",
-    "href": "/docs/changelog#v1-4-238"
   }
 ];
 

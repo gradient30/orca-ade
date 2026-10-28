@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-28",
   "officialRef": "main",
-  "docsTreeSha": "903d2425ca2f0fbc1116ae6cfa4e9e831815254a",
+  "docsTreeSha": "20931f6a08cf1f5a8bb6857bb312715c962f1a35",
   "docs": [
     {
       "slug": "activity",
@@ -17,8 +17,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/claude-code.mdx",
-      "size": 1655,
-      "lastSeenSha": "a0d733abd4a6060343dbfedf40d90bea7429aad5",
+      "size": 1692,
+      "lastSeenSha": "f1e88ea71ae882d661a76a41a2ae3ac5244f0f8e",
       "translatedAtSha": "a0d733abd4a6060343dbfedf40d90bea7429aad5"
     },
     {
@@ -35,8 +35,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/codex.mdx",
-      "size": 3513,
-      "lastSeenSha": "ddca9cb10d5a74f75cfe67b438eaa365788b472b",
+      "size": 3534,
+      "lastSeenSha": "0cad8eef860ff963770bd89a1eb43bac36f4566c",
       "translatedAtSha": "5ecf8281d2c7f80cfc4faee732e6b9e5d39bdbd6"
     },
     {
@@ -99,7 +99,7 @@
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
       "size": 13193,
-      "lastSeenSha": "ecc8cfd1305796f5fea375528aed50ca4cb94458",
+      "lastSeenSha": "f89f2447e5bd22e18a5857047d1b2288bbd37b54",
       "translatedAtSha": "ecc8cfd1305796f5fea375528aed50ca4cb94458"
     },
     {
@@ -107,8 +107,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/usage-tracking.mdx",
-      "size": 2253,
-      "lastSeenSha": "6aa491b4a4a2b4c888fb225cf355e582c519c27c",
+      "size": 3148,
+      "lastSeenSha": "f0d9b95daf20cbf64cfc099f1810e0fecc2d733c",
       "translatedAtSha": "6aa491b4a4a2b4c888fb225cf355e582c519c27c"
     },
     {
@@ -152,8 +152,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/automations.mdx",
-      "size": 7094,
-      "lastSeenSha": "e7d40386dc95b3dcd6636d5551b55dcb06166e8c",
+      "size": 7508,
+      "lastSeenSha": "17500e352f3255df17a6bbb0235a4c178acc6a9f",
       "translatedAtSha": "e7d40386dc95b3dcd6636d5551b55dcb06166e8c"
     },
     {
@@ -170,8 +170,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 9785,
-      "lastSeenSha": "88355cb8c825d11999fe3cade3017e49b5242495",
+      "size": 9996,
+      "lastSeenSha": "47725eeda8edf757e50ed3e21f7abb73e1d47626",
       "translatedAtSha": "88355cb8c825d11999fe3cade3017e49b5242495"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 23520,
-      "lastSeenSha": "c58df5bd9ebbb5174e13158645d7f77be644c4a5",
+      "size": 23975,
+      "lastSeenSha": "b22528d6c762dd6bcf6bcab47a71c62bd35a2de8",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -260,8 +260,8 @@
       "section": "trouble",
       "kind": "official",
       "officialPath": "docs/site/content/docs/github-errors.mdx",
-      "size": 10098,
-      "lastSeenSha": "b6b758f102d36cf2d75ced7353467027cbfcc41b",
+      "size": 10784,
+      "lastSeenSha": "90a6990ecec5c6a3c8b30b24c9d2f9ba62d0466a",
       "translatedAtSha": "b6b758f102d36cf2d75ced7353467027cbfcc41b"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 15948,
-      "lastSeenSha": "6b2a8d4a40564da86038ffbf449bec9631d15fc2",
+      "size": 16036,
+      "lastSeenSha": "99952825bcd1b43f21ce64ca3cbcb216d1606cd7",
       "translatedAtSha": "4fac0564d48c728e4391dc1212e009c5018b821c"
     },
     {
@@ -512,8 +512,8 @@
       "section": "trouble",
       "kind": "official",
       "officialPath": "docs/site/content/docs/troubleshooting.mdx",
-      "size": 3275,
-      "lastSeenSha": "d1b2c0167ba85439f236e3f85f58217447dbc152",
+      "size": 4864,
+      "lastSeenSha": "01c594cd34113dca54e40bea0e104a5ac096360e",
       "translatedAtSha": "5fb96c33fd9ead50e2aaca72de0eb4da21e1404e"
     },
     {
@@ -527,6 +527,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.243",
+      "publishedAt": "2026-10-28",
+      "lastSeenBodySha": "9144628dfba0",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.242",
       "publishedAt": "2026-10-27",
@@ -609,7 +616,7 @@
       "publishedAt": "2026-10-16",
       "lastSeenBodySha": "20661b30c81a",
       "translatedAtBodySha": "20661b30c81a",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.224",
