@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-27",
+  "capturedAt": "2026-10-28",
   "officialRef": "main",
-  "docsTreeSha": "a9c704adb9a82f52fa3d39a5bdc5188a3d248579",
+  "docsTreeSha": "903d2425ca2f0fbc1116ae6cfa4e9e831815254a",
   "docs": [
     {
       "slug": "activity",
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 15907,
-      "lastSeenSha": "da4b62b5996b61e51b545c3e749385db3bdd6e4f",
+      "size": 15948,
+      "lastSeenSha": "6b2a8d4a40564da86038ffbf449bec9631d15fc2",
       "translatedAtSha": "4fac0564d48c728e4391dc1212e009c5018b821c"
     },
     {
