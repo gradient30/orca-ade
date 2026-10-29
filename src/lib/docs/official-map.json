@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-29",
   "officialRef": "main",
-  "docsTreeSha": "b1194b9e11cf7cb0edbb922a04d4b27cbf2706f4",
+  "docsTreeSha": "b2e0d746d16abe3ed516f06180886641472952d8",
   "docs": [
     {
       "slug": "activity",
@@ -161,8 +161,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/computer-use.mdx",
-      "size": 4919,
-      "lastSeenSha": "089600aae0af6516c4f1c02e992b02e7a02f8de1",
+      "size": 5581,
+      "lastSeenSha": "edf911b9df4e0386f2a26eae64049d8d5636a3cd",
       "translatedAtSha": "089600aae0af6516c4f1c02e992b02e7a02f8de1"
     },
     {
@@ -287,8 +287,8 @@
       "section": "mobile",
       "kind": "official",
       "officialPath": "docs/site/content/docs/mobile.mdx",
-      "size": 12263,
-      "lastSeenSha": "0e8d99768dd43a94cd3d100f1a65ac460fb03224",
+      "size": 12178,
+      "lastSeenSha": "417eb35ff5234cafc56bbaef7dca1edfaaad4f33",
       "translatedAtSha": "0e8d99768dd43a94cd3d100f1a65ac460fb03224"
     },
     {
