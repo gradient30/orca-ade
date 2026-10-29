@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-28",
+  "capturedAt": "2026-10-29",
   "officialRef": "main",
-  "docsTreeSha": "20931f6a08cf1f5a8bb6857bb312715c962f1a35",
+  "docsTreeSha": "b1194b9e11cf7cb0edbb922a04d4b27cbf2706f4",
   "docs": [
     {
       "slug": "activity",
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 16036,
-      "lastSeenSha": "99952825bcd1b43f21ce64ca3cbcb216d1606cd7",
+      "size": 16029,
+      "lastSeenSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619",
       "translatedAtSha": "4fac0564d48c728e4391dc1212e009c5018b821c"
     },
     {
@@ -485,8 +485,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/ssh.mdx",
-      "size": 11792,
-      "lastSeenSha": "9efaacf26fc4d553811edb51dfabc92761254a61",
+      "size": 12533,
+      "lastSeenSha": "e723aceaede3904dea917ae6a400032e0dfa6642",
       "translatedAtSha": "8e3952de8f4b4b98fed6469ffd966a667e4650d5"
     },
     {
@@ -512,8 +512,8 @@
       "section": "trouble",
       "kind": "official",
       "officialPath": "docs/site/content/docs/troubleshooting.mdx",
-      "size": 4864,
-      "lastSeenSha": "01c594cd34113dca54e40bea0e104a5ac096360e",
+      "size": 5228,
+      "lastSeenSha": "18e4c2a4d9843e42da7830a45c17e8f95dd70af2",
       "translatedAtSha": "5fb96c33fd9ead50e2aaca72de0eb4da21e1404e"
     },
     {
@@ -527,6 +527,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.244",
+      "publishedAt": "2026-10-29",
+      "lastSeenBodySha": "04be781191c8",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.243",
       "publishedAt": "2026-10-28",
@@ -609,7 +616,7 @@
       "publishedAt": "2026-10-17",
       "lastSeenBodySha": "c2e72f11d08d",
       "translatedAtBodySha": "c2e72f11d08d",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.227",

@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.244",
+    "date": "2026-10-29",
+    "dateLabel": "2026年10月29日",
+    "title": "German, Russian, Turkish and…",
+    "highlights": [
+      "- **Four new languages:** German, Russian, Turkish and Traditional Chinese join the language picker, and many more dialogs, menus and shortcuts are translated. German is machine-translated, and reviews from native speakers are welcome.",
+      "- **Faster workspace switching:** Hovering a workspace in the sidebar gets it ready, the workspaces next to the current one stay warm, and the switch itself does less work. Dragging a row never switches.",
+      "- **Remote files that work like local ones:** Play audio and video from SSH hosts and paired servers, save remote text files up to 50 MB, open folders too big for one reply as you scroll, and never open a remote binary as text."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.244",
+    "href": "/docs/changelog#v1-4-244"
+  },
+  {
     "tag": "v1.4.243",
     "date": "2026-10-28",
     "dateLabel": "2026年10月28日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.240",
     "href": "/docs/changelog#v1-4-240"
-  },
-  {
-    "tag": "v1.4.239",
-    "date": "2026-10-24",
-    "dateLabel": "2026年10月24日",
-    "title": "- Skills, ready wherever you…",
-    "highlights": [
-      "- **Skills, ready wherever you work:** Install Orca’s skills in one click from setup screens, and install or update them on paired servers and SSH hosts with Orca’s own installer.",
-      "- **A browser that fits your projects:** Choose shared, per-repo or per-workspace profiles for new tabs. Keep local app logins separate, use a familiar page context menu, and get clearer explanations when a page cannot load.",
-      "- **More fluid agent conversations:** Split into a fresh chat beside your current one, continue with a terminal agent from the pane header, and keep queued messages and multiple 图片附件 intact."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.239",
-    "href": "/docs/changelog#v1-4-239"
   }
 ];
 
