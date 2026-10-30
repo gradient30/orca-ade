@@ -14,9 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.245",
     "date": "2026-10-30",
     "dateLabel": "2026年10月30日",
-    "title": "官方更新",
+    "title": "更快的 Orca、插件与后台电脑操控",
     "highlights": [
-      "详见下方完整中文日志。"
+      "更快的 Orca：在数百个聊天下仍能顺畅启动，输入与切换标签时更少卡顿。",
+      "插件：在 Settings → Plugins 添加图标主题、语法高亮与自定义编辑器；社区发布即将到来。",
+      "Mac 后台电脑操控：Agent 可在 Chrome、Blender 等应用中工作，你仍可继续使用鼠标键盘。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.245",
     "href": "/docs/changelog#v1-4-245"

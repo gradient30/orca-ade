@@ -69,6 +69,12 @@ npm run sync:releases
 npm run sync:map
 ```
 
+更新日志汉化是**短语词典 + 结构化改写**流水线（不跑在线 LLM，省 token）：
+
+1. 在 `src/lib/docs/featured-surface-phrases.ts` 为新版本补全 title / 简要说明或 Highlights / 兼容说明的整句 EN→CN
+2. `FORCE_SYNC=1 npm run sync:releases` 刷新置顶五版；脚本会打印 marketing EN residual（产品名保留英文）
+3. PR dump 靠 `translate-release.ts` 的 HEADINGS / TYPES / 最长优先 PHRASES；已有更「中」的底稿不会被更淡的机翻覆盖
+
 `sync:map` 只更新官网 SHA / Release 正文指纹（`translatedAtSha` 不动）。汉化完某一页或某个版本后：
 
 ```bash
