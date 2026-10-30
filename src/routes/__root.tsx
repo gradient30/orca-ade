@@ -4,7 +4,7 @@ import { PreviewHostBridge } from "@/components/preview-host-bridge";
 import { HandbookApp } from "@/components/docs/HandbookApp";
 import appCss from "../styles.css?url";
 
-const APP_NAME = "Orca 中文使用手册";
+const APP_NAME = "Orca 社区文档中文版";
 const BASE = import.meta.env.BASE_URL || "/";
 const IS_PAGES = BASE !== "/";
 
@@ -18,7 +18,7 @@ export const Route = createRootRoute({
       { title: APP_NAME },
       {
         name: "description",
-        content: "Orca 官方文档中文版：按 onorca.dev/docs 目录 1:1 还原的使用手册，含日常快速手册。",
+        content: "Orca 社区文档中文版（非官方译本）：按 onorca.dev/docs 目录 1:1 还原的使用手册，含日常快速手册。数据源为 stablyai/orca 官方文档与 Releases。",
       },
       { name: "theme-color", content: "#0c0e12" },
     ],

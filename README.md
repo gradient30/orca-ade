@@ -1,6 +1,6 @@
-# Orca 中文使用手册
+# Orca 社区文档中文版
 
-[Orca ADE](https://www.onorca.dev/docs) 官方文档的 1:1 中文手册站点，另附一份面向日常高频操作的「快速手册」。
+对照 [Orca ADE](https://www.onorca.dev/docs) **官方文档**目录的社区中文手册（**非官方**译本与阅读器），另附一份面向日常高频操作的「快速手册」。
 
 **在线阅读：** [https://gradient30.github.io/orca-ade/](https://gradient30.github.io/orca-ade/)
 
@@ -75,4 +75,4 @@ TanStack Start + Vite + Tailwind v4。正文是 `src/content/zh/**/*.md`，由 `
 
 ## 许可与归属
 
-Orca / Orca ADE 是 [Stably](https://www.onorca.dev) 的产品。本仓库仅提供中文阅读与日常速查，不替代官方文档。
+Orca / Orca ADE 是 [Stably](https://www.onorca.dev) 的产品。本仓库是**社区文档中文版**，仅提供中文阅读与日常速查，**不替代** [官方文档](https://www.onorca.dev/docs)。
