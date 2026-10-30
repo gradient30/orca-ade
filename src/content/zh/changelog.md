@@ -81,7 +81,7 @@
 
 ### 产品体验 {#v1-4-245-product}
 
-#### Native chat (experimental) {#v1-4-245-native-chat-experimental-}
+#### 实验性 Native Chat {#v1-4-245-native-chat-experimental}
 
 > No more startup freeze with many chats, link previews, naming with the chat’s own agent, and a working Send after Stop.
 
@@ -112,7 +112,7 @@
 - 保持：chats ended with Stop readable after downgrading to v1.4.244（[@brennanb2025](https://github.com/brennanb2025)，[#36142](https://github.com/stablyai/orca/pull/36142)）
 - 跳过：the WSL distro walk for chat transcripts on this computer（[@nwparker](https://github.com/nwparker)，[#36152](https://github.com/stablyai/orca/pull/36152)）
 
-#### Plugins {#v1-4-245-plugins}
+#### 插件 {#v1-4-245-plugins}
 
 > Icon themes, syntax packs and custom editors, one Plugins list with one-step install, and quick access from the status bar.
 
@@ -167,7 +167,7 @@
 - Return `orca tab list` at once when a worktree has no saved browser tab（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#36017](https://github.com/stablyai/orca/pull/36017)）
 - Preview HTML files over 512 KiB from paired hosts（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#36021](https://github.com/stablyai/orca/pull/36021)）
 
-#### Agent launch, status & accounts {#v1-4-245-agent-launch-status-accounts}
+#### Agent 启动、状态与账户 {#v1-4-245-agent-launch-status}
 
 > Mac apps driven in the background, Codex history you can keep apart per account, and steadier Grok, Antigravity and Mobile Emulator support.
 
@@ -210,7 +210,7 @@
 - 忽略：a launcher’s own version when choosing Claude hook events（[@brennanb2025](https://github.com/brennanb2025)，[#36119](https://github.com/stablyai/orca/pull/36119)）
 - Find retained Claude prompts’ turns in one pass during catch-up（[@brennanb2025](https://github.com/brennanb2025)，[#36127](https://github.com/stablyai/orca/pull/36127)）
 
-#### Orchestration & CLI {#v1-4-245-orchestration-cli}
+#### 编排与 CLI {#v1-4-245-orchestration-cli}
 
 > Messages between agents as cards, chat workers nested under their coordinator, and quieter automation launches.
 
@@ -225,7 +225,7 @@
 - 允许：a host create workspaces for another owner’s automation run（[@nwparker](https://github.com/nwparker)，[#35978](https://github.com/stablyai/orca/pull/35978)）
 - Label workspaces a host creates with the desktop’s own automation run（[@nwparker](https://github.com/nwparker)，[#35986](https://github.com/stablyai/orca/pull/35986)）
 
-#### Terminals {#v1-4-245-terminals}
+#### 终端 {#v1-4-245-terminal}
 
 > A per-computer running terminal limit, ble.sh prompts that no longer stall startup commands, and lighter process checks on macOS.
 
@@ -246,7 +246,7 @@
 - 发送：typed keys to the terminal before updating activity（[@AmethystLiang](https://github.com/AmethystLiang)，[#36008](https://github.com/stablyai/orca/pull/36008)）
 - 保持：only timings in typing diagnostics（[@AmethystLiang](https://github.com/AmethystLiang)，[#36088](https://github.com/stablyai/orca/pull/36088)）
 
-#### SSH, WSL & remote servers {#v1-4-245-ssh-wsl-remote-servers}
+#### SSH、WSL 与远程服务器 {#v1-4-245-ssh-wsl-remote}
 
 > Stopped WSL distros that stay stopped, WSL terminals that reopen where you left them, and faster SSH sign-in and uploads.
 
@@ -317,7 +317,7 @@
 - 诊断：desktop clock drift for relay connections（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#36139](https://github.com/stablyai/orca/pull/36139)）
 - Prepare the environment for background WSL starts without waking the distro（[@nwparker](https://github.com/nwparker)，[#36149](https://github.com/stablyai/orca/pull/36149)）
 
-#### Source control & integrations {#v1-4-245-source-control-integrations}
+#### 源码管理与集成 {#v1-4-245-source-control-integrations}
 
 > Credentials kept out of Git errors, Model and Effort controls for Source Control actions, and fewer GitHub requests.
 
@@ -347,7 +347,7 @@
 - Set up Jira project sorting once per sort（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#36107](https://github.com/stablyai/orca/pull/36107)）
 - Check remote branches with one Git call instead of one per remote（[@nwparker](https://github.com/nwparker)，[#36156](https://github.com/stablyai/orca/pull/36156)）
 
-#### Workspaces, sidebar & everyday polish {#v1-4-245-workspaces-sidebar-everyday-polish}
+#### 工作区、侧栏与日常打磨 {#v1-4-245-workspaces-sidebar-polish}
 
 > Typed workspace names as branches again, existing remote branches you can reopen, and many Markdown and editor fixes.
 
@@ -450,7 +450,7 @@
 - 修复：six performance issues found in a scan（[@nwparker](https://github.com/nwparker)，[#36103](https://github.com/stablyai/orca/pull/36103)）
 - Forget tab choice state when a worktree is removed（[@nwparker](https://github.com/nwparker)，[#36165](https://github.com/stablyai/orca/pull/36165)）
 
-#### Languages & translations {#v1-4-245-languages-translations}
+#### 语言与翻译 {#v1-4-245-languages-translations}
 
 > Dates and numbers in your language, plus translated error messages across the app.
 
@@ -486,7 +486,7 @@
 - Translate source control remote error toasts（[@OrcaWin](https://github.com/OrcaWin)，[#35893](https://github.com/stablyai/orca/pull/35893)）
 - Translate remaining leftovers in submodules, agent summaries, filter counts and automations（[@OrcaWin](https://github.com/OrcaWin)，[#35914](https://github.com/stablyai/orca/pull/35914)）
 
-#### Phone & web {#v1-4-245-phone-web}
+#### 手机与网页 {#v1-4-245-phone-web}
 
 > Live dictation with a voice meter and a sturdier phone connection.
 
@@ -546,7 +546,7 @@
 
 > Groundwork for WSL hosts and for moving WSL projects onto them (internal, off in this build), CI on free hosted runners, more low-value tests removed, and continued Native Chat and Jira code organization.
 
-#### All test, build and maintenance changes {#v1-4-245-all-test-build-and-maintenance-changes}
+#### 全部测试、构建与维护改动 {#v1-4-245-all-tests-builds}
 
 - 修复（wsl-host）：a fresh host's first agent launch waits for the desktop's account（[@nwparker](https://github.com/nwparker)，[#29576](https://github.com/stablyai/orca/pull/29576)）
 - 新增（wsl）：offer Git for Windows in a Windows-drive WSL project's settings (D1c-3)（[@nwparker](https://github.com/nwparker)，[#33097](https://github.com/stablyai/orca/pull/33097)）
@@ -726,7 +726,7 @@
 
 ### 产品体验 {#v1-4-244-product}
 
-#### Native chat (experimental) {#v1-4-244-native-chat-experimental-}
+#### 实验性 Native Chat {#v1-4-244-native-chat-experimental}
 
 > Smoother streaming, chat history that stays small, and Claude rewind from the first message.
 
@@ -786,7 +786,7 @@
 - 停止：downloading a Chrome Web Store package or icon Orca has rejected（[@OrcaWin](https://github.com/OrcaWin)，[#35158](https://github.com/stablyai/orca/pull/35158)）
 - Expire abandoned extension menus after ten minutes（[@OrcaWin](https://github.com/OrcaWin)，[#35167](https://github.com/stablyai/orca/pull/35167)）
 
-#### Agent launch, status & accounts {#v1-4-244-agent-launch-status-accounts}
+#### Agent 启动、状态与账户 {#v1-4-244-agent-launch-status}
 
 > Disabled agents skip startup checks, “(CLI)” agents start as chats, and retained rows open their live panes.
 
@@ -805,7 +805,7 @@
 - 给予：each control its own number after browser tab compaction in computer use on Linux and Windows（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#35272](https://github.com/stablyai/orca/pull/35272)）
 - Attach the exactly named iOS simulator before partial name matches（[@bbingz](https://github.com/bbingz)，[#34884](https://github.com/stablyai/orca/pull/34884)）
 
-#### Orchestration & CLI {#v1-4-244-orchestration-cli}
+#### 编排与 CLI {#v1-4-244-orchestration-cli}
 
 > Worker worktrees name themselves, folder workspaces work in every command, and clearer CLI help.
 
@@ -824,7 +824,7 @@
 - List only the flags each CLI command takes in its help（[@nwparker](https://github.com/nwparker)，[#34598](https://github.com/stablyai/orca/pull/34598)）
 - Explain automation prechecks, and that removing a folder workspace entry keeps its files（[@brennanb2025](https://github.com/brennanb2025)，[#34523](https://github.com/stablyai/orca/pull/34523)）
 
-#### Terminals {#v1-4-244-terminals}
+#### 终端 {#v1-4-244-terminal}
 
 > A faster prompt in new Windows terminals, no freezes on close or resize, and file links that open from agent output.
 
@@ -845,7 +845,7 @@
 - Release terminal previews when their window reloads or crashes（[@OrcaWin](https://github.com/OrcaWin)，[#34863](https://github.com/stablyai/orca/pull/34863)）
 - Fail terminal reveal requests right away when their window goes away（[@OrcaWin](https://github.com/OrcaWin)，[#35030](https://github.com/stablyai/orca/pull/35030)）
 
-#### SSH, WSL & remote servers {#v1-4-244-ssh-wsl-remote-servers}
+#### SSH、WSL 与远程服务器 {#v1-4-244-ssh-wsl-remote}
 
 > Remote files that play, save and page like local ones, SSH workspaces you can remove, and WSL distros that stay stopped.
 
@@ -880,7 +880,7 @@
 - 保持：WSL filenames with control characters from cutting file updates short（[@OrcaWin](https://github.com/OrcaWin)，[#34855](https://github.com/stablyai/orca/pull/34855)）
 - Check a WSL skill install against just the installed skill, so it finishes sooner（[@nwparker](https://github.com/nwparker)，[#28750](https://github.com/stablyai/orca/pull/28750)）
 
-#### Source control & integrations {#v1-4-244-source-control-integrations}
+#### 源码管理与集成 {#v1-4-244-source-control-integrations}
 
 > Honest status when Git can’t read a workspace, clean Kimi output, and fewer GitHub requests.
 
@@ -899,7 +899,7 @@
 - Release Jira image requests after oversized responses, so later requests aren’t stuck（[@OrcaWin](https://github.com/OrcaWin)，[#35123](https://github.com/stablyai/orca/pull/35123)）
 - Release Jira favorites requests once their reads finish（[@OrcaWin](https://github.com/OrcaWin)，[#35127](https://github.com/stablyai/orca/pull/35127)）
 
-#### Workspaces, sidebar & everyday polish {#v1-4-244-workspaces-sidebar-everyday-polish}
+#### 工作区、侧栏与日常打磨 {#v1-4-244-workspaces-sidebar-polish}
 
 > workspace switching, Open as Folder before Git, lighter file watching, and more syntax highlighting更快。
 
@@ -961,7 +961,7 @@
 - Load only the main process’s own strings at startup（[@OrcaWin](https://github.com/OrcaWin)，[#34711](https://github.com/stablyai/orca/pull/34711)）
 - Bundle the YAML library for a lighter startup（[@OrcaWin](https://github.com/OrcaWin)，[#35225](https://github.com/stablyai/orca/pull/35225)）
 
-#### Languages & translations {#v1-4-244-languages-translations}
+#### 语言与翻译 {#v1-4-244-languages-translations}
 
 > German, Russian, Turkish and Traditional Chinese, plus whole-sentence translations across the app.
 
@@ -996,7 +996,7 @@
 - 保持：name matching correct when the system language is Turkish（[@OrcaWin](https://github.com/OrcaWin)，[#34709](https://github.com/stablyai/orca/pull/34709)）
 - 更新：the translation libraries to versions that fix a freeze and a text-injection bug（[@OrcaWin](https://github.com/OrcaWin)，[#35335](https://github.com/stablyai/orca/pull/35335)）
 
-#### Phone & web {#v1-4-244-phone-web}
+#### 手机与网页 {#v1-4-244-phone-web}
 
 > Dictation that survives reconnects and calls, App Store installs, and a phone that does less in the background.
 
@@ -1038,7 +1038,7 @@
 
 > Groundwork for WSL hosts and for moving WSL projects onto them (internal, off in this build) and for plugins (off by default), CI moved to free hosted runners, more low-value tests removed, and continued Native Chat module organization.
 
-#### All test, build and maintenance changes {#v1-4-244-all-test-build-and-maintenance-changes}
+#### 全部测试、构建与维护改动 {#v1-4-244-all-tests-builds}
 
 - 修复（wsl-host）：tell users how to fix a distro Orca can't host (D1c-1)（[@nwparker](https://github.com/nwparker)，[#33085](https://github.com/stablyai/orca/pull/33085)）
 - 新增（wsl-mover）：restore the host's browser link before a move, else say logins stay behind（[@nwparker](https://github.com/nwparker)，[#33086](https://github.com/stablyai/orca/pull/33086)）
@@ -1268,7 +1268,7 @@
 - 保持：the Annotate pick armed when a page rewrites its URL fragment（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#34423](https://github.com/stablyai/orca/pull/34423)）
 - 停止：malformed localhost pages from freezing the new tab page（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#34427](https://github.com/stablyai/orca/pull/34427)）
 
-#### Native chat (experimental) {#v1-4-243-native-chat-experimental-}
+#### 实验性 Native Chat {#v1-4-243-native-chat-experimental}
 
 > Continue in Chat after the terminal agent exits, keep Claude’s approval choice, and type with less lag.
 
@@ -1296,7 +1296,7 @@
 - List an idle Claude chat’s / commands from the account it will start on（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#34429](https://github.com/stablyai/orca/pull/34429)）
 - 打开：chat name settings from a naming failure（[@AmethystLiang](https://github.com/AmethystLiang)，[#34533](https://github.com/stablyai/orca/pull/34533)）
 
-#### Agent launch, status & accounts {#v1-4-243-agent-launch-status-accounts}
+#### Agent 启动、状态与账户 {#v1-4-243-agent-launch-status}
 
 > Antigravity usage that explains itself, restored agents that take startup answers, and calmer subagent rows.
 
@@ -1330,7 +1330,7 @@
 - 停止：showing a permission prompt for Pi and OMP sessions named “action required”（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#34294](https://github.com/stablyai/orca/pull/34294)）
 - 支持：list-form Kiro agent hooks written by `kiro-cli agent upgrade`（[@nwparker](https://github.com/nwparker)，[#34385](https://github.com/stablyai/orca/pull/34385)）
 
-#### Orchestration & CLI {#v1-4-243-orchestration-cli}
+#### 编排与 CLI {#v1-4-243-orchestration-cli}
 
 > Choose worker heartbeats, keep settled workers from burning CPU, and target the right workspace.
 
@@ -1346,7 +1346,7 @@
 - 保持：a record in each Run of what `orca orchestration reset --tasks` cleared（[@brennanb2025](https://github.com/brennanb2025)，[#28823](https://github.com/stablyai/orca/pull/28823)）
 - Target the calling terminal’s own workspace in folder projects from the CLI（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#33703](https://github.com/stablyai/orca/pull/33703)）
 
-#### Terminals {#v1-4-243-terminals}
+#### 终端 {#v1-4-243-terminal}
 
 > A fresh terminal host, Windows history that survives resizes, and terminals that wake where you left them.
 
@@ -1366,7 +1366,7 @@
 - 停止：scrolling from sending invalid mouse positions to terminal programs（[@Meapri](https://github.com/Meapri)，[#23330](https://github.com/stablyai/orca/pull/23330)）
 - Highlight the part of IME input being converted in the terminal（[@akiya3](https://github.com/akiya3)，[#27903](https://github.com/stablyai/orca/pull/27903)）
 
-#### SSH, WSL & remote servers {#v1-4-243-ssh-wsl-remote-servers}
+#### SSH、WSL 与远程服务器 {#v1-4-243-ssh-wsl-remote}
 
 > SSH hosts that move with their automations, host files outside workspaces, and WSL distros that stop when idle.
 
@@ -1413,7 +1413,7 @@
 - Only trust a WSL running check that started after the settle window（[@nwparker](https://github.com/nwparker)，[#34374](https://github.com/stablyai/orca/pull/34374)）
 - Note why an idle WSL distro stays running（[@nwparker](https://github.com/nwparker)，[#34534](https://github.com/stablyai/orca/pull/34534)）
 
-#### Source control & integrations {#v1-4-243-source-control-integrations}
+#### 源码管理与集成 {#v1-4-243-source-control-integrations}
 
 > AI fix actions use the + menu’s picker, and GitLab, GitHub Projects and Linear views show what they should.
 
@@ -1432,7 +1432,7 @@
 - 显示：linked PRs and sub-issue progress in GitHub Project views（[@brennanb2025](https://github.com/brennanb2025)，[#34185](https://github.com/stablyai/orca/pull/34185)）
 - 保持：GitHub Tasks preset highlights while you refine filters（[@brennanb2025](https://github.com/brennanb2025)，[#34216](https://github.com/stablyai/orca/pull/34216)）
 
-#### Workspaces, sidebar & everyday polish {#v1-4-243-workspaces-sidebar-everyday-polish}
+#### 工作区、侧栏与日常打磨 {#v1-4-243-workspaces-sidebar-polish}
 
 > Worktrees sooner at startup, compact menus, Markdown that looks like VS Code, and updates that get through a proxy.
 
@@ -1478,7 +1478,7 @@
 - 保持：Mermaid flowchart labels readable on custom node colors（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#34452](https://github.com/stablyai/orca/pull/34452)）
 - Translate Claude account labels in switch toasts and dialogs（[@nwparker](https://github.com/nwparker)，[#34470](https://github.com/stablyai/orca/pull/34470)）
 
-#### Phone & web {#v1-4-243-phone-web}
+#### 手机与网页 {#v1-4-243-phone-web}
 
 > Light and dark themes, the folding iPhone Duo, and phone screens that follow desktop’s rules.
 
@@ -1522,7 +1522,7 @@
 - 显示：files named like `constructor` as plain text on the phone instead of failing their diffs（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#34475](https://github.com/stablyai/orca/pull/34475)）
 - Leave Agent Session History on the phone when you resume a session from it（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#34485](https://github.com/stablyai/orca/pull/34485)）
 
-#### Reverted {#v1-4-243-reverted}
+#### 已回退 {#v1-4-243-reverted}
 
 > Separate projects for same-machine folders with matching Git remotes, and title-sized tabs, were reverted before release.
 
@@ -1534,7 +1534,7 @@
 
 > Many low-value tests removed, CI jobs moved to free hosted runners, faster lint, continued Native Chat module organization, and groundwork for Slack and Discord connectors.
 
-#### All test, build and maintenance changes {#v1-4-243-all-test-build-and-maintenance-changes}
+#### 全部测试、构建与维护改动 {#v1-4-243-all-tests-builds}
 
 - 新增（connector）：the desktop holds the Orca Cloud connector poll, with relay-style connector tokens（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#33852](https://github.com/stablyai/orca/pull/33852)）
 - 新增（connector）：Slack-started agents can reply in their thread (orca connector reply, local only)（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#33855](https://github.com/stablyai/orca/pull/33855)）
@@ -1738,7 +1738,7 @@
 
 ### 产品体验 {#v1-4-242-product}
 
-#### Native chat (experimental) {#v1-4-242-native-chat-experimental-}
+#### 实验性 Native Chat {#v1-4-242-native-chat-experimental}
 
 > Codex asks before editing, remote terminals continue in Chat, and chats that can’t start say why.
 
@@ -1757,7 +1757,7 @@
 - 保持：chat button hover colors readable when the theme changes（[@AmethystLiang](https://github.com/AmethystLiang)，[#33791](https://github.com/stablyai/orca/pull/33791)）
 - 停止：retrying a failing rename for old chat names made only of invisible characters（[@brennanb2025](https://github.com/brennanb2025)，[#33678](https://github.com/stablyai/orca/pull/33678)）
 
-#### Agent launch, status & accounts {#v1-4-242-agent-launch-status-accounts}
+#### Agent 启动、状态与账户 {#v1-4-242-agent-launch-status}
 
 > Navigate Claude subagents, resume agents with the settings they had, and see the right status and history.
 
@@ -1786,7 +1786,7 @@
 - 恢复：a server session whose workspace was deleted, and show previews for remote search hits（[@nwparker](https://github.com/nwparker)，[#33965](https://github.com/stablyai/orca/pull/33965)）
 - 发送：only an error code, not the raw message, when reporting a failed agent hook install（[@brynnclaw](https://github.com/brynnclaw)，[#25287](https://github.com/stablyai/orca/pull/25287)）
 
-#### Orchestration & CLI {#v1-4-242-orchestration-cli}
+#### 编排与 CLI {#v1-4-242-orchestration-cli}
 
 > Workers report to the right coordinator and read all their mail, and CLI commands fail clearly.
 
@@ -1804,7 +1804,7 @@
 - 允许：computer use set text fields on Linux systems such as Ubuntu 24.04（[@innocarpe](https://github.com/innocarpe)，[#10586](https://github.com/stablyai/orca/pull/10586)）
 - Press the plain shortcut for uppercase hotkey letters in computer use on Windows（[@jespo2021](https://github.com/jespo2021)，[#27642](https://github.com/stablyai/orca/pull/27642)）
 
-#### Terminals {#v1-4-242-terminals}
+#### 终端 {#v1-4-242-terminal}
 
 > Lighter terminal hosts, cleaner repaints, and fixes for Windows, Linux, macOS and Korean input.
 
@@ -1836,7 +1836,7 @@
 - Track terminals and Agent 会话 on Macs set to other languages and regions（[@nwparker](https://github.com/nwparker)，[#33898](https://github.com/stablyai/orca/pull/33898)）
 - Read macOS processes with no terminal correctly（[@aashish254](https://github.com/aashish254)，[#23251](https://github.com/stablyai/orca/pull/23251)）
 
-#### SSH, WSL & remote servers {#v1-4-242-ssh-wsl-remote-servers}
+#### SSH、WSL 与远程服务器 {#v1-4-242-ssh-wsl-remote}
 
 > Paired servers keep your tabs, WSL hosts stay paired and lighter, and SSH errors say what went wrong.
 
@@ -1870,7 +1870,7 @@
 - Read files of a project opened through WSL’s network path to a Windows drive（[@nwparker](https://github.com/nwparker)，[#33735](https://github.com/stablyai/orca/pull/33735)）
 - Open, save and rename those files through the drive path too（[@nwparker](https://github.com/nwparker)，[#33756](https://github.com/stablyai/orca/pull/33756)）
 
-#### Workspaces, sidebar & everyday polish {#v1-4-242-workspaces-sidebar-everyday-polish}
+#### 工作区、侧栏与日常打磨 {#v1-4-242-workspaces-sidebar-polish}
 
 > The right workspace stays selected, quitting and reloading behave, and Orca uses less memory.
 
@@ -1914,7 +1914,7 @@
 - Check for updates on Linux arm64 using the arm64 update feed（[@fettpl](https://github.com/fettpl)，[#18339](https://github.com/stablyai/orca/pull/18339)）
 - List the sound and graphics libraries Orca needs in the Linux .deb and .rpm packages（[@nwparker](https://github.com/nwparker)，[#34036](https://github.com/stablyai/orca/pull/34036)）
 
-#### Phone & web {#v1-4-242-phone-web}
+#### 手机与网页 {#v1-4-242-phone-web}
 
 > Phones explain an unreachable computer, chats redraw less, and terminals keep answering while you watch.
 
@@ -1927,7 +1927,7 @@
 
 > local lint, builds and dev setup, more behavioral coverage with fewer low-value tests, continued module organization, groundwork for the cloud connector service, and relay service improvements更快。
 
-#### All test, build and maintenance changes {#v1-4-242-all-test-build-and-maintenance-changes}
+#### 全部测试、构建与维护改动 {#v1-4-242-all-tests-builds}
 
 - 回收：a pooled relay database connection that turned slow or lossy（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#33900](https://github.com/stablyai/orca/pull/33900)）
 - Log the relay director’s TCP retransmits per runtime window（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#34027](https://github.com/stablyai/orca/pull/34027)）
@@ -2021,7 +2021,7 @@
 
 ### 产品体验 {#v1-4-241-product}
 
-#### Native chat (experimental) {#v1-4-241-native-chat-experimental-}
+#### 实验性 Native Chat {#v1-4-241-native-chat-experimental}
 
 > Chats share your agent settings, keep their names, and stay out of conversations a terminal is still writing.
 
@@ -2056,7 +2056,7 @@
 - Ask before sites use the local network（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#33399](https://github.com/stablyai/orca/pull/33399)）
 - 显示：bigger new tab tiles and a roomier workspace card（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#33178](https://github.com/stablyai/orca/pull/33178)）
 
-#### Agent launch, status & accounts {#v1-4-241-agent-launch-status-accounts}
+#### Agent 启动、状态与账户 {#v1-4-241-agent-launch-status}
 
 > Agents start on the first try, report the right status, resume in the right place, and keep the right account.
 
@@ -2110,7 +2110,7 @@
 - 保持：Codex automation and agent-created threads in Agent Session History（[@nwparker](https://github.com/nwparker)，[#33477](https://github.com/stablyai/orca/pull/33477)）
 - List Claude sessions stored under a CLAUDE_CONFIG_DIR set only in your login shell（[@nwparker](https://github.com/nwparker)，[#33506](https://github.com/stablyai/orca/pull/33506)）
 
-#### Orchestration {#v1-4-241-orchestration}
+#### 编排 {#v1-4-241-orchestration}
 
 > Mail reaches workers when they can take it, and worker starts fail clearly instead of stalling.
 
@@ -2126,7 +2126,7 @@
 - 允许：worker-start reuse an idle native-install Claude terminal（[@nwparker](https://github.com/nwparker)，[#33544](https://github.com/stablyai/orca/pull/33544)）
 - Paste CLI prompts as one block for every recognized agent, not just Claude and Codex（[@nwparker](https://github.com/nwparker)，[#33571](https://github.com/stablyai/orca/pull/33571)）
 
-#### Terminals {#v1-4-241-terminals}
+#### 终端 {#v1-4-241-terminal}
 
 > A fresh terminal host, steadier Windows terminals, and history and folders that survive sleep, restarts and phones.
 
@@ -2160,7 +2160,7 @@
 - 保持：the folder of a WSL pane a relaunched window reattached when it is slept（[@nwparker](https://github.com/nwparker)，[#33496](https://github.com/stablyai/orca/pull/33496)）
 - Reopen a slept agent whose tab is gone in a fresh tab instead of stranding it（[@nwparker](https://github.com/nwparker)，[#33598](https://github.com/stablyai/orca/pull/33598)）
 
-#### SSH & remote servers {#v1-4-241-ssh-remote-servers}
+#### SSH 与远程服务器 {#v1-4-241-ssh-remote}
 
 > Port forwards that come back, more hosts that connect, and managed servers you can update without closing terminals.
 
@@ -2175,7 +2175,7 @@
 - 修复：`orca agent hooks` commands on headless Orca servers（[@nwparker](https://github.com/nwparker)，[#33700](https://github.com/stablyai/orca/pull/33700)）
 - Drive Android emulators from headless `orca serve` hosts（[@nwparker](https://github.com/nwparker)，[#33701](https://github.com/stablyai/orca/pull/33701)）
 
-#### Workspaces, sidebar & everyday polish {#v1-4-241-workspaces-sidebar-everyday-polish}
+#### 工作区、侧栏与日常打磨 {#v1-4-241-workspaces-sidebar-polish}
 
 > Workspaces stay on the right branch and dialogs don’t get stuck, with quicker previews and tidier sidebar controls.
 
@@ -2192,7 +2192,7 @@
 - Make Cmd/Ctrl + zoom in on non-US keyboards（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#33014](https://github.com/stablyai/orca/pull/33014)）
 - 保持：Orca CLI commands working in sandboxes that deny chmod（[@nwparker](https://github.com/nwparker)，[#33662](https://github.com/stablyai/orca/pull/33662)）
 
-#### Phone & web {#v1-4-241-phone-web}
+#### 手机与网页 {#v1-4-241-phone-web}
 
 > Phones keep every piece of terminal output and the right agent status, and explain what they can’t show.
 
@@ -2204,7 +2204,7 @@
 
 > behavioral coverage with fewer low-value tests, faster local checks and dev setup, continued module organization, a repository-wide comment cleanup, and relay service improvements覆盖更广。
 
-#### All test, build and maintenance changes {#v1-4-241-all-test-build-and-maintenance-changes}
+#### 全部测试、构建与维护改动 {#v1-4-241-all-tests-builds}
 
 - Log the relay director’s zone and round-trip speed on each runtime line（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#33372](https://github.com/stablyai/orca/pull/33372)）
 - Cap how many reserve relay cells a director outage sends to the database（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#33415](https://github.com/stablyai/orca/pull/33415)）

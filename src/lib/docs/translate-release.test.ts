@@ -81,3 +81,60 @@ test("isChineseDenseNote rejects placeholders", () => {
     false,
   );
 });
+
+test("product-experience module headings localize", () => {
+  const rel: LiveRelease = {
+    tag: "v1.4.245",
+    name: "v1.4.245",
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.245",
+    publishedAt: "2026-10-30T00:00:00Z",
+    body: `## Product experience
+
+### Native chat (experimental)
+* Fix a by @a in https://github.com/stablyai/orca/pull/1
+### Plugins
+* Fix b by @a in https://github.com/stablyai/orca/pull/2
+### Agent launch, status & accounts
+* Fix c by @a in https://github.com/stablyai/orca/pull/3
+### Orchestration & CLI
+* Fix d by @a in https://github.com/stablyai/orca/pull/4
+### Terminals
+* Fix e by @a in https://github.com/stablyai/orca/pull/5
+### SSH, WSL & remote servers
+* Fix f by @a in https://github.com/stablyai/orca/pull/6
+### Source control & integrations
+* Fix g by @a in https://github.com/stablyai/orca/pull/7
+### Workspaces, sidebar & everyday polish
+* Fix h by @a in https://github.com/stablyai/orca/pull/8
+### Languages & translations
+* Fix i by @a in https://github.com/stablyai/orca/pull/9
+### Phone & web
+* Fix j by @a in https://github.com/stablyai/orca/pull/10
+### Tests, builds & maintenance
+* Fix k by @a in https://github.com/stablyai/orca/pull/11
+<details>
+<summary>All test, build and maintenance changes</summary>
+</details>
+`,
+  };
+  const md = buildChangelogMarkdown([rel], "", []);
+  for (const zh of [
+    "实验性 Native Chat",
+    "插件",
+    "Agent 启动、状态与账户",
+    "编排与 CLI",
+    "终端",
+    "SSH、WSL 与远程服务器",
+    "源码管理与集成",
+    "工作区、侧栏与日常打磨",
+    "语言与翻译",
+    "手机与网页",
+    "测试、构建与维护",
+    "全部测试、构建与维护改动",
+  ]) {
+    assert.ok(md.includes(zh), `missing ${zh}`);
+  }
+  assert.ok(!md.includes("### Native chat (experimental)"));
+  assert.ok(!md.includes("### Plugins"));
+  assert.ok(!md.includes("### Terminals\n") && !md.includes("#### Terminals {"));
+});
