@@ -390,7 +390,7 @@ export function DocsShell({ slug }: { slug: string }) {
           </span>
           <span className="hidden truncate font-medium tracking-tight sm:inline">Orca 手册</span>
         </Link>
-        <span className="hidden text-xs text-fg-subtle lg:inline">官方文档中文版</span>
+        <span className="hidden text-xs text-fg-subtle lg:inline">社区文档中文版</span>
         <div className="ml-auto flex min-w-0 items-center gap-1.5 sm:gap-2">
           <UpdateEntry />
           <ThemeSwitch />
