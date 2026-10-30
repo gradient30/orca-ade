@@ -78,6 +78,21 @@ const HEADINGS: Record<string, string> = {
   "Agents & chat": "Agent 与聊天",
   "Workspaces & mobile": "工作区与移动端",
   "Reliability & security": "可靠性与安全",
+  // Product-experience module entries (v1.4.241+)
+  "Native chat (experimental)": "实验性 Native Chat",
+  Plugins: "插件",
+  "Agent launch, status & accounts": "Agent 启动、状态与账户",
+  "Orchestration & CLI": "编排与 CLI",
+  Orchestration: "编排",
+  Terminals: "终端",
+  "SSH, WSL & remote servers": "SSH、WSL 与远程服务器",
+  "SSH & remote servers": "SSH 与远程服务器",
+  "Source control & integrations": "源码管理与集成",
+  "Workspaces, sidebar & everyday polish": "工作区、侧栏与日常打磨",
+  "Languages & translations": "语言与翻译",
+  "Phone & web": "手机与网页",
+  "All test, build and maintenance changes": "全部测试、构建与维护改动",
+  Reverted: "已回退",
 };
 
 const TYPES: Record<string, string> = {
@@ -736,6 +751,19 @@ function headingZh(text: string, level: number, tag: string): string {
       "Agent 与聊天": "agents-chat",
       "工作区与移动端": "workspaces-mobile",
       "可靠性与安全": "reliability-security",
+      "实验性 Native Chat": "native-chat-experimental",
+      插件: "plugins",
+      "Agent 启动、状态与账户": "agent-launch-status",
+      "编排与 CLI": "orchestration-cli",
+      编排: "orchestration",
+      "SSH、WSL 与远程服务器": "ssh-wsl-remote",
+      "SSH 与远程服务器": "ssh-remote",
+      "源码管理与集成": "source-control-integrations",
+      "工作区、侧栏与日常打磨": "workspaces-sidebar-polish",
+      "语言与翻译": "languages-translations",
+      "手机与网页": "phone-web",
+      "全部测试、构建与维护改动": "all-tests-builds",
+      已回退: "reverted",
     }[zh] ?? zh.toLowerCase().replace(/[^a-z0-9]+/g, "-");
   return `${"#".repeat(level)} ${zh} {#${tag}-${key}}`;
 }
@@ -841,6 +869,11 @@ function translateBody(rel: LiveRelease): string[] {
       const m = s.match(/https:\/\/github\.com\/stablyai\/orca\/compare\/\S+/);
       const url = (m?.[0] ?? "").replace(/[.)]+$/, "");
       out.push(url ? `**完整变更对照：** [${url.split("/").pop()}](${url})` : "**完整变更对照**");
+      out.push("");
+      continue;
+    }
+    if (s.startsWith("#### ")) {
+      out.push(headingZh(s.slice(5).trim(), 4, id));
       out.push("");
       continue;
     }
