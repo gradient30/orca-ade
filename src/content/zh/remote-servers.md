@@ -167,6 +167,17 @@ orca-ide serve --pairing-address 100.64.1.20
 - Orca 只在其终端宿主进程启动时读取它们。该进程在 `orca serve` 重启后仍继续跑，因此终端会保持旧限制，直到它也重启——例如服务器重启之后。
 - 它们在 macOS 或 Windows 上无效。
 
+### 在 Linux 服务器上使用 GPU {#use-the-gpu-on-a-linux-server}
+
+在 Linux 上，`orca serve` 默认关闭硬件加速，因为多数无头宿主没有 GPU，失败的 GPU 进程可能阻止服务器启动。浏览器窗格随后以软件方式渲染。若宿主为 Orca 进程提供了 GPU（例如 `/dev/dri/renderD128` 这类 render node），在启动 `orca serve` 的环境（或其服务单元）中设置 `ORCA_SERVE_GPU=1` 以保持硬件加速开启：
+
+```bash
+export ORCA_SERVE_GPU=1
+orca-ide serve --pairing-address 100.64.1.20
+```
+
+这只会阻止 Orca 主动关闭 GPU。Chromium 仍可能在 Orca 自带的、没有 GPU 的 Xvfb 上以软件渲染；可在浏览器窗格打开 `chrome://gpu` 检查，若报告软件渲染，把 `DISPLAY` 指向有 GPU 的 X 服务器。若用 `orca serve service install` 安装了服务器，请自行把该变量加到服务单元。若设置后服务器无法启动或浏览器窗格崩溃，取消该变量以回到软件渲染。
+
 ### 从无头服务器用于移动端 {#mobile-from-a-headless-server}
 
 对于 Orca 移动应用，请求移动端范围的二维码和链接：

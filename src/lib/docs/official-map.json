@@ -19,7 +19,7 @@
       "officialPath": "docs/site/content/docs/agents/claude-code.mdx",
       "size": 1692,
       "lastSeenSha": "f1e88ea71ae882d661a76a41a2ae3ac5244f0f8e",
-      "translatedAtSha": "a0d733abd4a6060343dbfedf40d90bea7429aad5"
+      "translatedAtSha": "f1e88ea71ae882d661a76a41a2ae3ac5244f0f8e"
     },
     {
       "slug": "agents/codex-hot-swap",
@@ -82,7 +82,7 @@
       "officialPath": "docs/site/content/docs/agents/native-chat.mdx",
       "size": 6673,
       "lastSeenSha": "ee7a83b000734a8c732480f9e88d4f85cf440e49",
-      "translatedAtSha": "1a812697e0ad361f888463207347c0c2b8f0a3d5"
+      "translatedAtSha": "ee7a83b000734a8c732480f9e88d4f85cf440e49"
     },
     {
       "slug": "agents/session-history",
@@ -136,7 +136,7 @@
       "officialPath": "docs/site/content/docs/browser/overview.mdx",
       "size": 5344,
       "lastSeenSha": "e71297a9ba2608360339388e82ddcd37da8cbe74",
-      "translatedAtSha": "93890cf98bdf639e47252101a9a63b042529bd36"
+      "translatedAtSha": "e71297a9ba2608360339388e82ddcd37da8cbe74"
     },
     {
       "slug": "browser/profiles",
@@ -289,7 +289,7 @@
       "officialPath": "docs/site/content/docs/mobile.mdx",
       "size": 13892,
       "lastSeenSha": "e8fed6790d1777cd58bc4e180964ca2ecb5eea16",
-      "translatedAtSha": "0e8d99768dd43a94cd3d100f1a65ac460fb03224"
+      "translatedAtSha": "e8fed6790d1777cd58bc4e180964ca2ecb5eea16"
     },
     {
       "slug": "model/agents-sessions",
@@ -406,7 +406,7 @@
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
       "size": 13147,
       "lastSeenSha": "d9be9701a257c12c1cfad3168544beec1632cbfd",
-      "translatedAtSha": "7e7021ed967f8b9a572151460f9d1f45a81112f8"
+      "translatedAtSha": "d9be9701a257c12c1cfad3168544beec1632cbfd"
     },
     {
       "slug": "review/annotate-ai-diff",
@@ -478,7 +478,7 @@
       "officialPath": "docs/site/content/docs/settings.mdx",
       "size": 16029,
       "lastSeenSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619",
-      "translatedAtSha": "4fac0564d48c728e4391dc1212e009c5018b821c"
+      "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
       "slug": "ssh",
@@ -487,7 +487,7 @@
       "officialPath": "docs/site/content/docs/ssh.mdx",
       "size": 12533,
       "lastSeenSha": "e723aceaede3904dea917ae6a400032e0dfa6642",
-      "translatedAtSha": "8e3952de8f4b4b98fed6469ffd966a667e4650d5"
+      "translatedAtSha": "e723aceaede3904dea917ae6a400032e0dfa6642"
     },
     {
       "slug": "telemetry",
@@ -505,7 +505,7 @@
       "officialPath": "docs/site/content/docs/terminal.mdx",
       "size": 12237,
       "lastSeenSha": "6922a6ab6f1b14ce017541ca32beb8c3030d9665",
-      "translatedAtSha": "80b8767ac15aeb8c9a4917f5d81b547c6c421aa9"
+      "translatedAtSha": "6922a6ab6f1b14ce017541ca32beb8c3030d9665"
     },
     {
       "slug": "troubleshooting",
@@ -531,35 +531,35 @@
       "tag": "v1.4.244",
       "publishedAt": "2026-10-29",
       "lastSeenBodySha": "04be781191c8",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "04be781191c8",
       "yanked": false
     },
     {
       "tag": "v1.4.243",
       "publishedAt": "2026-10-28",
       "lastSeenBodySha": "9144628dfba0",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "9144628dfba0",
       "yanked": false
     },
     {
       "tag": "v1.4.242",
       "publishedAt": "2026-10-27",
       "lastSeenBodySha": "097ce1bacaa1",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "097ce1bacaa1",
       "yanked": false
     },
     {
       "tag": "v1.4.241",
       "publishedAt": "2026-10-26",
       "lastSeenBodySha": "84f8767639b0",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "84f8767639b0",
       "yanked": false
     },
     {
       "tag": "v1.4.240",
       "publishedAt": "2026-10-25",
       "lastSeenBodySha": "f6173197d033",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "f6173197d033",
       "yanked": false
     },
     {

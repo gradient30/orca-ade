@@ -29,6 +29,8 @@
 
 在 [Settings → Browser → Link Routing](/docs/settings) 下，选择来自终端、markdown 和编辑器的 http(s) 链接是在 Orca 每个 worktree 的浏览器中打开，还是在系统浏览器中打开。
 
+在 Orca 中打开的链接会先复用同一工作区、执行宿主与浏览器配置档中指向完全相同目标的已有页面；否则在已显示浏览器的窗格中打开新标签。多个浏览器窗格可见时，聚焦的优先，其次是最近使用的。被其他标签挡住的浏览器标签不会吸引新页面。没有可见浏览器时，会在来源窗格旁新开分屏，并保持其内容可见。显式的 **Open in this group** 操作则使用请求的窗格。
+
 嵌套的 **Hold Shift…** 开关会用平台修饰键把该默认对一次点击反转（macOS 上 `⇧⌘-click`，Windows / Linux 上 `Shift+Ctrl+click`）：
 
 - 当链接在 **Orca** 中打开时，修饰键把这一条链接送到系统浏览器。

@@ -58,15 +58,17 @@ Orca 使用与连接相同的 SSH 传输路径。仅当连接声明支持递归�
 
 这是仅桌面的操作——Web 客户端不暴露 Download，因为它依赖 Electron 的保存对话框。
 
-## 在 VS Code 中打开远程工作区 {#open-a-remote-workspace-in-vs-code}
+## 在 VS Code、Cursor 或 Zed 中打开远程工作区 {#open-a-remote-workspace-in-vs-code-cursor-or-zed}
 
-对于 SSH worktree，当配置的应用是 VS Code 或 VS Code Insiders（`code` / `code-insiders`，或指向这些启动器的直接路径）时，worktree 菜单的 **Open in** 列表可以把远程路径交给 VS Code Remote-SSH。
+对于 SSH worktree，当配置的应用是 VS Code、VS Code Insiders、Cursor 或 Zed（`code` / `code-insiders` / `cursor` / `zed`，或指向这些启动器的直接路径）时，worktree 菜单的 **Open in** 列表可以把远程路径交给能自行打开 SSH 主机的编辑器。
 
-1. 配置 **Settings → General → Open in menu**，让 VS Code 出现在列表中（预设或自定义命令）。
-1. 右键 SSH worktree（或使用 worktree 溢出菜单）→ **Open in** → **VS Code**。
-1. Orca 针对该主机和 worktree 路径启动带 Remote-SSH 的 VS Code（`--remote ssh-remote+<host> <path>`）。菜单项可能会显示 **Remote SSH** 徽章。
+1. 配置 **Settings → General → Open in menu**，让该编辑器出现在列表中（预设或自定义命令）。
+1. 右键 SSH worktree（或使用 worktree 溢出菜单）→ **Open in** → 该编辑器。
+1. Orca 针对该主机和 worktree 路径启动编辑器。菜单项可能会显示 **Remote SSH** 徽章。
+   - VS Code 与 Cursor 使用 Remote-SSH：`--remote ssh-remote+<host> <path>`。非 22 端口的主机需要在本地 SSH 配置中有别名。
+   - Zed 使用其 SSH URL：`zed ssh://[user@]host[:port]/<path>`，因此自定义端口无需别名。带 identity file、跳板或 proxy command 的手动主机仍需要别名，因为 URL 无法携带这些信息。
 
-**此远程路径不支持：** Cursor、Zed、复合 shell 命令，或通过 **Remote Orca Server** 活动运行时打开（那些保持 **Local only**）。Finder/Explorer 项仅用于本地路径。
+**此远程路径不支持：** 其他编辑器、复合 shell 命令，或通过 **Remote Orca Server** 活动运行时打开（那些保持 **Local only**）。Finder/Explorer 项仅用于本地路径。
 
 ## Kerberos / GSSAPI {#kerberos-gssapi}
 
