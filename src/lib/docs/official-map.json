@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-30",
   "officialRef": "main",
-  "docsTreeSha": "ac4f1703f8014f7d32598b0925dc5a22bcae3041",
+  "docsTreeSha": "f33eb44295c94211f24b77155a7f00af8a1247ef",
   "docs": [
     {
       "slug": "activity",
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 23975,
-      "lastSeenSha": "b22528d6c762dd6bcf6bcab47a71c62bd35a2de8",
+      "size": 24306,
+      "lastSeenSha": "198814984cc9212588beb020ad2091bc8d5925a1",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
