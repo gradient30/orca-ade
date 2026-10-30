@@ -2,12 +2,15 @@
 
 对照 [Orca ADE](https://www.onorca.dev/docs) **官方文档**目录的社区中文手册（**非官方**译本与阅读器），另附一份面向日常高频操作的「快速手册」。
 
-**在线阅读：** [https://gradient30.github.io/orca-ade/](https://gradient30.github.io/orca-ade/)
+**在线阅读：**
+
+- Cloudflare：[https://orca-ade.pages.dev/](https://orca-ade.pages.dev/)（根路径，推荐）
+- GitHub Pages：[https://gradient30.github.io/orca-ade/](https://gradient30.github.io/orca-ade/)（`/orca-ade/` 子路径）
 
 - 官方文档：[onorca.dev/docs](https://www.onorca.dev/docs)
 - 英文源：[stablyai/orca](https://github.com/stablyai/orca) `docs/site/content/docs`
 - 本仓库：**非官方**译本与阅读器，命令、产品名、代码块与 `/docs/...` 路径保持与官网一致
-- 发布：GitHub Pages（`main` 推送后自动构建；工作流 `.github/workflows/pages.yml`）
+- 发布：`main` 推送后双端自动构建——GitHub Pages（`.github/workflows/pages.yml`）与 Cloudflare Pages（`.github/workflows/deploy-cloudflare.yml`，项目 `orca-ade`）
 - 顶栏「更新」：打开手册时自动抓取官方 [Releases](https://github.com/stablyai/orca/releases) 最近 3 次桌面版（跳过 mobile / 预发布），译成中文；点进去是[完整日志](src/content/zh/changelog.md)。结果在浏览器缓存 6 小时。已有中文底稿的版本不会被英文机翻覆盖。
 - 仓库每 6 小时用 GitHub Actions 核对官方 tag，有新版本才回写内置译本
 - 风格：明 / 暗 / 彩，切换结果保存在浏览器本地
@@ -47,10 +50,16 @@ npm run dev
 npm run build
 ```
 
-GitHub Pages 静态构建：
+GitHub Pages 静态构建（base `/orca-ade/`）：
 
 ```bash
 npm run build:pages
+```
+
+Cloudflare Pages 静态构建（base `/`，产物同样在 `.output/public`）：
+
+```bash
+npm run build:cloudflare
 ```
 
 同步官方 Release 底稿：

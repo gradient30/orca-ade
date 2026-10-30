@@ -21,7 +21,7 @@ flowchart TB
   SHELL --> HDR["顶栏：更新 chip · 明/暗/彩 · 搜索"]
   SHELL --> MD["Markdown：标题锚点、表格、代码"]
   MD --> MMR["mermaid 围栏 → 按当前主题着色"]
-  SHELL --> PAGE["GitHub Pages /orca-ade/"]
+  SHELL --> PAGE["GitHub Pages /orca-ade/ \n Cloudflare Pages /"]
 ```
 
 | 层 | 职责 | 关键文件 |
@@ -32,7 +32,7 @@ flowchart TB
 | 路由 | `/` 首页，`/docs/quick-guide` 这类走 splat | `src/routes/index.tsx`、`docs.$.tsx` |
 | 壳 | 顶栏、侧栏、TOC、更新状态行；命令使用页挂 CommandCatalog | `src/components/docs/DocsShell.tsx`、`CommandCatalog.tsx` |
 | 正文 | 解析 md；`mermaid` 围栏单独画图 | `Markdown.tsx`、`MermaidBlock.tsx` |
-| 发布 | SPA 静态站，base 为 `/orca-ade/` | GitHub Pages 工作流 |
+| 发布 | SPA 静态站：GH Pages base `/orca-ade/`；Cloudflare Pages base `/` | `pages.yml` + `deploy-cloudflare.yml` |
 
 侧栏「从这里开始」的顺序是：快速手册 → 更新日志 → 本站架构 → 对照表 → 官网首页译本。后面的官网文档页与 [onorca.dev/docs](https://www.onorca.dev/docs) 目录对齐。
 

@@ -15,6 +15,7 @@
     "preview:restart": "node scripts/preview.mjs restart",
     "preview:stop": "node scripts/preview.mjs stop",
     "build:pages": "node scripts/build-pages.mjs",
+    "build:cloudflare": "CLOUDFLARE_PAGES=1 node scripts/build-pages.mjs",
     "sync:releases": "node --experimental-strip-types scripts/sync-releases.ts",
     "sync:map": "node --experimental-strip-types scripts/sync-official-map.ts",
     "typecheck": "tsc --noEmit",
