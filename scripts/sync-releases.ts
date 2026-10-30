@@ -24,6 +24,7 @@ import {
   isChineseDenseNote,
   englishResidualRatio,
   extractVersionSection,
+  rewriteChangelogProductBullets,
 } from "../src/lib/docs/translate-release.ts";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
@@ -49,6 +50,28 @@ export const LATEST_RELEASE = RELEASES[0]!;
 
 export const CHANGELOG_HREF = "/docs/changelog";
 `;
+}
+
+function productExperienceBlock(section: string, opts: { includeTests?: boolean } = {}): string {
+  const lines = section.split("\n");
+  const out: string[] = [];
+  let inP = false;
+  let skipMod = false;
+  for (const line of lines) {
+    if (/^###\s+/.test(line) && !line.startsWith("####")) {
+      inP = /产品体验|Product experience/.test(line);
+      skipMod = false;
+      continue;
+    }
+    if (inP && /^####\s+/.test(line)) {
+      skipMod =
+        !opts.includeTests &&
+        /测试|构建与维护|All test|Tests, builds/.test(line);
+    }
+    if (inP && /^###\s+/.test(line) && !line.startsWith("####")) break;
+    if (inP && !skipMod) out.push(line);
+  }
+  return out.join("\n");
 }
 
 /** Marketing surface ≈ lines until Product / Agents / … PR dump sections. */
@@ -96,15 +119,42 @@ async function main() {
     return;
   }
   writeFileSync(join(root, "src/lib/docs/releases.ts"), formatNotes(notes));
-  const md = buildChangelogMarkdown(releases, existing, notes);
+  let md = buildChangelogMarkdown(releases, existing, notes);
+  md = rewriteChangelogProductBullets(md);
   writeFileSync(join(root, "src/content/zh/changelog.md"), md);
   console.log("synced", next);
   for (const rel of releases) {
     const sec = extractVersionSection(md, rel.tag) ?? "";
     const surface = marketingSurface(sec);
-    const ratio = englishResidualRatio(surface);
-    const flag = ratio > 0.35 ? "WARN" : "ok";
-    console.log(`  ${rel.tag} marketing EN residual=${ratio.toFixed(2)} ${flag}`);
+    const mRatio = englishResidualRatio(surface);
+    const prod = productExperienceBlock(sec);
+    const prodAll = productExperienceBlock(sec, { includeTests: true });
+    const pRatio = englishResidualRatio(prod);
+    const flag = pRatio > 0.55 ? "WARN" : "ok";
+    const pAll = englishResidualRatio(prodAll);
+    if (rel.tag === releases[0]?.tag) {
+      const modRe = /^####\s+(.+?)\s*\{#/gm;
+      let mm: RegExpExecArray | null;
+      const mods: { name: string; start: number }[] = [];
+      while ((mm = modRe.exec(prod))) {
+        mods.push({ name: mm[1]!, start: mm.index });
+      }
+      for (let i = 0; i < mods.length; i++) {
+        const a = mods[i]!;
+        const b = mods[i + 1];
+        const slice = prod.slice(a.start, b ? b.start : undefined);
+        const bullets = slice.split("\n").filter((l) => /^[-*]\s+/.test(l));
+        const good = bullets.filter((l) => {
+          const core = l.replace(/^[-*]\s+/, "").replace(/（\[@.+$/, "");
+          return englishResidualRatio(core) < 0.45;
+        }).length;
+        console.log(`    · ${a.name}: ${good}/${bullets.length} localized`);
+      }
+    }
+
+    console.log(
+      `  ${rel.tag} marketing=${mRatio.toFixed(2)} product=${pRatio.toFixed(2)} product+tests=${pAll.toFixed(2)} ${flag}`,
+    );
   }
 }
 

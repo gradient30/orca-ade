@@ -1,6 +1,7 @@
 import type { LiveRelease } from "./github-releases";
 import type { ReleaseNote } from "./releases";
 import { FEATURED_SURFACE_PHRASES } from "./featured-surface-phrases.ts";
+import { PRODUCT_EXPERIENCE_PHRASES } from "./product-experience-phrases.ts";
 
 const HEADINGS: Record<string, string> = {
   "The short version": "简要说明",
@@ -114,6 +115,7 @@ const TYPES: Record<string, string> = {
 
 const PHRASES: [string, string][] = [
   ...FEATURED_SURFACE_PHRASES,
+  ...PRODUCT_EXPERIENCE_PHRASES,
   // Label anchors (full bodies live in featured-surface-phrases; longest-first apply wins)
   ["Four new languages:", "四种新语言："],
   ["Faster workspace switching:", "更快切换工作区："],
@@ -608,43 +610,192 @@ const START_VERBS: [RegExp, string][] = [
   [/^Send /i, "发送："],
   [/^Pin /i, "钉住："],
   [/^Compile /i, "编译："],
+  [/^Reuse /i, "复用："],
+  [/^Stream /i, "流式："],
+  [/^Rewind /i, "回退："],
+  [/^Edit /i, "编辑："],
+  [/^List /i, "列出："],
+  [/^Treat /i, "将："],
+  [/^Apply /i, "应用："],
+  [/^Load /i, "加载："],
+  [/^Reach /i, "经由："],
+  [/^Paste /i, "粘贴："],
+  [/^Contain /i, "隔离："],
+  [/^Cap /i, "限制："],
+  [/^Switch /i, "切换："],
+  [/^Group /i, "归组："],
+  [/^Bring /i, "带回："],
+  [/^Say /i, "表述："],
+  [/^Nest /i, "嵌套："],
+  [/^Include /i, "包含："],
+  [/^Never /i, "永不："],
+  [/^Make /i, "使："],
+  [/^Label /i, "标记："],
+  [/^Name /i, "命名："],
+  [/^Deliver /i, "投递："],
+  [/^Tell /i, "告知："],
+  [/^Read /i, "读取："],
+  [/^Flash /i, "闪烁："],
+  [/^Log /i, "记录："],
+  [/^Upload /i, "上传："],
+  [/^Sign /i, "登录："],
+  [/^Center /i, "居中："],
+  [/^Combine /i, "合并："],
+  [/^Merge /i, "合并："],
+  [/^Highlight /i, "高亮："],
+  [/^Release /i, "释放："],
+  [/^Translate /i, "翻译："],
+  [/^Resend /i, "重发："],
+  [/^Notice /i, "察觉："],
+  [/^Forward /i, "转发："],
+  [/^Grow /i, "增高："],
+  [/^Handle /i, "处理："],
+  [/^Order /i, "排序："],
+  [/^Recover /i, "恢复："],
+  [/^Process /i, "处理："],
+  [/^Reopen /i, "重开："],
+  [/^Run /i, "运行："],
+  [/^Leave /i, "离开："],
+  [/^Do /i, "执行："],
+  [/^Close /i, "关闭："],
+  [/^Start /i, "启动："],
+  [/^Use /i, "使用："],
+  [/^Check /i, "检查："],
+  [/^Find /i, "查找："],
+  [/^Retry /i, "重试："],
+  [/^Refuse /i, "拒绝："],
+  [/^Offer /i, "提供："],
+  [/^Return /i, "返回："],
+  [/^Copy /i, "复制："],
+  [/^Share /i, "共享："],
+  [/^Strengthen /i, "加强："],
+  [/^Background /i, "后台："],
+  [/^Explain /i, "说明："],
+  [/^Don’t /i, "不要："],
+  [/^Don't /i, "不要："],
 ];
 
 function translateProse(raw: string): string {
-  const phrased = applyPhrases(raw.trim());
-  if (/[\u4e00-\u9fff]/.test(phrased) && phrased.length - phrased.replace(/[\u4e00-\u9fff]/g, "").length >= 10) {
-    return phrased;
+  let s = applyPhrases(raw.trim());
+  // Fully matched marketing / product bullets — residual already low.
+  if (/[\u4e00-\u9fff]/.test(s) && englishResidualRatio(s) < 0.35) {
+    return s;
   }
-  let s = phrased;
   s = s.replace(
     /^Faster (.+?), alongside (.+?)\.?$/i,
-    (_, a: string, b: string) => `${applyPhrases(a)}更快，同时${applyPhrases(b)}`,
+    (_: string, a: string, b: string) => `${applyPhrases(a)}更快，同时${applyPhrases(b)}`,
   );
   s = s.replace(
     /^Faster (.+?) across (.+?)\.?$/i,
-    (_, a: string, b: string) => `${applyPhrases(b)}的${applyPhrases(a)}更快。`,
+    (_: string, a: string, b: string) => `${applyPhrases(b)}的${applyPhrases(a)}更快。`,
   );
-  s = s.replace(/^Faster (.+?)\.?$/i, (_, a: string) => `${applyPhrases(a)}更快。`);
-  s = s.replace(/^More resilient (.+?)\.?$/i, (_, a: string) => `${applyPhrases(a)}更抗故障。`);
+  s = s.replace(/^Faster (.+?)\.?$/i, (_: string, a: string) => `${applyPhrases(a)}更快。`);
+  s = s.replace(/^More resilient (.+?)\.?$/i, (_: string, a: string) => `${applyPhrases(a)}更抗故障。`);
   s = s.replace(
     /^More reliable (.+?), including (.+?)\.?$/i,
-    (_, a: string, b: string) => `${applyPhrases(a)}更可靠：${applyPhrases(b)}`,
+    (_: string, a: string, b: string) => `${applyPhrases(a)}更可靠：${applyPhrases(b)}`,
   );
-  s = s.replace(/^More reliable (.+?)\.?$/i, (_, a: string) => `${applyPhrases(a)}更可靠。`);
-  s = s.replace(/^Expanded (.+?)\.?$/i, (_, a: string) => `${applyPhrases(a)}进一步增强。`);
-  s = s.replace(/^Broader (.+?)\.?$/i, (_, a: string) => `${applyPhrases(a)}覆盖更广。`);
+  s = s.replace(/^More reliable (.+?)\.?$/i, (_: string, a: string) => `${applyPhrases(a)}更可靠。`);
+  s = s.replace(/^Expanded (.+?)\.?$/i, (_: string, a: string) => `${applyPhrases(a)}进一步增强。`);
+  s = s.replace(/^Broader (.+?)\.?$/i, (_: string, a: string) => `${applyPhrases(a)}覆盖更广。`);
   s = s.replace(
     /^Improved (.+?) is available when (.+?), with (.+?)\.?$/i,
-    (_, a: string, b: string, c: string) => `当${applyPhrases(b)}时，可使用改进的${applyPhrases(a)}：${applyPhrases(c)}`,
+    (_: string, a: string, b: string, c: string) => `当${applyPhrases(b)}时，可使用改进的${applyPhrases(a)}：${applyPhrases(c)}`,
   );
-  if (s === phrased) {
-    for (const [re, zh] of START_VERBS) {
-      if (re.test(s)) {
-        s = s.replace(re, zh);
+  // Common PR-note templates (object side still goes through phrases).
+  s = s.replace(
+    /^Stop (.+?) from (.+)$/i,
+    (_: string, a: string, b: string) => `防止${applyPhrases(a)}${applyPhrases(b)}`,
+  );
+  s = s.replace(
+    /^Keep (.+?) from (.+)$/i,
+    (_: string, a: string, b: string) => `避免${applyPhrases(a)}${applyPhrases(b)}`,
+  );
+  // Product-bullet sentence shapes (natural CN). Only keep when residual drops.
+  if (englishResidualRatio(s) >= 0.35) {
+    const tryShape = (re: RegExp, to: (...args: string[]) => string) => {
+      const m = re.exec(s);
+      if (!m) return false;
+      const next = to(...m.map((x) => x ?? ""));
+      if (englishResidualRatio(next) + 0.12 < englishResidualRatio(s)) {
+        s = next;
+        return true;
+      }
+      return false;
+    };
+    tryShape(/^Keep (.+?) from (.+)$/i, (_a, a, b) => `避免${applyPhrases(a!)}${applyPhrases(b!)}`);
+    tryShape(/^Stop (.+?) from (.+)$/i, (_a, a, b) => `避免${applyPhrases(a!)}${applyPhrases(b!)}`);
+    tryShape(/^Prevent (.+?) from (.+)$/i, (_a, a, b) => `防止${applyPhrases(a!)}${applyPhrases(b!)}`);
+    tryShape(/^Ask before (.+)$/i, (_a, a) => `在${applyPhrases(a!)}前先确认`);
+    tryShape(/^Recover from (.+)$/i, (_a, a) => `从${applyPhrases(a!)}中恢复`);
+    tryShape(/^Offer to (.+)$/i, (_a, a) => `提供${applyPhrases(a!)}`);
+    tryShape(/^Hand off (.+)$/i, (_a, a) => `交接${applyPhrases(a!)}`);
+    tryShape(/^Drag to (.+)$/i, (_a, a) => `拖动以${applyPhrases(a!)}`);
+    // Single-slot verbs — require the slot itself to be mostly localized.
+    const tryVerb = (re: RegExp, wrap: (rest: string) => string) => {
+      const m = re.exec(s);
+      if (!m) return false;
+      const rest = applyPhrases(m[1] ?? "");
+      if (englishResidualRatio(rest) > 0.55) return false;
+      const next = wrap(rest);
+      if (englishResidualRatio(next) + 0.12 < englishResidualRatio(s)) {
+        s = next;
+        return true;
+      }
+      return false;
+    };
+    tryVerb(/^Show (.+)$/i, (r) => `显示${r}`);
+    tryVerb(/^Let (.+)$/i, (r) => `允许${r}`);
+    tryVerb(/^Add (.+)$/i, (r) => `新增${r}`);
+    tryVerb(/^Fix (.+)$/i, (r) => `修复${r}`);
+    tryVerb(/^Open (.+)$/i, (r) => `打开${r}`);
+    tryVerb(/^Remove (.+)$/i, (r) => `移除${r}`);
+    tryVerb(/^Skip (.+)$/i, (r) => `跳过${r}`);
+    tryVerb(/^Resume (.+)$/i, (r) => `恢复${r}`);
+    tryVerb(/^Continue (.+)$/i, (r) => `继续${r}`);
+    tryVerb(/^Render (.+)$/i, (r) => `渲染${r}`);
+    tryVerb(/^Retry (.+)$/i, (r) => `重试${r}`);
+    tryVerb(/^Pass (.+)$/i, (r) => `传递${r}`);
+    tryVerb(/^Read (.+)$/i, (r) => `读取${r}`);
+    tryVerb(/^Send (.+)$/i, (r) => `发送${r}`);
+    tryVerb(/^Share (.+)$/i, (r) => `共享${r}`);
+    tryVerb(/^Load (.+)$/i, (r) => `加载${r}`);
+    tryVerb(/^List (.+)$/i, (r) => `列出${r}`);
+    tryVerb(/^Honou?r (.+)$/i, (r) => `遵循${r}`);
+    tryVerb(/^Fold (.+)$/i, (r) => `折叠${r}`);
+    tryVerb(/^Cut (.+)$/i, (r) => `削减${r}`);
+    tryVerb(/^Close (.+)$/i, (r) => `关闭${r}`);
+    tryVerb(/^Give (.+)$/i, (r) => `给予${r}`);
+    tryVerb(/^Remember (.+)$/i, (r) => `记住${r}`);
+    tryVerb(/^Reconnect (.+)$/i, (r) => `重连${r}`);
+    tryVerb(/^Start (.+)$/i, (r) => `启动${r}`);
+    tryVerb(/^Make (.+)$/i, (r) => `使${r}`);
+    tryVerb(/^Keep (.+)$/i, (r) => `保持${r}`);
+    tryVerb(/^Stop (.+)$/i, (r) => `停止${r}`);
+    tryVerb(/^Say when (.+)$/i, (r) => `说明何时${r}`);
+    tryVerb(/^Say why (.+)$/i, (r) => `说明为何${r}`);
+    tryVerb(/^Say (.+)$/i, (r) => `提示${r}`);
+    tryVerb(/^Never (.+)$/i, (r) => `永不${r}`);
+  }
+
+  if (englishResidualRatio(s) >= 0.35) {
+    for (const [reVerb, zh] of START_VERBS) {
+      if (reVerb.test(s)) {
+        const rest = applyPhrases(s.replace(reVerb, ""));
+        const candidate = `${zh}${rest}`;
+        // Only keep verb-prefix rewrite when the rest is mostly localized —
+        // otherwise leave English intact so full-bullet PHRASES can match later / on rewrite.
+        if (
+          englishResidualRatio(rest) <= 0.55 ||
+          englishResidualRatio(candidate) + 0.2 < englishResidualRatio(s)
+        ) {
+          s = candidate;
+        }
         break;
       }
     }
   }
+  s = applyPhrases(s);
   return s;
 }
 
@@ -930,6 +1081,45 @@ export function listVersionTags(md: string): string[] {
   return tags;
 }
 
+/** Re-apply phrase/structured rewrite to product-experience bullets in an existing changelog. */
+export function rewriteChangelogProductBullets(md: string): string {
+  const lines = md.split("\n");
+  const out: string[] = [];
+  let inProduct = false;
+  for (const line of lines) {
+    if (/^###\s+/.test(line) && !line.startsWith("####")) {
+      inProduct = /产品体验|Product experience/.test(line);
+      out.push(line);
+      continue;
+    }
+    if (inProduct && /^###\s+/.test(line) && !line.startsWith("####")) {
+      inProduct = false;
+    }
+    if (inProduct && /^-\s+/.test(line)) {
+      const raw = line.replace(/^-\s+/, "").trim();
+      const attr = /（\[@.+）\s*$/.exec(raw);
+      const core = attr ? raw.slice(0, attr.index).trim() : raw;
+      if (englishResidualRatio(core) < 0.35) {
+        out.push(line);
+        continue;
+      }
+      // Phrase-expand only — do NOT strip verb prefixes (keeps EN for full-bullet matches).
+      const zh = translateProse(core);
+      if (
+        englishResidualRatio(zh) + 0.02 < englishResidualRatio(core) ||
+        (/[\u4e00-\u9fff]/.test(zh) && !/[\u4e00-\u9fff]/.test(core))
+      ) {
+        out.push(attr ? `- ${zh}${attr[0]}` : `- ${zh}`);
+      } else {
+        out.push(line);
+      }
+      continue;
+    }
+    out.push(line);
+  }
+  return out.join("\n");
+}
+
 export function buildChangelogMarkdown(
   releases: LiveRelease[],
   existingMd = "",
@@ -984,8 +1174,10 @@ export function buildChangelogMarkdown(
       while (start < bakedLines.length && bakedLines[start] === "") start++;
       const bakedBody = bakedLines.slice(start).join("\n").trim();
       if (
+        process.env.FORCE_SYNC !== "1" &&
         bakedBody &&
-        englishResidualRatio(bakedBody) + 0.08 < englishResidualRatio(freshBody) &&
+        englishResidualRatio(bakedBody) + 0.25 < englishResidualRatio(freshBody) &&
+        englishResidualRatio(bakedBody) < 0.5 &&
         /[\u4e00-\u9fff]/.test(bakedBody)
       ) {
         bodyLines = bakedBody.split("\n");
