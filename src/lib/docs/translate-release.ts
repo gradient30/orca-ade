@@ -1,8 +1,11 @@
 import type { LiveRelease } from "./github-releases";
 import type { ReleaseNote } from "./releases";
+import { FEATURED_SURFACE_PHRASES } from "./featured-surface-phrases.ts";
 
 const HEADINGS: Record<string, string> = {
   "The short version": "简要说明",
+  Highlights: "重点亮点",
+  "Compatibility & upgrade notes": "兼容与升级说明",
   "Notable changes": "重点变化",
   "Product experience": "产品体验",
   "Workspaces & projects": "工作区与项目",
@@ -95,7 +98,8 @@ const TYPES: Record<string, string> = {
 };
 
 const PHRASES: [string, string][] = [
-  // v1.4.244–v1.4.240 short-version anchors (keep hand 汉化 across sync)
+  ...FEATURED_SURFACE_PHRASES,
+  // Label anchors (full bodies live in featured-surface-phrases; longest-first apply wins)
   ["Four new languages:", "四种新语言："],
   ["Faster workspace switching:", "更快切换工作区："],
   ["Remote files that work like local ones:", "远程文件像本地一样："],
@@ -494,12 +498,47 @@ export function tagAnchor(tag: string): string {
   return tag.replace(/\./g, "-");
 }
 
+/** Longest EN first so full bullets beat label-only anchors. */
+let _phrasesLongest: [string, string][] | null = null;
+function phrasesLongest(): [string, string][] {
+  if (!_phrasesLongest) {
+    _phrasesLongest = [...PHRASES].sort((a, b) => b[0].length - a[0].length);
+  }
+  return _phrasesLongest;
+}
+
 function applyPhrases(text: string): string {
   let out = text;
-  for (const [en, zh] of PHRASES) {
-    if (out.includes(en)) out = out.split(en).join(zh);
+  for (const [en, zh] of phrasesLongest()) {
+    if (en && out.includes(en)) out = out.split(en).join(zh);
   }
   return out;
+}
+
+/** Share of letter characters that are Latin (after stripping code/URLs/PR refs). */
+export function englishResidualRatio(text: string): number {
+  const cleaned = text
+    .replace(/`[^`]*`/g, " ")
+    .replace(/https?:\/\/\S+/g, " ")
+    .replace(/\(\[@[^\]]+\][^)]*\)/g, " ")
+    .replace(/\{#[^}]+\}/g, " ")
+    .replace(/\[[^\]]*\]\([^)]*\)/g, " ")
+    // Product / UI proper nouns kept in English by handbook policy.
+    .replace(
+      /\b(?:Settings|Plugins|Terminal|Advanced|Agents|Chat|Browser|Claude|Codex|Chrome|Blender|WSL|SSH|Mac|macOS|Linux|Windows|Orca|Cmd|Ctrl|Opt|Shift|App Store|Web Store|DevTools|Dashboard|Session History|worktree|Node|bash|Bitwarden|1Password|Vivaldi|Quick Look|Open In|Add to Orca|Approve for me|Full access|Include page details|Stop|Start|Model|Effort|Arguments|Keyboard|Experimental|Agent Orchestration|Continue in Chat UI|Update anyway|TestFlight|APK|IME|fnm|pi|Hermes|Kimi|Kiro|OpenCode|Activity Monitor|DEBUG|Tampermonkey)\b/g,
+      " ",
+    );
+  const letters = cleaned.replace(/[^a-zA-Z\u4e00-\u9fff]/g, "");
+  if (!letters.length) return 0;
+  const latin = (letters.match(/[a-zA-Z]/g) || []).length;
+  return latin / letters.length;
+}
+
+export function isChineseDenseNote(note: ReleaseNote): boolean {
+  if (!note.title || note.title === "官方更新") return false;
+  const blob = [note.title, ...note.highlights].join("\n");
+  if (/详见下方完整中文日志/.test(blob)) return false;
+  return englishResidualRatio(blob) < 0.45 && /[\u4e00-\u9fff]/.test(blob);
 }
 
 const START_VERBS: [RegExp, string][] = [
@@ -704,34 +743,52 @@ function headingZh(text: string, level: number, tag: string): string {
 export function extractHighlights(body: string): string[] {
   const lines = body.replace(/\r\n/g, "\n").split("\n");
   const short = lines.findIndex((l) => /^##\s+(The short version|简要说明)/i.test(l));
+  const highlights = lines.findIndex((l) => /^##\s+(Highlights|重点亮点|亮点)/i.test(l));
   const notable = lines.findIndex((l) => /^##\s+(Notable changes|重点变化)/i.test(l));
-  if (short >= 0 && (notable < 0 || short < notable)) {
+
+  const collectBoldBullets = (slice: string[]): string[] => {
     const out: string[] = [];
-    for (const line of lines.slice(short + 1)) {
+    for (const line of slice) {
       if (/^##\s+/.test(line)) break;
-      const trimmed = line.trim();
-      const m = /^\*\*(.+?)\*\*\s*(.*)$/.exec(trimmed);
+      const trimmed = line.trim().replace(/^[-*]\s+/, "");
+      // Keep **Label:** intact so FEATURED_SURFACE_PHRASES full-bullet entries match.
+      const m = /^(?:\p{Extended_Pictographic}|\uFE0F|\u200D|\s)*\*\*(.+?)\*\*\s*(.*)$/u.exec(trimmed);
       if (m) {
-        const head = m[1]!.trim();
-        const rest = (m[2] ?? "").trim();
-        const combined = rest ? `${head.replace(/:$/, "：")} ${rest}` : head;
-        out.push(translateProse(combined));
+        out.push(translateProse(trimmed));
         if (out.length >= 3) break;
         continue;
       }
-      if (!trimmed || trimmed.startsWith("*") || trimmed.startsWith("#") || trimmed.startsWith("<")) continue;
-      out.push(translateProse(trimmed));
-      if (out.length >= 3) break;
+      if (!trimmed || trimmed.startsWith("#") || trimmed.startsWith("<") || trimmed.startsWith("---")) continue;
+      // plain prose under short version
+      if (!/^[-*]/.test(line.trim()) && trimmed.length > 20) {
+        out.push(translateProse(trimmed));
+        if (out.length >= 3) break;
+      }
     }
+    return out;
+  };
+
+  if (short >= 0 && (highlights < 0 || short < highlights) && (notable < 0 || short < notable)) {
+    const out = collectBoldBullets(lines.slice(short + 1));
     if (out.length) return out;
   }
+  if (highlights >= 0) {
+    const out = collectBoldBullets(lines.slice(highlights + 1));
+    if (out.length) return out;
+  }
+  // Title-level dash bullets before any ## section (v1.4.245 hero)
+  const firstH2 = lines.findIndex((l, i) => i > 0 && /^##\s+/.test(l));
+  const hero = collectBoldBullets(lines.slice(1, firstH2 > 0 ? firstH2 : 30));
+  if (hero.length) return hero;
+
   const start = notable >= 0 ? notable : -1;
   const slice = start >= 0 ? lines.slice(start + 1) : lines;
   const out: string[] = [];
   for (const line of slice) {
     if (/^##\s+/.test(line)) break;
-    if (!line.startsWith("* ")) continue;
-    out.push(translateTitle(line.slice(2).trim()));
+    const t = line.trim();
+    if (!(t.startsWith("* ") || t.startsWith("- "))) continue;
+    out.push(translateTitle(t.replace(/^[-*]\s+/, "").trim()));
     if (out.length >= 3) break;
   }
   return out;
@@ -807,8 +864,8 @@ function translateBody(rel: LiveRelease): string[] {
       out.push("");
       continue;
     }
-    if (s.startsWith("* ")) {
-      out.push(translateItem(s));
+    if (s.startsWith("* ") || s.startsWith("- ")) {
+      out.push(translateItem(s.replace(/^[-*]\s+/, "* ")));
       continue;
     }
     out.push(applyPhrases(s));
@@ -877,15 +934,33 @@ export function buildChangelogMarkdown(
   }
   parts.push("");
   parts.push("## 完整中文日志 {#full-notes}", "");
-  // Featured top-N always rebuild from live notes so sync refreshes them.
-  // Hand-tuned Chinese for titles/highlights comes from bakedNotes (releases.ts);
-  // body prose comes from translateBody + PHRASES. Historical tags below are preserved.
+  // Featured: phrase-dictionary rewrite from live EN; prefer existing section when
+  // it is already more Chinese (avoids wiping hand 汉化 with thinner auto output).
   for (const rel of releases) {
     const note = notes.find((n) => n.tag === rel.tag) ?? toReleaseNote(rel);
     const id = tagAnchor(rel.tag);
+    const freshLines = translateBody(rel);
+    const freshBody = freshLines.join("\n");
+    const baked = existingMd ? extractVersionSection(existingMd, rel.tag) : null;
+    let bodyLines = freshLines;
+    if (baked) {
+      const bakedLines = baked.split("\n");
+      // Drop ## header (+ optional date line) so we can re-title from bakedNotes.
+      let start = 1;
+      if (bakedLines[1] !== undefined && /发布/.test(bakedLines[1]!)) start = 2;
+      while (start < bakedLines.length && bakedLines[start] === "") start++;
+      const bakedBody = bakedLines.slice(start).join("\n").trim();
+      if (
+        bakedBody &&
+        englishResidualRatio(bakedBody) + 0.08 < englishResidualRatio(freshBody) &&
+        /[\u4e00-\u9fff]/.test(bakedBody)
+      ) {
+        bodyLines = bakedBody.split("\n");
+      }
+    }
     parts.push(`## ${rel.tag} ${note.title} {#${id}}`, "");
     parts.push(`${note.dateLabel} 发布 · [官方原文](${rel.url})`, "");
-    parts.push(...translateBody(rel));
+    parts.push(...bodyLines);
     parts.push("");
   }
   // Append older sections unchanged — never drop history on sync.

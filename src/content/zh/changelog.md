@@ -8,7 +8,7 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
-| [v1.4.245](#v1-4-245) | 2026年10月30日 | 官方更新 |
+| [v1.4.245](#v1-4-245) | 2026年10月30日 | 更快的 Orca、插件与后台电脑操控 |
 | [v1.4.244](#v1-4-244) | 2026年10月29日 | 更多界面语言、更快切换工作区，远程文件像本地一样好用 |
 | [v1.4.243](#v1-4-243) | 2026年10月28日 | 浏览器可装 Chrome 扩展，终端 Agent 会话可现场续到 Chat |
 | [v1.4.242](#v1-4-242) | 2026年10月27日 | 侧栏一点打开 Claude 子 Agent，Ask 模式先问再改，远程更记事 |
@@ -38,44 +38,44 @@
 
 ## 完整中文日志 {#full-notes}
 
-## v1.4.245 官方更新 {#v1-4-245}
+## v1.4.245 更快的 Orca、插件与后台电脑操控 {#v1-4-245}
 
 2026年10月30日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.245)
 
-### A faster Orca, plugins & background computer use ⚡ {#v1-4-245-a-faster-orca-plugins-background-computer-use-}
+### 更快的 Orca、插件与后台电脑操控 ⚡ {#v1-4-245--orca-}
 
-- ⚡ **A faster Orca:** Launch smoothly with hundreds of chats, with less lag as you type and switch tabs.
-- 🧩 **Customize Orca** with icon themes, syntax highlighting and custom editors.
-- 🖱️ **Keep working** while agents use Chrome, Blender and other Mac apps in the background.
-- 🌍 **Use the phone app in 11 languages**, with dictation that shows your words as you speak.
+- ⚡ **更快的 Orca：** 在数百个聊天下仍能顺畅启动，输入与切换标签时更少卡顿。
+- 🧩 用图标主题、语法高亮与自定义编辑器 **定制 Orca**。
+- 🖱️ Agent 在后台使用 Chrome、Blender 等 Mac 应用时，你仍可 **继续工作**。
+- 🎙️ **在手机上听写**，边说边看到文字。
 
-### Highlights {#v1-4-245-highlights}
+### 重点亮点 {#v1-4-245--}
 
-- **A faster Orca:** Fast app with hundreds of chats. Typing stays more responsive, and hidden chats do less work while you use other tabs.
-- **Plugins:** Add icon themes, syntax highlighting and custom editors from Settings → Plugins. Community publishing is coming soon, so you’ll be able to share your own plugins.
-- **Background computer use on Mac:** Let agents work in Chrome, Blender and other apps while you keep using your mouse and keyboard. Orca’s in-app browser already works in the background; now computer use does too. Some actions still need the app brought forward.
-- **Chats:** Send again after Stop and preview links in chat.
-- **Terminals:** Set a running terminal limit for each computer in Settings → Terminal → Advanced.
-- **WSL:** Stopped distros stay stopped until you choose Start. Terminals remember their folder.
-- **Browser:** Press Cmd+Opt+B on Mac for a browser split. Send shorter annotation feedback, now with pasted images.
-- **Workspaces:** Your workspace name becomes its branch name again. Source Control actions get Model and Effort controls.
-- **Phone:** Choose from 11 languages, see dictation as you speak, and read clearer code, tables and diagrams.
+- **更快的 Orca：** 在数百个聊天下仍保持快速。输入更跟手，隐藏的聊天在你用其他标签时少做无用功。
+- **插件：** 在 Settings → Plugins 添加图标主题、语法高亮与自定义编辑器。社区发布即将到来，届时可分享自己的插件。
+- **Mac 后台电脑操控：** Agent 可在 Chrome、Blender 等应用中工作，你仍可继续使用鼠标键盘。Orca 应用内浏览器本就可在后台运行；现在电脑操控也可以。部分操作仍需把应用带到前台。
+- **聊天：** Stop 后可再次发送，并可在聊天中预览链接。
+- **终端：** 可在 Settings → Terminal → Advanced 为每台电脑设置运行中终端上限。
+- **WSL：** 已停止的发行版保持停止，直到你选择 Start。终端会记住所在文件夹。
+- **浏览器：** Mac 上按 Cmd+Opt+B 可分屏打开浏览器。批注反馈更短，现支持粘贴图片。
+- **工作区：** 工作区名称会再次用作分支名。源码管理操作新增 Model 与 Effort 控件。
+- **手机：** 边说边看听写结果，代码、表格与图表更清晰。
 
 ### 兼容与升级说明 {#v1-4-245--}
 
-- **New terminal host:** This release starts a fresh terminal host for new terminals. Terminals already open before the update keep running on the previous host and stay attached. The new running terminal limit setting needs the new host, and so do fixes such as the ble.sh startup fix and lighter process checks on macOS. Those apply to terminals you open after updating.
-- **Plugins are on by default:** Installing a plugin, including from an `orca://plugins` link, only opens a review screen first. Plugins that run code ask for your consent before they install, and once approved they run with full access to your computer.
-- **Running terminal limit:** The default now follows each computer: half of its system terminal limit, up to 4096, or 256 as before when Orca can’t read that limit. A value you set in Settings or with an environment variable takes priority. Raising or lowering it never closes running terminals. A remote server running an older Orca keeps working, but the limit can’t be changed there until it updates.
-- **Chat naming:** Chats are now named by their own agent and account by default. A naming agent, custom command or arguments you saved before keep working, and the naming agent choice moved under Advanced in Settings → Chat → Chat naming.
-- **Codex history across accounts:** A new switch, Settings → Agents → Share Codex history across accounts, is on by default and keeps today’s behavior. With it on, history from Orca’s managed accounts now also shows up in your own ~/.codex when you switch back to system default. Turning it off stops new sharing and removes nothing. On an SSH or WSL host running an older Orca, the switch stays disabled until that host updates.
-- **Codex on macOS and Linux:** Orca now starts Codex with its paste guess turned off, so prompts typed from a phone or another client send instead of staying in the composer. Real pastes still arrive as pastes.
-- **Computer use on a Mac:** Agents now act in the background by default. Agents can still ask for the old foreground mode with `--restore-window`, which drags into Chromium and Electron apps still need.
-- **Browser annotations:** Send and Copy now give agents a short summary per note. Check **Include page details** in the Send menu to get the old full output; the choice lasts for that browser pane.
-- **Workspace branch names:** A name you type for a new workspace is used as its branch again, even when Auto-rename branch from work is on. Auto-rename only replaces names Orca made up.
-- **Automations:** Agents started by an automation skip their CLI’s startup update prompt, so the prompt can’t swallow the task. Agents you start yourself are unchanged.
-- **Source Control actions:** Model and effort flags saved in an action’s Arguments move into the new Model and Effort controls when Orca loads; other Arguments stay as they are. A phone or remote server on an older Orca may launch these actions with a different model or effort until it updates.
-- **New shortcuts:** Cmd/Ctrl+Shift+X opens Plugins (outside text fields), and Cmd+Opt+B on macOS opens a browser tab in a split to the right. Cmd+Opt+B can be changed in Settings → Keyboard.
-- **Known limitation, downgrading:** If you go back to v1.4.244, custom model and effort choices on Source Control AI actions reset to the agent’s defaults, and updating again won’t bring them back.
+- **全新终端宿主：** 本版会为新终端启动全新终端宿主。更新前已打开的终端仍在旧宿主上运行并保持挂接。新的「运行中终端上限」设置需要新宿主；ble.sh 启动修复与 macOS 更轻的进程检查等也一样，只作用于更新后打开的终端。
+- **插件默认开启：** 安装插件（含通过 `orca://plugins` 链接）会先打开审阅界面。会运行代码的插件在安装前需你同意；批准后它们对你的电脑拥有完整访问权限。
+- **运行中终端上限：** 默认现按每台电脑计算：系统终端上限的一半（最高 4096）；若 Orca 读不到该上限则仍为 256。你在 Settings 或环境变量中设置的值优先。调高或调低都不会关闭已运行终端。运行旧版 Orca 的远程服务器仍可工作，但需更新后才能改上限。
+- **聊天命名：** 聊天默认由其自身 Agent 与账户命名。你之前保存的命名 Agent、自定义命令或参数仍可用；命名 Agent 选择已移至 Settings → Chat → Chat naming 的 Advanced 下。
+- **跨账户 Codex 历史：** 新开关 Settings → Agents → Share Codex history across accounts 默认开启并保持现有行为。开启时，Orca 托管账户的历史在你切回系统默认后也会出现在自己的 ~/.codex。关闭只停止新的共享，不删除任何内容。运行旧版 Orca 的 SSH/WSL 宿主上，该开关在宿主更新前保持禁用。
+- **macOS 与 Linux 上的 Codex：** Orca 启动 Codex 时关闭其粘贴猜测，手机或其他客户端键入的提示会直接发送，而不是留在编写器。真正的粘贴仍按粘贴处理。
+- **Mac 上的电脑操控：** Agent 默认在后台操作。仍可用 `--restore-window` 请求旧的前台模式；拖入 Chromium 与 Electron 应用仍需要该模式。
+- **浏览器批注：** Send 与 Copy 现在为每条批注向 Agent 提供简短摘要。在 Send 菜单勾选 **Include page details** 可恢复旧的完整输出；该选择对当前浏览器窗格生效。
+- **工作区分支名：** 为新工作区输入的名称会再次用作分支名，即使开启了 Auto-rename branch from work。自动重命名只替换 Orca 自动生成的名称。
+- **自动化：** 由自动化启动的 Agent 会跳过 CLI 启动时的更新提示，避免提示吞掉任务。你手动启动的 Agent 不受影响。
+- **源码管理操作：** 保存在操作 Arguments 中的 model/effort 标志会在 Orca 加载时迁入新的 Model 与 Effort 控件；其余 Arguments 不变。旧版 Orca 上的手机或远程服务器在更新前可能以不同 model/effort 启动这些操作。
+- **新快捷键：** Cmd/Ctrl+Shift+X 打开 Plugins（文本框外），macOS 上 Cmd+Opt+B 在右侧分屏打开浏览器标签。Cmd+Opt+B 可在 Settings → Keyboard 修改。
+- **已知限制（降级）：** 若回退到 v1.4.244，源码管理 AI 操作上的自定义 model/effort 会重置为 Agent 默认值，再次升级也不会恢复。
 
 ---
 
@@ -488,14 +488,8 @@
 
 #### Phone & web {#v1-4-245-phone-web}
 
-> The phone app in 11 languages, live dictation with a voice meter, and a sturdier connection.
+> Live dictation with a voice meter and a sturdier phone connection.
 
-- Choose the phone app’s language in Settings → Appearance, with the same 11 languages as desktop（[@OrcaWin](https://github.com/OrcaWin)，[#35399](https://github.com/stablyai/orca/pull/35399)）
-- Translate the phone app’s screens, settings, pairing and host lists（[@OrcaWin](https://github.com/OrcaWin)，[#35498](https://github.com/stablyai/orca/pull/35498)）
-- Translate sessions, terminal, agent chat, browser and files on the phone（[@OrcaWin](https://github.com/OrcaWin)，[#35553](https://github.com/stablyai/orca/pull/35553)）
-- Translate shared components, pull requests and diff review on the phone（[@OrcaWin](https://github.com/OrcaWin)，[#35532](https://github.com/stablyai/orca/pull/35532)）
-- Translate tasks, new workspaces and source control on the phone（[@OrcaWin](https://github.com/OrcaWin)，[#35646](https://github.com/stablyai/orca/pull/35646)）
-- Translate generation failures and counted chat copy on the phone（[@OrcaWin](https://github.com/OrcaWin)，[#35923](https://github.com/stablyai/orca/pull/35923)）
 - 显示：dictated words as you speak on the phone and insert them at the cursor（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#35502](https://github.com/stablyai/orca/pull/35502)）
 - 显示：a voice meter and timer while dictating on the phone, with haptics at start and stop（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#35500](https://github.com/stablyai/orca/pull/35500)）
 - Resend dictation audio lost when the phone’s connection drops（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#35777](https://github.com/stablyai/orca/pull/35777)）
@@ -704,29 +698,29 @@
 
 ### 更快的 diff 与编辑器、更多语言，以及更好的远程文件 🌍 {#v1-4-244--diff-}
 
-This release adds four interface languages, makes switching workspaces faster by preparing the one you’re about to open, and lets files on SSH hosts and paired servers play, save and open like local ones. It also brings smoother chat streaming, a faster prompt in new Windows terminals, steadier WSL terminals, and many fixes for dictation on the phone.
+本版新增四种界面语言；通过预热即将打开的工作区加快切换；并让 SSH 宿主与已配对服务器上的文件能像本地一样播放、保存与打开。另有更顺的聊天流式输出、新 Windows 终端更快出提示符、更稳的 WSL 终端，以及多项手机听写修复。
 
 ### 简要说明 {#v1-4-244-short}
 
-- **四种新语言：** German, Russian, Turkish and Traditional Chinese join the language picker, and many more dialogs, menus and shortcuts are translated. German is machine-translated, and reviews from native speakers are welcome.
-- **更快切换工作区：** Hovering a workspace in the sidebar gets it ready, the workspaces next to the current one stay warm, and the switch itself does less work. Dragging a row never switches.
-- **远程文件像本地一样：** Play audio and video from SSH hosts and paired servers, save remote text files up to 50 MB, open folders too big for one reply as you scroll, and never open a remote binary as text.
-- **更顺的聊天：** Long replies stream with less stutter, @file suggestions keep up in large repositories, and multi-agent Codex chats no longer grow the local chat history to gigabytes. Claude chats can rewind to before your first message.
-- **更稳的终端：** New Windows terminals show their prompt right away instead of after about 3 seconds, closing or resizing a terminal no longer freezes the others on macOS and Linux, and WSL terminals keep their session and folder when their distro stops.
-- **Browser:** Clear Google cookies from a profile when Google sign-in is stuck on an old account, import cookies from Vivaldi, and Orca no longer quits at startup on Windows and Linux when an extension’s helper window closes.
-- **社区修复：** Kimi K3 for commit messages, Devin Desktop in Open In, highlighting for Glimmer, CUDA, Groovy and shebang scripts, `orca worktree create --branch`, `~` in the worktree location, MacPorts tools on macOS, and the faster Windows prompt.
+- **四种新语言：** 德语、俄语、土耳其语与繁体中文加入语言选择器，更多对话框、菜单与快捷键已翻译。德语为机器翻译，欢迎母语者审阅。
+- **更快切换工作区：** 侧栏悬停会预热目标工作区，相邻工作区保持热态，切换本身更轻；拖拽行不会触发切换。
+- **远程文件像本地一样：** 可在 SSH 宿主与已配对服务器上播放音视频、保存最大 50 MB 的远程文本、滚动打开超大文件夹，且不会把远程二进制当文本打开。
+- **更顺的聊天：** 长回复流式输出更少卡顿，大仓库里 @file 建议跟得上，多 Agent Codex 聊天不再把本地历史撑到 GB 级。Claude 聊天可回退到你第一条消息之前。
+- **更稳的终端：** 新 Windows 终端立即显示提示符（不再约等 3 秒）；在 macOS/Linux 关闭或调整大小时不再冻住其他终端；WSL 终端在发行版停止时仍保留会话与文件夹。
+- **浏览器：** Google 登录卡在旧账户时可清除配置文件中的 Google cookie；可从 Vivaldi 导入 cookie；Windows/Linux 上扩展辅助窗口关闭时 Orca 不再在启动时退出。
+- **社区修复：** 提交信息可用 Kimi K3；Open In 支持 Devin Desktop；Glimmer、CUDA、Groovy 与 shebang 脚本高亮；`orca worktree create --branch`；worktree 位置支持 `~`；macOS 上的 MacPorts 工具；以及更快的 Windows 提示符。
 
-**手机与网页更新：** Dictation on the phone keeps recording through a reconnect, keeps your words through calls and busy taps, gives your audio back when it stops, and explains setup before asking for the microphone. The mobile setup page now sends iPhone installs to the App Store. Korean 10-Key typing, held terminal keys, pairing and file saves on the phone work better, and the phone does less work in the background.
+**手机与网页更新：** 手机听写在重连后继续录音，通话与频繁点击时保留文字，停止时归还音频，并在请求麦克风前说明设置。移动端安装页现将 iPhone 安装导向 App Store。韩文 10 键、长按终端键、配对与手机存文件更稳，后台也更省事。
 
 ### 兼容与升级说明 {#v1-4-244--}
 
-- **与 v1.4.243 相同的终端宿主：** This release keeps v1.4.243’s terminal host instead of starting a fresh one, so terminals open when you update keep running and stay attached. A few terminal fixes run inside the terminal host, such as the faster prompt in new Windows terminals, closing or resizing a terminal without freezing others, and Ctrl+C in Codex. They take effect once the terminal host restarts, for example after you restart your computer.
-- **SSH 宿主与已配对服务器：** Some remote fixes need the host’s Orca server on this version too: saving large files, opening very large folders, theme answers for Codex in paired terminals, and copying from Codex started by hand (open a new remote shell after the host updates). Older servers keep their current behavior.
-- **SSH 工作区：** Deleting a workspace on an SSH project now offers **Remove from Orca**, which leaves its files on the host untouched.
-- **工作区切换：** Workspaces still switch on click. Holding the next or previous workspace shortcut (Cmd+Shift+Up/Down) now moves the sidebar highlight and switches once you let go.
-- **Worktree 位置：** A location starting with `~` now means your home folder. A `~` value saved by an earlier version is expanded on the next start.
-- **词分隔符：** Double-click always breaks words at spaces and tabs, even if your custom Word Separators setting leaves them out. The saved setting doesn’t change.
-- **移动端安装：** The iOS button, QR code and copied link on the mobile setup page point to the App Store. The TestFlight preview option is gone; Android still uses the APK link.
+- **与 v1.4.243 相同的终端宿主：** 本版沿用 v1.4.243 的终端宿主而非新建，因此更新时已打开的终端继续运行并保持挂接。部分终端修复跑在宿主内（如新 Windows 终端更快出提示符、关闭/缩放不冻其他终端、Codex 中的 Ctrl+C），需终端宿主重启后生效（例如重启电脑后）。
+- **SSH 宿主与已配对服务器：** 部分远程修复也需要宿主上的 Orca 服务器为本版本：保存大文件、打开超大文件夹、配对终端里 Codex 的主题应答，以及手动启动的 Codex 复制（宿主更新后请开新远程 shell）。旧服务器保持原有行为。
+- **SSH 工作区：** 在 SSH 项目上删除工作区现提供 **Remove from Orca**，宿主上的文件保持不动。
+- **工作区切换：** 仍点击切换。按住上/下一个工作区快捷键（Cmd+Shift+Up/Down）现在只移动侧栏高亮，松手后再切换。
+- **Worktree 位置：** 以 `~` 开头的路径现表示主目录。旧版保存的 `~` 值会在下次启动时展开。
+- **词分隔符：** 双击总在空格与制表符处分词，即使自定义 Word Separators 未包含它们。已保存设置不变。
+- **移动端安装：** 安装页的 iOS 按钮、二维码与复制链接指向 App Store。TestFlight 预览选项已移除；Android 仍用 APK 链接。
 
 ---
 
@@ -1223,26 +1217,26 @@ This release adds four interface languages, makes switching workspaces faster by
 
 ### Orca 浏览器中的 Chrome 扩展、iPhone Duo 支持，以及终端 Agent 会话现场续到 Chat 🧩 {#v1-4-243-orca-chrome-iphone-duo-agent-chat-}
 
-This release brings Chrome extensions to Orca’s browser under experimental, lets a conversation continue in Chat once you quit its agent in the terminal, and shows your local worktrees sooner after a restart. It also adds support for the folding iPhone Duo, compact native-style menus, light and dark themes on the phone, and fixes for Windows terminals, SSH hosts and updates.
+本版在实验性开关下为 Orca 浏览器带来 Chrome 扩展；退出终端 Agent 后同一对话可在 Chat 继续；重启后更快显示本地 worktree。另支持折叠屏 iPhone Duo、紧凑原生风格菜单、手机浅色/深色主题，以及 Windows 终端、SSH 宿主与更新相关修复。
 
 ### 简要说明 {#v1-4-243-short}
 
-- **Chrome 扩展（实验性）：** Add extensions from the Chrome Web Store with **Add to Orca**, so password managers like Bitwarden and 1Password can fill logins in Orca’s browser. Off by default.
-- **终端 Agent 会话现场续到 Chat：** Once you quit Claude or Codex in a terminal, the same conversation can continue in Chat while the terminal tab stays open. Claude chats also keep their saved approval choice across model changes, and closing a chat that’s still working asks first.
-- **重启后更快看到 worktree：** Local worktrees load before terminals restore, and the sidebar says discovery is still running instead of showing an empty list.
-- **更稳的终端：** Windows terminals keep their history through width changes, slept terminals wake in the folder you left, macOS’s built-in bash keeps command tracking in order after a DEBUG trap change, and copying from pi on a remote host reaches your clipboard.
-- **Orchestration:** Choose the worker heartbeat interval or turn heartbeats off, and reduce CPU use by stopping settled workers from polling for commands.
-- **关键处打磨：** Compact native-style menus, VS Code–style Markdown highlighting with sticky headings, and update checks through your Settings proxy.
-- **社区修复：** Quit and Stop All Sessions, math in chats, Copy Remote URL with line ranges, IME highlighting in terminals, fnm on Windows, and Japanese and Chinese translations all work better.
+- **Chrome 扩展（实验性）：** 用 **Add to Orca** 从 Chrome Web Store 添加扩展，Bitwarden、1Password 等密码管理器可在 Orca 浏览器里填登录。默认关闭。
+- **终端 Agent 会话现场续到 Chat：** 退出终端里的 Claude 或 Codex 后，同一对话可在 Chat 继续，终端标签仍保留。Claude 聊天在换模型时保留已保存的审批选择；关闭仍在工作的聊天会先确认。
+- **重启后更快看到 worktree：** 本地 worktree 在终端恢复前先加载，侧栏会提示仍在发现，而不是空白列表。
+- **更稳的终端：** Windows 终端在改宽度时保留历史；休眠终端在你离开的文件夹唤醒；macOS 内置 bash 在 DEBUG trap 变更后命令跟踪仍有序；从远程宿主的 pi 复制可到达剪贴板。
+- **编排：** 可选择 worker 心跳间隔或关闭心跳；已稳定的 worker 停止轮询命令以降低 CPU。
+- **关键处打磨：** 紧凑原生风格菜单、VS Code 风格且标题可粘滞的 Markdown 高亮，以及经 Settings 代理的更新检查。
+- **社区修复：** Quit / Stop All Sessions、聊天中的公式、带行号范围的 Copy Remote URL、终端 IME 高亮、Windows 上的 fnm，以及日文与中文翻译均更可靠。
 
-**手机与网页更新：** Phones get light and dark themes, support for the folding iPhone Duo, PDFs in Quick Look and copy buttons in chats. Many phone screens now follow desktop’s rules for chats, Source Control and terminals, and typing and scrolling in long chats stay fast.
+**手机与网页更新：** 手机支持浅色/深色主题、折叠屏 iPhone Duo、Quick Look 中的 PDF 与聊天复制按钮。多数手机界面现跟随桌面的聊天、源码管理与终端规则，长聊天输入与滚动仍保持流畅。
 
 ### 兼容与升级说明 {#v1-4-243--}
 
-- **全新终端宿主：** New terminals start on a fresh terminal host so this release’s terminal fixes apply, including continuing a chat after its terminal agent exits. Terminals already open before you update keep running, and stay attached, on the previous host until you close them.
-- **浏览器扩展（实验性）：** Turn on **Settings → Experimental → Browser extensions**, restart, then open the Chrome Web Store in an Orca browser tab. Extensions run in local browser profiles only. Ad blockers install but don’t block yet, and some extensions, such as Tampermonkey, don’t work.
-- **Worker 心跳：** Heartbeats stay on every 5 minutes by default. Changes in **Settings → Agent Orchestration** apply to newly dispatched workers; workers already running keep their brief, and older hosts keep 5 minutes.
-- **Claude 子 Agent 导航：** The eye that marked the subagent you’re viewing is gone. The viewed subagent row uses the normal current-row highlight.
+- **全新终端宿主：** 新终端在全新宿主上启动，以便本版终端修复生效（含终端 Agent 退出后继续聊天）。更新前已打开的终端仍在旧宿主运行并保持挂接，直到你关闭它们。
+- **浏览器扩展（实验性）：** 打开 **Settings → Experimental → Browser extensions**，重启后在 Orca 浏览器标签中打开 Chrome Web Store。扩展仅在本地浏览器配置中运行。广告拦截可安装但尚未拦截；部分扩展（如 Tampermonkey）不可用。
+- **Worker 心跳：** 默认仍每 5 分钟一次。**Settings → Agent Orchestration** 中的更改作用于新派发的 worker；已运行的保留其 brief，旧宿主仍为 5 分钟。
+- **Claude 子 Agent 导航：** 标记当前查看子 Agent 的眼睛图标已移除。被查看行使用常规当前行高亮。
 
 ---
 
@@ -1719,26 +1713,26 @@ This release brings Chrome extensions to Orca’s browser under experimental, le
 
 ### 更省内存、侧栏一点打开 Claude 子 Agent，以及更会记事的远程服务器 🪄 {#v1-4-242--claude-agent-}
 
-This release is lighter on memory, with lower memory use in the terminal host and WSL connections, plus less idle CPU use in terminals. It also lets you open Claude subagents straight from the sidebar, makes Codex chats in Ask mode ask before editing, and helps paired servers, SSH and WSL hosts keep your tabs and explain failures. This release also fixes problems across Windows, Linux and macOS.
+本版更省内存：终端宿主与 WSL 连接占用更低，终端空闲 CPU 更少。也可从侧栏直接打开 Claude 子 Agent；Ask 模式下的 Codex 聊天编辑前会先询问；已配对服务器、SSH 与 WSL 宿主更好保留标签并说明失败原因。另修复 Windows、Linux 与 macOS 上的多项问题。
 
 ### 简要说明 {#v1-4-242-short}
 
-- **侧栏打开 Claude 子 Agent：** Click a Claude subagent row in the sidebar or dashboard to open its transcript in the same terminal, then click the parent to go back. An eye marks the one you’re viewing.
-- **聊天先问再改：** Codex chats in Ask mode now ask before editing your workspace, remote Claude terminals on paired servers can continue in Chat, and chats that can’t start tell you why.
-- **Agent 按你离开时的状态恢复：** Resumed Claude sessions keep their effort level and launch flags, Codex keeps the permission you last gave it, and Session History finds chats in more folders and on servers.
-- **远程服务器更记事：** Paired servers keep your tabs across restarts, closed tabs stay closed, WSL hosts stop re-pairing after each restart, and SSH failures say what actually went wrong.
-- **更省内存：** Terminals use far less idle CPU, the terminal host uses less memory once it next restarts, WSL connections need much less memory, and the resource panel now matches Activity Monitor on macOS.
-- **社区修复：** Spaced Windows launcher paths, Korean input, DST in automations, focus-follows-mouse, tab dragging and Linux packages all work better.
+- **侧栏打开 Claude 子 Agent：** 在侧栏或 Dashboard 点击子 Agent 行，于同一终端打开其 transcript，再点子项返回；眼睛标记当前查看项。
+- **聊天先问再改：** Ask 模式下的 Codex 聊天编辑工作区前会先询问；已配对服务器上的远程 Claude 终端可续到 Chat；无法启动的聊天会说明原因。
+- **Agent 按你离开时的状态恢复：** 恢复的 Claude 会话保留 effort 与启动标志，Codex 保留上次权限，Session History 能在更多文件夹与服务器上找到聊天。
+- **远程服务器更记事：** 已配对服务器重启后保留标签，已关闭标签保持关闭，WSL 宿主不再每次重启后重新配对，SSH 失败会说明真实原因。
+- **更省内存：** 终端空闲 CPU 大幅降低；终端宿主下次重启后更省内存；WSL 连接占用更少；资源面板在 macOS 上与活动监视器一致。
+- **社区修复：** 带空格的 Windows 启动路径、韩文输入、自动化中的夏令时、focus-follows-mouse、标签拖拽与 Linux 包均更可靠。
 
-**手机与网页更新：** Phones now explain an unreachable computer instead of spinning forever, and streaming replies and long web chats redraw less. Terminal programs that ask the terminal a question also keep working while a phone watches at desktop size.
+**手机与网页更新：** 手机在电脑不可达时会说明原因而非一直转圈；流式回复与长网页聊天重绘更少。手机以桌面尺寸观看时，向终端提问的程序仍可工作。
 
 ### 兼容与升级说明 {#v1-4-242--}
 
-- **Ask 模式下的 Codex 聊天：** Ask now runs read-only and asks before workspace edits; Approve for me and Full access are unchanged, and work already running keeps its grant. Chats on a paired server keep the old behavior until that server is updated.
-- **Claude 子 Agent 导航：** On by default with Claude status hooks. Orca loads its plugin only into Orca panes and adds one shortcut, the first free of Ctrl+Alt+G, H or V, to `keybindings.json` in each Claude folder it uses. Turn it off in Settings → Agents → Claude subagent navigation to remove that shortcut. Claude sessions already running need a fresh launch.
-- **已配对服务器：** Moving a pane into a new tab and continuing a remote Claude terminal in Chat need the server to run this release. On older servers the move stays in this window only, as before, and Continue in Chat UI shows disabled with an update hint.
-- **Claude 账户切换：** Switching accounts now also offers to restart sessions running in your System default Claude folder when that folder is signed in to the old account. The dialog groups sessions into those on the old account, others, and ones it can’t move.
-- **WSL 宿主：** Connections to a WSL host’s server now go through bash and fall back to Node when bash is missing or too old. This needs no server update and works with any server version.
+- **Ask 模式下的 Codex 聊天：** Ask 现为只读，编辑工作区前会询问；Approve for me 与 Full access 不变，已在进行的工作保留授权。已配对服务器上的聊天在服务器更新前保持旧行为。
+- **Claude 子 Agent 导航：** 默认开启（配合 Claude status hooks）。Orca 仅向 Orca 窗格加载插件，并在所用各 Claude 文件夹的 `keybindings.json` 中加入一个快捷键（Ctrl+Alt+G/H/V 中第一个空闲）。在 Settings → Agents → Claude subagent navigation 关闭可移除该快捷键。已运行的 Claude 会话需重新启动。
+- **已配对服务器：** 将窗格移入新标签、以及远程 Claude 终端续到 Chat，需要服务器运行本版。旧服务器上移动仍仅限本窗口；Continue in Chat UI 会禁用并提示更新。
+- **Claude 账户切换：** 切换账户时，若系统默认 Claude 文件夹仍登录旧账户，也会提议重启其中会话。对话框按旧账户、其他、无法移动分组。
+- **WSL 宿主：** 连到 WSL 宿主服务器现经 bash，bash 缺失或过旧时回退到 Node。无需服务器更新，兼容任意服务器版本。
 
 ---
 
@@ -2002,26 +1996,26 @@ This release is lighter on memory, with lower memory use in the terminal host an
 
 ### 聊天与浏览器按你预期工作 🧭 {#v1-4-241--}
 
-This release makes chats follow your agent settings, brings Chrome-style tools to the built-in browser, and helps SSH connections and managed servers recover. You’ll also find a chat font setting, live agent browsing, and steadier Hermes, Kimi, Kiro and Windows terminals.
+本版让聊天跟随你的 Agent 设置，为内置浏览器带来接近 Chrome 的工具，并帮助 SSH 连接与托管服务器恢复。另有聊天字体设置、实时 Agent 浏览，以及更稳的 Hermes、Kimi、Kiro 与 Windows 终端。
 
 ### 简要说明 {#v1-4-241-short}
 
-- **聊天跟随你的设置：** New chats use each agent’s permission from Settings → Agents, renamed chats keep their names in Session History, and a chat won’t write a conversation a terminal is still running.
-- **浏览器更接近 Chrome：** Dock DevTools inside the pane, mute tabs playing sound, see a link’s URL on hover, and use Orca shortcuts and mouse back/forward inside pages.
-- **看着 Agent 浏览：** A cursor and badge show where an agent is clicking or typing, chat jumps you to the page, and links from terminals and chat open beside their source.
-- **SSH 更少死胡同：** Saved port forwards return after a restart and explain failures, certificate-only hosts connect through your system `ssh`, and managed servers update without closing terminals.
-- **Agent 启动与恢复更可靠：** Hermes and Kimi panes resume after a restart, Kiro reports status on its V3 engine, and keys typed while an agent starts are kept as a draft.
-- **关键处打磨：** Pick a font for chat, zoom with Cmd/Ctrl + `+` on non-US keyboards, open cloud-only files from macOS terminals, and get steadier Windows terminals and pasting.
+- **聊天跟随你的设置：** 新聊天使用 Settings → Agents 里各 Agent 的权限；重命名会留在 Session History；终端仍在写同一对话时，聊天不会抢写。
+- **浏览器更接近 Chrome：** 可在窗格内停靠 DevTools、静音有声标签、悬停看链接 URL，并在页面内使用 Orca 快捷键与鼠标前进/后退。
+- **看着 Agent 浏览：** 光标与徽章显示 Agent 点击或输入的位置，聊天可跳到该页；终端与聊天里的链接在来源旁打开。
+- **SSH 更少死胡同：** 保存的端口转发重启后恢复并说明失败原因；仅证书主机经系统 `ssh` 连接；托管服务器更新时不关闭终端。
+- **Agent 启动与恢复更可靠：** Hermes 与 Kimi 窗格重启后可恢复；Kiro 在 V3 引擎上报状态；Agent 启动时键入的内容保留为草稿。
+- **关键处打磨：** 可为聊天选字体；非美式键盘用 Cmd/Ctrl + `+` 缩放；从 macOS 终端打开仅云端文件；Windows 终端与粘贴更稳。
 
-**手机与网页更新：** Phones no longer drop pieces of terminal output, and chat renames and each chat’s permission mode now show there. Session tabs also keep Working and Needs You for Windows agents that never set a title.
+**手机与网页更新：** 手机不再丢终端输出片段；聊天重命名与各聊天权限模式会显示。从未设标题的 Windows Agent，会话标签仍保留 Working / Needs You。
 
 ### 兼容与升级说明 {#v1-4-241--}
 
-- **全新终端宿主：** New terminals start on a fresh terminal host so this release’s terminal fixes apply. Terminals already open before you update keep running, and stay attached, on the previous host until you close them.
-- **聊天权限：** Settings → Chat no longer has its own permission dropdown; set it per agent in Settings → Agents. Existing chats keep their saved permission, and a chat’s own permission menu changes only that chat.
-- **在终端中打开的对话：** If a terminal might still be writing a conversation, its chat won’t send and asks you to quit the agent there or close that terminal. Closing that terminal lets the next send go through.
-- **托管 SSH 服务器：** **Update anyway** keeps running terminals going through the update. The offer to resume chats after a restart needs a server already running this release.
-- **OpenCode 模型选择：** OpenCode 2.0.14, 2.0.15, 2.0.17 and 2.0.18 leave the first message unsent when a model is picked, so Orca refuses model picks on those versions.
+- **全新终端宿主：** 新终端在全新宿主上启动，以便本版终端修复生效。更新前已打开的终端仍在旧宿主运行并保持挂接，直到你关闭它们。
+- **聊天权限：** Settings → Chat 不再有独立权限下拉；请在 Settings → Agents 按 Agent 设置。已有聊天保留已保存权限；聊天自身权限菜单只改该聊天。
+- **在终端中打开的对话：** 若终端可能仍在写同一对话，其聊天不会发送，并请你退出该处 Agent 或关闭该终端。关闭终端后下一次发送即可通过。
+- **托管 SSH 服务器：** **Update anyway** 会在更新过程中保持终端运行。重启后续聊的提议需要服务器已运行本版。
+- **OpenCode 模型选择：** OpenCode 2.0.14 / 2.0.15 / 2.0.17 / 2.0.18 在选择模型时会留下首条未发送消息，因此 Orca 拒绝这些版本上的模型选择。
 
 ---
 
