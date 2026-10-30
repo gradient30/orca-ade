@@ -12,8 +12,11 @@ import { grokPwaPlugin } from "./scripts/grok-pwa-plugin.mjs";
 import { appEnvPlugin } from "./scripts/app-env-plugin.mjs";
 import { isMigrationFile } from "./scripts/migration-plan.mjs";
 
-const isPages = process.env.GITHUB_PAGES === "1";
-const pagesBase = isPages ? "/orca-ade/" : "/";
+const isGhPages = process.env.GITHUB_PAGES === "1";
+const isCfPages = process.env.CLOUDFLARE_PAGES === "1";
+/** Static SPA artifact (GitHub Pages or Cloudflare Pages). Not the Vercel/Nitro path. */
+const isPages = isGhPages || isCfPages;
+const pagesBase = isGhPages ? "/orca-ade/" : "/";
 
 /** The files `src/lib/db.ts` globs — same directory, same non-recursive scope. */
 function hasGlobbedMigrations(root: string): boolean {
@@ -175,7 +178,7 @@ export default defineConfig(({ command, isPreview }) => ({
       isPages
         ? {
             spa: { enabled: true },
-            router: { basepath: "/orca-ade" },
+            ...(isGhPages ? { router: { basepath: "/orca-ade" } } : {}),
           }
         : {},
     ),

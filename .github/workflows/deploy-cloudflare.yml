@@ -1,0 +1,53 @@
+name: Deploy Cloudflare Pages
+
+# Parallel to GitHub Pages (pages.yml). Same pushes / sync completion deploy
+# here with root base `/` for https://orca-ade.pages.dev/
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Sync Orca Releases"]
+    types: [completed]
+
+permissions:
+  contents: read
+  deployments: write
+
+concurrency:
+  group: cloudflare-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_PAGES: "1"
+      VITE_AUTH_ENABLED: "false"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm install --no-audit --no-fund
+      - name: Build static SPA (Cloudflare root)
+        run: npm run build:cloudflare
+      - name: Verify Cloudflare secrets
+        run: |
+          if [ -z "${{ secrets.CLOUDFLARE_API_TOKEN }}" ]; then
+            echo "Missing secret: CLOUDFLARE_API_TOKEN"
+            exit 1
+          fi
+          if [ -z "${{ secrets.CLOUDFLARE_ACCOUNT_ID }}" ]; then
+            echo "Missing secret: CLOUDFLARE_ACCOUNT_ID"
+            exit 1
+          fi
+          echo "Cloudflare secrets OK (project: orca-ade)"
+      - name: Deploy to Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy .output/public --project-name=orca-ade --branch=main --commit-dirty=true --commit-message="deploy from github actions"

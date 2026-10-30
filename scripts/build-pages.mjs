@@ -1,15 +1,22 @@
 #!/usr/bin/env node
 /**
- * GitHub Pages static build. Does not change the live-preview `npm run dev` path.
+ * Static SPA build for GitHub Pages and Cloudflare Pages.
+ * Does not change the live-preview `npm run dev` path.
  *
- * TanStack Start SPA emits client/ + server/. Pages only needs the client shell
- * at the artifact root, plus 404.html so /docs/... deep links hydrate.
+ * TanStack Start SPA emits client/ + server/. Hosts only need the client shell
+ * at the artifact root. GitHub Pages uses 404.html for deep links; Cloudflare
+ * Pages uses `_redirects` (/* → /index.html 200).
+ *
+ * Env:
+ *   GITHUB_PAGES=1     → base /orca-ade/ (default when CLOUDFLARE_PAGES unset)
+ *   CLOUDFLARE_PAGES=1 → base / (root on *.pages.dev)
  */
 import { spawn, spawnSync } from "node:child_process";
 import { copyFileSync, cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
-process.env.GITHUB_PAGES = "1";
+const isCf = process.env.CLOUDFLARE_PAGES === "1";
+if (!isCf) process.env.GITHUB_PAGES = "1";
 process.env.VITE_AUTH_ENABLED = "false";
 
 {
@@ -48,10 +55,15 @@ child.on("exit", (code) => {
   if (existsSync(shell) && !existsSync(index)) {
     copyFileSync(shell, index);
   }
-  if (existsSync(index) && !existsSync(notFound)) {
+  if (!isCf && existsSync(index) && !existsSync(notFound)) {
+    // GitHub Pages deep-link fallback.
     copyFileSync(index, notFound);
   }
   writeFileSync(join(publicDir, ".nojekyll"), "");
+  if (isCf) {
+    // Cloudflare Pages SPA rewrite (prefer over 404.html so status stays 200).
+    writeFileSync(join(publicDir, "_redirects"), "/*    /index.html   200\n");
+  }
 
   if (!existsSync(index)) {
     console.error("[build-pages] missing index.html in .output/public");
