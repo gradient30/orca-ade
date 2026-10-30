@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-29",
+  "capturedAt": "2026-10-30",
   "officialRef": "main",
-  "docsTreeSha": "b2e0d746d16abe3ed516f06180886641472952d8",
+  "docsTreeSha": "da31caa5e621c66de241dfd352d205adac77b372",
   "docs": [
     {
       "slug": "activity",
@@ -80,8 +80,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/native-chat.mdx",
-      "size": 6476,
-      "lastSeenSha": "954fac9c41214a761bff8f831fa5bb2838937c6b",
+      "size": 6673,
+      "lastSeenSha": "ee7a83b000734a8c732480f9e88d4f85cf440e49",
       "translatedAtSha": "1a812697e0ad361f888463207347c0c2b8f0a3d5"
     },
     {
@@ -161,8 +161,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/computer-use.mdx",
-      "size": 5581,
-      "lastSeenSha": "edf911b9df4e0386f2a26eae64049d8d5636a3cd",
+      "size": 5963,
+      "lastSeenSha": "6c5fb9426a7d7e03cf4c668c602f6845f74a3226",
       "translatedAtSha": "089600aae0af6516c4f1c02e992b02e7a02f8de1"
     },
     {
@@ -287,8 +287,8 @@
       "section": "mobile",
       "kind": "official",
       "officialPath": "docs/site/content/docs/mobile.mdx",
-      "size": 12178,
-      "lastSeenSha": "417eb35ff5234cafc56bbaef7dca1edfaaad4f33",
+      "size": 13892,
+      "lastSeenSha": "e8fed6790d1777cd58bc4e180964ca2ecb5eea16",
       "translatedAtSha": "0e8d99768dd43a94cd3d100f1a65ac460fb03224"
     },
     {
@@ -494,8 +494,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 6578,
-      "lastSeenSha": "be513f9eda17f12c8778be759d95168ed0d28e3a",
+      "size": 7249,
+      "lastSeenSha": "cf8f8b862331d9991a2172ec1510ce0df7b550fc",
       "translatedAtSha": "55334050fdc03d8429256ccad983bd410c5843db"
     },
     {
