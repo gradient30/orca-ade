@@ -138,3 +138,30 @@ test("product-experience module headings localize", () => {
   assert.ok(!md.includes("### Plugins"));
   assert.ok(!md.includes("### Terminals\n") && !md.includes("#### Terminals {"));
 });
+
+test("product-experience full bullets localize via phrase dictionary", () => {
+  const rel: LiveRelease = {
+    tag: "v1.4.245",
+    name: "v1.4.245",
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.245",
+    publishedAt: "2026-10-30T00:00:00Z",
+    body: `## Product experience
+
+### Native chat (experimental)
+* Stream long chat replies with less stutter by parsing each block once by @a in https://github.com/stablyai/orca/pull/1
+* Show chats as Interrupted or Done at startup without reading their history, so Orca no longer freezes after launch with hundreds of chats by @b in https://github.com/stablyai/orca/pull/2
+
+### Phone & web
+* Show dictated words as you speak on the phone and insert them at the cursor by @c in https://github.com/stablyai/orca/pull/3
+
+### Terminals
+* Start new terminals on a fresh terminal host so this release's terminal fixes apply by @d in https://github.com/stablyai/orca/pull/4
+`,
+  };
+  const md = buildChangelogMarkdown([rel], "", []);
+  assert.ok(md.includes("流式输出长聊天回复") || md.includes("更少卡顿"));
+  assert.ok(md.includes("Interrupted") && md.includes("无需读取"));
+  assert.ok(md.includes("听写") || md.includes("手机"));
+  assert.ok(md.includes("全新终端宿主") || md.includes("终端宿主"));
+  assert.ok(englishResidualRatio(md.split("## 产品体验")[1] ?? md) < 0.55);
+});
