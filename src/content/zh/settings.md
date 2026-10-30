@@ -26,7 +26,7 @@
 - 状态栏开关，包括 **Resource Manager**（CPU/内存/会话、daemon 控件、工作区磁盘扫描）。
 - **Usage percentages** — 在状态栏名册上把提供方限额显示为 **% used** 或 **% remaining**。
 - App Icon — 在 Classic、Watercolor 和 Blue 之间循环，用于 Dock 和窗口切换器中显示的图标。
-- **Language** — 主要的 Interface 控件。在 System（跟随操作系统）、English、中文（简体）、한국어、日本語 或 Español 之间切换。设置搜索也会匹配 “language” 的本地词（语言 / 語言 / 언어 / 言語 / Idioma），因此 UI 仍是英文时你也能找到 Language。
+- **Language** — 主要的 Interface 控件。在 System（跟随操作系统）、English、中文（简体）、繁體中文（台灣）、한국어、日本語、Español、Français、Português (Brasil)、Русский、Türkçe 或 Deutsch 之间切换。设置搜索也会匹配 “language” 的本地词（语言 / 語言 / 언어 / 言語 / Idioma / Langue / Язык / Dil / Sprache），因此 UI 仍是英文时你也能找到 Language。
 
 ## Git {#git}
 
@@ -135,6 +135,7 @@
 - **Toggle Workspace Board** 默认未绑定；在这里分配，以便用一个快捷键打开或关闭 Workspace Board。`workspace.openBoard` 的现有绑定继续有效。
 - 关闭所有编辑器标签在 macOS 上默认为 `Cmd+Option+W`，在 Windows / Linux 上为 `Ctrl+Alt+W`。
 - **Tab navigation defaults (new installs)：** 跨所有类型的下一个/上一个标签是 `Cmd+Shift+]` / `Cmd+Shift+[`（Linux/Windows 上为 Ctrl）。同类型的下一个/上一个是 `Cmd+Option+]` / `Cmd+Option+[`。上一个最近标签是 `Ctrl+Tab`。现有安装把自定义覆盖保留在 `~/.orca/keybindings.json` 下。
+- **Switch between Chat UI and terminal** 在受支持的 Agent 标签中，macOS 默认为 `Cmd+Shift+J`，Windows / Linux 默认为 `Ctrl+Shift+J`。可在此重映射或移除绑定。已有自定义快捷键保留其组合键。在 Windows / Linux 上，若 **Switch worktree** 使用相同组合键则优先；terminal-first 可允许从终端输入触发切换。
 - **Add Review Note** 默认为 `Cmd+Shift+A`（macOS）/ `Ctrl+Shift+A`（Windows / Linux）；可重映射。
 - **Send Review Notes to Agent** 默认未绑定；在这里分配，以便不用鼠标即可打开活动 worktree 的 diff 批注发送菜单。
 - **Delete workspace** 在 macOS 上默认为 `Cmd+Shift+Backspace`，在 Windows / Linux 上为 `Ctrl+Shift+Backspace`。把指针悬停在你打算删除的侧栏工作区上；Orca 仍会要求确认。
@@ -153,7 +154,7 @@
 - **Terminal Directory** — 新浮动终端标签的起始目录（`~` = 主目录）。
 - **Toggle Button Location** — 浮动工作区开关出现的位置；无论按钮放在哪里，键盘快捷键都有效。
 
-## Plugins (Experimental) {#plugins-experimental}
+## Plugins (Alpha) {#plugins-alpha}
 
 - **Plugin system** — Settings → Plugins。先打开系统，然后逐个审查并启用每个插件。在你同意之前什么都不会运行。
 - **Marketplaces** — 添加 git marketplace 源，浏览插件，预览能力（面板、命令、语言包、VM recipes），安装、更新或回滚。

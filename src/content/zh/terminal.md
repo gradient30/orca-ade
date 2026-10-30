@@ -8,6 +8,17 @@ Orca 的终端与 VS Code 使用的 xterm.js 终端相同，并针对 AI Agent �
 
 Agent 终端标签会显示 Agent 身份以及实时状态：working、waiting for input、completed，或 completed-but-unread。对于 Claude 和 Codex，当 Orca 能把窗格映射到该会话时，标签标题还可以显示 **AI Vault conversation name**（自定义标题 / 线程名）——手动重命名仍然优先。
 
+## Resource Manager 终端 {#resource-manager-terminals}
+
+**Resources** 视图在桌面应用与已配对的网页客户端中，于其页面可见时均可使用。单独的 **PTYs** 视图管理本地桌面终端；网页客户端无法结束那些终端。
+
+**Refresh** 会发现自上次观察以来新建的终端。**End** 需要宿主能在停止前核验所选终端的身份、Agent 归属与附着状态。较旧的宿主、归属不明确或失联时，无法得到安全的 End 结果。
+
+若因终端宿主缺乏支持而无法使用 **End**，请从其终端标签或在其宿主上手动结束该终端。
+
+确认的 **End** 会像 **Close** 一样移除已保存的终端历史。若在清理挂起时有更新的终端替换了所选终端，该更新终端仍留在清单中并保留其历史。
+
+
 ## TUI 剪贴板 (OSC 52) {#tui-clipboard-osc-52}
 
 许多终端 UI（Zellij、tmux、Neovim、fzf、Grok）通过 **OSC 52** 复制，而不是操作系统剪贴板 API。Orca **默认允许**这些写入，因此从远程 / TUI 复制在 SSH 上与本机表现一致。

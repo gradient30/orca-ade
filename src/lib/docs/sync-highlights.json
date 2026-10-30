@@ -1,29 +1,69 @@
 {
-  "id": "2026-10-22-ssh-changelog-top5",
-  "label": "2026-10-22 同步更新",
-  "at": "2026-10-22",
-  "summary": "本次同步更新了：SSH（使用目标）、更新日志（置顶五版）。点下方链接或左侧红点跳转；打开该页后红点会清除。",
+  "id": "2026-10-30-releases-handbook",
+  "label": "2026-10-30 同步更新",
+  "at": "2026-10-30",
+  "summary": "本次同步更新了：更新日志（置顶五版 v1.4.244–240）、Native Chat（续聊/切换）、设置（语言/快捷键）、浏览器、终端 Resource Manager、远程 GPU、SSH Open in、Claude 子 Agent、移动端。点下方链接或左侧红点跳转；打开该页后红点会清除。",
   "pages": [
+    {
+      "slug": "agents/native-chat",
+      "sections": [
+        "enable",
+        "continue-a-conversation-in-chat-or-the-terminal",
+        "switch-an-existing-terminal-backed-chat"
+      ]
+    },
+    {
+      "slug": "settings",
+      "sections": [
+        "appearance",
+        "shortcuts",
+        "plugins-alpha"
+      ]
+    },
+    {
+      "slug": "browser/overview",
+      "sections": [
+        "link-routing"
+      ]
+    },
+    {
+      "slug": "terminal",
+      "sections": [
+        "resource-manager-terminals"
+      ]
+    },
+    {
+      "slug": "remote-servers",
+      "sections": [
+        "use-the-gpu-on-a-linux-server"
+      ]
+    },
     {
       "slug": "ssh",
       "sections": [
-        "use-a-target"
+        "open-a-remote-workspace-in-vs-code-cursor-or-zed"
+      ]
+    },
+    {
+      "slug": "agents/claude-code",
+      "sections": [
+        "subagents-and-teams"
+      ]
+    },
+    {
+      "slug": "mobile",
+      "sections": [
+        "what-you-can-do-from-mobile"
       ]
     },
     {
       "slug": "changelog",
       "sections": [
-        "v1-4-237",
-        "v1-4-237-short",
-        "v1-4-237-compatibility-upgrade-notes",
-        "v1-4-235",
-        "v1-4-235-short",
-        "v1-4-233",
-        "v1-4-233-short",
-        "v1-4-232",
-        "v1-4-232-short",
-        "v1-4-230",
-        "v1-4-230-short"
+        "v1-4-244",
+        "v1-4-243",
+        "v1-4-242",
+        "v1-4-241",
+        "v1-4-240"
       ]
     }
   ]

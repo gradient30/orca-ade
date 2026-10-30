@@ -11,70 +11,70 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
-    "tag": "v1.4.244",
-    "date": "2026-10-29",
-    "dateLabel": "2026年10月29日",
-    "title": "German, Russian, Turkish and…",
-    "highlights": [
-      "- **Four new languages:** German, Russian, Turkish and Traditional Chinese join the language picker, and many more dialogs, menus and shortcuts are translated. German is machine-translated, and reviews from native speakers are welcome.",
-      "- **Faster workspace switching:** Hovering a workspace in the sidebar gets it ready, the workspaces next to the current one stay warm, and the switch itself does less work. Dragging a row never switches.",
-      "- **Remote files that work like local ones:** Play audio and video from SSH hosts and paired servers, save remote text files up to 50 MB, open folders too big for one reply as you scroll, and never open a remote binary as text."
+    tag: "v1.4.244",
+    date: "2026-10-29",
+    dateLabel: "2026年10月29日",
+    title: "更多界面语言、更快切换工作区，远程文件像本地一样好用",
+    highlights: [
+      "四种新语言：德语、俄语、土耳其语与繁体中文加入语言选择器，更多对话框、菜单与快捷键已翻译。德语为机器翻译，欢迎母语者审阅。",
+      "更快切换工作区：侧栏悬停会预热目标工作区，相邻工作区保持热态，切换本身更轻；拖拽行不会触发切换。",
+      "远程文件像本地一样：可在 SSH 宿主与已配对服务器上播放音视频、保存最大 50 MB 的远程文本、滚动打开超大文件夹，且不会把远程二进制当文本打开。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.244",
-    "href": "/docs/changelog#v1-4-244"
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.244",
+    href: "/docs/changelog#v1-4-244",
   },
   {
-    "tag": "v1.4.243",
-    "date": "2026-10-28",
-    "dateLabel": "2026年10月28日",
-    "title": "- Chrome extensions (experim…",
-    "highlights": [
-      "- **Chrome extensions (experimental):** Add extensions from the Chrome Web Store with **Add to Orca**, so password managers like Bitwarden and 1Password can fill logins in Orca’s browser. Off by default.",
-      "- **Convert a terminal agent session live into a chat ui:** Once you quit Claude or Codex in a terminal, the same conversation can continue in Chat while the terminal tab stays open. Claude chats also keep their saved approval choice across model changes, and closing a chat that’s still working asks first.",
-      "- **Worktrees sooner after a restart:** Local worktrees load before terminals restore, and the sidebar says discovery is still running instead of showing an empty list."
+    tag: "v1.4.243",
+    date: "2026-10-28",
+    dateLabel: "2026年10月28日",
+    title: "浏览器可装 Chrome 扩展，终端 Agent 会话可现场续到 Chat",
+    highlights: [
+      "Chrome 扩展（实验性）：用 **Add to Orca** 从 Chrome Web Store 添加扩展，Bitwarden、1Password 等密码管理器可在 Orca 浏览器里填登录。默认关闭。",
+      "终端 Agent 会话现场续到 Chat：退出终端里的 Claude 或 Codex 后，同一对话可在 Chat 继续，终端标签仍保留。Claude 聊天在换模型时保留已保存的审批选择；关闭仍在工作的聊天会先确认。",
+      "重启后更快看到 worktree：本地 worktree 在终端恢复前先加载，侧栏会提示仍在发现，而不是空白列表。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.243",
-    "href": "/docs/changelog#v1-4-243"
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.243",
+    href: "/docs/changelog#v1-4-243",
   },
   {
-    "tag": "v1.4.242",
-    "date": "2026-10-27",
-    "dateLabel": "2026年10月27日",
-    "title": "- Open Claude subagents from…",
-    "highlights": [
-      "- **Open Claude subagents from the sidebar:** Click a Claude subagent row in the sidebar or dashboard to open its transcript in the same terminal, then click the parent to go back. An eye marks the one you’re viewing.",
-      "- **Chats that ask first:** Codex chats in Ask mode now ask before editing your workspace, remote Claude terminals on paired servers can continue in Chat, and chats that can’t start tell you why.",
-      "- **Agents resume as you left them:** Resumed Claude sessions keep their effort level and launch flags, Codex keeps the permission you last gave it, and Session History finds chats in more folders and on servers."
+    tag: "v1.4.242",
+    date: "2026-10-27",
+    dateLabel: "2026年10月27日",
+    title: "侧栏一点打开 Claude 子 Agent，Ask 模式先问再改，远程更记事",
+    highlights: [
+      "侧栏打开 Claude 子 Agent：在侧栏或 Dashboard 点击子 Agent 行，于同一终端打开其 transcript，再点子项返回；眼睛标记当前查看项。",
+      "聊天先问再改：Ask 模式下的 Codex 聊天编辑工作区前会先询问；已配对服务器上的远程 Claude 终端可续到 Chat；无法启动的聊天会说明原因。",
+      "Agent 按你离开时的状态恢复：恢复的 Claude 会话保留 effort 与启动标志，Codex 保留上次权限，Session History 能在更多文件夹与服务器上找到聊天。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.242",
-    "href": "/docs/changelog#v1-4-242"
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.242",
+    href: "/docs/changelog#v1-4-242",
   },
   {
-    "tag": "v1.4.241",
-    "date": "2026-10-26",
-    "dateLabel": "2026年10月26日",
-    "title": "- Chats that follow your set…",
-    "highlights": [
-      "- **Chats that follow your settings:** New chats use each agent’s permission from Settings → Agents, renamed chats keep their names in Session History, and a chat won’t write a conversation a terminal is still running.",
-      "- **A browser closer to Chrome:** Dock DevTools inside the pane, mute tabs playing sound, see a link’s URL on hover, and use Orca shortcuts and mouse back/forward inside pages.",
-      "- **Watch agents browse:** A cursor and badge show where an agent is clicking or typing, chat jumps you to the page, and links from terminals and chat open beside their source."
+    tag: "v1.4.241",
+    date: "2026-10-26",
+    dateLabel: "2026年10月26日",
+    title: "聊天跟随 Agent 设置，内置浏览器更接近 Chrome",
+    highlights: [
+      "聊天跟随你的设置：新聊天使用 Settings → Agents 里各 Agent 的权限；重命名会留在 Session History；终端仍在写同一对话时，聊天不会抢写。",
+      "浏览器更接近 Chrome：可在窗格内停靠 DevTools、静音有声标签、悬停看链接 URL，并在页面内使用 Orca 快捷键与鼠标前进/后退。",
+      "看着 Agent 浏览：光标与徽章显示 Agent 点击或输入的位置，聊天可跳到该页；终端与聊天里的链接在来源旁打开。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.241",
-    "href": "/docs/changelog#v1-4-241"
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.241",
+    href: "/docs/changelog#v1-4-241",
   },
   {
-    "tag": "v1.4.240",
-    "date": "2026-10-25",
-    "dateLabel": "2026年10月25日",
-    "title": "- Conversations that stay wi…",
-    "highlights": [
-      "- **Conversations that stay with you:** Claude chats now show turns made outside Orca. Retained messages return after reconnect without reopening the chat, and crash recovery no longer guesses that a sent message was undelivered.",
-      "- **A browser with a better memory:** Search your browsing history, reopen pages, remove unwanted suggestions, and clear history with Undo. Pages can also use files you pick, save or drop through File System Access.",
-      "- **Remote work with fewer interruptions:** Slow connections survive missed wake probes, reconnect notices explain what is happening, SSH terminals wait for sign-in, and new splits stay on the paired server."
+    tag: "v1.4.240",
+    date: "2026-10-25",
+    dateLabel: "2026年10月25日",
+    title: "对话跟着你走，浏览器有可搜索历史，远程更少打断",
+    highlights: [
+      "对话跟着你走：Claude 聊天显示在 Orca 外完成的回合；保留的消息重连后无需重开聊天即可回来；崩溃恢复不再误判已发送消息未送达。",
+      "浏览器记性更好：可搜索浏览历史、重开页面、去掉不想要的建议，并用撤销清空历史；页面也可通过 File System Access 使用你挑选、保存或拖入的文件。",
+      "远程工作更少打断：慢连接能挺过漏掉的唤醒探测，重连提示会说明发生了什么，SSH 终端会等你登录，新分屏留在已配对服务器上。",
     ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.240",
-    "href": "/docs/changelog#v1-4-240"
-  }
+    url: "https://github.com/stablyai/orca/releases/tag/v1.4.240",
+    href: "/docs/changelog#v1-4-240",
+  },
 ];
 
 export const RELEASES_INDEX_URL = "https://github.com/stablyai/orca/releases";

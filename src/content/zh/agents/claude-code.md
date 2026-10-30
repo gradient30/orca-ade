@@ -22,7 +22,7 @@ Orca 支持多个 Claude 账户，并可一键在它们之间切换，与 Codex 
 
 ## 子 Agent 与 teams {#subagents-and-teams}
 
-后台 subagents 和 Agent Teams 的 teammates 可以在 worktree agent 列表和 [Agent Dashboard](/docs/model/agents-sessions#agent-dashboard) 中，作为主 Agent 下可展开的子行显示。选中子项会聚焦到主终端。
+后台 subagents 和 Agent Teams 的 teammates 可以在 worktree agent 列表和 [Agent Dashboard](/docs/model/agents-sessions#agent-dashboard) 中，作为主 Agent 下可展开的子行显示。选中子项会聚焦到主终端；在支持的版本中，还可在同一终端中打开该子 Agent 的 transcript，再点回主 Agent。
 
 ## Hooks 与 memory {#hooks-memory}
 
