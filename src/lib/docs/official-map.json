@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-10-30",
+  "capturedAt": "2026-10-31",
   "officialRef": "main",
-  "docsTreeSha": "71b19c45d1fb0cd706ecfc391039b2a457bb0a3f",
+  "docsTreeSha": "9925aae2895fce45a93d17a488121a4dec2a0d1b",
   "docs": [
     {
       "slug": "activity",
@@ -80,8 +80,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/native-chat.mdx",
-      "size": 6673,
-      "lastSeenSha": "ee7a83b000734a8c732480f9e88d4f85cf440e49",
+      "size": 6777,
+      "lastSeenSha": "dfbd68108cc0344380a5ff8b4f632b38d2acc7da",
       "translatedAtSha": "ee7a83b000734a8c732480f9e88d4f85cf440e49"
     },
     {
@@ -143,8 +143,8 @@
       "section": "browser",
       "kind": "official",
       "officialPath": "docs/site/content/docs/browser/profiles.mdx",
-      "size": 2547,
-      "lastSeenSha": "26162fa94bc47c5acd32b30bc0d2bb0bf07ae813",
+      "size": 2533,
+      "lastSeenSha": "c7fbc42f81e346adfe5c62462211330ae06ff0ed",
       "translatedAtSha": "26162fa94bc47c5acd32b30bc0d2bb0bf07ae813"
     },
     {
@@ -170,8 +170,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 10153,
-      "lastSeenSha": "efd86e9989c776304ab3e6d746e8862b561b2c09",
+      "size": 10378,
+      "lastSeenSha": "be57b6d2cef61bf412c003e54b0359139367edc0",
       "translatedAtSha": "88355cb8c825d11999fe3cade3017e49b5242495"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 16029,
-      "lastSeenSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619",
+      "size": 16203,
+      "lastSeenSha": "8d075036555bde6708dc71651ade3544c5cfbf5f",
       "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
