@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-10-31",
   "officialRef": "main",
-  "docsTreeSha": "9925aae2895fce45a93d17a488121a4dec2a0d1b",
+  "docsTreeSha": "897b39f01451c7ea329dd04c868c04a371213e1b",
   "docs": [
     {
       "slug": "activity",
@@ -170,8 +170,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 10378,
-      "lastSeenSha": "be57b6d2cef61bf412c003e54b0359139367edc0",
+      "size": 10529,
+      "lastSeenSha": "497eb481a6da163da09a3d974ebf0df0c81cbd58",
       "translatedAtSha": "88355cb8c825d11999fe3cade3017e49b5242495"
     },
     {
@@ -278,8 +278,8 @@
       "section": "start",
       "kind": "official",
       "officialPath": "docs/site/content/docs/install.mdx",
-      "size": 9322,
-      "lastSeenSha": "b07d7af7fb06489940947f10c763a632f3e6d3b5",
+      "size": 9363,
+      "lastSeenSha": "71e60e3a610e51d03b23a2a7c1f0e62370faf27b",
       "translatedAtSha": "d08e43320ef8da04aa7f794c110a952cfaecfd4d"
     },
     {
