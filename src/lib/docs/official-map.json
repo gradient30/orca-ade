@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-01",
   "officialRef": "main",
-  "docsTreeSha": "7b63ad50d10fecb21b2902841711c35196984f42",
+  "docsTreeSha": "be6980f21c0b512cd296983f5053ee9e0e38d19d",
   "docs": [
     {
       "slug": "activity",
@@ -242,8 +242,8 @@
       "section": "editing",
       "kind": "official",
       "officialPath": "docs/site/content/docs/editing/viewers.mdx",
-      "size": 2356,
-      "lastSeenSha": "2b16d9698873d270ba02025d7a5958789a772ad2",
+      "size": 2656,
+      "lastSeenSha": "6d55ca37a3eb3de2a67b4b680c49deec56c88750",
       "translatedAtSha": "2b16d9698873d270ba02025d7a5958789a772ad2"
     },
     {
