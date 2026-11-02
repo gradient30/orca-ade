@@ -11,6 +11,17 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.246",
+    "date": "2026-11-02",
+    "dateLabel": "2026年11月2日",
+    "title": "官方更新",
+    "highlights": [
+      "详见下方完整中文日志。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.246",
+    "href": "/docs/changelog#v1-4-246"
+  },
+  {
     "tag": "v1.4.245",
     "date": "2026-10-30",
     "dateLabel": "2026年10月30日",
@@ -61,19 +72,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.242",
     "href": "/docs/changelog#v1-4-242"
-  },
-  {
-    "tag": "v1.4.241",
-    "date": "2026-10-26",
-    "dateLabel": "2026年10月26日",
-    "title": "聊天跟随 Agent 设置，内置浏览器更接近 Chrome",
-    "highlights": [
-      "聊天跟随你的设置：新聊天使用 Settings → Agents 里各 Agent 的权限；重命名会留在 Session History；终端仍在写同一对话时，聊天不会抢写。",
-      "浏览器更接近 Chrome：可在窗格内停靠 DevTools、静音有声标签、悬停看链接 URL，并在页面内使用 Orca 快捷键与鼠标前进/后退。",
-      "看着 Agent 浏览：光标与徽章显示 Agent 点击或输入的位置，聊天可跳到该页；终端与聊天里的链接在来源旁打开。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.241",
-    "href": "/docs/changelog#v1-4-241"
   }
 ];
 

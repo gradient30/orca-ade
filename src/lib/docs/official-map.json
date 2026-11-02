@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-01",
+  "capturedAt": "2026-11-02",
   "officialRef": "main",
-  "docsTreeSha": "be6980f21c0b512cd296983f5053ee9e0e38d19d",
+  "docsTreeSha": "2f1e1e4684a4bef1f7a0743ae27a7404bc039978",
   "docs": [
     {
       "slug": "activity",
@@ -179,8 +179,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/overview.mdx",
-      "size": 5176,
-      "lastSeenSha": "b9aecde4fa31d4eb490a58038cce92d772f8c5b6",
+      "size": 5214,
+      "lastSeenSha": "c8de4e6099cd3ba3f2c78fc8b7e73a830aa0a18e",
       "translatedAtSha": "b9aecde4fa31d4eb490a58038cce92d772f8c5b6"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 16203,
-      "lastSeenSha": "8d075036555bde6708dc71651ade3544c5cfbf5f",
+      "size": 16401,
+      "lastSeenSha": "f2f522aba8e97c76025645cd9044b06ee4a875f9",
       "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
@@ -494,8 +494,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 7241,
-      "lastSeenSha": "9589173fb32447928928402939fb173cbd0c315d",
+      "size": 7366,
+      "lastSeenSha": "0a8b45072ae85b32107c23e4c3ef9901eb025204",
       "translatedAtSha": "55334050fdc03d8429256ccad983bd410c5843db"
     },
     {
@@ -527,6 +527,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.246",
+      "publishedAt": "2026-11-02",
+      "lastSeenBodySha": "642c615d5838",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.245",
       "publishedAt": "2026-10-30",
@@ -609,7 +616,7 @@
       "publishedAt": "2026-10-20",
       "lastSeenBodySha": "0dfaddcbe910",
       "translatedAtBodySha": "0dfaddcbe910",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.230",
