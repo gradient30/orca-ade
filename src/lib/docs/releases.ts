@@ -14,9 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.246",
     "date": "2026-11-02",
     "dateLabel": "2026年11月2日",
-    "title": "官方更新",
+    "title": "Mobile theme & language pick…",
     "highlights": [
-      "详见下方完整中文日志。"
+      "**Mobile theme & language pickers:** Pick **Light, Dark or System** for 手机 app and choose your **display language** in Settings → Appearance and Language.",
+      "**A refreshed phone app:** A Home screen focused on what needs you, compact top bars, bottom search, filter chips, clearer lists and smoother sheets. Workspace lists load with less data, images and Mermaid diagrams support pinch-to-zoom, and iOS can show inline HTML cards and previews. Run automations from your phone too.",
+      "**Plugins:** The community catalog is visible 默认, with public install counts and clearer publisher information. Plugin authors get TypeScript and TSX without a separate build step, component-based panels, worker communication, hot reload and CLI tools for testing and screenshots."
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.246",
     "href": "/docs/changelog#v1-4-246"

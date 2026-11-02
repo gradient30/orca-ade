@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-02",
   "officialRef": "main",
-  "docsTreeSha": "2f1e1e4684a4bef1f7a0743ae27a7404bc039978",
+  "docsTreeSha": "27e2243398202a34845e54c211c0e71b7ba3b9ba",
   "docs": [
     {
       "slug": "activity",
@@ -80,8 +80,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/native-chat.mdx",
-      "size": 6777,
-      "lastSeenSha": "dfbd68108cc0344380a5ff8b4f632b38d2acc7da",
+      "size": 6667,
+      "lastSeenSha": "287c56e517e37675df78ea89b870549448f0d942",
       "translatedAtSha": "ee7a83b000734a8c732480f9e88d4f85cf440e49"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 24306,
-      "lastSeenSha": "198814984cc9212588beb020ad2091bc8d5925a1",
+      "size": 24649,
+      "lastSeenSha": "d18b4cea146b61e52ce8f95b12a61110888e6b62",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 16401,
-      "lastSeenSha": "f2f522aba8e97c76025645cd9044b06ee4a875f9",
+      "size": 16406,
+      "lastSeenSha": "a6302adfd3bb528ae4fd9e4c3ad26adde7a51b1e",
       "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
@@ -530,7 +530,7 @@
     {
       "tag": "v1.4.246",
       "publishedAt": "2026-11-02",
-      "lastSeenBodySha": "642c615d5838",
+      "lastSeenBodySha": "361f23849847",
       "translatedAtBodySha": null,
       "yanked": false
     },
