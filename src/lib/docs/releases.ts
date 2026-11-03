@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.247",
+    "date": "2026-11-03",
+    "dateLabel": "2026年11月3日",
+    "title": "Choose Chat or CLI for each …",
+    "highlights": [
+      "**Chat UI:** Choose Chat or CLI for each agent directly in Chat UI settings. Permission choices stay visible, model and effort controls remain usable while options refresh, and focusing the composer keeps open overlays in place.",
+      "**Conversation continuity:** Keep unsent text when moving from a terminal into chat, and preserve received replies and tool results while saving is busy. Turn on automatic continuation to resume a chat after its usage limit resets.",
+      "**Phone source control:** Review each branch commit on its own page, jump between files, fold diff context, and read or add review comments alongside the code. The pull-request tab focuses on what blocks the merge, with clearer next actions and automatic refreshes."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.247",
+    "href": "/docs/changelog#v1-4-247"
+  },
+  {
     "tag": "v1.4.246",
     "date": "2026-11-02",
     "dateLabel": "2026年11月2日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.243",
     "href": "/docs/changelog#v1-4-243"
-  },
-  {
-    "tag": "v1.4.242",
-    "date": "2026-10-27",
-    "dateLabel": "2026年10月27日",
-    "title": "侧栏一点打开 Claude 子 Agent，Ask 模式先问再改，远程更记事",
-    "highlights": [
-      "侧栏打开 Claude 子 Agent：在侧栏或 Dashboard 点击子 Agent 行，于同一终端打开其 transcript，再点子项返回；眼睛标记当前查看项。",
-      "聊天先问再改：Ask 模式下的 Codex 聊天编辑工作区前会先询问；已配对服务器上的远程 Claude 终端可续到 Chat；无法启动的聊天会说明原因。",
-      "Agent 按你离开时的状态恢复：恢复的 Claude 会话保留 effort 与启动标志，Codex 保留上次权限，Session History 能在更多文件夹与服务器上找到聊天。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.242",
-    "href": "/docs/changelog#v1-4-242"
   }
 ];
 
