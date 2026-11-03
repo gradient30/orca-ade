@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-03",
   "officialRef": "main",
-  "docsTreeSha": "27e2243398202a34845e54c211c0e71b7ba3b9ba",
+  "docsTreeSha": "e152ad6cf199234a67447e098572601458d668b5",
   "docs": [
     {
       "slug": "activity",
@@ -134,8 +134,8 @@
       "section": "browser",
       "kind": "official",
       "officialPath": "docs/site/content/docs/browser/overview.mdx",
-      "size": 5344,
-      "lastSeenSha": "e71297a9ba2608360339388e82ddcd37da8cbe74",
+      "size": 5341,
+      "lastSeenSha": "017a83705dc2b6c917748799f61d080e07057867",
       "translatedAtSha": "e71297a9ba2608360339388e82ddcd37da8cbe74"
     },
     {
@@ -161,8 +161,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/computer-use.mdx",
-      "size": 5963,
-      "lastSeenSha": "6c5fb9426a7d7e03cf4c668c602f6845f74a3226",
+      "size": 6315,
+      "lastSeenSha": "0a299904af506d4bd7417464797bd30275582403",
       "translatedAtSha": "089600aae0af6516c4f1c02e992b02e7a02f8de1"
     },
     {
@@ -197,8 +197,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/skills.mdx",
-      "size": 12584,
-      "lastSeenSha": "112498bd488983b5197693926b2961b31354e626",
+      "size": 12632,
+      "lastSeenSha": "30e07bf2fa35872d474b930fd277779a62f2e75f",
       "translatedAtSha": "3674c42f07f92cfccc511a546a62f0eda9314d10"
     },
     {
@@ -233,8 +233,8 @@
       "section": "editing",
       "kind": "official",
       "officialPath": "docs/site/content/docs/editing/monaco.mdx",
-      "size": 1798,
-      "lastSeenSha": "2baf82fdfaf51269a9e7d784c6e5ec412184bdd9",
+      "size": 2136,
+      "lastSeenSha": "63cc578219b26ba51620779728197237515b7ad2",
       "translatedAtSha": "2baf82fdfaf51269a9e7d784c6e5ec412184bdd9"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 16406,
-      "lastSeenSha": "a6302adfd3bb528ae4fd9e4c3ad26adde7a51b1e",
+      "size": 16529,
+      "lastSeenSha": "5b0fe52dad318b3df764a47294675934358fd0b4",
       "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
