@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.248",
+    "date": "2026-11-04",
+    "dateLabel": "2026年11月4日",
+    "title": "Streaming replies stay 在…之后 …",
+    "highlights": [
+      "**Chat continuity:** Streaming replies stay 在…之后 prompt they answer. Follow-ups remain queued after a failed turn, expired attachments are identified when a send is refused, and pasted text can be opened from 结构化聊天.",
+      "**Agent startup & choices:** A final startup refusal is shown 在…之后 first attempt 而不是 repeated retries; temporary failures still recover. Chats preserve configured effort 当你 have not chosen an override, and 源码管理 text actions use Model and Effort menus.",
+      "**Phone:** Cached chats reopen before fetching changes. Chat options, terminal settings, branch and pull-request details refresh more reliably; long phone messages reach Windows Codex, and browser tabs hosted by a desktop server can stream to 手机."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.248",
+    "href": "/docs/changelog#v1-4-248"
+  },
+  {
     "tag": "v1.4.247",
     "date": "2026-11-03",
     "dateLabel": "2026年11月3日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.244",
     "href": "/docs/changelog#v1-4-244"
-  },
-  {
-    "tag": "v1.4.243",
-    "date": "2026-10-28",
-    "dateLabel": "2026年10月28日",
-    "title": "浏览器可装 Chrome 扩展，终端 Agent 会话可现场续到 Chat",
-    "highlights": [
-      "Chrome 扩展（实验性）：用 **Add to Orca** 从 Chrome Web Store 添加扩展，Bitwarden、1Password 等密码管理器可在 Orca 浏览器里填登录。默认关闭。",
-      "终端 Agent 会话现场续到 Chat：退出终端里的 Claude 或 Codex 后，同一对话可在 Chat 继续，终端标签仍保留。Claude 聊天在换模型时保留已保存的审批选择；关闭仍在工作的聊天会先确认。",
-      "重启后更快看到 worktree：本地 worktree 在终端恢复前先加载，侧栏会提示仍在发现，而不是空白列表。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.243",
-    "href": "/docs/changelog#v1-4-243"
   }
 ];
 
