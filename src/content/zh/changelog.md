@@ -8,7 +8,7 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
-| [v1.4.248](#v1-4-248) | 2026年11月4日 | Streaming replies stay 在…之后 … |
+| [v1.4.248](#v1-4-248) | 2026年11月4日 | Remote streams stay connecte… |
 | [v1.4.247](#v1-4-247) | 2026年11月3日 | Choose Chat or CLI for each … |
 | [v1.4.246](#v1-4-246) | 2026年11月2日 | Mobile theme & language pick… |
 | [v1.4.245](#v1-4-245) | 2026年10月30日 | 更快的 Orca、插件与后台电脑操控 |
@@ -41,12 +41,13 @@
 
 ## 完整中文日志 {#full-notes}
 
-## v1.4.248 Streaming replies stay 在…之后 … {#v1-4-248}
+## v1.4.248 Remote streams stay connecte… {#v1-4-248}
 
 2026年11月4日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.248)
 
-### More dependable chats, easier AI choices & update controls ✨ {#v1-4-248-more-dependable-chats-easier-ai-choices-update-controls-}
+### More reliable terminals, dependable chats & easier AI choices ✨ {#v1-4-248-more-reliable-terminals-dependable-chats-easier-ai-choices-}
 
+- 🖥️ **More reliable terminals:** Keep active remote streams connected, preserve agent identity across daemon restarts, improve ordered mobile input and long messages to Windows Codex, and render Nerd Font symbols correctly after fonts load.
 - 💬 **More dependable conversations:** Keep streaming replies 在…之后ir prompts, hold queued follow-ups when a turn fails, and keep pasted text and terminal drafts separate from chat sends.
 - 🎛️ **Choose how AI writes for you:** Pick Model and Effort for 提交信息, pull-request descriptions, branch names and chat names from the 源码管理 settings.
 - ⚡ **Less unnecessary chat work:** Preview updates avoid copying the full loaded conversation, and this release removes the live-history cleanup that could stall large chats.
@@ -56,11 +57,12 @@
 
 ### 重点亮点 {#v1-4-248--}
 
+- **Terminals:** Remote streams stay connected while output is flowing, agent identity survives daemon restarts, mobile input is pipelined in order, and long phone messages reach Windows Codex. Nerd Font symbols repaint 一次 fonts load, and closed terminal workers can reopen from their orchestration cards.
 - **Chat continuity:** Streaming replies stay 在…之后 prompt they answer. Follow-ups remain queued after a failed turn, expired attachments are identified when a send is refused, and pasted text can be opened from 结构化聊天.
 - **Agent startup & choices:** A final startup refusal is shown 在…之后 first attempt 而不是 repeated retries; temporary failures still recover. Chats preserve configured effort 当你 have not chosen an override, and 源码管理 text actions use Model and Effort menus.
 - **Phone:** Cached chats reopen before fetching changes. Chat options, terminal settings, branch and pull-request details refresh more reliably; long phone messages reach Windows Codex, and browser tabs hosted by a desktop server can stream to 手机.
 - **Updates & Windows:** Choose an update delay, retain a moved Windows installation's location during updates, and get a clearer explanation when installation is incomplete.
-- **Editor & navigation:** Enable format on save, search theme choices, highlight selected Markdown table cells, and use image zoom shortcuts outside 编辑器标签s. Remote terminal streams are no longer torn down while output is still arriving.
+- **Editor & navigation:** Enable format on save, search theme choices, highlight selected Markdown table cells, and use image zoom shortcuts outside 编辑器标签s.
 - **Orchestration & plugins:** The Orchestration panel is available again as an experimental opt-in. Closed terminal workers can reopen from their cards, Native Chats receive complete orchestration messages, and enabled 状态栏 plugins keep their workers running.
 - **Performance & reliability:** Chat preview updates avoid a redundant full-history copy, cached text scrolling avoids whole-file layout updates, and diagnostic logging uses less data. The preview change removes unnecessary work; no whole-app latency improvement is claimed.
 
@@ -226,9 +228,9 @@
 
 #### 已回退 {#v1-4-248-reverted}
 
-> Remove blocking live 聊天历史 cleanup and revert the connector service.
+> Remove blocking live 聊天历史 cleanup and unused code.
 
-- Revert connector service (cloud/apps/connector)（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#37759](https://github.com/stablyai/orca/pull/37759)）
+- Revert unused code（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#37759](https://github.com/stablyai/orca/pull/37759)）
 - Remove blocking live 聊天历史 cleanup（[@brennanb2025](https://github.com/brennanb2025)，[#37873](https://github.com/stablyai/orca/pull/37873)）
 
 #### Tests, CI & maintenance {#v1-4-248-tests-ci-maintenance}
@@ -1055,7 +1057,7 @@
 - Keep the server's idle window out of user shells; require Agent for discovered effort menus（[@nwparker](https://github.com/nwparker)，[#36492](https://github.com/stablyai/orca/pull/36492)）
 - Prefetch the pinned Node archive when WSL 宿主 turn on（[@nwparker](https://github.com/nwparker)，[#36500](https://github.com/stablyai/orca/pull/36500)）
 - Re-check WSL 宿主 before the delayed Node prefetch runs（[@nwparker](https://github.com/nwparker)，[#36514](https://github.com/stablyai/orca/pull/36514)）
-- Patch relay, push and connector images to Node 24.22.2 and current Alpine fixes（[@nwparker](https://github.com/nwparker)，[#36560](https://github.com/stablyai/orca/pull/36560)）
+- Patch relay and push images to Node 24.22.2 and current Alpine fixes（[@nwparker](https://github.com/nwparker)，[#36560](https://github.com/stablyai/orca/pull/36560)）
 - Cap HTTP request bodies before they are buffered, including chunked ones（[@nwparker](https://github.com/nwparker)，[#36562](https://github.com/stablyai/orca/pull/36562)）
 - Offer a \\wsl.localhost project's distro as a host; explain WSL 1 and empty distro lists（[@nwparker](https://github.com/nwparker)，[#36615](https://github.com/stablyai/orca/pull/36615)）
 - Find distros when wsl.exe drops its redirected list output（[@nwparker](https://github.com/nwparker)，[#36616](https://github.com/stablyai/orca/pull/36616)）

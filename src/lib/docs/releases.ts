@@ -14,11 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.248",
     "date": "2026-11-04",
     "dateLabel": "2026年11月4日",
-    "title": "Streaming replies stay 在…之后 …",
+    "title": "Remote streams stay connecte…",
     "highlights": [
+      "**Terminals:** Remote streams stay connected while output is flowing, agent identity survives daemon restarts, mobile input is pipelined in order, and long phone messages reach Windows Codex. Nerd Font symbols repaint 一次 fonts load, and closed terminal workers can reopen from their orchestration cards.",
       "**Chat continuity:** Streaming replies stay 在…之后 prompt they answer. Follow-ups remain queued after a failed turn, expired attachments are identified when a send is refused, and pasted text can be opened from 结构化聊天.",
-      "**Agent startup & choices:** A final startup refusal is shown 在…之后 first attempt 而不是 repeated retries; temporary failures still recover. Chats preserve configured effort 当你 have not chosen an override, and 源码管理 text actions use Model and Effort menus.",
-      "**Phone:** Cached chats reopen before fetching changes. Chat options, terminal settings, branch and pull-request details refresh more reliably; long phone messages reach Windows Codex, and browser tabs hosted by a desktop server can stream to 手机."
+      "**Agent startup & choices:** A final startup refusal is shown 在…之后 first attempt 而不是 repeated retries; temporary failures still recover. Chats preserve configured effort 当你 have not chosen an override, and 源码管理 text actions use Model and Effort menus."
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.248",
     "href": "/docs/changelog#v1-4-248"

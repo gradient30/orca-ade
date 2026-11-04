@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-04",
   "officialRef": "main",
-  "docsTreeSha": "e152ad6cf199234a67447e098572601458d668b5",
+  "docsTreeSha": "659fa1f147ecc767cc13b431c5d2b595a11b6305",
   "docs": [
     {
       "slug": "activity",
@@ -152,8 +152,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/automations.mdx",
-      "size": 7508,
-      "lastSeenSha": "17500e352f3255df17a6bbb0235a4c178acc6a9f",
+      "size": 7603,
+      "lastSeenSha": "9063ddd84dc0a5a39ee006f0ba8f19cd435667ca",
       "translatedAtSha": "e7d40386dc95b3dcd6636d5551b55dcb06166e8c"
     },
     {
@@ -530,7 +530,7 @@
     {
       "tag": "v1.4.248",
       "publishedAt": "2026-11-04",
-      "lastSeenBodySha": "1062bffcf873",
+      "lastSeenBodySha": "3fb90052c1e1",
       "translatedAtBodySha": null,
       "yanked": false
     },
@@ -544,7 +544,7 @@
     {
       "tag": "v1.4.246",
       "publishedAt": "2026-11-02",
-      "lastSeenBodySha": "7441df7f4df1",
+      "lastSeenBodySha": "9ff972362127",
       "translatedAtBodySha": null,
       "yanked": false
     },
@@ -565,21 +565,21 @@
     {
       "tag": "v1.4.243",
       "publishedAt": "2026-10-28",
-      "lastSeenBodySha": "9144628dfba0",
+      "lastSeenBodySha": "b197b736f201",
       "translatedAtBodySha": "9144628dfba0",
       "yanked": false
     },
     {
       "tag": "v1.4.242",
       "publishedAt": "2026-10-27",
-      "lastSeenBodySha": "097ce1bacaa1",
+      "lastSeenBodySha": "d650bf955686",
       "translatedAtBodySha": "097ce1bacaa1",
       "yanked": false
     },
     {
       "tag": "v1.4.241",
       "publishedAt": "2026-10-26",
-      "lastSeenBodySha": "84f8767639b0",
+      "lastSeenBodySha": "3b6365236f3c",
       "translatedAtBodySha": "84f8767639b0",
       "yanked": false
     },
@@ -593,14 +593,14 @@
     {
       "tag": "v1.4.239",
       "publishedAt": "2026-10-24",
-      "lastSeenBodySha": "911ad663e12e",
+      "lastSeenBodySha": "4506a6dcc0fc",
       "translatedAtBodySha": null,
       "yanked": false
     },
     {
       "tag": "v1.4.238",
       "publishedAt": "2026-10-23",
-      "lastSeenBodySha": "badfc14bce0c",
+      "lastSeenBodySha": "50cc014a78d0",
       "translatedAtBodySha": null,
       "yanked": false
     },
