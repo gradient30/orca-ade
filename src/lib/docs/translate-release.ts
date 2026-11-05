@@ -91,7 +91,25 @@ const HEADINGS: Record<string, string> = {
   "Source control & integrations": "源码管理与集成",
   "Workspaces, sidebar & everyday polish": "工作区、侧栏与日常打磨",
   "Languages & translations": "语言与翻译",
+  "Known issues": "已知问题",
   "Phone & web": "手机与网页",
+  Phone: "手机",
+  "Agents & orchestration": "Agent 与编排",
+  "Agents, integrations & orchestration": "Agent、集成与编排",
+  "Source control, tasks & integrations": "源码管理、任务与集成",
+  "Workspaces, sidebar & tabs": "工作区、侧栏与标签",
+  "Editor, files & browser": "编辑器、文件与浏览器",
+  "Editor, files & Markdown": "编辑器、文件与 Markdown",
+  "Updates, terminals & remote work": "更新、终端与远程工作",
+  "Automations & plugins": "自动化与插件",
+  Automations: "自动化",
+  "SSH, managed servers & remote": "SSH、托管服务器与远程",
+  "Browser, skills & feedback": "浏览器、技能与反馈",
+  "Browser & computer use": "浏览器与电脑操控",
+  "Performance & reliability": "性能与可靠性",
+  "Relay service": "中继服务",
+  "Themes, editors & previews": "主题、编辑器与预览",
+  "Tests, CI & maintenance": "测试、CI 与维护",
   "All test, build and maintenance changes": "全部测试、构建与维护改动",
   Reverted: "已回退",
 };
@@ -985,16 +1003,28 @@ export function inferTitle(highlights: string[]): string {
 export function toReleaseNote(rel: LiveRelease): ReleaseNote {
   const highlights = extractHighlights(rel.body);
   const id = tagAnchor(rel.tag);
+  // Prefer the release body's hero ## title (phrase-translated) over a clipped highlight.
+  const hero = /(?:^|\n)##\s+(?!The short version|Highlights|Notable|Product experience|Compatibility|Known issues)([^\n]+)/i.exec(
+    rel.body.replace(/\r\n/g, "\n"),
+  );
+  const heroTitle = hero?.[1]?.trim() ? translateProse(hero[1].trim()) : "";
+  const title =
+    heroTitle && !/^v?\d/.test(heroTitle) && heroTitle.length >= 8
+      ? heroTitle.length > 48
+        ? `${heroTitle.slice(0, 48)}…`
+        : heroTitle
+      : inferTitle(highlights);
   return {
     tag: rel.tag,
     date: rel.publishedAt.slice(0, 10),
     dateLabel: dateLabel(rel.publishedAt),
-    title: inferTitle(highlights),
+    title,
     highlights: highlights.length ? highlights : ["详见下方完整中文日志。"],
     url: rel.url,
     href: `/docs/changelog#${id}`,
   };
 }
+
 
 function translateBody(rel: LiveRelease): string[] {
   const id = tagAnchor(rel.tag);
