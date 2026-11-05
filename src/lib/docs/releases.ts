@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.250",
+    "date": "2026-11-05",
+    "dateLabel": "2026年11月5日",
+    "title": "Lower terminal memory use, clearer chat changes …",
+    "highlights": [
+      "**性能：** Worktree switching is faster. Terminal ligatures no longer parse an entire font for every terminal. In the PR’s Windows test with Commit Mono, 32 terminals relaunched without the previous out-of-memory crash; results depend on fonts and workload. Closing a tool in a long agent turn also avoids scanning every other live tool.",
+      "**Chat:** Successful Claude and Codex edits appear as changed-file summaries in the conversation, with patch details loaded on selection. Chat UI no longer interrupts an otherwise healthy agent turn 当它 exceeds 128 live text or tool entries. Codex chats show requested wait durations and support goal pause, resume and clear.",
+      "**Browser:** Save and fill logins in Orca’s browser and manage them in browser settings. Passwords use OS-backed encryption; the vault is unavailable when secure storage is unavailable."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.250",
+    "href": "/docs/changelog#v1-4-250"
+  },
+  {
     "tag": "v1.4.249",
     "date": "2026-11-04",
     "dateLabel": "2026年11月4日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.246",
     "href": "/docs/changelog#v1-4-246"
-  },
-  {
-    "tag": "v1.4.245",
-    "date": "2026-10-30",
-    "dateLabel": "2026年10月30日",
-    "title": "更快的 Orca、插件与后台电脑操控 ⚡",
-    "highlights": [
-      "**更快的 Orca：**在数百个聊天下仍保持快速。输入更跟手，隐藏的聊天在你用其他标签时少做无用功。",
-      "**插件：**在 Settings → Plugins 添加图标主题、语法高亮与自定义编辑器。社区发布即将到来，届时可分享自己的插件。",
-      "**Mac 后台电脑操控：**Agent 可在 Chrome、Blender 等应用中工作，你仍可继续使用鼠标键盘。Orca 应用内浏览器本就可在后台运行；现在电脑操控也可以。部分操作仍需把应用带到前台。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.245",
-    "href": "/docs/changelog#v1-4-245"
   }
 ];
 
