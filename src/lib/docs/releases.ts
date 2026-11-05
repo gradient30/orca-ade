@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.249",
+    "date": "2026-11-04",
+    "dateLabel": "2026年11月4日",
+    "title": "Pick Chat or Terminal during…",
+    "highlights": [
+      "**Setup & skills:** Pick Chat or Terminal during onboarding, use the updated agent picker and theme step, and install Chat skills for the selected provider on this computer. Empty newly added projects can open the chosen Chat agent when that route is supported.",
+      "**Chat behavior:** Inputs and queued follow-ups are retained through uncertain delivery and Stop. New settings control 滚动位置 when sending and when idle chat agents stop. Loaded chat images stay visible across scrolling and workspace switches, and Pi compaction holds sends until it finishes.",
+      "**Agent choices:** Managed Claude accounts keep later `/model` and effort 选项 当 defaults have not changed. Claude fallback is shown without changing saved model choices; OpenCode effort follows the selected model, and Claude chat adds Ultracode effort."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.249",
+    "href": "/docs/changelog#v1-4-249"
+  },
+  {
     "tag": "v1.4.248",
     "date": "2026-11-04",
     "dateLabel": "2026年11月4日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.245",
     "href": "/docs/changelog#v1-4-245"
-  },
-  {
-    "tag": "v1.4.244",
-    "date": "2026-10-29",
-    "dateLabel": "2026年10月29日",
-    "title": "更多界面语言、更快切换工作区，远程文件像本地一样好用",
-    "highlights": [
-      "四种新语言：德语、俄语、土耳其语与繁体中文加入语言选择器，更多对话框、菜单与快捷键已翻译。德语为机器翻译，欢迎母语者审阅。",
-      "更快切换工作区：侧栏悬停会预热目标工作区，相邻工作区保持热态，切换本身更轻；拖拽行不会触发切换。",
-      "远程文件像本地一样：可在 SSH 宿主与已配对服务器上播放音视频、保存最大 50 MB 的远程文本、滚动打开超大文件夹，且不会把远程二进制当文本打开。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.244",
-    "href": "/docs/changelog#v1-4-244"
   }
 ];
 
