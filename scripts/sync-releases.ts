@@ -66,7 +66,7 @@ function productExperienceBlock(section: string, opts: { includeTests?: boolean 
     if (inP && /^####\s+/.test(line)) {
       skipMod =
         !opts.includeTests &&
-        /测试|构建与维护|All test|Tests, builds/.test(line);
+        /测试|构建与维护|All test|Tests, builds|Tests, CI/.test(line);
     }
     if (inP && /^###\s+/.test(line) && !line.startsWith("####")) break;
     if (inP && !skipMod) out.push(line);
@@ -103,9 +103,17 @@ async function main() {
     const fresh = toReleaseNote(rel);
     // Keep hand-tuned card (title/highlights) when already Chinese-dense.
     // Changelog body still rebuilds from phrase dictionary + structured rewrite.
-    if (baked && isChineseDenseNote(baked)) {
+    // FORCE_SYNC: always take fresh phrase-dict title/highlights.
+    if (
+      process.env.FORCE_SYNC !== "1" &&
+      baked &&
+      isChineseDenseNote(baked) &&
+      !/\*\s+\*/.test(baked.title) &&
+      !baked.highlights.some((h) => /\*\s+\*/.test(h))
+    ) {
       return { ...fresh, title: baked.title, highlights: baked.highlights };
     }
+
     return fresh;
   });
   const prev = RELEASES.map((n) => n.tag).join(",");
