@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-06",
   "officialRef": "main",
-  "docsTreeSha": "2776b359a1f96e1f359ad1416009bd38cf59e741",
+  "docsTreeSha": "80bfbbe16adb1551fa0845f2e69021304aacd6d6",
   "docs": [
     {
       "slug": "activity",
@@ -26,8 +26,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/codex-hot-swap.mdx",
-      "size": 1962,
-      "lastSeenSha": "2c00f0cff1a245ee24195210e6368dfd3e220a00",
+      "size": 2701,
+      "lastSeenSha": "f80db35dd4aa2671a2b8fdbb08565fa49411d545",
       "translatedAtSha": "2c00f0cff1a245ee24195210e6368dfd3e220a00"
     },
     {
@@ -99,7 +99,7 @@
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
       "size": 13193,
-      "lastSeenSha": "f89f2447e5bd22e18a5857047d1b2288bbd37b54",
+      "lastSeenSha": "0f5051e3c2bf2f96a502cfe40c68e013ff94519d",
       "translatedAtSha": "ecc8cfd1305796f5fea375528aed50ca4cb94458"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 24983,
-      "lastSeenSha": "af118eacdaab1ca2f17257b964efb1d90af3ebdf",
+      "size": 25922,
+      "lastSeenSha": "38fe54f6a7b38dbd25bfd8902f243f3df0d46104",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 16529,
-      "lastSeenSha": "5b0fe52dad318b3df764a47294675934358fd0b4",
+      "size": 17083,
+      "lastSeenSha": "1aecfa62b286ad7e8fa5eb8936d1f870a1a28dda",
       "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
@@ -524,9 +524,25 @@
       "size": 8100,
       "lastSeenSha": "e35b63eae906e9e88033ec3b60797ea41d2492f0",
       "translatedAtSha": "e35b63eae906e9e88033ec3b60797ea41d2492f0"
+    },
+    {
+      "slug": "agents/antigravity-accounts",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/antigravity-accounts.mdx",
+      "size": 2446,
+      "lastSeenSha": "d5ccefc239be29f495e73a301e0c4f5557fb9a14",
+      "translatedAtSha": null
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.251",
+      "publishedAt": "2026-11-06",
+      "lastSeenBodySha": "34fae67b783d",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.250",
       "publishedAt": "2026-11-05",
@@ -609,7 +625,7 @@
       "publishedAt": "2026-10-24",
       "lastSeenBodySha": "4506a6dcc0fc",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.238",

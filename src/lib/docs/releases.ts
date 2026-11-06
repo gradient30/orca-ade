@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.251",
+    "date": "2026-11-06",
+    "dateLabel": "2026年11月6日",
+    "title": "Richer phone chats, add-to-chat from anywhere & …",
+    "highlights": [
+      "**Chat:** Add a file, Markdown preview or terminal selection to a chat. Agent messages use one-line cards 在桌面与手机上, Native Chats appear in Cmd+J recents and title search, and Cmd/Ctrl+Enter on an empty composer steers the first queued message. Claude chats keep effort changeable 在…之后 first reply and clear a stuck \"needs permission\" status when Claude ends the request itself. Codex chats show `/usage` and subagent task names.",
+      "**Phone:** Rewind and continue chats, pin the plan, paste images and long text, set and manage goals, see the context usage ring, follow 后台任务s, copy or share images, copy file paths, choose where links open, and sign in from a signed-out chat.",
+      "**Orchestration:** Workers can start their own workers, keep messaging their coordinator 在…之后y finish, and stop their helpers when stopped. Mail waits for a draft you are typing, including in OpenCode and 重启后."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.251",
+    "href": "/docs/changelog#v1-4-251"
+  },
+  {
     "tag": "v1.4.250",
     "date": "2026-11-05",
     "dateLabel": "2026年11月5日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.247",
     "href": "/docs/changelog#v1-4-247"
-  },
-  {
-    "tag": "v1.4.246",
-    "date": "2026-11-02",
-    "dateLabel": "2026年11月2日",
-    "title": "Orchestrator V3、改进的终端、聊天界面走出实验，以及焕新的手机应用 ✨",
-    "highlights": [
-      "**移动主题和语言选择器：**为手机应用选择**浅色、深色或系统**，然后在设置→外观和语言中选择您的**显示语言**。",
-      "**全新的手机应用程序：**主屏幕侧重于您需要的内容、紧凑的顶部栏、底部搜索、过滤芯片、更清晰的列表和更流畅的工作表。工作区列表加载的数据更少，图像和Mermaid 图图支持按压到缩放， iOS可以显示内联HTML卡和预览。也可以通过手机运行自动化功能。",
-      "**插件：**默认情况下，社区目录是可见的，具有公共安装计数和更清晰的发布者信息。插件作者无需单独的构建步骤、基于组件的面板、工作者通信、热重新加载和用于测试和屏幕截图的CLI工具即可获得TypeScript和TSX。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.246",
-    "href": "/docs/changelog#v1-4-246"
   }
 ];
 
