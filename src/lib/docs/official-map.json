@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-05",
+  "capturedAt": "2026-11-06",
   "officialRef": "main",
-  "docsTreeSha": "659fa1f147ecc767cc13b431c5d2b595a11b6305",
+  "docsTreeSha": "2776b359a1f96e1f359ad1416009bd38cf59e741",
   "docs": [
     {
       "slug": "activity",
@@ -170,8 +170,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 10529,
-      "lastSeenSha": "497eb481a6da163da09a3d974ebf0df0c81cbd58",
+      "size": 10742,
+      "lastSeenSha": "3f6551f3753a4b988ac3a139b08ac4dfd1bfd821",
       "translatedAtSha": "88355cb8c825d11999fe3cade3017e49b5242495"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 24649,
-      "lastSeenSha": "d18b4cea146b61e52ce8f95b12a61110888e6b62",
+      "size": 24983,
+      "lastSeenSha": "af118eacdaab1ca2f17257b964efb1d90af3ebdf",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
