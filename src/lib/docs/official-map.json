@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-06",
   "officialRef": "main",
-  "docsTreeSha": "80bfbbe16adb1551fa0845f2e69021304aacd6d6",
+  "docsTreeSha": "23d16184c5cfa326882e40c4a26a94aec1c0f802",
   "docs": [
     {
       "slug": "activity",
@@ -152,8 +152,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/automations.mdx",
-      "size": 7603,
-      "lastSeenSha": "9063ddd84dc0a5a39ee006f0ba8f19cd435667ca",
+      "size": 7616,
+      "lastSeenSha": "c69f367121dc928787d0f83a3709ef86f862cff8",
       "translatedAtSha": "e7d40386dc95b3dcd6636d5551b55dcb06166e8c"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 25922,
-      "lastSeenSha": "38fe54f6a7b38dbd25bfd8902f243f3df0d46104",
+      "size": 26376,
+      "lastSeenSha": "d4daa82586d21e979ce1135e694eba12aabe5164",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -485,8 +485,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/ssh.mdx",
-      "size": 12533,
-      "lastSeenSha": "e723aceaede3904dea917ae6a400032e0dfa6642",
+      "size": 13364,
+      "lastSeenSha": "1d2fbbca59700146f2f6e61acdac6b11f7a6353a",
       "translatedAtSha": "e723aceaede3904dea917ae6a400032e0dfa6642"
     },
     {
@@ -530,8 +530,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/antigravity-accounts.mdx",
-      "size": 2446,
-      "lastSeenSha": "d5ccefc239be29f495e73a301e0c4f5557fb9a14",
+      "size": 2520,
+      "lastSeenSha": "53354a7e801ae04be207b9a5251b7367b87add87",
       "translatedAtSha": null
     }
   ],
