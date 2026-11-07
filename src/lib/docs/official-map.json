@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-06",
+  "capturedAt": "2026-11-07",
   "officialRef": "main",
-  "docsTreeSha": "23d16184c5cfa326882e40c4a26a94aec1c0f802",
+  "docsTreeSha": "377fec7bc2e963d73dff9b9db34698a8018ce1cf",
   "docs": [
     {
       "slug": "activity",
@@ -98,8 +98,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
-      "size": 13193,
-      "lastSeenSha": "0f5051e3c2bf2f96a502cfe40c68e013ff94519d",
+      "size": 13429,
+      "lastSeenSha": "98313aa6d1a7abb24f7f8a7852bebc125dce0239",
       "translatedAtSha": "ecc8cfd1305796f5fea375528aed50ca4cb94458"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 26376,
-      "lastSeenSha": "d4daa82586d21e979ce1135e694eba12aabe5164",
+      "size": 26645,
+      "lastSeenSha": "12cfa96f2b06b18f0bed96af92e0ad8bb6dd1a85",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -404,8 +404,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
-      "size": 13147,
-      "lastSeenSha": "d9be9701a257c12c1cfad3168544beec1632cbfd",
+      "size": 15527,
+      "lastSeenSha": "f402cc99f1d359278e060fe2704a56850428ab5b",
       "translatedAtSha": "d9be9701a257c12c1cfad3168544beec1632cbfd"
     },
     {
@@ -521,8 +521,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/ways-to-run.mdx",
-      "size": 8100,
-      "lastSeenSha": "e35b63eae906e9e88033ec3b60797ea41d2492f0",
+      "size": 8114,
+      "lastSeenSha": "b4b715710bcb77cbeba82bdbf8c385088abe1164",
       "translatedAtSha": "e35b63eae906e9e88033ec3b60797ea41d2492f0"
     },
     {
@@ -532,6 +532,15 @@
       "officialPath": "docs/site/content/docs/agents/antigravity-accounts.mdx",
       "size": 2520,
       "lastSeenSha": "53354a7e801ae04be207b9a5251b7367b87add87",
+      "translatedAtSha": null
+    },
+    {
+      "slug": "agents/antigravity",
+      "section": "agents",
+      "kind": "official",
+      "officialPath": "docs/site/content/docs/agents/antigravity.mdx",
+      "size": 6929,
+      "lastSeenSha": "9dd985508b26a20f6a90debf5c6594a4d49cbd2e",
       "translatedAtSha": null
     }
   ],
