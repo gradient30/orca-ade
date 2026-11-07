@@ -11,6 +11,30 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.253",
+    "date": "2026-11-07",
+    "dateLabel": "2026年11月7日",
+    "title": "A little update ✨",
+    "highlights": [
+      "A small release with a few minor improvements. A bigger one is coming later 🫣"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.253",
+    "href": "/docs/changelog#v1-4-253"
+  },
+  {
+    "tag": "v1.4.252",
+    "date": "2026-11-07",
+    "dateLabel": "2026年11月7日",
+    "title": "Fork chats from any reply, Plan mode & a faster …",
+    "highlights": [
+      "**Chat:** Fork from any finished response, use Plan mode in Claude and Codex chats, and open a running subagent from Agents strip. Codex approvals show the proposed files and diffs, OpenCode can ask choice questions, and Claude's built-in server tools show as normal tool cards. Holding Cmd/Ctrl in a busy chat shows what Cmd/Ctrl+Enter will do, app shortcuts work from the chat editor, and oversized pasted images shrink to fit 而不失败. Signed-out OpenCode, Pi and OMP chats offer a Sign in button.",
+      "**Phone:** Markdown is easier to read and renders math, GitHub alerts, task boxes and images. Rename a workspace from its menu, see automatic continue and Switch Account on 用量限制 notices, and keep chat sends, PR text, review notes and Tasks drafts when a 连接断开. The phone dials the relay 立即 when that worked last time, keeps terminal output across a network switch, and streams busy terminals without falling behind.",
+      "**Agents & accounts:** Antigravity Chat can sign in with Gemini Enterprise, reports quota for every saved account and manages accounts inside WSL. `orca account` can select and remove any saved account. Antigravity IDE joins the Open In presets."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.252",
+    "href": "/docs/changelog#v1-4-252"
+  },
+  {
     "tag": "v1.4.251",
     "date": "2026-11-06",
     "dateLabel": "2026年11月6日",
@@ -48,32 +72,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.249",
     "href": "/docs/changelog#v1-4-249"
-  },
-  {
-    "tag": "v1.4.248",
-    "date": "2026-11-04",
-    "dateLabel": "2026年11月4日",
-    "title": "更可靠的终端、更稳妥的聊天与更易用的 AI 选择 ✨",
-    "highlights": [
-      "**终端：**远程流在输出流动时保持连接，代理标识在守护程序重启后仍然存在，移动输入按顺序流水线传输，长电话消息到达Windows Codex。加载字体后，书呆子字体符号会重新绘制，关闭的终端工作人员可以从其编排卡中重新打开。",
-      "**聊天连续性：**流式回复会在收到提示后保留。转弯失败后，后续行动仍在排队，发送被拒绝时会识别过期的附件，并且可以从结构化聊天中打开粘贴的文本。",
-      "**代理启动和选择：**第一次尝试后会显示最终的启动拒绝，而不是重复重试；临时故障仍会恢复。当您未选择覆盖时，聊天会保留配置的工作量，并且源代码管理文本操作使用“模型”和“工作量”菜单。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.248",
-    "href": "/docs/changelog#v1-4-248"
-  },
-  {
-    "tag": "v1.4.247",
-    "date": "2026-11-03",
-    "dateLabel": "2026年11月3日",
-    "title": "改进的聊天界面、更丰富的手机审阅，以及更多让 Orca 归你所有的方式 ✨",
-    "highlights": [
-      "**聊天界面：**直接在聊天界面设置中为每个客服代表选择聊天或CLI。权限选项保持可见，模型和工作量控件在选项刷新时保持可用，而作曲家的焦点保持开放的叠加层。",
-      "**对话连续性：**从终端移动到聊天时保留未发送的文本，并在保存繁忙时保留收到的回复和工具结果。重置聊天使用限制后，开启自动继续功能以恢复聊天。",
-      "**电话源代码管理：**在自己的页面上查看每个分支提交，在文件之间跳转，折叠差异上下文，并在代码旁边阅读或添加审阅注释。拉取请求选项卡侧重于阻止合并的内容，具有更清晰的下一步操作和自动刷新。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.247",
-    "href": "/docs/changelog#v1-4-247"
   }
 ];
 

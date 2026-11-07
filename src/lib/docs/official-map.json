@@ -546,6 +546,20 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.253",
+      "publishedAt": "2026-11-07",
+      "lastSeenBodySha": "4097f33682aa",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
+      "tag": "v1.4.252",
+      "publishedAt": "2026-11-07",
+      "lastSeenBodySha": "c17887007cbe",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.251",
       "publishedAt": "2026-11-06",
       "lastSeenBodySha": "34fae67b783d",
@@ -620,14 +634,14 @@
       "publishedAt": "2026-10-26",
       "lastSeenBodySha": "3b6365236f3c",
       "translatedAtBodySha": "84f8767639b0",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.240",
       "publishedAt": "2026-10-25",
       "lastSeenBodySha": "f6173197d033",
       "translatedAtBodySha": "f6173197d033",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.239",
