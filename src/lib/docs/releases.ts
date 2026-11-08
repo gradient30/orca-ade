@@ -16,6 +16,7 @@ export const RELEASES: ReleaseNote[] = [
     "dateLabel": "2026年11月7日",
     "title": "A little update ✨",
     "highlights": [
+      "We released two updates today! Check out the [v1.4.252 release notes](https://github.com/stablyai/orca/releases/tag/v1.4.252) for chat forking and Plan mode, a smoother phone experience, and workspace organization across machines.",
       "A small release with a few minor improvements. A bigger one is coming later 🫣"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.253",

@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-07",
+  "capturedAt": "2026-11-08",
   "officialRef": "main",
-  "docsTreeSha": "377fec7bc2e963d73dff9b9db34698a8018ce1cf",
+  "docsTreeSha": "e70e0a513927baa18b57c142771f1ec4f94b3fa4",
   "docs": [
     {
       "slug": "activity",
@@ -62,8 +62,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/hibernation.mdx",
-      "size": 4444,
-      "lastSeenSha": "cb1d15780a2e17f1f4f4918a25799d0f43377ea8",
+      "size": 4442,
+      "lastSeenSha": "69d64c570739d3e6881d718ce81a79ab3e0926bf",
       "translatedAtSha": "4e63d96bfc7dc3586211567ea21329ff7cbe544c"
     },
     {
@@ -341,8 +341,8 @@
       "section": "model",
       "kind": "official",
       "officialPath": "docs/site/content/docs/model/worktrees.mdx",
-      "size": 14797,
-      "lastSeenSha": "52e432c4b6c96946ba075836dd5468eda77e75f8",
+      "size": 14925,
+      "lastSeenSha": "039ace59984400b05c45654ca07413c7c85dc66e",
       "translatedAtSha": "52e432c4b6c96946ba075836dd5468eda77e75f8"
     },
     {
@@ -494,8 +494,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 7366,
-      "lastSeenSha": "0a8b45072ae85b32107c23e4c3ef9901eb025204",
+      "size": 7672,
+      "lastSeenSha": "21d1d016ff921d0fb446e7acd1df9cae80d73347",
       "translatedAtSha": "55334050fdc03d8429256ccad983bd410c5843db"
     },
     {
@@ -548,7 +548,7 @@
     {
       "tag": "v1.4.253",
       "publishedAt": "2026-11-07",
-      "lastSeenBodySha": "4097f33682aa",
+      "lastSeenBodySha": "d31a0cad6b7f",
       "translatedAtBodySha": null,
       "yanked": false
     },
