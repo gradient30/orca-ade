@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.255",
+    "date": "2026-11-09",
+    "dateLabel": "2026年11月9日",
+    "title": "session search, agents on your phone & smoother …",
+    "highlights": [
+      "**Session History & performance:** Large histories stay responsive while search runs in a worker. Workspace and Project filters query their own sessions, unchanged history rows avoid extra rendering, and search indexing and profile saves do less disk work.",
+      "**Chat & agents:** Open Codex chats follow account switches, newly installed skills appear in Codex’s `$` menu before your 第一条消息, and Antigravity Chat shows installed skills. OpenCode 2 starts with the model you picked. Clearing a chat hides the old transcript immediately, and a failed model or effort change affects its message rather than the whole chat.",
+      "**Phone & remote hosts:** The Agents tab brings activity across desktops into one place. Pages open sooner through prewarming, Review refreshes branch comparisons when Git changes, and the file-preview restore bar stays above the keyboard. A stalled LAN reconnect can fall back to Relay, and resumed VMs keep their device pairing when 宿主 key is unchanged."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.255",
+    "href": "/docs/changelog#v1-4-255"
+  },
+  {
     "tag": "v1.4.254",
     "date": "2026-11-08",
     "dateLabel": "2026年11月8日",
@@ -60,19 +73,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.251",
     "href": "/docs/changelog#v1-4-251"
-  },
-  {
-    "tag": "v1.4.250",
-    "date": "2026-11-05",
-    "dateLabel": "2026年11月5日",
-    "title": "Lower terminal memory use, clearer chat changes …",
-    "highlights": [
-      "**性能：** Worktree switching is faster. Terminal ligatures no longer parse an entire font for every terminal. In the PR’s Windows test with Commit Mono, 32 terminals relaunched without the previous out-of-memory crash; results depend on fonts and workload. Closing a tool in a long agent turn also avoids scanning every other live tool.",
-      "**Chat:** Successful Claude and Codex edits appear as changed-file summaries in the conversation, with patch details loaded on selection. Chat UI no longer interrupts an otherwise healthy agent turn 当它 exceeds 128 live text or tool entries. Codex chats show requested wait durations and support goal pause, resume and clear.",
-      "**Browser:** Save and fill logins in Orca’s browser and manage them in browser settings. Passwords use OS-backed encryption; the vault is unavailable when secure storage is unavailable."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.250",
-    "href": "/docs/changelog#v1-4-250"
   }
 ];
 

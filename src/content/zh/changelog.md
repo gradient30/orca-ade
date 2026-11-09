@@ -8,13 +8,14 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
+| [v1.4.255](#v1-4-255) | 2026年11月9日 | session search, agents on your phone & smoother … |
 | [v1.4.254](#v1-4-254) | 2026年11月8日 | Git Graph, on-phone dictation & side questions 在… |
 | [v1.4.253](#v1-4-253) | 2026年11月7日 | A little update ✨ |
 | [v1.4.252](#v1-4-252) | 2026年11月7日 | Fork chats from any reply, Plan mode & a faster … |
 | [v1.4.251](#v1-4-251) | 2026年11月6日 | Richer phone chats, add-to-chat from anywhere & … |
-| [v1.4.250](#v1-4-250) | 2026年11月5日 | Lower terminal memory use, clearer chat changes … |
 
 更早版本（同步时保留，不删除）：
+| [v1.4.250](#v1-4-250) | — | Lower terminal memory use, clearer chat changes … |
 | [v1.4.249](#v1-4-249) | — | 更轻松的设置、更可控的聊天与更整洁的工作区 ✨ |
 | [v1.4.248](#v1-4-248) | — | 更可靠的终端、更稳妥的聊天与更易用的 AI 选择 ✨ |
 | [v1.4.247](#v1-4-247) | — | 改进的聊天界面、更丰富的手机审阅，以及更多让 Orca 归你所有的方式 ✨ |
@@ -46,6 +47,250 @@
 | [v1.4.216](#v1-4-216) | — | 窄窗口里状态栏保持单行 |
 
 ## 完整中文日志 {#full-notes}
+
+## v1.4.255 session search, agents on your phone & smoother … {#v1-4-255}
+
+2026年11月9日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.255)
+
+### Faster session search, agents on your phone & smoother chat switching ✨ {#v1-4-255-faster-session-search-agents-on-your-phone-smoother-chat-switching-}
+
+A little less waiting, a little more flow. This update makes large session histories easier to search, brings your agents together on your phone, and smooths out the everyday work of switching accounts, models and workspaces.
+
+- ⚡ **Find past work without slowing down:** Session History searches run off the app’s main thread, keep results visible while you type, and show your last list immediately 重启后 while it refreshes. Search also works on SSH and remote-server hosts.
+- 📱 **Your agents, together on your phone:** A new Agents tab lists agents across your connected desktops. Mark them read or clear them from the list, with activity status supplied by the desktop. Saved task lists and host labels appear sooner 当你 reopen the app.
+- 💬 **Keep your chat moving:** Switching Codex accounts moves your open Codex chats to the account you choose. Forks preserve the chat’s history, pasted rich text keeps its links, and 排队消息 resume 重启后.
+- 🎛️ **A clearer way to choose your setup:** Agent speed is now one button, model setup opens with your current choice highlighted, and searching for “codex” puts the Codex agent ahead of other agents’ Codex-named models—including 当你 press Enter.
+- 🌳 **Do more from where you are:** Check out, cherry-pick or revert commits from Git Graph. Open the branch picker directly from the branch name under your 聊天编写器, and choose your next action from a simpler empty split pane.
+
+### 重点亮点 {#v1-4-255--}
+
+- **Session History & performance:** Large histories stay responsive while search runs in a worker. Workspace and Project filters query their own sessions, unchanged history rows avoid extra rendering, and search indexing and profile saves do less disk work.
+- **Chat & agents:** Open Codex chats follow account switches, newly installed skills appear in Codex’s `$` menu before your 第一条消息, and Antigravity Chat shows installed skills. OpenCode 2 starts with the model you picked. Clearing a chat hides the old transcript immediately, and a failed model or effort change affects its message rather than the whole chat.
+- **Phone & remote hosts:** The Agents tab brings activity across desktops into one place. Pages open sooner through prewarming, Review refreshes branch comparisons when Git changes, and the file-preview restore bar stays above the keyboard. A stalled LAN reconnect can fall back to Relay, and resumed VMs keep their device pairing when 宿主 key is unchanged.
+- **Workspaces & source control:** Git Graph gains checkout, cherry-pick and revert actions. You can preserve eligible child workspaces when deleting a parent, create a worktree for each repository from an empty folder workspace, and clone into a separate folder when a repository name is already taken. The sidebar divider resizes 侧栏 reliably.
+- **Browser, editor & terminal:** Remote browser tabs show site favicons, website links open in new tabs, and the CLI can list and reload installed browser extensions. PDFs fit the preview pane’s width. Terminal panes explain when another window is holding their size and offer a way to undo it.
+- **Everyday polish:** Long Settings lists use searchable pickers, older chat messages show dates, and live agents stay visible in the unread filter. This release also fixes stale browser, Linear toolbar and usage-tooltip displays, plus the first Enter keypress after turning off Japanese IME.
+
+**Full Changelog:** https://github.com/stablyai/orca/compare/v1.4.254...v1.4.255
+
+---
+
+### 本版本改动 {#v1-4-255-changed}
+
+- more accurate chat ui invocation count（[@AmethystLiang](https://github.com/AmethystLiang)，[#39784](https://github.com/stablyai/orca/pull/39784)）
+- 测试：remove 988 low-value tests（[@OrcaWin](https://github.com/OrcaWin)，[#39797](https://github.com/stablyai/orca/pull/39797)）
+- 新增（cli）：one enclosing-workspace rule, --environment local, copyable addresses, and --parent-environment（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#39733](https://github.com/stablyai/orca/pull/39733)）
+- 修复（mobile）：prevent duplicate queued sends after chat remount（[@nwparker](https://github.com/nwparker)，[#39809](https://github.com/stablyai/orca/pull/39809)）
+- Preserve the chat's history when forking（[@brennanb2025](https://github.com/brennanb2025)，[#39168](https://github.com/stablyai/orca/pull/39168)）
+- Simplify delete workspace dialog（[@nwparker](https://github.com/nwparker)，[#39801](https://github.com/stablyai/orca/pull/39801)）
+- Use Appearance's searchable picker for terminal themes（[@nwparker](https://github.com/nwparker)，[#39800](https://github.com/stablyai/orca/pull/39800)）
+- 测试：stop worker-teardown console race from failing unit shards（[@OrcaWin](https://github.com/OrcaWin)，[#39813](https://github.com/stablyai/orca/pull/39813)）
+- 测试：remove 154 low-value tests and redundant relay checkpoints（[@OrcaWin](https://github.com/OrcaWin)，[#39814](https://github.com/stablyai/orca/pull/39814)）
+- Open a landing 而不是 a terminal when splitting a Chat UI pane（[@brennanb2025](https://github.com/brennanb2025)，[#39234](https://github.com/stablyai/orca/pull/39234)）
+- 修复（agent-hooks）：let the last-status throttle apply to routine hook events（[@nwparker](https://github.com/nwparker)，[#39826](https://github.com/stablyai/orca/pull/39826)）
+- Use searchable pickers for long Settings lists（[@nwparker](https://github.com/nwparker)，[#39815](https://github.com/stablyai/orca/pull/39815)）
+- 修复（shell）：keep a user's claude/codex function 当 cwd has a matching entry（[@nwparker](https://github.com/nwparker)，[#39820](https://github.com/stablyai/orca/pull/39820)）
+- 修复（bitbucket）：list required API token scopes in the connect dialog（[@1aifanatic](https://github.com/1aifanatic)，[#39118](https://github.com/stablyai/orca/pull/39118)）
+- 修复（settings）：line up Agent's launch fields on one type scale（[@luisgonzaleznf](https://github.com/luisgonzaleznf)，[#39199](https://github.com/stablyai/orca/pull/39199)）
+- 修复（sidebar）：don't wake a sibling Hide sleeping keeps hidden 当 active workspace is deleted（[@yohangwak](https://github.com/yohangwak)，[#39230](https://github.com/stablyai/orca/pull/39230)）
+- Create a worktree per repository from an empty folder workspace（[@brennanb2025](https://github.com/brennanb2025)，[#39575](https://github.com/stablyai/orca/pull/39575)）
+- 修复（packaging）：run 终端主机 PTY probe in /bin/sh（[@mancunianez](https://github.com/mancunianez)，[#39602](https://github.com/stablyai/orca/pull/39602)）
+- Git Graph: commit actions (checkout, cherry-pick, revert)（[@brennanb2025](https://github.com/brennanb2025)，[#39069](https://github.com/stablyai/orca/pull/39069)）
+- 修复（antigravity）：detect Orca Chat sign-in via antigravity-acp/acp_token.json（[@Manho](https://github.com/Manho)，[#39398](https://github.com/stablyai/orca/pull/39398)）
+- 测试：remove 712 low-value tests（[@OrcaWin](https://github.com/OrcaWin)，[#39829](https://github.com/stablyai/orca/pull/39829)）
+- 修复（browser）：keep native popup minimum content size and first Windows fixture error（[@RoastFried-RF](https://github.com/RoastFried-RF)，[#39319](https://github.com/stablyai/orca/pull/39319)）
+- 测试：split GitHub and GitLab mocks out of runtime setup.spec to fix main lint（[@nwparker](https://github.com/nwparker)，[#39837](https://github.com/stablyai/orca/pull/39837)）
+- 性能（orchestration）：back off failing federation relays 而不是 polling every second（[@OrcaWin](https://github.com/OrcaWin)，[#39734](https://github.com/stablyai/orca/pull/39734)）
+- 性能（skills）：read skill folders ahead of the walk, three reads at a time（[@OrcaWin](https://github.com/OrcaWin)，[#39836](https://github.com/stablyai/orca/pull/39836)）
+- 性能（test）：default check:changed unit tests to two Vitest workers（[@OrcaWin](https://github.com/OrcaWin)，[#39849](https://github.com/stablyai/orca/pull/39849)）
+- 性能（mobile）：warm WebKit's processes on iOS before the first page opens（[@OrcaWin](https://github.com/OrcaWin)，[#39851](https://github.com/stablyai/orca/pull/39851)）
+- 性能（main）：overlap independent fs probes; skip per-entry copies（[@nwparker](https://github.com/nwparker)，[#39729](https://github.com/stablyai/orca/pull/39729)）
+- 测试：remove 231 low-value tests（[@OrcaWin](https://github.com/OrcaWin)，[#39850](https://github.com/stablyai/orca/pull/39850)）
+- 性能（codex）：bridge account history with async directory diffs（[@AmethystLiang](https://github.com/AmethystLiang)，[#39805](https://github.com/stablyai/orca/pull/39805)）
+- 测试：remove 128 low-value tests（[@OrcaWin](https://github.com/OrcaWin)，[#39853](https://github.com/stablyai/orca/pull/39853)）
+- 修复（hermes）：tolerate a deleted cwd in the status hook so pre_tool_call isn't blocked（[@nwparker](https://github.com/nwparker)，[#39833](https://github.com/stablyai/orca/pull/39833)）
+- 修复（ime）：don't swallow the first Enter after toggling Japanese IME off with Hankaku/Zenkaku（[@nwparker](https://github.com/nwparker)，[#39834](https://github.com/stablyai/orca/pull/39834)）
+- 测试：remove four redundant terminal tests（[@OrcaWin](https://github.com/OrcaWin)，[#39858](https://github.com/stablyai/orca/pull/39858)）
+- 测试：remove 95 low-value renderer tests（[@OrcaWin](https://github.com/OrcaWin)，[#39859](https://github.com/stablyai/orca/pull/39859)）
+- 测试：remove 27 low-value hook and terminal tests（[@OrcaWin](https://github.com/OrcaWin)，[#39866](https://github.com/stablyai/orca/pull/39866)）
+- 修复（codex）：do not count a dangling link raced into the target as bridged（[@OrcaWin](https://github.com/OrcaWin)，[#39862](https://github.com/stablyai/orca/pull/39862)）
+- 修复（window）：cancelling a quit prompt clears the quit latch so later closes aren't treated as quits（[@tomarai85](https://github.com/tomarai85)，[#39597](https://github.com/stablyai/orca/pull/39597)）
+- 杂项（lint）：oxlint 1.91, cheap perf/correctness rules, return-await fixes（[@nwparker](https://github.com/nwparker)，[#39730](https://github.com/stablyai/orca/pull/39730)）
+- 测试：remove 14 low-value renderer tests（[@OrcaWin](https://github.com/OrcaWin)，[#39871](https://github.com/stablyai/orca/pull/39871)）
+- 性能（tasks）：look up the GitLab comment viewer only on phone reads（[@OrcaWin](https://github.com/OrcaWin)，[#39860](https://github.com/stablyai/orca/pull/39860)）
+- 重构（shared）：organize execution and automation defining owners（[@nwparker](https://github.com/nwparker)，[#39776](https://github.com/stablyai/orca/pull/39776)）
+- 测试：hover the grab target before clicking in the split grab e2e（[@OrcaWin](https://github.com/OrcaWin)，[#39868](https://github.com/stablyai/orca/pull/39868)）
+- 测试：remove 5 low-value agent launch tests（[@OrcaWin](https://github.com/OrcaWin)，[#39875](https://github.com/stablyai/orca/pull/39875)）
+- 测试：remove 6 low-value resume and lifetime tests（[@OrcaWin](https://github.com/OrcaWin)，[#39881](https://github.com/stablyai/orca/pull/39881)）
+- 重构（mobile）：organize pairing, session, RPC and host owners（[@nwparker](https://github.com/nwparker)，[#39846](https://github.com/stablyai/orca/pull/39846)）
+- 测试：remove 6 low-value renderer tests（[@OrcaWin](https://github.com/OrcaWin)，[#39885](https://github.com/stablyai/orca/pull/39885)）
+- 重构（skills）：group discovery, install, cloud, and transfer owners（[@nwparker](https://github.com/nwparker)，[#39874](https://github.com/stablyai/orca/pull/39874)）
+- 测试：remove 23 low-value hook tests（[@OrcaWin](https://github.com/OrcaWin)，[#39889](https://github.com/stablyai/orca/pull/39889)）
+- 测试：remove 13 low-value hook tests（[@OrcaWin](https://github.com/OrcaWin)，[#39892](https://github.com/stablyai/orca/pull/39892)）
+- 测试：remove 11 low-value agent-status tests（[@OrcaWin](https://github.com/OrcaWin)，[#39893](https://github.com/stablyai/orca/pull/39893)）
+- 测试：remove 7 low-value workspace-store tests（[@OrcaWin](https://github.com/OrcaWin)，[#39896](https://github.com/stablyai/orca/pull/39896)）
+- 重构（acp）：group transport, session, launch, and timeline owners（[@nwparker](https://github.com/nwparker)，[#39897](https://github.com/stablyai/orca/pull/39897)）
+- 测试：remove 8 low-value skills tests（[@OrcaWin](https://github.com/OrcaWin)，[#39899](https://github.com/stablyai/orca/pull/39899)）
+- 测试：remove 5 low-value skills tests（[@OrcaWin](https://github.com/OrcaWin)，[#39903](https://github.com/stablyai/orca/pull/39903)）
+- 重构（skills）：retire test-only removal service（[@nwparker](https://github.com/nwparker)，[#39902](https://github.com/stablyai/orca/pull/39902)）
+- 测试：remove 12 low-value skill tests（[@OrcaWin](https://github.com/OrcaWin)，[#39911](https://github.com/stablyai/orca/pull/39911)）
+- Show CI results as one-line cards 在桌面与手机上, following the desktop setting（[@brennanb2025](https://github.com/brennanb2025)，[#39658](https://github.com/stablyai/orca/pull/39658)）
+- Open the branch picker from the branch name under the 聊天编写器（[@brennanb2025](https://github.com/brennanb2025)，[#39692](https://github.com/stablyai/orca/pull/39692)）
+- Open search-result agent setup as a hover submenu（[@brennanb2025](https://github.com/brennanb2025)，[#39569](https://github.com/stablyai/orca/pull/39569)）
+- Update README downloads badge by @buf0-bot[bot]（[#39922](https://github.com/stablyai/orca/pull/39922)）
+- 测试：remove 19 low-value skill and renderer tests（[@OrcaWin](https://github.com/OrcaWin)，[#39921](https://github.com/stablyai/orca/pull/39921)）
+- 修复（github）：stop PR pages and GitHub requests from hanging forever 当 rate-limit cache expires（[@brennanb2025](https://github.com/brennanb2025)，[#39581](https://github.com/stablyai/orca/pull/39581)）
+- 修复（runtime）：send a terminal's first screen before closing its stream on exit（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39681](https://github.com/stablyai/orca/pull/39681)）
+- 新增（runtime）：tell phones when git status changes（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39672](https://github.com/stablyai/orca/pull/39672)）
+- 测试：remove 6 low-value test cases（[@OrcaWin](https://github.com/OrcaWin)，[#39925](https://github.com/stablyai/orca/pull/39925)）
+- 测试：remove 10 low-value mobile test cases（[@OrcaWin](https://github.com/OrcaWin)，[#39927](https://github.com/stablyai/orca/pull/39927)）
+- Reduce maximum height of model picker（[@AmethystLiang](https://github.com/AmethystLiang)，[#39774](https://github.com/stablyai/orca/pull/39774)）
+- 新增（runtime）：tell phones which settings changed（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39718](https://github.com/stablyai/orca/pull/39718)）
+- 测试：remove 8 low-value test cases（[@OrcaWin](https://github.com/OrcaWin)，[#39934](https://github.com/stablyai/orca/pull/39934)）
+- 测试：remove 8 low-value mobile test cases（[@OrcaWin](https://github.com/OrcaWin)，[#39939](https://github.com/stablyai/orca/pull/39939)）
+- 新增（agents）：share the desktop Agents list with paired phones（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39243](https://github.com/stablyai/orca/pull/39243)）
+- 新增（mobile）：add an Agents tab listing every agent across your desktops（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39244](https://github.com/stablyai/orca/pull/39244)）
+- 修复（ai-vault）：cut session search index disk writes with wider FTS merges and fewer vacuums（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39314](https://github.com/stablyai/orca/pull/39314)）
+- 修复（ai-vault）：keep search results on screen while typing in Session History（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39325](https://github.com/stablyai/orca/pull/39325)）
+- 修复（session-history）：match more Claude and Pi folder names in scope recovery（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39936](https://github.com/stablyai/orca/pull/39936)）
+- 修复（toasts）：match toast action buttons to Orca's Button（[@brennanb2025](https://github.com/brennanb2025)，[#39935](https://github.com/stablyai/orca/pull/39935)）
+- 新增（mobile）：mark agents read and clear them from the Agents tab（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39245](https://github.com/stablyai/orca/pull/39245)）
+- 测试：remove 17 low-value mobile test cases（[@OrcaWin](https://github.com/OrcaWin)，[#39941](https://github.com/stablyai/orca/pull/39941)）
+- Display private GitHub attachment images in fetched items（[@brennanb2025](https://github.com/brennanb2025)，[#39250](https://github.com/stablyai/orca/pull/39250)）
+- Let Native Chats finish slow Agent 启动up（[@brennanb2025](https://github.com/brennanb2025)，[#38727](https://github.com/stablyai/orca/pull/38727)）
+- 测试：remove 9 low-value IPC and SQLite tests（[@OrcaWin](https://github.com/OrcaWin)，[#39947](https://github.com/stablyai/orca/pull/39947)）
+- 性能（ai-vault）：skip re-rendering unchanged Session History rows（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39944](https://github.com/stablyai/orca/pull/39944)）
+- 修复（native-chat）：drop Open in new tab from the file link menu（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39950](https://github.com/stablyai/orca/pull/39950)）
+- 测试：remove 6 low-value query and cache tests（[@OrcaWin](https://github.com/OrcaWin)，[#39953](https://github.com/stablyai/orca/pull/39953)）
+- Organize SSH and managed-server modules by concrete owner（[@nwparker](https://github.com/nwparker)，[#39937](https://github.com/stablyai/orca/pull/39937)）
+- Allow disabling plugins from the activity bar（[@AmethystLiang](https://github.com/AmethystLiang)，[#39956](https://github.com/stablyai/orca/pull/39956)）
+- 测试：remove 92 low-value mobile tests（[@OrcaWin](https://github.com/OrcaWin)，[#39957](https://github.com/stablyai/orca/pull/39957)）
+- 测试：remove 61 low-value mobile tests（[@OrcaWin](https://github.com/OrcaWin)，[#39955](https://github.com/stablyai/orca/pull/39955)）
+- 性能（runtime）：drop old terminal resume output through a head index 而不是 splicing（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39931](https://github.com/stablyai/orca/pull/39931)）
+- 性能（mobile）：keep task lists 在手机上 between launches（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39948](https://github.com/stablyai/orca/pull/39948)）
+- 修复（mobile）：refresh native Home when worktree rows change（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39929](https://github.com/stablyai/orca/pull/39929)）
+- 测试：remove 26 low-value mobile tests（[@OrcaWin](https://github.com/OrcaWin)，[#39961](https://github.com/stablyai/orca/pull/39961)）
+- 性能（notebook）：bound retained output from noisy cells（[@OrcaWin](https://github.com/OrcaWin)，[#39888](https://github.com/stablyai/orca/pull/39888)）
+- 测试：remove 21 low-value CLI and GitHub tests（[@OrcaWin](https://github.com/OrcaWin)，[#39963](https://github.com/stablyai/orca/pull/39963)）
+- 修复（native-chat）：send 排队消息 after resuming a chat interrupted by a restart（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39965](https://github.com/stablyai/orca/pull/39965)）
+- 测试：remove 15 low-value SSH tests（[@OrcaWin](https://github.com/OrcaWin)，[#39968](https://github.com/stablyai/orca/pull/39968)）
+- 重构：organize agent hook installation and server owners（[@nwparker](https://github.com/nwparker)，[#39969](https://github.com/stablyai/orca/pull/39969)）
+- Open agent setup with the current model highlighted（[@brennanb2025](https://github.com/brennanb2025)，[#39923](https://github.com/stablyai/orca/pull/39923)）
+- 测试：remove 2 low-value vault and restart tests（[@OrcaWin](https://github.com/OrcaWin)，[#39970](https://github.com/stablyai/orca/pull/39970)）
+- 杂项（ratchets）：fail PRs that add sync fs calls on Electron main or new setInterval polls（[@brennanb2025](https://github.com/brennanb2025)，[#39930](https://github.com/stablyai/orca/pull/39930)）
+- 测试（perf）：render and identity contracts for agent status, sidebar, tab strip and chat（[@brennanb2025](https://github.com/brennanb2025)，[#39954](https://github.com/stablyai/orca/pull/39954)）
+- 重构：organize browser extension requests and rule owners（[@nwparker](https://github.com/nwparker)，[#39975](https://github.com/stablyai/orca/pull/39975)）
+- 杂项（ratchets）：point the sync fs baseline at the moved agent-hooks files（[@OrcaWin](https://github.com/OrcaWin)，[#39986](https://github.com/stablyai/orca/pull/39986)）
+- 测试：remove 18 low-value SSH and managed-server tests（[@OrcaWin](https://github.com/OrcaWin)，[#39979](https://github.com/stablyai/orca/pull/39979)）
+- 修复（terminal）：keep subpixel text on the retained replay frame（[@OrcaWin](https://github.com/OrcaWin)，[#39981](https://github.com/stablyai/orca/pull/39981)）
+- 测试（e2e）：update five stale or racy terminal and agent specs（[@OrcaWin](https://github.com/OrcaWin)，[#39982](https://github.com/stablyai/orca/pull/39982)）
+- 测试：remove 31 low-value performance, SSH and image tests（[@OrcaWin](https://github.com/OrcaWin)，[#39994](https://github.com/stablyai/orca/pull/39994)）
+- 性能（profile-state）：store large domains as per-entry rows so saves rewrite only what changed（[@nwparker](https://github.com/nwparker)，[#39974](https://github.com/stablyai/orca/pull/39974)）
+- 修复（claude）：ask before matching Claude Code's theme in every profile（[@brennanb2025](https://github.com/brennanb2025)，[#39978](https://github.com/stablyai/orca/pull/39978)）
+- 测试（e2e）：follow setup review dialog, GitLab work-item listing, chat sign-in probe and onboarding trust prompt（[@OrcaWin](https://github.com/OrcaWin)，[#39983](https://github.com/stablyai/orca/pull/39983)）
+- 修复（browser）：validate a guest whose ID is unreadable at dom-ready（[@OrcaWin](https://github.com/OrcaWin)，[#39984](https://github.com/stablyai/orca/pull/39984)）
+- 修复（editor）：keep a late autofocus frame from moving the Markdown caret（[@OrcaWin](https://github.com/OrcaWin)，[#39985](https://github.com/stablyai/orca/pull/39985)）
+- 修复（runtime）：move the local RPC socket to a short path when userData is too long（[@OrcaWin](https://github.com/OrcaWin)，[#39972](https://github.com/stablyai/orca/pull/39972)）
+- 性能（session-history）：answer Workspace and Project from their own sessions（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39971](https://github.com/stablyai/orca/pull/39971)）
+- 性能（agent-hooks）：save agent status as per-pane SQLite rows, every few minutes（[@nwparker](https://github.com/nwparker)，[#39995](https://github.com/stablyai/orca/pull/39995)）
+- 性能（persistence）：save the GitHub cache as per-entry SQLite rows every few minutes（[@nwparker](https://github.com/nwparker)，[#39993](https://github.com/stablyai/orca/pull/39993)）
+- 修复（runtime）：keep the restored tab selected after a serve restart; update stale paired e2e specs（[@OrcaWin](https://github.com/OrcaWin)，[#39980](https://github.com/stablyai/orca/pull/39980)）
+- 修复（orchestration）：refuse a reply to a finished worker's report and name the follow-up that works（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#39802](https://github.com/stablyai/orca/pull/39802)）
+- 测试（ai-vault）：restore the sameFolder helper the merged scope-only case uses（[@OrcaWin](https://github.com/OrcaWin)，[#40005](https://github.com/stablyai/orca/pull/40005)）
+- Show dates on older chat messages（[@AmethystLiang](https://github.com/AmethystLiang)，[#40001](https://github.com/stablyai/orca/pull/40001)）
+- relay edge: host-sent keepalive answered without waking the object（[@nwparker](https://github.com/nwparker)，[#40010](https://github.com/stablyai/orca/pull/40010)）
+- 修复（orchestration）：refuse worker-start on a busy terminal before any wait（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#39962](https://github.com/stablyai/orca/pull/39962)）
+- 测试：remove 54 low-value agent-hook, SSH and PTY tests（[@OrcaWin](https://github.com/OrcaWin)，[#39998](https://github.com/stablyai/orca/pull/39998)）
+- update log efficiency（[@AmethystLiang](https://github.com/AmethystLiang)，[#40011](https://github.com/stablyai/orca/pull/40011)）
+- 修复（orchestration）：wake idle Hermes workers after a runtime restart（[@gsxdsm](https://github.com/gsxdsm)，[#37732](https://github.com/stablyai/orca/pull/37732)）
+- 测试：remove 23 low-value cache, model-picker and SSH tests（[@OrcaWin](https://github.com/OrcaWin)，[#40015](https://github.com/stablyai/orca/pull/40015)）
+- Allow preserving child workspaces when deleting a parent（[@AmethystLiang](https://github.com/AmethystLiang)，[#39795](https://github.com/stablyai/orca/pull/39795)）
+- 修复（activity）：keep live agents visible in unread filter（[@AmethystLiang](https://github.com/AmethystLiang)，[#40016](https://github.com/stablyai/orca/pull/40016)）
+- 修复（browser）：open website links in new tabs（[@AmethystLiang](https://github.com/AmethystLiang)，[#40019](https://github.com/stablyai/orca/pull/40019)）
+- 重构：organize browser guest lifecycle owners（[@nwparker](https://github.com/nwparker)，[#39996](https://github.com/stablyai/orca/pull/39996)）
+- Prevent background agents from mislabeling terminal tabs（[@AmethystLiang](https://github.com/AmethystLiang)，[#39778](https://github.com/stablyai/orca/pull/39778)）
+- 测试（runtime）：cover several clients sharing one runtime terminal（[@nwparker](https://github.com/nwparker)，[#39246](https://github.com/stablyai/orca/pull/39246)）
+- 修复（native-chat）：keep links when pasting rich text, and link selected words when pasting a URL（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39213](https://github.com/stablyai/orca/pull/39213)）
+- 测试：remove 19 low-value chat, inventory and SSH tests（[@OrcaWin](https://github.com/OrcaWin)，[#40021](https://github.com/stablyai/orca/pull/40021)）
+- 性能（persistence）：store notification dismissals and the model catalog as SQLite rows（[@nwparker](https://github.com/nwparker)，[#39997](https://github.com/stablyai/orca/pull/39997)）
+- Show honest liveness for chat-mode orchestration workers（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#39804](https://github.com/stablyai/orca/pull/39804)）
+- 新增（vm-recipes）：optional per-step timeouts for recipe lifecycle commands（[@nwparker](https://github.com/nwparker)，[#39238](https://github.com/stablyai/orca/pull/39238)）
+- 测试：remove 37 low-value PTY and browser tests（[@OrcaWin](https://github.com/OrcaWin)，[#40029](https://github.com/stablyai/orca/pull/40029)）
+- 测试（notebook）：keep polling 当 save read lands mid-write（[@OrcaWin](https://github.com/OrcaWin)，[#40031](https://github.com/stablyai/orca/pull/40031)）
+- Start OpenCode 2 with a picked model（[@brennanb2025](https://github.com/brennanb2025)，[#39991](https://github.com/stablyai/orca/pull/39991)）
+- 重构（browser）：organize automation, cookies and session policy owners（[@nwparker](https://github.com/nwparker)，[#40002](https://github.com/stablyai/orca/pull/40002)）
+- Fork copied replies from their original chat（[@brennanb2025](https://github.com/brennanb2025)，[#39823](https://github.com/stablyai/orca/pull/39823)）
+- 修复（remote-runtime）：keep a resumed VM's device pairing 在其…时 host key is unchanged（[@nwparker](https://github.com/nwparker)，[#39225](https://github.com/stablyai/orca/pull/39225)）
+- 测试：remove 10 low-value tests and three suites（[@OrcaWin](https://github.com/OrcaWin)，[#40035](https://github.com/stablyai/orca/pull/40035)）
+- 修复（source-control）：match the Git Graph button to the Commits header actions（[@brennanb2025](https://github.com/brennanb2025)，[#40025](https://github.com/stablyai/orca/pull/40025)）
+- 新增（terminal）：explain and undo a pane held at another window's size（[@nwparker](https://github.com/nwparker)，[#39249](https://github.com/stablyai/orca/pull/39249)）
+- Show installed skills in Antigravity Chat（[@brennanb2025](https://github.com/brennanb2025)，[#40027](https://github.com/stablyai/orca/pull/40027)）
+- 重构（settings）：use concrete mobile pairing and state owners（[@nwparker](https://github.com/nwparker)，[#40037](https://github.com/stablyai/orca/pull/40037)）
+- 修复（vm-recipes）：record each VM before create runs so a quit or crash can't leak it（[@nwparker](https://github.com/nwparker)，[#39241](https://github.com/stablyai/orca/pull/39241)）
+- 修复（mobile）：race Relay when a mid-session LAN redial stalls (STA-14363)（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#40026](https://github.com/stablyai/orca/pull/40026)）
+- Rotate the server pairing identity when ORCA_INSTANCE_ID changes（[@nwparker](https://github.com/nwparker)，[#39217](https://github.com/stablyai/orca/pull/39217)）
+- 重构（sqlite）：share one row cache across the SQLite-backed caches（[@nwparker](https://github.com/nwparker)，[#40028](https://github.com/stablyai/orca/pull/40028)）
+- 修复（worktrees）：keep long-path and WSL-root Claude history names retired（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40008](https://github.com/stablyai/orca/pull/40008)）
+- 修复（session-history）：show the last list at 一次 重启后 while it rescans（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39380](https://github.com/stablyai/orca/pull/39380)）
+- Update README downloads badge by @buf0-bot[bot]（[#40045](https://github.com/stablyai/orca/pull/40045)）
+- 重构（browser）：connect commands and contracts to defining owners（[@nwparker](https://github.com/nwparker)，[#40042](https://github.com/stablyai/orca/pull/40042)）
+- 测试：remove 12 low-value tests（[@OrcaWin](https://github.com/OrcaWin)，[#40041](https://github.com/stablyai/orca/pull/40041)）
+- Add protected telemetry milestones（[@AmethystLiang](https://github.com/AmethystLiang)，[#40043](https://github.com/stablyai/orca/pull/40043)）
+- 修复（browser）：show site favicons on browser tabs running on a remote host（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40049](https://github.com/stablyai/orca/pull/40049)）
+- 测试：remove 10 low-value tests（[@OrcaWin](https://github.com/OrcaWin)，[#40053](https://github.com/stablyai/orca/pull/40053)）
+- Keep Session History responsive on large histories: move session search SQLite to worker threads（[@brennanb2025](https://github.com/brennanb2025)，[#38945](https://github.com/stablyai/orca/pull/38945)）
+- 重构（settings）：place shared host features and terminal catalogs with owners（[@nwparker](https://github.com/nwparker)，[#40051](https://github.com/stablyai/orca/pull/40051)）
+- 修复（native-chat）：hide the old transcript the moment /clear is sent（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40054](https://github.com/stablyai/orca/pull/40054)）
+- 性能（terminal）：index sleeping-record and launch-agent tabs 每…一次 parking pass（[@brennanb2025](https://github.com/brennanb2025)，[#40009](https://github.com/stablyai/orca/pull/40009)）
+- 性能（terminal）：group park-exempt sleeping records 每…一次 map; index captured panes by leaf（[@brennanb2025](https://github.com/brennanb2025)，[#40014](https://github.com/stablyai/orca/pull/40014)）
+- 杂项（claude）：update the Claude Agent SDK to 0.3.318（[@brennanb2025](https://github.com/brennanb2025)，[#39940](https://github.com/stablyai/orca/pull/39940)）
+- 修复（codex）：recognize the 16 app-server notifications added through Codex 0.167（[@brennanb2025](https://github.com/brennanb2025)，[#39943](https://github.com/stablyai/orca/pull/39943)）
+- 测试：移除低价值 smoke scripts, verifier, and benchmark（[@OrcaWin](https://github.com/OrcaWin)，[#40060](https://github.com/stablyai/orca/pull/40060)）
+- 重构：organize provider and repository settings owners（[@nwparker](https://github.com/nwparker)，[#40059](https://github.com/stablyai/orca/pull/40059)）
+- Let Continue in Chat UI switch 当 Orca can't prove 终端 stopped, and start unsaved conversations fresh（[@brennanb2025](https://github.com/brennanb2025)，[#40033](https://github.com/stablyai/orca/pull/40033)）
+- An unanswered model or effort change fails only its message, and each agent process end is logged with its cause（[@brennanb2025](https://github.com/brennanb2025)，[#40038](https://github.com/stablyai/orca/pull/40038)）
+- 测试：share a worker's module cache across unit files that can be reset between files（[@OrcaWin](https://github.com/OrcaWin)，[#40067](https://github.com/stablyai/orca/pull/40067)）
+- 重构（mobile）：move the shell's web view into a document object the screen holds（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39946](https://github.com/stablyai/orca/pull/39946)）
+- 新增（cli）：list and reload installed browser extensions（[@ggpepperstech](https://github.com/ggpepperstech)，[#39613](https://github.com/stablyai/orca/pull/39613)）
+- 新增（viewer）：fit PDF previews to pane width（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#39966](https://github.com/stablyai/orca/pull/39966)）
+- 性能（mobile）：prewarm one page while Home is shown so opening a page skips the WebView start（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40018](https://github.com/stablyai/orca/pull/40018)）
+- 修复（native-chat）：show newly installed skills in the Codex $ menu 在首条消息之前（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40012](https://github.com/stablyai/orca/pull/40012)）
+- 修复（mobile）：translate the Markdown reader's status labels and delete the unused reader（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40068](https://github.com/stablyai/orca/pull/40068)）
+- 修复（mobile）：lift the file preview restore bar above the keyboard（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40075](https://github.com/stablyai/orca/pull/40075)）
+- 修复：repair main's session registry import and isolate the popup Electron fixture（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40074](https://github.com/stablyai/orca/pull/40074)）
+- 修复（mobile）：paint host labels and relay server rows 从手机's store on relaunch（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40086](https://github.com/stablyai/orca/pull/40086)）
+- 修复（mobile）：refresh Review's branch compare 当 desktop reports a git change（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40088](https://github.com/stablyai/orca/pull/40088)）
+- 修复（clone）：let a clone use its own folder 当 repo's name is taken（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40066](https://github.com/stablyai/orca/pull/40066)）
+- 测试：isolate watcher capacity state and drop RPC call inventory（[@OrcaWin](https://github.com/OrcaWin)，[#40076](https://github.com/stablyai/orca/pull/40076)）
+- 修复（serve）：keep the crash notice across an identity reset; drop stray staged identity files（[@nwparker](https://github.com/nwparker)，[#40081](https://github.com/stablyai/orca/pull/40081)）
+- 性能（mobile）：read new-workspace host labels through the stored host-list query（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40096](https://github.com/stablyai/orca/pull/40096)）
+- Guard child preservation when eligibility changes（[@AmethystLiang](https://github.com/AmethystLiang)，[#40094](https://github.com/stablyai/orca/pull/40094)）
+- 构建：enable React Compiler for the renderer and web build（[@OrcaWin](https://github.com/OrcaWin)，[#39811](https://github.com/stablyai/orca/pull/39811)）
+- 重构：organize settings and account defining owners（[@nwparker](https://github.com/nwparker)，[#40070](https://github.com/stablyai/orca/pull/40070)）
+- 测试：remove 45 low-value suites and redundant cases（[@OrcaWin](https://github.com/OrcaWin)，[#40072](https://github.com/stablyai/orca/pull/40072)）
+- 性能（native-chat）：give the old agent 1 s to exit on /clear（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40103](https://github.com/stablyai/orca/pull/40103)）
+
+#### Cherry-picked fixes {#v1-4-255-cherry-picked-fixes}
+
+- 修复（agent-picker）：list agents named by the search before other agents' model setups（[@nwparker](https://github.com/nwparker)，[#39806](https://github.com/stablyai/orca/pull/39806)）
+- Show agent speed as one button 而不是 a Standard/Fast switcher（[@brennanb2025](https://github.com/brennanb2025)，[#40052](https://github.com/stablyai/orca/pull/40052)）
+- 修复（sidebar）：let the divider resize 而不是 scrolling the workspace list（[@nwparker](https://github.com/nwparker)，[#40087](https://github.com/stablyai/orca/pull/40087)）
+- 新增（tab-group）：redesign the empty split pane as one list of actions（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40113](https://github.com/stablyai/orca/pull/40113)）
+- 修复（orcad）：ship session search worker entry to remote hosts（[@nwparker](https://github.com/nwparker)，[#40133](https://github.com/stablyai/orca/pull/40133)）
+- 修复（session-search）：bound tool-row purge to rowids above a persisted high-water mark（[@nwparker](https://github.com/nwparker)，[#40134](https://github.com/stablyai/orca/pull/40134)）
+- 修复（native-chat）：move open Codex chats to the account you switch to（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#40148](https://github.com/stablyai/orca/pull/40148)）
+- 修复：stale renders React Compiler introduced in the browser run button, Linear toolbar and usage tooltip（[@brennanb2025](https://github.com/brennanb2025)，[#40162](https://github.com/stablyai/orca/pull/40162)）
+- Fix the speed button's unknown, Flex and chat-options Escape cases（[@brennanb2025](https://github.com/brennanb2025)，[#40173](https://github.com/stablyai/orca/pull/40173)）
+
+### 新贡献者 {#v1-4-255-contributors}
+
+- [@luisgonzaleznf](https://github.com/luisgonzaleznf) 首次贡献于 [#39199](https://github.com/stablyai/orca/pull/39199)
+- [@yohangwak](https://github.com/yohangwak) 首次贡献于 [#39230](https://github.com/stablyai/orca/pull/39230)
+- [@mancunianez](https://github.com/mancunianez) 首次贡献于 [#39602](https://github.com/stablyai/orca/pull/39602)
+- [@RoastFried-RF](https://github.com/RoastFried-RF) 首次贡献于 [#39319](https://github.com/stablyai/orca/pull/39319)
+- [@ggpepperstech](https://github.com/ggpepperstech) 首次贡献于 [#39613](https://github.com/stablyai/orca/pull/39613)
+
+**完整变更对照：** [v1.4.254...v1.4.255](https://github.com/stablyai/orca/compare/v1.4.254...v1.4.255)
 
 ## v1.4.254 Git Graph, on-phone dictation & side questions 在… {#v1-4-254}
 

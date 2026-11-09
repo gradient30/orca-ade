@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-09",
   "officialRef": "main",
-  "docsTreeSha": "a632d7c87a05db291781e303f4e664519ed73080",
+  "docsTreeSha": "32721f059c45fa5e5534e8f6d762747694b9709f",
   "docs": [
     {
       "slug": "activity",
@@ -26,8 +26,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/codex-hot-swap.mdx",
-      "size": 2701,
-      "lastSeenSha": "f80db35dd4aa2671a2b8fdbb08565fa49411d545",
+      "size": 2915,
+      "lastSeenSha": "bc66a56940961eb81774698852c0a1d48a2dfd1b",
       "translatedAtSha": "2c00f0cff1a245ee24195210e6368dfd3e220a00"
     },
     {
@@ -35,8 +35,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/codex.mdx",
-      "size": 3534,
-      "lastSeenSha": "0cad8eef860ff963770bd89a1eb43bac36f4566c",
+      "size": 3598,
+      "lastSeenSha": "91175ac7d7bc6424d16449027d13fc164361edb0",
       "translatedAtSha": "5ecf8281d2c7f80cfc4faee732e6b9e5d39bdbd6"
     },
     {
@@ -404,8 +404,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
-      "size": 17096,
-      "lastSeenSha": "866722a7fc54a8ae23ecdcf8b45e63bb761a4e6f",
+      "size": 18718,
+      "lastSeenSha": "0b85c58e10a6d83fba585333d4841347ad5480dd",
       "translatedAtSha": "d9be9701a257c12c1cfad3168544beec1632cbfd"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 17083,
-      "lastSeenSha": "1aecfa62b286ad7e8fa5eb8936d1f870a1a28dda",
+      "size": 17172,
+      "lastSeenSha": "7d71631f1c50a94fb1aff8e5055e2921382b270c",
       "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
@@ -545,6 +545,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.255",
+      "publishedAt": "2026-11-09",
+      "lastSeenBodySha": "231fb4821fa3",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.254",
       "publishedAt": "2026-11-08",
@@ -627,7 +634,7 @@
       "publishedAt": "2026-10-28",
       "lastSeenBodySha": "b197b736f201",
       "translatedAtBodySha": "9144628dfba0",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.242",
