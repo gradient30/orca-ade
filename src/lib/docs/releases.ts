@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.254",
+    "date": "2026-11-08",
+    "dateLabel": "2026年11月8日",
+    "title": "Git Graph, on-phone dictation & side questions 在…",
+    "highlights": [
+      "**Chat:** `/btw` asks a side question in a fork and `/fork` forks from the latest response, with a spinner 在…时 fork opens. Chats show CI results for the pull requests they opened or pushed to, and every waiting message, command and steer now sits in one ordered queue you can move, delete or send from.",
+      "**Phone:** Send 在…时 desktop is offline, keep drafts, attachments, file edits and automation drafts across app kills, and see the workspace list, session tabs and Review from memory 在…时y refresh. Large folders load 500 entries at a time with Search all, Review prefetches the next and previous file, and a thin line under the header shows when cached data is refreshing.",
+      "**Dictation:** Phones can transcribe on the device, and every device can dictate at 一次. On desktop the speech model loads before your first dictation (a new setting chooses when to unload it), dictation stops after 一分钟静音 and keeps what you said, dictated text gets a space before it, and text that can't be inserted is copied instead. The paired web client can dictate through 宿主."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.254",
+    "href": "/docs/changelog#v1-4-254"
+  },
+  {
     "tag": "v1.4.253",
     "date": "2026-11-07",
     "dateLabel": "2026年11月7日",
@@ -60,19 +73,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.250",
     "href": "/docs/changelog#v1-4-250"
-  },
-  {
-    "tag": "v1.4.249",
-    "date": "2026-11-04",
-    "dateLabel": "2026年11月4日",
-    "title": "更轻松的设置、更可控的聊天与更整洁的工作区 ✨",
-    "highlights": [
-      "**设置与技能：** 引导时可选择聊天或终端，使用更新的 Agent 选择器与主题步骤，并在本机为所选提供方安装聊天技能。在路由支持时，新添加的空项目可打开所选聊天 Agent。",
-      "**聊天行为：** 在投递不确定与 Stop 时保留输入与排队的后续消息。新设置可控制发送时的滚动位置，以及空闲聊天 Agent 何时停止。已加载的聊天图片在滚动与切换工作区时保持可见；Pi 压缩会挂起发送直至完成。",
-      "**Agent 选择：** 托管 Claude 账户在默认值未改时会保留之后的 `/model` 与 effort 选择。显示 Claude 回退时不改动已保存的模型选择；OpenCode 的 effort 跟随所选模型；Claude 聊天新增 Ultracode effort。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.249",
-    "href": "/docs/changelog#v1-4-249"
   }
 ];
 

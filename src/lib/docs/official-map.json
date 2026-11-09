@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-08",
+  "capturedAt": "2026-11-09",
   "officialRef": "main",
-  "docsTreeSha": "e70e0a513927baa18b57c142771f1ec4f94b3fa4",
+  "docsTreeSha": "a632d7c87a05db291781e303f4e664519ed73080",
   "docs": [
     {
       "slug": "activity",
@@ -404,8 +404,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
-      "size": 15527,
-      "lastSeenSha": "f402cc99f1d359278e060fe2704a56850428ab5b",
+      "size": 17096,
+      "lastSeenSha": "866722a7fc54a8ae23ecdcf8b45e63bb761a4e6f",
       "translatedAtSha": "d9be9701a257c12c1cfad3168544beec1632cbfd"
     },
     {
@@ -494,8 +494,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 7672,
-      "lastSeenSha": "21d1d016ff921d0fb446e7acd1df9cae80d73347",
+      "size": 8205,
+      "lastSeenSha": "c7c503c99019bb12e521f5e26cea68986e966d94",
       "translatedAtSha": "55334050fdc03d8429256ccad983bd410c5843db"
     },
     {
@@ -545,6 +545,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.254",
+      "publishedAt": "2026-11-08",
+      "lastSeenBodySha": "c36c48f46b62",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.253",
       "publishedAt": "2026-11-07",
@@ -627,7 +634,7 @@
       "publishedAt": "2026-10-27",
       "lastSeenBodySha": "d650bf955686",
       "translatedAtBodySha": "097ce1bacaa1",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.241",
