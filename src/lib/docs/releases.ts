@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.256",
+    "date": "2026-11-10",
+    "dateLabel": "2026年11月10日",
+    "title": "Easier dictation, saved phone drafts & clearer w…",
+    "highlights": [
+      "**Voice & dictation:** Speech-model updates are offered in the dictation pill 当你 start dictating, with download progress, cancellation and retry. Language-based setup suggestions, model quality information, a Use GPU switch, personal and repository vocabulary, and support for OpenAI-compatible transcription services. The dictation pill shows committed and pending words; failed recordings can be retried. Pressing Send or Enter while dictating waits for the words before sending.",
+      "**Phone & recovery:** Saved chat messages and draft text return after a relaunch. Home opens with last-known workspaces, visited terminals stay mounted for quicker switching, and page assets load on demand. Folder workspaces have 源码管理 在手机上, and large-file diffs retain unchanged lines.",
+      "**Chat & agents:** Copy and other reply actions stay visible on the latest response, while older replies reveal them on hover or keyboard focus. Account usage shows Used, Left and time until reset. Claude chat names use the CLI's titles, questions can show option previews, Codex failures give actionable advice, and a New divider is available in Settings. Usage-limited chats that are due can continue in one pass, with automatic retries stopping after five consecutive failures."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.256",
+    "href": "/docs/changelog#v1-4-256"
+  },
+  {
     "tag": "v1.4.255",
     "date": "2026-11-09",
     "dateLabel": "2026年11月9日",
@@ -60,19 +73,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.252",
     "href": "/docs/changelog#v1-4-252"
-  },
-  {
-    "tag": "v1.4.251",
-    "date": "2026-11-06",
-    "dateLabel": "2026年11月6日",
-    "title": "Richer phone chats, add-to-chat from anywhere & …",
-    "highlights": [
-      "**Chat:** Add a file, Markdown preview or terminal selection to a chat. Agent messages use one-line cards 在桌面与手机上, Native Chats appear in Cmd+J recents and title search, and Cmd/Ctrl+Enter on an empty composer steers the first queued message. Claude chats keep effort changeable 在…之后 first reply and clear a stuck \"needs permission\" status when Claude ends the request itself. Codex chats show `/usage` and subagent task names.",
-      "**Phone:** Rewind and continue chats, pin the plan, paste images and long text, set and manage goals, see the context usage ring, follow 后台任务s, copy or share images, copy file paths, choose where links open, and sign in from a signed-out chat.",
-      "**Orchestration:** Workers can start their own workers, keep messaging their coordinator 在…之后y finish, and stop their helpers when stopped. Mail waits for a draft you are typing, including in OpenCode and 重启后."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.251",
-    "href": "/docs/changelog#v1-4-251"
   }
 ];
 
