@@ -1,5 +1,5 @@
 {
-  "capturedAt": "2026-11-09",
+  "capturedAt": "2026-11-10",
   "officialRef": "main",
   "docsTreeSha": "32721f059c45fa5e5534e8f6d762747694b9709f",
   "docs": [
@@ -548,7 +548,7 @@
     {
       "tag": "v1.4.255",
       "publishedAt": "2026-11-09",
-      "lastSeenBodySha": "231fb4821fa3",
+      "lastSeenBodySha": "54006768f408",
       "translatedAtBodySha": null,
       "yanked": false
     },
