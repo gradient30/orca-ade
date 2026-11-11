@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-10",
+  "capturedAt": "2026-11-11",
   "officialRef": "main",
-  "docsTreeSha": "7179f7d39b2be1cb2fb193ea59984936a9956263",
+  "docsTreeSha": "d613ea7ebbc75d56eb10158c94f5139f4b348874",
   "docs": [
     {
       "slug": "activity",
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 28377,
-      "lastSeenSha": "fb1011130dc04ddf1413aa665e9ffdaf2ba1cc9b",
+      "size": 28471,
+      "lastSeenSha": "bff53fb760be9bc7445b5d52c50a88046e9a563d",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -224,8 +224,8 @@
       "section": "editing",
       "kind": "official",
       "officialPath": "docs/site/content/docs/editing/markdown.mdx",
-      "size": 4154,
-      "lastSeenSha": "a84c39916117f70ad5f75ef96e7251ad3cdbfc78",
+      "size": 4170,
+      "lastSeenSha": "32869df4e0793c1a6ccd1cc727c9240e719c7cfd",
       "translatedAtSha": "a84c39916117f70ad5f75ef96e7251ad3cdbfc78"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 17172,
-      "lastSeenSha": "7d71631f1c50a94fb1aff8e5055e2921382b270c",
+      "size": 17254,
+      "lastSeenSha": "eb489b00875539d9c51e1690d67a1386bd77d81c",
       "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
