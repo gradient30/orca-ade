@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-11",
   "officialRef": "main",
-  "docsTreeSha": "d613ea7ebbc75d56eb10158c94f5139f4b348874",
+  "docsTreeSha": "b0e2971043466ecb05c358df321b977b074f41cf",
   "docs": [
     {
       "slug": "activity",
@@ -99,7 +99,7 @@
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
       "size": 13429,
-      "lastSeenSha": "98313aa6d1a7abb24f7f8a7852bebc125dce0239",
+      "lastSeenSha": "2e68990f84e43bbebba5bd9c19ec43e7a09867d2",
       "translatedAtSha": "ecc8cfd1305796f5fea375528aed50ca4cb94458"
     },
     {
@@ -170,8 +170,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 10742,
-      "lastSeenSha": "3f6551f3753a4b988ac3a139b08ac4dfd1bfd821",
+      "size": 11117,
+      "lastSeenSha": "95bcf738d6919a69e70a38d29497e9233b75db19",
       "translatedAtSha": "88355cb8c825d11999fe3cade3017e49b5242495"
     },
     {
@@ -287,8 +287,8 @@
       "section": "mobile",
       "kind": "official",
       "officialPath": "docs/site/content/docs/mobile.mdx",
-      "size": 13892,
-      "lastSeenSha": "e8fed6790d1777cd58bc4e180964ca2ecb5eea16",
+      "size": 14282,
+      "lastSeenSha": "7e2b5050bd680692abf6acc0c552a5a14674c37f",
       "translatedAtSha": "e8fed6790d1777cd58bc4e180964ca2ecb5eea16"
     },
     {
