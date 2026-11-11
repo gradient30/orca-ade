@@ -8,7 +8,7 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
-| [v1.4.256](#v1-4-256) | 2026年11月10日 | Easier dictation, saved phone drafts & clearer w… |
+| [v1.4.256](#v1-4-256) | 2026年11月10日 | Smoother performance, easier dictation, saved ph… |
 | [v1.4.255](#v1-4-255) | 2026年11月9日 | session search, agents on your phone & smoother … |
 | [v1.4.254](#v1-4-254) | 2026年11月8日 | Git Graph, on-phone dictation & side questions 在… |
 | [v1.4.253](#v1-4-253) | 2026年11月7日 | A little update ✨ |
@@ -49,13 +49,13 @@
 
 ## 完整中文日志 {#full-notes}
 
-## v1.4.256 Easier dictation, saved phone drafts & clearer w… {#v1-4-256}
+## v1.4.256 Smoother performance, easier dictation, saved ph… {#v1-4-256}
 
 2026年11月10日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.256)
 
-### Easier dictation, saved phone drafts & clearer workspace controls ✨ {#v1-4-256-easier-dictation-saved-phone-drafts-clearer-workspace-controls-}
+### Smoother performance, easier dictation, saved phone drafts & clearer workspace controls ✨ {#v1-4-256-smoother-performance-easier-dictation-saved-phone-drafts-clearer-workspace-controls-}
 
-This update makes dictation easier to set up and use and makes agents and cloud workspaces easier to manage. Phone-specific improvements below require the matching phone app update.
+Long chats stay more responsive while agents stream tool output, reasoning and subagent work, with less background processing during terminal and tab updates. This update also makes dictation easier to set up and use and makes agents and cloud workspaces easier to manage. Phone-specific improvements below require the matching phone app update.
 
 - 🎙️ **Dictate with less setup:** Voice settings suggests an on-device model for your language and offers one setup button. Add personal or repository vocabulary, remove filler words, and use Auto mode to hold the shortcut or tap to toggle. On-device dictation inserts phrases as you pause, and you can dictate into fields in Orca's browser.
 - 📱 **Pick up where you left off:** Chats show their saved recent messages after a phone relaunch while reconnecting. Commit messages, PR descriptions, comments, review notes, tasks and new-workspace drafts survive closing the app.

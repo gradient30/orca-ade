@@ -14,7 +14,7 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.256",
     "date": "2026-11-10",
     "dateLabel": "2026年11月10日",
-    "title": "Easier dictation, saved phone drafts & clearer w…",
+    "title": "Smoother performance, easier dictation, saved ph…",
     "highlights": [
       "**Voice & dictation:** Speech-model updates are offered in the dictation pill 当你 start dictating, with download progress, cancellation and retry. Language-based setup suggestions, model quality information, a Use GPU switch, personal and repository vocabulary, and support for OpenAI-compatible transcription services. The dictation pill shows committed and pending words; failed recordings can be retried. Pressing Send or Enter while dictating waits for the words before sending.",
       "**Phone & recovery:** Saved chat messages and draft text return after a relaunch. Home opens with last-known workspaces, visited terminals stay mounted for quicker switching, and page assets load on demand. Folder workspaces have 源码管理 在手机上, and large-file diffs retain unchanged lines.",
