@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-12",
   "officialRef": "main",
-  "docsTreeSha": "a3cad4e629d314fabc61d12f172406b7aa39d540",
+  "docsTreeSha": "8b89e5e26f9ee1735b99cfbce9173f97d1701326",
   "docs": [
     {
       "slug": "activity",
@@ -116,8 +116,8 @@
       "section": "mobile",
       "kind": "official",
       "officialPath": "docs/site/content/docs/android-apk.mdx",
-      "size": 1145,
-      "lastSeenSha": "b262f47ea4b1084d5095a4cfa60fb084cd70472c",
+      "size": 1133,
+      "lastSeenSha": "62e4957a8aaf05570f50854cb7f7d6797a1640bd",
       "translatedAtSha": "b262f47ea4b1084d5095a4cfa60fb084cd70472c"
     },
     {
@@ -161,8 +161,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/computer-use.mdx",
-      "size": 6315,
-      "lastSeenSha": "0a299904af506d4bd7417464797bd30275582403",
+      "size": 6822,
+      "lastSeenSha": "115a0fc79b2d14ee180bf9011754cf3dc84d1b9f",
       "translatedAtSha": "089600aae0af6516c4f1c02e992b02e7a02f8de1"
     },
     {
@@ -170,8 +170,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 11117,
-      "lastSeenSha": "95bcf738d6919a69e70a38d29497e9233b75db19",
+      "size": 11502,
+      "lastSeenSha": "6397005b3b18296123dd2da3414695bdaa74246e",
       "translatedAtSha": "88355cb8c825d11999fe3cade3017e49b5242495"
     },
     {
@@ -287,8 +287,8 @@
       "section": "mobile",
       "kind": "official",
       "officialPath": "docs/site/content/docs/mobile.mdx",
-      "size": 14282,
-      "lastSeenSha": "7e2b5050bd680692abf6acc0c552a5a14674c37f",
+      "size": 16555,
+      "lastSeenSha": "67d896b5c8ff6ffb78b3f584b9247e623c84dd30",
       "translatedAtSha": "e8fed6790d1777cd58bc4e180964ca2ecb5eea16"
     },
     {
@@ -350,8 +350,8 @@
       "section": "notify",
       "kind": "official",
       "officialPath": "docs/site/content/docs/notifications.mdx",
-      "size": 1454,
-      "lastSeenSha": "8d5e02866f75729582434ee0101fa1b8e4b56a08",
+      "size": 2618,
+      "lastSeenSha": "e3aa8da76c49720ab4920307b2d10b2f506fbedb",
       "translatedAtSha": "8d5e02866f75729582434ee0101fa1b8e4b56a08"
     },
     {
@@ -548,7 +548,7 @@
     {
       "tag": "v1.4.257",
       "publishedAt": "2026-11-12",
-      "lastSeenBodySha": "6e6760e61305",
+      "lastSeenBodySha": "3cf436284f5f",
       "translatedAtBodySha": null,
       "yanked": false
     },
