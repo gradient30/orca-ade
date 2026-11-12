@@ -11,6 +11,17 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.257",
+    "date": "2026-11-12",
+    "dateLabel": "2026年11月12日",
+    "title": "Smoother long chats, saved feedback and better d…",
+    "highlights": [
+      "详见下方完整中文日志。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.257",
+    "href": "/docs/changelog#v1-4-257"
+  },
+  {
     "tag": "v1.4.256",
     "date": "2026-11-10",
     "dateLabel": "2026年11月10日",
@@ -60,19 +71,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.253",
     "href": "/docs/changelog#v1-4-253"
-  },
-  {
-    "tag": "v1.4.252",
-    "date": "2026-11-07",
-    "dateLabel": "2026年11月7日",
-    "title": "Fork chats from any reply, Plan mode & a faster …",
-    "highlights": [
-      "**Chat:** Fork from any finished response, use Plan mode in Claude and Codex chats, and open a running subagent from Agents strip. Codex approvals show the proposed files and diffs, OpenCode can ask choice questions, and Claude's built-in server tools show as normal tool cards. Holding Cmd/Ctrl in a busy chat shows what Cmd/Ctrl+Enter will do, app shortcuts work from the chat editor, and oversized pasted images shrink to fit 而不失败. Signed-out OpenCode, Pi and OMP chats offer a Sign in button.",
-      "**Phone:** Markdown is easier to read and renders math, GitHub alerts, task boxes and images. Rename a workspace from its menu, see automatic continue and Switch Account on 用量限制 notices, and keep chat sends, PR text, review notes and Tasks drafts when a 连接断开. The phone dials the relay 立即 when that worked last time, keeps terminal output across a network switch, and streams busy terminals without falling behind.",
-      "**Agents & accounts:** Antigravity Chat can sign in with Gemini Enterprise, reports quota for every saved account and manages accounts inside WSL. `orca account` can select and remove any saved account. Antigravity IDE joins the Open In presets."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.252",
-    "href": "/docs/changelog#v1-4-252"
   }
 ];
 

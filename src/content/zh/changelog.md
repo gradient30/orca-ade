@@ -8,13 +8,14 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
+| [v1.4.257](#v1-4-257) | 2026年11月12日 | Smoother long chats, saved feedback and better d… |
 | [v1.4.256](#v1-4-256) | 2026年11月10日 | Smoother performance, easier dictation, saved ph… |
 | [v1.4.255](#v1-4-255) | 2026年11月9日 | session search, agents on your phone & smoother … |
 | [v1.4.254](#v1-4-254) | 2026年11月8日 | Git Graph, on-phone dictation & side questions 在… |
 | [v1.4.253](#v1-4-253) | 2026年11月7日 | A little update ✨ |
-| [v1.4.252](#v1-4-252) | 2026年11月7日 | Fork chats from any reply, Plan mode & a faster … |
 
 更早版本（同步时保留，不删除）：
+| [v1.4.252](#v1-4-252) | — | Fork chats from any reply, Plan mode & a faster … |
 | [v1.4.251](#v1-4-251) | — | Richer phone chats, add-to-chat from anywhere & … |
 | [v1.4.250](#v1-4-250) | — | Lower terminal memory use, clearer chat changes … |
 | [v1.4.249](#v1-4-249) | — | 更轻松的设置、更可控的聊天与更整洁的工作区 ✨ |
@@ -48,6 +49,39 @@
 | [v1.4.216](#v1-4-216) | — | 窄窗口里状态栏保持单行 |
 
 ## 完整中文日志 {#full-notes}
+
+## v1.4.257 Smoother long chats, saved feedback and better d… {#v1-4-257}
+
+2026年11月12日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.257)
+
+**Previous release: [1.4.256](https://github.com/stablyai/orca/releases/tag/v1.4.256)** — Easier on-device dictation setup and earlier long-chat performance improvements.
+
+### Smoother long chats, saved feedback and better dictation {#v1-4-257-smoother-long-chats-saved-feedback-and-better-dictation}
+
+Orca 1.4.257 reduces freezes when several long Chat UI conversations stream at 一次. If you keep multiple agents working in conversations with a lot of history, this update cuts the work Orca does as their replies arrive.
+
+- **Keep your browser feedback across restarts:** Unsent text notes on pages in Orca’s browser now return after a reload or restart. Closing a tab with unsent notes asks before discarding them, so you can leave feedback and come back to it later. Agents running on your desktop can read those notes with `orca tab annotations` before you press Send.
+- **Give yourself time to think while dictating:** In **Settings → Voice → Input → Stop After Silence**, choose 30 seconds, one minute, two minutes or Off. Dictation can wait through a longer pause while you compose a message or terminal command. The same settings page adds a **Test** button to record and play back your microphone, with a transcript 当你r speech model is ready.
+- **Paste while a terminal connects:** A command pasted into a starting or reconnecting terminal now waits for its shell 而不是 being dropped. This covers local, SSH and remote terminals for pastes up to 64 KB; larger pastes still need a connected terminal.
+- **Automate folder workspace routines:** Configured setup scripts now run 当你 create a folder workspace, including through the CLI. Archive scripts run before removal. Use them to prepare the project and run its cleanup routine; these scripts operate in the shared project folder.
+
+#### More improvements {#v1-4-257-more-improvements}
+
+- **Find what belongs in a split pane:** Press `/` in an empty split pane to search for Agent or file. Use the arrow keys and Enter to open your selection without leaving the keyboard.
+- **Keep your chosen Claude model:** The Chat UI picker keeps your latest selection when replies from an earlier turn arrive, rather than snapping back to their model.
+- **See the images you asked Codex to make:** Generated images remain visible after a turn finishes, without expanding its tool details. For remote chats, update both 宿主 and client to get this behavior.
+
+### Contributors {#v1-4-257-contributors}
+
+Thanks to @brennanb2025, @OrcaWin, @AmoabaKelvin, @nwparker, @buf0-bot[bot], @AmethystLiang, @Jinwoo-H, @innocarpe, @ssthormess, @gentslava, @Bensonluo, @mancunianez, @Pr1p, @qq2144, @pawel-kotowski.
+
+### 新贡献者 {#v1-4-257-contributors}
+
+- [@ssthormess](https://github.com/ssthormess) 首次贡献于 [#40297](https://github.com/stablyai/orca/pull/40297)
+- [@Bensonluo](https://github.com/Bensonluo) 首次贡献于 [#40410](https://github.com/stablyai/orca/pull/40410)
+- [@pawel-kotowski](https://github.com/pawel-kotowski) 首次贡献于 [#39843](https://github.com/stablyai/orca/pull/39843)
+
+**Full changelog:** https://github.com/stablyai/orca/compare/v1.4.256...v1.4.257
 
 ## v1.4.256 Smoother performance, easier dictation, saved ph… {#v1-4-256}
 
