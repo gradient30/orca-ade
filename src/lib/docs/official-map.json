@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-13",
   "officialRef": "main",
-  "docsTreeSha": "4fb93d82baaf0b331ac06fa97064136d59aee9e4",
+  "docsTreeSha": "21c45bf1e57971d27a35c0e244b952b4f5b233f8",
   "docs": [
     {
       "slug": "activity",
@@ -161,8 +161,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/computer-use.mdx",
-      "size": 10063,
-      "lastSeenSha": "383d23424de23110b78e5d2910d5a6d4c759255a",
+      "size": 10229,
+      "lastSeenSha": "312a409cf54118c72214c652b825c5a7c5f2c6e7",
       "translatedAtSha": "089600aae0af6516c4f1c02e992b02e7a02f8de1"
     },
     {
