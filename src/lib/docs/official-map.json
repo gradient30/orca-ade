@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-12",
+  "capturedAt": "2026-11-13",
   "officialRef": "main",
-  "docsTreeSha": "45e55ae49e7b0faeda77997ff4b230248b342b2f",
+  "docsTreeSha": "68e865e4ff15510bae650357345eff31a2fa382b",
   "docs": [
     {
       "slug": "activity",
@@ -161,8 +161,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/computer-use.mdx",
-      "size": 9239,
-      "lastSeenSha": "5f39edea8e519f146aaaa2bde522240a9a9da3ba",
+      "size": 10063,
+      "lastSeenSha": "383d23424de23110b78e5d2910d5a6d4c759255a",
       "translatedAtSha": "089600aae0af6516c4f1c02e992b02e7a02f8de1"
     },
     {
@@ -546,6 +546,13 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.258",
+      "publishedAt": "2026-11-13",
+      "lastSeenBodySha": "886cbc057f5f",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.257",
       "publishedAt": "2026-11-12",
       "lastSeenBodySha": "3cf436284f5f",
@@ -627,7 +634,7 @@
       "publishedAt": "2026-11-02",
       "lastSeenBodySha": "9ff972362127",
       "translatedAtBodySha": "9ff972362127",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.245",

@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.258",
+    "date": "2026-11-13",
+    "dateLabel": "2026年11月13日",
+    "title": "Smoother workspaces, restored phone scrolling & …",
+    "highlights": [
+      "**Keep conversations moving:** Usage-limit **Hand Off to Another Agent** includes the full saved conversation. Generated images stay beside the final answer, and closing a window with a replying chat uses the running-work confirmation. Answer worker permission prompts from the coordinator, with pending requests above the composer and receipts in conversation order.",
+      "**Browse, review and open files:** Extensions are enabled 默认 in **Settings → Browser**. Git Graph reduces repeated work while scrolling and paging; idle editors stop polling copy hints. Unsupported document tabs offer **Open with default app**, downloading a copy first for SSH or paired-host files.",
+      "**Switch Claude accounts remotely:** Under **Ask**, a phone or CLI switch resumes terminal sessions on the selected account without a desktop dialog. Busy sessions finish their turn first; **Never restart** still keeps them as they are."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.258",
+    "href": "/docs/changelog#v1-4-258"
+  },
+  {
     "tag": "v1.4.257",
     "date": "2026-11-12",
     "dateLabel": "2026年11月12日",
@@ -61,18 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.254",
     "href": "/docs/changelog#v1-4-254"
-  },
-  {
-    "tag": "v1.4.253",
-    "date": "2026-11-07",
-    "dateLabel": "2026年11月7日",
-    "title": "A little update ✨",
-    "highlights": [
-      "We released two updates today! Check out the [v1.4.252 release notes](https://github.com/stablyai/orca/releases/tag/v1.4.252) for chat forking and Plan mode, a smoother phone experience, and workspace organization across machines.",
-      "A small release with a few minor improvements. A bigger one is coming later 🫣"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.253",
-    "href": "/docs/changelog#v1-4-253"
   }
 ];
 
