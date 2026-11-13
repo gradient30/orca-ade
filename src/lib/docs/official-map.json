@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-13",
   "officialRef": "main",
-  "docsTreeSha": "68e865e4ff15510bae650357345eff31a2fa382b",
+  "docsTreeSha": "4fb93d82baaf0b331ac06fa97064136d59aee9e4",
   "docs": [
     {
       "slug": "activity",
@@ -107,8 +107,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/usage-tracking.mdx",
-      "size": 3148,
-      "lastSeenSha": "f0d9b95daf20cbf64cfc099f1810e0fecc2d733c",
+      "size": 4297,
+      "lastSeenSha": "6c1893bfd0ed7360db8910c3ebbe31215afa7633",
       "translatedAtSha": "6aa491b4a4a2b4c888fb225cf355e582c519c27c"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 27411,
-      "lastSeenSha": "bd03318a771b9ffe26074978de76aeb42c2e586e",
+      "size": 27973,
+      "lastSeenSha": "e8314c890ff1267eb411efbec748fc03018691dd",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
