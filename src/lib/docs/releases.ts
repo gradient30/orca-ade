@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.259",
+    "date": "2026-11-14",
+    "dateLabel": "2026年11月14日",
+    "title": "Major performance improvements, automatic cleanu…",
+    "highlights": [
+      "**Keep working while agents use tools:** Agent-created terminal splits keep your keyboard where it was. Browser popups and new-tab links opened by agents stay 在后台. A server agent’s new browser tab can open on your 配对桌面; without a 配对桌面, it stays on the server.",
+      "**Organize without stopping work:** Hide a project from 侧栏 在其…时 agents, terminals and automations keep running. Find it again under **Hidden projects**. On a shared 已配对服务器, hiding its project applies to everyone connected there.",
+      "**Inspect long runs:** Expanded 工具运行s draw the visible rows while preserving Find, copying and keyboard navigation. Subagent rosters show each agent’s model, current work and result."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.259",
+    "href": "/docs/changelog#v1-4-259"
+  },
+  {
     "tag": "v1.4.258",
     "date": "2026-11-13",
     "dateLabel": "2026年11月13日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.255",
     "href": "/docs/changelog#v1-4-255"
-  },
-  {
-    "tag": "v1.4.254",
-    "date": "2026-11-08",
-    "dateLabel": "2026年11月8日",
-    "title": "Git Graph, on-phone dictation & side questions 在…",
-    "highlights": [
-      "**Chat:** `/btw` asks a side question in a fork and `/fork` forks from the latest response, with a spinner 在…时 fork opens. Chats show CI results for the pull requests they opened or pushed to, and every waiting message, command and steer now sits in one ordered queue you can move, delete or send from.",
-      "**Phone:** Send 在…时 desktop is offline, keep drafts, attachments, file edits and automation drafts across app kills, and see the workspace list, session tabs and Review from memory 在…时y refresh. Large folders load 500 entries at a time with Search all, Review prefetches the next and previous file, and a thin line under the header shows when cached data is refreshing.",
-      "**Dictation:** Phones can transcribe on the device, and every device can dictate at 一次. On desktop the speech model loads before your first dictation (a new setting chooses when to unload it), dictation stops after 一分钟静音 and keeps what you said, dictated text gets a space before it, and text that can't be inserted is copied instead. The paired web client can dictate through 宿主."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.254",
-    "href": "/docs/changelog#v1-4-254"
   }
 ];
 
