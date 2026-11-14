@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-14",
   "officialRef": "main",
-  "docsTreeSha": "8e6ce6cd1c93f6ffd45033463d30472190c020eb",
+  "docsTreeSha": "f84c7643baa0f8913ad8ad48cb01ea99b28d5df7",
   "docs": [
     {
       "slug": "activity",
@@ -170,8 +170,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 11502,
-      "lastSeenSha": "6397005b3b18296123dd2da3414695bdaa74246e",
+      "size": 11641,
+      "lastSeenSha": "74fb22c4bd463db91e9525f7f93b566e6451b2c1",
       "translatedAtSha": "88355cb8c825d11999fe3cade3017e49b5242495"
     },
     {
