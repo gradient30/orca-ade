@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-15",
+  "capturedAt": "2026-11-16",
   "officialRef": "main",
-  "docsTreeSha": "a00c5fc48715d269f0bd0920e7fd52b7c2081497",
+  "docsTreeSha": "c328fe030adbe4816e0e470004f4315dc932177c",
   "docs": [
     {
       "slug": "activity",
@@ -134,8 +134,8 @@
       "section": "browser",
       "kind": "official",
       "officialPath": "docs/site/content/docs/browser/overview.mdx",
-      "size": 5341,
-      "lastSeenSha": "017a83705dc2b6c917748799f61d080e07057867",
+      "size": 5547,
+      "lastSeenSha": "b252ad5fe24ff8b863aaf7da6bb77264063f9b7d",
       "translatedAtSha": "e71297a9ba2608360339388e82ddcd37da8cbe74"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 28146,
-      "lastSeenSha": "a92cd0df8e1bcc70ab82e5a77cff7573b56ac7d8",
+      "size": 28413,
+      "lastSeenSha": "aa9aed96dd4215a4aa0e93d07b3898204d79202f",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -287,8 +287,8 @@
       "section": "mobile",
       "kind": "official",
       "officialPath": "docs/site/content/docs/mobile.mdx",
-      "size": 16555,
-      "lastSeenSha": "67d896b5c8ff6ffb78b3f584b9247e623c84dd30",
+      "size": 16687,
+      "lastSeenSha": "a610c28f2c5d29755899a97aa0bdf82bcb8031bb",
       "translatedAtSha": "e8fed6790d1777cd58bc4e180964ca2ecb5eea16"
     },
     {
@@ -503,8 +503,8 @@
       "section": "terminal",
       "kind": "official",
       "officialPath": "docs/site/content/docs/terminal.mdx",
-      "size": 12237,
-      "lastSeenSha": "6922a6ab6f1b14ce017541ca32beb8c3030d9665",
+      "size": 12502,
+      "lastSeenSha": "7c1cd8d513560f5627a1be2bd439b699d49b1088",
       "translatedAtSha": "6922a6ab6f1b14ce017541ca32beb8c3030d9665"
     },
     {
@@ -545,6 +545,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.261",
+      "publishedAt": "2026-11-16",
+      "lastSeenBodySha": "df2e96876a17",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.259",
       "publishedAt": "2026-11-14",
@@ -627,7 +634,7 @@
       "publishedAt": "2026-11-04",
       "lastSeenBodySha": "3fb90052c1e1",
       "translatedAtBodySha": "3fb90052c1e1",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.247",

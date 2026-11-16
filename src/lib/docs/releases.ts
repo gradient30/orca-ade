@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.261",
+    "date": "2026-11-16",
+    "dateLabel": "2026年11月16日",
+    "title": "Customizable + menu, a faster chat store & brows…",
+    "highlights": [
+      "**Agents work without taking over your screen:** Computer use can launch apps, type into and click Windows controls, and read minimized or other-Space macOS windows without bringing them forward. Print dialogs, Windows Hello prompts, popups and extension tabs that Agent sets off stay out of your view.",
+      "**Quieter notifications:** Choose **Silent** to keep banners without sound. Orca's own notification sounds now respect macOS Focus and Windows Focus Assist.",
+      "**Browser profiles per project and fewer PR checks:** Pick which 浏览器配置 a repo's new tabs open in. Settings → 源码管理 → **PR Updates** offers Automatic, Less often or Manual polling."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.261",
+    "href": "/docs/changelog#v1-4-261"
+  },
+  {
     "tag": "v1.4.259",
     "date": "2026-11-14",
     "dateLabel": "2026年11月14日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.256",
     "href": "/docs/changelog#v1-4-256"
-  },
-  {
-    "tag": "v1.4.255",
-    "date": "2026-11-09",
-    "dateLabel": "2026年11月9日",
-    "title": "session search, agents on your phone & smoother …",
-    "highlights": [
-      "**Session History & performance:** Large histories stay responsive while search runs in a worker. Workspace and Project filters query their own sessions, unchanged history rows avoid extra rendering, and search indexing and profile saves do less disk work.",
-      "**Chat & agents:** Open Codex chats follow account switches, newly installed skills appear in Codex’s `$` menu before your 第一条消息, and Antigravity Chat shows installed skills. OpenCode 2 starts with the model you picked. Clearing a chat hides the old transcript immediately, and a failed model or effort change affects its message rather than the whole chat.",
-      "**Phone & remote hosts:** The Agents tab brings activity across desktops into one place. Pages open sooner through prewarming, Review refreshes branch comparisons when Git changes, and the file-preview restore bar stays above the keyboard. A stalled LAN reconnect can fall back to Relay, and resumed VMs keep their device pairing when 宿主 key is unchanged."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.255",
-    "href": "/docs/changelog#v1-4-255"
   }
 ];
 
