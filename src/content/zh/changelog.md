@@ -8,7 +8,7 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
-| [v1.4.261](#v1-4-261) | 2026年11月16日 | Customizable + menu, a faster chat store & brows… |
+| [v1.4.261](#v1-4-261) | 2026年11月16日 | Major performance improvements, Cursor Chat & a … |
 | [v1.4.259](#v1-4-259) | 2026年11月14日 | Major performance improvements, automatic cleanu… |
 | [v1.4.258](#v1-4-258) | 2026年11月13日 | Smoother workspaces, restored phone scrolling & … |
 | [v1.4.257](#v1-4-257) | 2026年11月12日 | Smoother long chats, saved feedback and better d… |
@@ -53,36 +53,35 @@
 
 ## 完整中文日志 {#full-notes}
 
-## v1.4.261 Customizable + menu, a faster chat store & brows… {#v1-4-261}
+## v1.4.261 Major performance improvements, Cursor Chat & a … {#v1-4-261}
 
 2026年11月16日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.261)
 
-### Customizable + menu, a faster chat store & browser Memory Saver ✨ {#v1-4-261-customizable-menu-a-faster-chat-store-browser-memory-saver-}
+[Previous release: 1.4.259](https://github.com/stablyai/orca/releases/tag/v1.4.259) — Major performance improvements, automatic cleanup and focused subagent views.
 
-Orca 1.4.261 moves 聊天历史 into a new store that loads long conversations in pages, adds a customizable + menu, and frees memory from browser pages you haven't used in hours. Cursor joins Chat, and sites stay signed in 重启后.
+### Major performance improvements, Cursor Chat & a customizable + menu ✨ {#v1-4-261-major-performance-improvements-cursor-chat-a-customizable-menu-}
 
-- ➕ **Make the + menu yours:** Ways to open a tab are now a compact row of icons. Use the gear to reorder them, hide the ones you don't use and set their shortcuts. Named agents rank first 当你 search.
-- 💬 **Long chats stay quick:** We further improved long chats. History now loads in pages from a SQLite store 而不是 being rebuilt in memory. Existing chats convert 在后台 or 当你 first open them.
-- 🌐 **Lighter browser tabs:** Memory Saver frees pages you haven't looked at for 4 hours and reloads them in place 当你 or Agent come back. `orca serve` tabs follow the same setting. Sites that use session cookies keep you signed in across restarts.
-- 🤖 **Cursor in Chat:** Run Cursor in Chat with the Cursor sign-in already on your computer. Pick a model, effort and Fast, approve commands and re打开的聊天s later. Antigravity Chat now works 在 Windows 上, and Pi chats show their subagents.
-- 🗂️ **Clearer workspace cards:** Turn on the experimental workspace card under **Experimental > Card style**. The cards show activity, unread results, failures and offline hosts, with one unread dot per card. Switch card style from Workspace options. Finished agents stay marked Done 在…时ir panes sleep.
-- 📱 **Your phone follows your desktop:** The workspace list shows your project groups, one setting decides where chat and terminal links open, and **Take back all** returns phone-driven browser tabs.
+Orca 1.4.261 makes busy Chat workflows more responsive and releases memory from browser pages you haven't used in hours. Cursor joins Chat, and a customizable + menu puts your preferred ways to open tabs within reach.
 
-**Previous release: [1.4.259](https://github.com/stablyai/orca/releases/tag/v1.4.259)**: Major performance improvements, automatic cleanup and focused subagent views.
+- ⚡ **Move between busy chats with less waiting:** Long conversations load their history in pages, and background replies do less work 在侧栏中 and hidden chats 当你 switch conversations.
+- 🌐 **Keep browser tabs without keeping every page loaded:** Memory Saver frees eligible pages after four hours out of view 默认, then reloads them 当你 return. Sites using session cookies can also keep you signed in across restarts.
+- 🤖 **Use Cursor in Chat:** Start with the Cursor sign-in on your computer, choose a model, effort and Fast, approve commands, and reopen the conversation later.
+- ➕ **Make the + menu yours:** Use the gear beside the new icon row to reorder actions, hide unused choices and set shortcuts. Hidden actions remain available through search and their shortcuts.
+- ⌨️ **Carry terminal work forward accurately:** Copy Context, Fork and Continue preserve spaces drawn by terminal programs. Edit → Paste targets the split pane that actually has focus.
 
 ### 重点亮点 {#v1-4-261--}
 
-- **Agents work without taking over your screen:** Computer use can launch apps, type into and click Windows controls, and read minimized or other-Space macOS windows without bringing them forward. Print dialogs, Windows Hello prompts, popups and extension tabs that Agent sets off stay out of your view.
-- **Quieter notifications:** Choose **Silent** to keep banners without sound. Orca's own notification sounds now respect macOS Focus and Windows Focus Assist.
-- **Browser profiles per project and fewer PR checks:** Pick which 浏览器配置 a repo's new tabs open in. Settings → 源码管理 → **PR Updates** offers Automatic, Less often or Manual polling.
-- **More of Orca in your language:** 1,302 missing Japanese strings are translated, with Simplified Chinese gaps filled and Turkish General settings completed.
+- **More room for active work:** Memory Saver also applies to browser tabs on an updated `orca serve` host. Desktop tabs retain their title, history, cookies and saved site data. Settings → Browser lets you change the idle interval or turn Memory Saver off.
+- **More agent choices:** Antigravity Chat works 在 Windows 上, and Pi Chat shows subagents. Ordinary Orca CLI commands avoid Electron startup on supported Macs; macOS 13.4 retains the existing launcher.
+- **Workspaces at a glance:** Experimental workspace cards show activity, unread results, failures and offline hosts. Choose Classic or Experimental from Workspace options. Agents whose panes are asleep keep showing Done.
+- **Phone navigation:** The paired phone interface gains desktop project groups and a shared browser preference for chat and terminal links, including Ask each time. On desktop, Take back all returns control of phone-driven browser tabs.
 
 ### 兼容与升级说明 {#v1-4-261--}
 
-- **New chat store:** Existing chats convert to the new store on upgrade. The original chat files stay in place in this release, so going back to 1.4.259 still works. If you downgrade, keep chatting and upgrade again, those chats and turns show up. A chat continued in both versions appears as a second chat beside it, and nothing is deleted.
-- **Finished agents:** An agent's row now leaves the workspace card, Agents list and dashboard 当其 process exits or its SSH 宿主 disconnects, 而不是 lingering until dismissed. Agents whose panes are asleep keep showing **Done**.
-- **Android:** Orca for Android moves to the `dev.orca.app` app on Google Play, also published as an APK on GitHub. The old app prompts you to install the new one. This desktop update does not install a phone app.
-- **PR Updates on remote hosts:** The setting belongs to 宿主. Older servers show it disabled until Orca on that host is updated.
+- **Chat history:** Existing chats convert to the new store 在后台 or when first opened. Original chat files stay in place in this release. After downgrading and upgrading again, chats continued in the older version are recovered; a previously converted conversation can appear beside its newer version as a second chat.
+- **Browser reloads:** Freed pages reload in place; 滚动位置 and page-only memory can reset. Desktop Memory Saver leaves pages loaded 当它 detects 未保存编辑 or cannot safely assess them. Savings depend on which pages qualify.
+- **Android:** The legacy app directs users to install the new `dev.orca.app` separately; it cannot update into the new package. This desktop release does not install a phone app.
+- **Finished agents:** Rows leave workspace cards, the Agents list and dashboard 当 process exits or its SSH 宿主 disconnects. Sleeping panes retain their Done status.
 
 ---
 
@@ -188,6 +187,7 @@ Orca 1.4.261 moves 聊天历史 into a new store that loads long conversations i
 - Run Archive scripts for project-group folder workspaces（[@brennanb2025](https://github.com/brennanb2025)，[#41687](https://github.com/stablyai/orca/pull/41687)）
 - 修复（worktrees）：stream the submodule probe so large repos can be deleted（[@Mystery01092000](https://github.com/Mystery01092000)，[#42174](https://github.com/stablyai/orca/pull/42174)）
 - 修复（session）：remove a deleted workspace's saved session state（[@brennanb2025](https://github.com/brennanb2025)，[#42580](https://github.com/stablyai/orca/pull/42580)）
+- Clarify cleanup pinning and ignored-file protection（[@AmethystLiang](https://github.com/AmethystLiang)，[#42616](https://github.com/stablyai/orca/pull/42616)）
 
 #### 🗂️ Workspaces, windows & navigation {#v1-4-261--workspaces-windows-navigation}
 
@@ -210,6 +210,7 @@ Orca 1.4.261 moves 聊天历史 into a new store that loads long conversations i
 - 修复（sidebar）：let a row click hand typing to the opened terminal again（[@Jinwoo-H](https://github.com/Jinwoo-H)，[#42806](https://github.com/stablyai/orca/pull/42806)）
 - 修复（window）：cap main-window listeners at 30 and fix two 'destroyed' listener leaks（[@haydenflinner](https://github.com/haydenflinner)，[#42595](https://github.com/stablyai/orca/pull/42595)）
 - 修复（window）：reload, Force Reload and close wait for the window's state to reach disk（[@brennanb2025](https://github.com/brennanb2025)，[#42596](https://github.com/stablyai/orca/pull/42596)）
+- 性能（layout）：skip unused normalization reports in pane commands（[@AmethystLiang](https://github.com/AmethystLiang)，[#42615](https://github.com/stablyai/orca/pull/42615)）
 
 #### ⌨️ Terminals & clipboard {#v1-4-261--terminals-clipboard}
 
@@ -319,6 +320,7 @@ Orca 1.4.261 moves 聊天历史 into a new store that loads long conversations i
 - 修复（i18n）：retry a failed language catalog 当 saved language is picked again in Settings（[@Pr1p](https://github.com/Pr1p)，[#41538](https://github.com/stablyai/orca/pull/41538)）
 - 修复（i18n）：restore saved language after a slow startup catalog（[@nwparker](https://github.com/nwparker)，[#42819](https://github.com/stablyai/orca/pull/42819)）
 - Fix sign-out and workflow translations（[@AmethystLiang](https://github.com/AmethystLiang)，[#41419](https://github.com/stablyai/orca/pull/41419)）
+- 修复（skills）：skip Claude sync scratch folders (.trash, .staging) during skill discovery（[@bbingz](https://github.com/bbingz)，[#42610](https://github.com/stablyai/orca/pull/42610)）
 
 #### ⚡ Startup & background work {#v1-4-261--startup-background-work}
 
@@ -353,7 +355,7 @@ Orca 1.4.261 moves 聊天历史 into a new store that loads long conversations i
 - 修复（computer）：report an unreachable Linux accessibility bus 而不是 crashing（[@AmoabaKelvin](https://github.com/AmoabaKelvin)，[#42642](https://github.com/stablyai/orca/pull/42642)）
 - 修复（new-tab）：don't probe the Android emulator's modem listener（[@Pr1p](https://github.com/Pr1p)，[#42774](https://github.com/stablyai/orca/pull/42774)）
 
-#### 🛠️ Maintenance & development {#v1-4-261--maintenance-development}
+#### 🛠️ Tests, CI & maintenance {#v1-4-261--tests-ci-maintenance}
 
 > Dependencies, internal organization, release tooling and test-suite maintenance.
 
@@ -524,6 +526,8 @@ Orca 1.4.261 moves 聊天历史 into a new store that loads long conversations i
 - 测试：remove 32 low-value suites（[@OrcaWin](https://github.com/OrcaWin)，[#42831](https://github.com/stablyai/orca/pull/42831)）
 - 测试：remove 57 low-value suites（[@OrcaWin](https://github.com/OrcaWin)，[#42851](https://github.com/stablyai/orca/pull/42851)）
 - 测试：remove 55 low-value suites（[@OrcaWin](https://github.com/OrcaWin)，[#42858](https://github.com/stablyai/orca/pull/42858)）
+- 测试：remove 55 low-value suites and assertion driver（[@OrcaWin](https://github.com/OrcaWin)，[#42605](https://github.com/stablyai/orca/pull/42605)）
+- 测试：remove 78 low-value suites and trim redundant cases（[@OrcaWin](https://github.com/OrcaWin)，[#42621](https://github.com/stablyai/orca/pull/42621)）
 
 #### ↩️ Reverted & previously shipped changes {#v1-4-261--reverted-previously-shipped-changes}
 

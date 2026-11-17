@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-16",
+  "capturedAt": "2026-11-17",
   "officialRef": "main",
-  "docsTreeSha": "c328fe030adbe4816e0e470004f4315dc932177c",
+  "docsTreeSha": "fc8f7742ef5d0ccf43d375561308f065ae426b57",
   "docs": [
     {
       "slug": "activity",
@@ -134,8 +134,8 @@
       "section": "browser",
       "kind": "official",
       "officialPath": "docs/site/content/docs/browser/overview.mdx",
-      "size": 5547,
-      "lastSeenSha": "b252ad5fe24ff8b863aaf7da6bb77264063f9b7d",
+      "size": 5551,
+      "lastSeenSha": "5edb40f296299ba354e8cbf8dff65d24be786a6e",
       "translatedAtSha": "e71297a9ba2608360339388e82ddcd37da8cbe74"
     },
     {
@@ -179,8 +179,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/overview.mdx",
-      "size": 5214,
-      "lastSeenSha": "c8de4e6099cd3ba3f2c78fc8b7e73a830aa0a18e",
+      "size": 5353,
+      "lastSeenSha": "d0ea75772daeb4341758776913676a406f5b6512",
       "translatedAtSha": "b9aecde4fa31d4eb490a58038cce92d772f8c5b6"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 28413,
-      "lastSeenSha": "aa9aed96dd4215a4aa0e93d07b3898204d79202f",
+      "size": 30725,
+      "lastSeenSha": "20fabca230014f2594ab18f837ef9f4e842a5090",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -233,8 +233,8 @@
       "section": "editing",
       "kind": "official",
       "officialPath": "docs/site/content/docs/editing/monaco.mdx",
-      "size": 2136,
-      "lastSeenSha": "63cc578219b26ba51620779728197237515b7ad2",
+      "size": 3117,
+      "lastSeenSha": "74b123165e4bafc84c023fc924a4ec449f564021",
       "translatedAtSha": "2baf82fdfaf51269a9e7d784c6e5ec412184bdd9"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 17254,
-      "lastSeenSha": "eb489b00875539d9c51e1690d67a1386bd77d81c",
+      "size": 17492,
+      "lastSeenSha": "b4bcf10e8c007a193874473b656455b8a367f528",
       "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
@@ -548,7 +548,7 @@
     {
       "tag": "v1.4.261",
       "publishedAt": "2026-11-16",
-      "lastSeenBodySha": "df2e96876a17",
+      "lastSeenBodySha": "6dbe356427de",
       "translatedAtBodySha": null,
       "yanked": false
     },

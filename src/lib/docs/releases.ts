@@ -14,11 +14,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.261",
     "date": "2026-11-16",
     "dateLabel": "2026年11月16日",
-    "title": "Customizable + menu, a faster chat store & brows…",
+    "title": "Major performance improvements, Cursor Chat & a …",
     "highlights": [
-      "**Agents work without taking over your screen:** Computer use can launch apps, type into and click Windows controls, and read minimized or other-Space macOS windows without bringing them forward. Print dialogs, Windows Hello prompts, popups and extension tabs that Agent sets off stay out of your view.",
-      "**Quieter notifications:** Choose **Silent** to keep banners without sound. Orca's own notification sounds now respect macOS Focus and Windows Focus Assist.",
-      "**Browser profiles per project and fewer PR checks:** Pick which 浏览器配置 a repo's new tabs open in. Settings → 源码管理 → **PR Updates** offers Automatic, Less often or Manual polling."
+      "**More room for active work:** Memory Saver also applies to browser tabs on an updated `orca serve` host. Desktop tabs retain their title, history, cookies and saved site data. Settings → Browser lets you change the idle interval or turn Memory Saver off.",
+      "**More agent choices:** Antigravity Chat works 在 Windows 上, and Pi Chat shows subagents. Ordinary Orca CLI commands avoid Electron startup on supported Macs; macOS 13.4 retains the existing launcher.",
+      "**Workspaces at a glance:** Experimental workspace cards show activity, unread results, failures and offline hosts. Choose Classic or Experimental from Workspace options. Agents whose panes are asleep keep showing Done."
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.261",
     "href": "/docs/changelog#v1-4-261"
