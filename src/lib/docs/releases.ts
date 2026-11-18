@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.262",
+    "date": "2026-11-17",
+    "dateLabel": "2026年11月17日",
+    "title": "chat switching, lower memory use & git blame ✨更快…",
+    "highlights": [
+      "**Set up Agent in one card:** Choose Agent, model and supported effort or Fast options together, then use **Open as chat** or **Open as terminal**. Where offered, **Default** effort lets Agent choose its own level.",
+      "**Control interruptions:** Right-click a workspace to mute its notifications while keeping its unread dot. Sleeping workspaces stay asleep after relaunch, and the workspace-card preview lets you try different styles.",
+      "**Use your language and plugins:** Discover community translations in Settings or onboarding. Plugin update reviews name the added access and can group approvals; eligible updates can be approved from their notification."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.262",
+    "href": "/docs/changelog#v1-4-262"
+  },
+  {
     "tag": "v1.4.261",
     "date": "2026-11-16",
     "dateLabel": "2026年11月16日",
@@ -61,19 +74,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.257",
     "href": "/docs/changelog#v1-4-257"
-  },
-  {
-    "tag": "v1.4.256",
-    "date": "2026-11-10",
-    "dateLabel": "2026年11月10日",
-    "title": "Smoother performance, easier dictation, saved ph…",
-    "highlights": [
-      "**Voice & dictation:** Speech-model updates are offered in the dictation pill 当你 start dictating, with download progress, cancellation and retry. Language-based setup suggestions, model quality information, a Use GPU switch, personal and repository vocabulary, and support for OpenAI-compatible transcription services. The dictation pill shows committed and pending words; failed recordings can be retried. Pressing Send or Enter while dictating waits for the words before sending.",
-      "**Phone & recovery:** Saved chat messages and draft text return after a relaunch. Home opens with last-known workspaces, visited terminals stay mounted for quicker switching, and page assets load on demand. Folder workspaces have 源码管理 在手机上, and large-file diffs retain unchanged lines.",
-      "**Chat & agents:** Copy and other reply actions stay visible on the latest response, while older replies reveal them on hover or keyboard focus. Account usage shows Used, Left and time until reset. Claude chat names use the CLI's titles, questions can show option previews, Codex failures give actionable advice, and a New divider is available in Settings. Usage-limited chats that are due can continue in one pass, with automatic retries stopping after five consecutive failures."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.256",
-    "href": "/docs/changelog#v1-4-256"
   }
 ];
 
