@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-18",
   "officialRef": "main",
-  "docsTreeSha": "67081a2a6cf016f592f75d9b0d22d86df6584f89",
+  "docsTreeSha": "a1570937631a3a06e5314a75a7d5d073f05ebb57",
   "docs": [
     {
       "slug": "activity",
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 31496,
-      "lastSeenSha": "17d59cccc34028c7e4fc4e829b2585afa0f0d069",
+      "size": 31526,
+      "lastSeenSha": "63ebcf7baa035812ac6c09ccadd979396b61ae16",
       "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
     },
     {
@@ -555,6 +555,13 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.263",
+      "publishedAt": "2026-11-18",
+      "lastSeenBodySha": "c7c458504761",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.262",
       "publishedAt": "2026-11-17",
       "lastSeenBodySha": "4911d5b50df5",
@@ -636,7 +643,7 @@
       "publishedAt": "2026-11-05",
       "lastSeenBodySha": "e5c1cce749f4",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.249",

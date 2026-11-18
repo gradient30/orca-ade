@@ -11,6 +11,18 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.263",
+    "date": "2026-11-18",
+    "dateLabel": "2026年11月18日",
+    "title": "Lighter ch在启动时, Hermes in Chat & browser extensi…",
+    "highlights": [
+      "**Connect Linear from the command line:** `orca linear connect` accepts an API key through stdin and connects 宿主 you target, including a headless server. Each host keeps its own connection. Linear issue and project lists now return all results 当你 omit `--limit`.",
+      "**Set up agents 在 Windows 上:** Claude and Codex chats offer **Install** when Agent is missing, then **Check again** to detect the installation. `orca agent installed` also lists enabled agent CLIs on the current host for scripts and launch setup."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.263",
+    "href": "/docs/changelog#v1-4-263"
+  },
+  {
     "tag": "v1.4.262",
     "date": "2026-11-17",
     "dateLabel": "2026年11月17日",
@@ -61,19 +73,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.258",
     "href": "/docs/changelog#v1-4-258"
-  },
-  {
-    "tag": "v1.4.257",
-    "date": "2026-11-12",
-    "dateLabel": "2026年11月12日",
-    "title": "Smoother long chats, saved feedback and better d…",
-    "highlights": [
-      "**Find what belongs in a split pane:** Press `/` in an empty split pane to search for Agent or file. Use the arrow keys and Enter to open your selection without leaving the keyboard.",
-      "**Keep your chosen Claude model:** The Chat UI picker keeps your latest selection when replies from an earlier turn arrive, rather than snapping back to their model.",
-      "**See the images you asked Codex to make:** Generated images remain visible after a turn finishes, without expanding its tool details. For remote chats, update both 宿主 and client to get this behavior."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.257",
-    "href": "/docs/changelog#v1-4-257"
   }
 ];
 
