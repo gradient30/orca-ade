@@ -11,6 +11,17 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.264",
+    "date": "2026-11-19",
+    "dateLabel": "2026年11月19日",
+    "title": "Chat commands find their workspace ✨",
+    "highlights": [
+      "详见下方完整中文日志。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.264",
+    "href": "/docs/changelog#v1-4-264"
+  },
+  {
     "tag": "v1.4.263",
     "date": "2026-11-18",
     "dateLabel": "2026年11月18日",
@@ -60,19 +71,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.259",
     "href": "/docs/changelog#v1-4-259"
-  },
-  {
-    "tag": "v1.4.258",
-    "date": "2026-11-13",
-    "dateLabel": "2026年11月13日",
-    "title": "Smoother workspaces, restored phone scrolling & …",
-    "highlights": [
-      "**Keep conversations moving:** Usage-limit **Hand Off to Another Agent** includes the full saved conversation. Generated images stay beside the final answer, and closing a window with a replying chat uses the running-work confirmation. Answer worker permission prompts from the coordinator, with pending requests above the composer and receipts in conversation order.",
-      "**Browse, review and open files:** Extensions are enabled 默认 in **Settings → Browser**. Git Graph reduces repeated work while scrolling and paging; idle editors stop polling copy hints. Unsupported document tabs offer **Open with default app**, downloading a copy first for SSH or paired-host files.",
-      "**Switch Claude accounts remotely:** Under **Ask**, a phone or CLI switch resumes terminal sessions on the selected account without a desktop dialog. Busy sessions finish their turn first; **Never restart** still keeps them as they are."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.258",
-    "href": "/docs/changelog#v1-4-258"
   }
 ];
 

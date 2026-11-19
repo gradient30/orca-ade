@@ -8,13 +8,14 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
+| [v1.4.264](#v1-4-264) | 2026年11月19日 | Chat commands find their workspace ✨ |
 | [v1.4.263](#v1-4-263) | 2026年11月18日 | Lighter ch在启动时, Hermes in Chat & browser extensi… |
 | [v1.4.262](#v1-4-262) | 2026年11月17日 | chat switching, lower memory use & git blame ✨更快… |
 | [v1.4.261](#v1-4-261) | 2026年11月16日 | Major performance improvements, Cursor Chat & a … |
 | [v1.4.259](#v1-4-259) | 2026年11月14日 | Major performance improvements, automatic cleanu… |
-| [v1.4.258](#v1-4-258) | 2026年11月13日 | Smoother workspaces, restored phone scrolling & … |
 
 更早版本（同步时保留，不删除）：
+| [v1.4.258](#v1-4-258) | — | Smoother workspaces, restored phone scrolling & … |
 | [v1.4.257](#v1-4-257) | — | Smoother long chats, saved feedback and better d… |
 | [v1.4.256](#v1-4-256) | — | Smoother performance, easier dictation, saved ph… |
 | [v1.4.255](#v1-4-255) | — | session search, agents on your phone & smoother … |
@@ -54,6 +55,39 @@
 | [v1.4.216](#v1-4-216) | — | 窄窗口里状态栏保持单行 |
 
 ## 完整中文日志 {#full-notes}
+
+## v1.4.264 Chat commands find their workspace ✨ {#v1-4-264}
+
+2026年11月19日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.264)
+
+[Previous release: 1.4.263](https://github.com/stablyai/orca/releases/tag/v1.4.263) — Lighter ch在启动时, Hermes in Chat and browser extension side panels.
+
+### Chat commands find their workspace ✨ {#v1-4-264-chat-commands-find-their-workspace-}
+
+This desktop patch corrects workspace selection when a Chat UI agent runs Orca commands from a folder outside its workspace.
+
+- 💬 **Keep browser work with the chat:** When Orca can locate the chat, commands such as opening a browser tab use that chat's workspace, including folder workspaces, rather than the workspace currently in focus.
+
+### Usage notes {#v1-4-264-usage-notes}
+
+If a chat's workspace cannot be resolved, browser commands without a target are refused. Run the command from the intended workspace folder or pass `--worktree`; commands acting on an existing page also accept `--page` using an ID from `orca tab list --json`.
+
+---
+
+### 本版本改动 {#v1-4-264-changed}
+
+#### 🧰 CLI & automation {#v1-4-264--cli-automation}
+
+> Resolve the chat's workspace for commands run outside it, and require an explicit browser target when resolution fails.
+
+- Target the chat's own workspace 当其 agent runs outside it（[@helldweller](https://github.com/helldweller)，[#44336](https://github.com/stablyai/orca/pull/44336)）
+- Refuse unscoped browser commands from chat agents outside a workspace（[@brennanb2025](https://github.com/brennanb2025)，[#44237](https://github.com/stablyai/orca/pull/44237)）
+
+### 新贡献者 {#v1-4-264-contributors}
+
+- [@helldweller](https://github.com/helldweller) 首次贡献于 [#44336](https://github.com/stablyai/orca/pull/44336)
+
+**完整变更对照：** [v1.4.263...v1.4.264](https://github.com/stablyai/orca/compare/v1.4.263...v1.4.264)
 
 ## v1.4.263 Lighter ch在启动时, Hermes in Chat & browser extensi… {#v1-4-263}
 
