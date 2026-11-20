@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.265",
+    "date": "2026-11-19",
+    "dateLabel": "2026年11月19日",
+    "title": "Introducing Orca Bots <img src=\"https://raw.gith…",
+    "highlights": [
+      "**Bots, connectors and access.** Connect a bot through a faster connector picker with category icons, a trimmed Slack connect dialog that shows how to mention the bot 一次 it is installed, and a clearer access-control warning. Other conversations are listed for reference only in Agent's context, so a bot stays focused on the one it was asked about. Finish alerts and worker stop reports carry the reply a transcript read adds, and agents are told which mail type to set, including over `--on`.",
+      "**A lighter desktop for busy chats and terminals.** Long tab strips render only the visible region, session saves write changed entries, new messages get through while other chats stream, and a terminal scroll loop that could freeze the window is fixed.",
+      "**Send while other chats stream.** A 新聊天’s sending work gets priority over background streaming writes. Hidden composers also stop listening to every keystroke, and closed chats release status rows they no longer need. These changes reduce competing work when several conversations are active."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.265",
+    "href": "/docs/changelog#v1-4-265"
+  },
+  {
     "tag": "v1.4.264",
     "date": "2026-11-19",
     "dateLabel": "2026年11月19日",
@@ -58,19 +71,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.261",
     "href": "/docs/changelog#v1-4-261"
-  },
-  {
-    "tag": "v1.4.259",
-    "date": "2026-11-14",
-    "dateLabel": "2026年11月14日",
-    "title": "Major performance improvements, automatic cleanu…",
-    "highlights": [
-      "**Keep working while agents use tools:** Agent-created terminal splits keep your keyboard where it was. Browser popups and new-tab links opened by agents stay 在后台. A server agent’s new browser tab can open on your 配对桌面; without a 配对桌面, it stays on the server.",
-      "**Organize without stopping work:** Hide a project from 侧栏 在其…时 agents, terminals and automations keep running. Find it again under **Hidden projects**. On a shared 已配对服务器, hiding its project applies to everyone connected there.",
-      "**Inspect long runs:** Expanded 工具运行s draw the visible rows while preserving Find, copying and keyboard navigation. Subagent rosters show each agent’s model, current work and result."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.259",
-    "href": "/docs/changelog#v1-4-259"
   }
 ];
 

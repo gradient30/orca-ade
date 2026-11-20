@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-19",
+  "capturedAt": "2026-11-20",
   "officialRef": "main",
-  "docsTreeSha": "d9de24143f35c78def4d9f1e1f95d331249ea368",
+  "docsTreeSha": "5aa3ba1331cce70ba2e6dddd3fc9be543a801953",
   "docs": [
     {
       "slug": "activity",
@@ -80,8 +80,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/native-chat.mdx",
-      "size": 6667,
-      "lastSeenSha": "287c56e517e37675df78ea89b870549448f0d942",
+      "size": 6669,
+      "lastSeenSha": "d27343f7d3af2e66818bcff466921399aa8f097a",
       "translatedAtSha": "ee7a83b000734a8c732480f9e88d4f85cf440e49"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 17492,
-      "lastSeenSha": "b4bcf10e8c007a193874473b656455b8a367f528",
+      "size": 17494,
+      "lastSeenSha": "652b4d6ea661f88216540f4c48eab4e06544d669",
       "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
     },
     {
@@ -554,6 +554,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.265",
+      "publishedAt": "2026-11-19",
+      "lastSeenBodySha": "72c48187c574",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.264",
       "publishedAt": "2026-11-19",
@@ -636,7 +643,7 @@
       "publishedAt": "2026-11-07",
       "lastSeenBodySha": "c17887007cbe",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.251",
