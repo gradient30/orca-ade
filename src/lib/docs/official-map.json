@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-20",
   "officialRef": "main",
-  "docsTreeSha": "838e3f9890863f703bbe080d137f86eb0753e267",
+  "docsTreeSha": "4e1c633bfbf73ba1480deff479a6be726389f50b",
   "docs": [
     {
       "slug": "activity",
@@ -152,8 +152,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/automations.mdx",
-      "size": 7616,
-      "lastSeenSha": "c69f367121dc928787d0f83a3709ef86f862cff8",
+      "size": 7784,
+      "lastSeenSha": "554f598222c7c180e5daccbf9b53e6b7b12f864d",
       "translatedAtSha": "c69f367121dc928787d0f83a3709ef86f862cff8"
     },
     {
