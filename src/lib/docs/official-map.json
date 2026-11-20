@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-20",
   "officialRef": "main",
-  "docsTreeSha": "4e1c633bfbf73ba1480deff479a6be726389f50b",
+  "docsTreeSha": "5ec5976038edef656c3162f816a2b2cd2383f68e",
   "docs": [
     {
       "slug": "activity",
@@ -404,8 +404,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
-      "size": 18718,
-      "lastSeenSha": "0b85c58e10a6d83fba585333d4841347ad5480dd",
+      "size": 19162,
+      "lastSeenSha": "68a2e2fc4999250bc93a88895f6b4586bfa6afce",
       "translatedAtSha": "0b85c58e10a6d83fba585333d4841347ad5480dd"
     },
     {
@@ -555,16 +555,23 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.267",
+      "publishedAt": "2026-11-20",
+      "lastSeenBodySha": "f0df152e80ec",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.266",
       "publishedAt": "2026-11-20",
-      "lastSeenBodySha": "b4c4e5530d9e",
+      "lastSeenBodySha": "7079f434f6bf",
       "translatedAtBodySha": "b4c4e5530d9e",
       "yanked": false
     },
     {
       "tag": "v1.4.265",
       "publishedAt": "2026-11-19",
-      "lastSeenBodySha": "b836ddb04ee4",
+      "lastSeenBodySha": "ec7475c44124",
       "translatedAtBodySha": "b836ddb04ee4",
       "yanked": false
     },
@@ -636,7 +643,7 @@
       "publishedAt": "2026-11-08",
       "lastSeenBodySha": "c36c48f46b62",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.253",

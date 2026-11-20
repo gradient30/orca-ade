@@ -11,6 +11,17 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.267",
+    "date": "2026-11-20",
+    "dateLabel": "2026年11月20日",
+    "title": "What's new in 1.4.267",
+    "highlights": [
+      "详见下方完整中文日志。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.267",
+    "href": "/docs/changelog#v1-4-267"
+  },
+  {
     "tag": "v1.4.266",
     "date": "2026-11-20",
     "dateLabel": "2026年11月20日",
@@ -60,19 +71,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.263",
     "href": "/docs/changelog#v1-4-263"
-  },
-  {
-    "tag": "v1.4.262",
-    "date": "2026-11-17",
-    "dateLabel": "2026年11月17日",
-    "title": "切换聊天更快、占用更低，编辑器可看 git blame",
-    "highlights": [
-      "**同时开很多聊天。** macOS 和 Linux 上，Chat UI 使用更轻的辅助进程。隐藏的聊天视图暂停更新，但保留草稿、阅读位置和编辑器状态；Agent 继续工作。",
-      "**收回磁盘，并看见谁改了这一行。** Settings → Workspace Cleanup 可以删除已删除工作区里的 Orca、Claude Code 和 Codex 聊天，默认关闭。Git blame 状态项显示光标行的作者和日期，Settings → Editor 的 Inline git blame 把标注放在代码旁边。",
-      "**一张卡片里装好 Agent。** 一起选择 Agent、模型和 effort 或 Fast，然后 Open as chat 或 Open as terminal。右键工作区可以静音通知并保留未读点。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.262",
-    "href": "/docs/changelog#v1-4-262"
   }
 ];
 

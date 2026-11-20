@@ -8,13 +8,14 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
+| [v1.4.267](#v1-4-267) | 2026年11月20日 | What's new in 1.4.267 |
 | [v1.4.266](#v1-4-266) | 2026年11月20日 | Orca Bot 成为正式队友，Antigravity 可自选登录 |
 | [v1.4.265](#v1-4-265) | 2026年11月19日 | 推出 Orca Bot，繁忙聊天时桌面更轻 |
 | [v1.4.264](#v1-4-264) | 2026年11月19日 | 聊天命令回到这条对话自己的工作区 |
 | [v1.4.263](#v1-4-263) | 2026年11月18日 | 聊天启动更轻，Hermes 进入 Chat，扩展可开侧栏 |
-| [v1.4.262](#v1-4-262) | 2026年11月17日 | 切换聊天更快、占用更低，编辑器可看 git blame |
 
 更早版本（同步时保留，不删除）：
+| [v1.4.262](#v1-4-262) | — | 切换聊天更快、占用更低，编辑器可看 git blame |
 | [v1.4.261](#v1-4-261) | — | 大幅性能改进，Cursor Chat 与可定制的 + 菜单 |
 | [v1.4.259](#v1-4-259) | — | Major performance improvements, automatic cleanu… |
 | [v1.4.258](#v1-4-258) | — | Smoother workspaces, restored phone scrolling & … |
@@ -58,7 +59,35 @@
 
 ## 完整中文日志 {#full-notes}
 
+## v1.4.267 What's new in 1.4.267 {#v1-4-267}
+
+2026年11月20日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.267)
+
+A quick patch on [1.4.266](https://github.com/stablyai/orca/releases/tag/v1.4.266) with stability and UI improvements.
+
+### What's new in 1.4.267 {#v1-4-267-what-s-new-in-1-4-267}
+
+- 🛠️ **Steadier 状态栏:** Stability improvements.（[@brennanb2025](https://github.com/brennanb2025)，[#44647](https://github.com/stablyai/orca/pull/44647)）
+- 💬 **Smoother chat:** Finished turns now settle cleanly.（[@AmethystLiang](https://github.com/AmethystLiang)，[#45817](https://github.com/stablyai/orca/pull/45817)）
+- 🤖 **Cleaner Bots card:** The sidebar intro card is simpler and fits any width.（[@AmethystLiang](https://github.com/AmethystLiang)，[#45442](https://github.com/stablyai/orca/pull/45442)）
+
+### Introducing Orca Bots (Beta) <img src="https://raw.githubusercontent.com/stablyai/orca/main/src/shared/bot-mascots/A1.webp" alt="Orca" width="36" height="36" valign="middle" /> {#v1-4-267-introducing-orca-bots-beta-img-src-https-raw-githubusercontent-com-stablyai-orca-main-src-shared-bot-mascots-a1-webp-alt-orca-width-36-height-36-valign-middle-}
+
+Orca Bots work like first-class teammates: every managed agent session gets its tools and identity, bots can share on the owner's behalf, they follow Slack threads and Gmail triggers more reliably, and connecting them is clearer and safer.
+
+- <img src="https://raw.githubusercontent.com/stablyai/orca/main/src/shared/bot-mascots/A1.webp" alt="Orca" width="28" height="28" valign="middle" /> **Every bot session gets its tools and identity:** Managed Agent 会话 are no longer limited to Claude and Codex; each one starts with the tools and identity it needs.
+- 🔗 **Bots can share, just like the owner:** Agent CLI callers can use Sharing the same way the owner does.
+- 💬 **Slack threads show what a bot is doing:** A thread now reflects what its turn is working on, and long answers arrive whole 而不是 cut up.
+- 📬 **Gmail triggers match the real sender:** Triggers match the sender's actual address, not a display name that can differ.
+- 🛡️ **Clearer access warnings:** The access confirm dialog now spells out what you are allowing before you connect a bot.
+
+Everything else in 1.4.266 is unchanged. See the [1.4.266 release notes](https://github.com/stablyai/orca/releases/tag/v1.4.266) for the full list.
+
+**完整变更对照：** [v1.4.266...v1.4.267](https://github.com/stablyai/orca/compare/v1.4.266...v1.4.267)
+
 ## v1.4.266 Orca Bot 成为正式队友，Antigravity 可自选登录 {#v1-4-266}
+
+2026年11月20日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.266)
 
 2026年11月20日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.266)
 
@@ -352,6 +381,8 @@ Antigravity 聊天现在可以用 Gemini API key 或 Google Agent Platform（ADC
 **完整变更对照：** [v1.4.265...v1.4.266](https://github.com/stablyai/orca/compare/v1.4.265...v1.4.266)
 
 ## v1.4.265 推出 Orca Bot，繁忙聊天时桌面更轻 {#v1-4-265}
+
+2026年11月19日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.265)
 
 2026年11月19日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.265)
 
@@ -939,6 +970,8 @@ Orca Bot 像正式队友一样工作：每个托管 Agent 会话都有自己的�
 
 2026年11月19日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.264)
 
+2026年11月19日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.264)
+
 [上一版：1.4.263](https://github.com/stablyai/orca/releases/tag/v1.4.263)：聊天启动更轻，Hermes 进入 Chat，浏览器扩展可以开侧栏。
 
 ### 聊天命令回到这条对话自己的工作区 {#v1-4-264-short}
@@ -969,6 +1002,8 @@ Orca Bot 像正式队友一样工作：每个托管 Agent 会话都有自己的�
 **完整变更对照：** [v1.4.263...v1.4.264](https://github.com/stablyai/orca/compare/v1.4.263...v1.4.264)
 
 ## v1.4.263 聊天启动更轻，Hermes 进入 Chat，扩展可开侧栏 {#v1-4-263}
+
+2026年11月18日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.263)
 
 2026年11月18日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.263)
 
