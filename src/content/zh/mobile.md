@@ -1,9 +1,9 @@
 # 移动伴侣 {#mobile-companion}
 
-Orca 移动伴侣是一款 iOS/Android 应用，与你的桌面 Orca 配对，提供以只读为主的运行中 Agent 视图——Agent 状态、最近的终端回滚缓冲，以及你在手机上真正想要的控件（回复 prompt、休眠 worktree、审查源代码管理、切换 Agent 账户）。配对是一次性的，桌面始终是事实来源。
+Orca 移动伴侣是一款 iOS/Android 应用，与你的桌面 Orca 配对，让你监视并控制正在运行的 Agent——Agent 状态、最近的终端回滚缓冲、终端输入、源代码管理，以及 Agent 账户。配对会建立对所选主机的持久访问；桌面仍然是事实来源。
 
 > **测试版**
-> 移动伴侣处于测试版。从 [App Store](https://apps.apple.com/us/app/orca-ide/id6766130217) 安装 iOS，或从 [当前 APK](https://www.onorca.dev/download/android) 安装 Android。
+> 移动伴侣处于测试版。从 [App Store](https://apps.apple.com/us/app/orca-ide/id6766130217) 安装 iOS，或从 [Google Play](https://play.google.com/store/apps/details?id=dev.orca.app) 安装 Android。如果设备上没有 Google Play，安装 [当前 APK](https://orca.dev/download/android)。
 
 ## 在移动端能做什么 {#what-you-can-do-from-mobile}
 
@@ -28,19 +28,34 @@ Orca 移动伴侣是一款 iOS/Android 应用，与你的桌面 Orca 配对，�
 
 ## 配对 {#pairing}
 
-1. 在桌面上，从账户 / 状态菜单打开 Orca 的配对流程。Orca 显示一次性配对码。
+1. 在桌面上，从账户 / 状态菜单打开 Orca 的配对流程。Orca 显示配对码。把它当作机密，只分享给你要授权的那台设备。
 1. 在移动端，打开 Orca 伴侣应用，选择 **Pair**，然后粘贴该码。（你也可以从桌面跟随深层链接直接进入移动配对屏幕。）
 1. 可用时优先用 **Orca Relay** 配对——只有 Relay 需要登录。Relay 上本地网络地址选择器是可选的（想要 LAN 快速路径时再展开）；LAN 配对仍然需要地址。
 1. 配对交换为该手机建立设备令牌；让桌面在你选择的路径上保持可达。
 
 关闭桌面应用会断开直连 / LAN 会话，直到你重新打开。由 Relay 支持的配对跟随桌面的 Relay 连接——如果主机离线，重新打开桌面。
 
+当前桌面 UI 的配对邀请对移动端在 10 分钟后过期，对运行时客户端在一小时后过期。已配对设备的授权在该邀请过期之后仍然有效，直到被撤销。无头邀请和较旧版本的有效期可能不同；不要假设每个码都是一次性的，或会自动过期。如果未使用的码可能已经泄露，请重新生成。
+
+### 访问与信任 {#access-and-trust}
+
+已配对的手机可以读取工作区文件、发送终端输入，并在已配对主机以及通过它提供的已连接远程运行时上控制 Agent。配对不是企业级只读或按仓库的沙箱。请使用访问权限与手机用户相称的主机账户，并用操作系统锁屏以及你所在组织的设备管控来保护手机。
+
+已配对的桌面可以独立于移动商店更新来交付移动端 Web UI 和 JavaScript。这些资源经过已鉴权的配对连接传输，并对照清单哈希进行校验。桌面属于手机信任边界的一部分；这些校验并不为每一个下载的 UI 包提供单独的发布者签名或商店审核。
+
+### 撤销手机或应对丢失的设备 {#revoke-a-phone-or-respond-to-a-lost-device}
+
+1. 在每台已配对的桌面上，打开 Mobile 设置，从已配对设备列表中移除该手机。确认操作成功；在手机上移除已保存的主机并不能代替主机侧撤销。
+1. 主机侧撤销会移除该设备授权，并关闭它在该主机上的活动连接。Relay 凭据清理会被持久排队，并需要连通性才能到达该服务。远程运行时在同步成功时会收到更新后的委托设备授权。如果某台主机离线，或清理尚未完成，在确认撤销之前限制其网络访问；无法保证对离线主机立即撤销。
+1. 对于丢失的手机，用你的设备管理工具锁定或擦除它，并审查任何另行授予的主机或提供方访问。撤销 Orca 访问并不会远程擦除已经保存在手机上的文件、截图、剪贴板内容或其他数据。
+1. 如果你怀疑配对码已被分享，请重新生成它，并在配对一台替换手机之前，审查受影响主机上的已配对设备。
+
 ## Chat UI {#chat-ui}
 
 对于具备聊天能力的 Agent（Claude、Codex，以及 Orca 识别的其他 Agent），移动端可以在 **Chat UI** 而不是原始终端中打开会话——与桌面的 [Chat UI](/docs/agents/native-chat) 同一思路：可读的 transcript、撰写器、权限/问题，以及图片附件。
 
 - **设备默认** — 首次启动时，移动端会询问此手机上会话应如何打开。之后可在 **Settings → Chat UI → Open sessions in Chat UI** 下更改。在你选择 Chat UI 之前，默认是终端。
-- **按会话** — 长按会话标签，选择 **Switch to chat view** 或 **Switch to terminal view**。该覆盖只粘在该标签上，不改变设备默认。
+- **按会话** — 长按会话标签，选择 **Switch to chat** 或 **Switch to terminal**。该覆盖只粘在该标签上，不改变设备默认。
 - **撰写器** — 输入回复、`@` 提及工作区文件、使用来自共享目录的 Agent 感知 `/` slash 命令（Claude vs Codex 集合，带描述）、附加照片，或口述。附加的图片显示为可移除缩略图，并随发送一起走（包括仅图片发送和多图附件）。
 - **模型和会话选项** — 撰写器显示当前模型和会话选项的药丸行。点它即可挑选模型或选项（包括直接选择 Codex 模型），而不掉进原始终端。
 - **桌面仍然拥有 Agent** — Chat UI 是配对桌面会话上的视图，不是单独的云端 Agent。
@@ -97,9 +112,10 @@ Orca 移动伴侣是一款 iOS/Android 应用，与你的桌面 Orca 配对，�
 ## 故障排除 {#troubleshooting}
 
 - **worktree 上转圈卡住** — 手机跟踪来自桌面 Agent 进程的心跳。如果桌面说 idle 但手机显示 working，强制刷新 worktree 行以同步状态。
-- **配对失败** — 确保桌面和手机登录了同一个 Orca 账户。配对码几分钟后过期；如果它一直停在屏幕上，生成一个新的。
+- **配对失败** — Relay 需要桌面登录；仅本地配对需要可达的 LAN 或 Tailscale 端点。如果邀请已过期，请生成新的码，并检查连接模式和主机地址。
 - **Authentication failed / pairing invalid** — 桌面不再接受此设备令牌（例如桌面清除了已配对设备之后）。先点横幅上的 **Retry**（瞬时拒绝可以在不重新配对的情况下恢复）。如果一直失败，从桌面使用 **Re-pair**，或 **Remove** 该主机再配对一次。
 - **Update Orca Mobile / Update Orca on your computer** — 手机和桌面使用带版本的移动协议。如果任一侧太旧，移动端会阻止该主机，并指向 App Store（iOS）、[GitHub Releases](https://github.com/stablyai/orca/releases)（Android APK 或桌面），然后回到主机。更新后刷新连接；如果消息还在，移除主机再配对。
+- **聊天标签显示 Update mobile** — 该会话是在桌面 Chat UI 中启动的，而这台手机的应用太旧，无法显示它（标签会打开成空窗格）。更新移动应用，然后重新连接到主机，以便它看到新应用。如果应用已经是最新，重新连接后标签仍显示 Update mobile，请连同你的移动应用版本和桌面 Orca 版本一起报告。
 - **Quick Commands unavailable** — 更新配对的桌面，让它声明 quick-commands 能力。
 - **无法到达桌面** — 手机和桌面必须共享网络路径（LAN、Tailscale，或你使用的配对路径）。关闭桌面应用会断开连接；重新打开桌面后手机会自动重连。
 

@@ -1,69 +1,41 @@
 {
-  "id": "2026-11-05-releases",
-  "label": "2026-11-05 同步更新",
-  "at": "2026-11-05",
-  "summary": "本次同步更新了：更新日志（置顶五版 v1.4.249–245，产品体验条目短语词典汉化）。点下方链接或左侧红点跳转；打开该页后红点会清除。",
+  "id": "2026-11-20-changelog-antigravity-antigravity-accounts-hermes-supported",
+  "label": "2026-11-20 同步",
+  "at": "2026-11-20",
+  "summary": "本次同步更新了：changelog、agents/antigravity、agents/antigravity-accounts、agents/hermes、agents/supported。点左侧红点可跳转；打开该页后红点会清除。",
   "pages": [
-    {
-      "slug": "agents/native-chat",
-      "sections": [
-        "enable",
-        "continue-a-conversation-in-chat-or-the-terminal",
-        "switch-an-existing-terminal-backed-chat"
-      ]
-    },
-    {
-      "slug": "settings",
-      "sections": [
-        "appearance",
-        "shortcuts",
-        "plugins-alpha"
-      ]
-    },
-    {
-      "slug": "browser/overview",
-      "sections": [
-        "link-routing"
-      ]
-    },
-    {
-      "slug": "terminal",
-      "sections": [
-        "resource-manager-terminals"
-      ]
-    },
-    {
-      "slug": "remote-servers",
-      "sections": [
-        "use-the-gpu-on-a-linux-server"
-      ]
-    },
-    {
-      "slug": "ssh",
-      "sections": [
-        "open-a-remote-workspace-in-vs-code-cursor-or-zed"
-      ]
-    },
-    {
-      "slug": "agents/claude-code",
-      "sections": [
-        "subagents-and-teams"
-      ]
-    },
-    {
-      "slug": "mobile",
-      "sections": [
-        "what-you-can-do-from-mobile"
-      ]
-    },
     {
       "slug": "changelog",
       "sections": [
-        "v1-4-249",
-        "v1-4-248",
-        "v1-4-247",
-        "v1-4-246",
-        "v1-4-245"
+        "v1-4-266",
+        "v1-4-265",
+        "v1-4-264",
+        "v1-4-263",
+        "v1-4-262"
+      ]
+    },
+    {
+      "slug": "agents/antigravity",
+      "sections": [
+        "antigravity-cli-setup"
+      ]
+    },
+    {
+      "slug": "agents/antigravity-accounts",
+      "sections": [
+        "antigravity-accounts"
+      ]
+    },
+    {
+      "slug": "agents/hermes",
+      "sections": [
+        "hermes-agent-setup"
+      ]
+    },
+    {
+      "slug": "agents/supported",
+      "sections": [
+        "supported-agents"
       ]
     }
   ]

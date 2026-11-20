@@ -17,6 +17,8 @@
 - **UI zoom** — 按安装的 UI 缩放。
 - **Default new-worktree name** — 自定义前缀或海洋生物。
 - **Editor Word Wrap** — 文件编辑器的默认折行（默认开启）。从文件标签的 **⋯** 菜单或 `Alt+Z` 切换。与 **Diff Word Wrap** 分开。
+- **Insert Final Newline** — 从代码编辑器保存非空文件时补上缺失的换行；默认关闭。
+- **End of Line** — 新文件以及尚无换行的文件所用的行尾：Auto（跟随运行该文件工作区的系统：Linux、macOS 和 WSL 为 LF，Windows 为 CRLF）、LF 或 CRLF。已有换行的文件保留自己的行尾。
 
 ## Appearance {#appearance}
 
@@ -57,11 +59,21 @@
 - 已安装的 Agent — 你可以启用或禁用的已检测 CLI。
 - 启用或禁用已检测的 Agent，让启动菜单只显示你想用的 CLI。
 - Agent Permissions — 选择 **Yolo** 以减少 CLI 权限提示，或选择 **Manual**，让你尚未自定义的 Agent 保留各自的批准流程。
-- Claude 和 Codex 账户列表。
 - 每个 Agent 的启动 hooks。
 - **Agent status hooks** — 在 Orca 中显示 working / waiting / done 状态。开关无需重启应用即可生效（包括 Windows WSL hook relay）。CLI：`orca agent hooks on|off|status`。
 - **Keep computer awake** — **On**（持续保持唤醒）、**Agent**（Agent 工作时保持唤醒）或 **Off**。同一控件以 **Caffeinate**（咖啡图标）出现在桌面状态栏。在已配对的 Web 客户端上隐藏。
 - **Skill freshness** — Agents 窗格和技能卡片仍显示完整状态。侧栏导航只给需要操作的技能打徽章（**Update available**、**Needs attention** / review）；健康、加载中以及可选未安装的行保持安静。在对话框中用 **Update** 在后台刷新全局技能（无终端）。进度出现在状态栏；关闭对话框不会取消运行。见 [Orca 技能](/docs/cli/skills#keep-skills-up-to-date)。
+
+## AI Provider Accounts {#ai-provider-accounts}
+
+- 每个提供方可选的已保存账户。没有任何账户时，Orca 使用你现有的登录。
+- **Claude** 和 **Codex** — **Add Account** 会登录一个单独、隔离的账户；切换应用于新会话。见 [热切换 Codex 账户](/docs/agents/codex-hot-swap)。
+- **Antigravity** — **Save current account** 记住当前的 `agy` 登录，**Select** 把这台机器共享的 `agy` 登录切回它。这是切换，不是并行账户。Antigravity 聊天使用自己的登录。见 [Antigravity 账户](/docs/agents/antigravity-accounts)。
+
+## Chat {#chat}
+
+- 在这台计算机的 **Settings → Agents** 里选择 Agent 是否以聊天方式打开（[Remote Orca Server](/docs/remote-servers) 的设置页不提供此项）。**Open agents as** 把默认设为 **Chat** 或 **Terminal**；全新安装默认为 Terminal。**Installed** 列表中每个受支持 Agent 的行都有自己的 **Chat | CLI** 选择。没有自己选择的 Agent 跟随默认。
+- 现有用户保留先前的启动选择。现有对话保留其形式。见 [Chat UI](/docs/agents/native-chat)，了解如何在聊天或终端中继续对话。
 
 ## Browser {#browser}
 
@@ -78,7 +90,7 @@
 ## Artifacts {#artifacts}
 
 - **Orca account** — 登录（与 Orca Relay 同一账户族）以发布和管理共享文件。
-- **Allow publishing public artifact links** — **默认关闭**。设备范围的闸门：开启时，你、Agent 以及此机器上的 `orca` CLI 可以上传 HTML/Markdown 并铸造公开查看链接。关掉它不会删除已有链接。
+- **Allow publishing public artifact links** — **新建配置档默认开启**；在此默认之前创建的配置档保留其先前设置。设备范围的闸门：开启时，你、Agent 以及此机器上的 `orca` CLI 可以上传 HTML/Markdown 并铸造公开查看链接。关掉它不会删除已有链接。
 - **Show Artifacts** / 侧栏快捷方式 — 打开 Artifacts 列表以搜索、预览、复制或删除账户拥有的链接。
 - **Ask Before Deleting Artifacts** — 在打断公开链接之前可选的确认。
 - 从打开的本地 HTML 页面或 Markdown 编辑器用 **Share as artifact** 分享，或通过 `orca artifacts …`。见 [CLI 参考 → Artifacts](/docs/cli/reference#artifacts)。
@@ -112,7 +124,7 @@
   - **Parakeet TDT-CTC JA** — 日语。
   - **SenseVoice** — ZH / EN / JA / KO / 粤语，带自动语言检测。
   - **Whisper Tiny** — 90+ 种语言，准确度较低。
-  - **GPT-4o mini / GPT-4o Transcribe** — 云端；需要同一窗格下的 OpenAI key。
+  - **GPT Transcribe** — 云端；需要同一窗格下的 OpenAI key。已保存的 GPT-4o mini 或 GPT-4o Transcribe 选择会迁移到它，因为 OpenAI 将于 2027-02-26 下线它们。
 - 正在听时，**Listening…** 药丸显示 **Stop** 控件；在 toggle 模式下，工具提示还会显示口述快捷键。
 
 ## SSH {#ssh}
@@ -135,7 +147,7 @@
 - **Toggle Workspace Board** 默认未绑定；在这里分配，以便用一个快捷键打开或关闭 Workspace Board。`workspace.openBoard` 的现有绑定继续有效。
 - 关闭所有编辑器标签在 macOS 上默认为 `Cmd+Option+W`，在 Windows / Linux 上为 `Ctrl+Alt+W`。
 - **Tab navigation defaults (new installs)：** 跨所有类型的下一个/上一个标签是 `Cmd+Shift+]` / `Cmd+Shift+[`（Linux/Windows 上为 Ctrl）。同类型的下一个/上一个是 `Cmd+Option+]` / `Cmd+Option+[`。上一个最近标签是 `Ctrl+Tab`。现有安装把自定义覆盖保留在 `~/.orca/keybindings.json` 下。
-- **Switch between Chat UI and terminal** 在受支持的 Agent 标签中，macOS 默认为 `Cmd+Shift+J`，Windows / Linux 默认为 `Ctrl+Shift+J`。可在此重映射或移除绑定。已有自定义快捷键保留其组合键。在 Windows / Linux 上，若 **Switch worktree** 使用相同组合键则优先；terminal-first 可允许从终端输入触发切换。
+- **Switch between Chat UI and terminal** 在受支持的 Agent 标签中，macOS 默认为 `Cmd+Shift+J`，Windows / Linux 默认为 `Ctrl+Shift+F11`。可在此重映射或移除绑定。已有自定义快捷键保留其组合键。在 Windows / Linux 上，当 **Search everything** 未使用 `Ctrl+Shift+J` 时它也会切换，或在 terminal-first 策略下从终端输入切换。
 - **Add Review Note** 默认为 `Cmd+Shift+A`（macOS）/ `Ctrl+Shift+A`（Windows / Linux）；可重映射。
 - **Send Review Notes to Agent** 默认未绑定；在这里分配，以便不用鼠标即可打开活动 worktree 的 diff 批注发送菜单。
 - **Delete workspace** 在 macOS 上默认为 `Cmd+Shift+Backspace`，在 Windows / Linux 上为 `Ctrl+Shift+Backspace`。把指针悬停在你打算删除的侧栏工作区上；Orca 仍会要求确认。
@@ -167,6 +179,5 @@
 - Compact worktree cards — 在布局仍处于实验阶段时隐藏侧栏中多余的第二行。
 - [Agent 休眠](/docs/agents/hibernation) — 暂停空闲的后台 Agent，并在重新打开时自动恢复它们。
 - **Agent Dashboard** — Needs You / Working / Done Agent 的看板（可选 Idle），带搜索以及项目/工作区/PR 过滤器；可在窗口内打开或弹出。**Show idle agents** 位于看板的仪表板设置控件上，不在这里。见 [Agent 与会话](/docs/model/agents-sessions#agent-dashboard)。
-- **Chat UI** — 受支持 Agent 终端上的可选聊天表面。见 [Chat UI](/docs/agents/native-chat)。
 - **Cloud VM** — 显示仓库拥有的按需环境（云沙箱、虚拟机或本地 Docker）的设置控件和工作区 **Run on** 目标。设置指南和 recipe 安装位于此实验开关下。见 [运行 Orca 的方式](/docs/ways-to-run#4-cloud-vms-per-workspace-environments)。
 - 尚未稳定的功能 — 行为可能变化。

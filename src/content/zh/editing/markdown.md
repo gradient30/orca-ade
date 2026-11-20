@@ -49,4 +49,4 @@ YAML 和 TOML front matter 默认显示在富编辑器和渲染预览中，这�
 
 ## 作为 artifact 分享 {#share-as-artifact}
 
-从编辑器标题栏，**Share as artifact** 通过你已登录的 Orca 账户把打开的 Markdown 文件发布为公开查看链接。需要 **Settings → Artifacts → Allow publishing public artifact links**（默认关闭）。当 Orca 仍有映射时，重新发布会更新同一链接；从侧栏 **Artifacts** 页面管理或删除链接。Agent 和脚本可以使用 `orca artifacts share|update|list|delete`——见 [CLI reference → Artifacts](/docs/cli/reference#artifacts)。
+从编辑器标题栏，**Share as artifact** 通过你已登录的 Orca 账户把打开的 Markdown 文件发布为公开查看链接。需要 **Settings → Artifacts → Allow publishing public artifact links**（新配置档默认开启）。当 Orca 仍有映射时，重新发布会更新同一链接；从侧栏 **Artifacts** 页面管理或删除链接。Agent 和脚本可以使用 `orca artifacts share|update|list|delete`——见 [CLI reference → Artifacts](/docs/cli/reference#artifacts)。

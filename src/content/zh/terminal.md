@@ -8,6 +8,8 @@ Orca 的终端与 VS Code 使用的 xterm.js 终端相同，并针对 AI Agent �
 
 Agent 终端标签会显示 Agent 身份以及实时状态：working、waiting for input、completed，或 completed-but-unread。对于 Claude 和 Codex，当 Orca 能把窗格映射到该会话时，标签标题还可以显示 **AI Vault conversation name**（自定义标题 / 线程名）——手动重命名仍然优先。
 
+桌面 Orca 可以在每个窗口里、最多两个已挂载的隐藏窗格中保留内联图片，前提是它们的输出保持连续。窗格在你切走时至少要已放置一张图片，才符合保留条件。仍在解码、或仅仅完成上传的 Kitty 图片可能会丢失，而在一次交付间隙之后或冷重新打开之后的恢复，可能只还原文本、没有图形。
+
 ## Resource Manager 终端 {#resource-manager-terminals}
 
 **Resources** 视图在桌面应用与已配对的网页客户端中，于其页面可见时均可使用。单独的 **PTYs** 视图管理本地桌面终端；网页客户端无法结束那些终端。
@@ -31,7 +33,7 @@ Agent 终端标签会显示 Agent 身份以及实时状态：working、waiting f
 
 ## 链接操作 {#link-actions}
 
-在终端链接上普通单击（HTTP/OSC 8 URL、文件路径、workspace、terminal 或 task handle）会打开紧凑的操作弹出层，而不是立即跳转。本机网页链接以及由能力校验通过的配对运行时拥有的链接会提供 **Orca Browser** 和 **System Browser**；SSH 拥有的链接以及较旧的运行时仍仅走系统浏览器。网页链接还会提供 **Copy link**，把解析后的 URL（包括隐藏的 OSC 8 目标）复制到剪贴板而不关闭弹出层——文件和 workspace 目标保持不变。`Cmd`-click（macOS）/ `Ctrl`-click（Windows / Linux）仍然直接打开，`Shift+Cmd` / `Shift+Ctrl`-click 仍然使用 [链接路由](/docs/browser/overview#link-routing) 的备选方式。
+在终端链接上普通单击（HTTP/OSC 8 URL、文件路径、workspace、terminal 或 task handle）会打开紧凑的操作弹出层，而不是立即跳转。本机网页链接以及由能力校验通过的配对运行时拥有的链接会提供 **Orca Browser** 和 **System Browser**；来自较旧运行时的链接仍仅走系统浏览器。已路由主机的 SSH 链接遵循[链接路由](/docs/browser/overview#link-routing)。当该主机的 SSH 浏览设为 **This device** 时，只有链接在 Orca 中打开的情况下，它们才会在从此设备浏览的 Orca 标签里打开；否则仍仅走系统浏览器。网页链接还会提供 **Copy link**，把解析后的 URL（包括隐藏的 OSC 8 目标）复制到剪贴板而不关闭弹出层——文件和 workspace 目标保持不变。`Cmd`-click（macOS）/ `Ctrl`-click（Windows / Linux）仍然直接打开，`Shift+Cmd` / `Shift+Ctrl`-click 仍然使用 [链接路由](/docs/browser/overview#link-routing) 的备选方式。
 
 可预览的 HTML 文件链接可以在本机、SSH 和配对运行时工作区中从 Orca 打开；远程文件行还会提供 **Download & open with default app**。如果被链接的文件已在同级工作区标签中打开，Orca 会激活该标签而不是再开一份。见 [HTML 查看器](/docs/editing/viewers#html)。
 
@@ -40,6 +42,10 @@ Agent 终端标签会显示 Agent 身份以及实时状态：working、waiting f
 ## 复制终端上下文 {#copy-terminal-context}
 
 在终端上右键，选择 **Copy Context**，即可复制该窗格的一段有界 transcript。适合把最近的 Agent 输出粘贴到别的工具，而不必在 Orca 里再开一个 fork。
+
+## 粘贴与拖放的图片 {#pasted-and-dropped-images}
+
+把本地图片粘贴或拖入终端时，Orca 会把它显示在窗格标题栏。悬停在图片芯片上可查看缩略图和路径，点击则在 Orca 中打开该文件。每个已挂载窗格保留最近四张图片。在窄窗格中水平滚动芯片条，即可到达更早的图片。可在 **Settings → Terminal → Pasted and dropped image previews** 中关掉这些芯片。
 
 ## 主题 {#themes}
 
@@ -54,6 +60,23 @@ Agent 终端标签会显示 Agent 身份以及实时状态：working、waiting f
 如果你在 Warp 里攒了一批主题，在 [Settings → Terminal](/docs/settings) 的终端主题选择器里点 **Import themes from Warp**，即可把它们变成 Orca 终端主题。Orca 会扫描当前操作系统的 Warp 主题目录（macOS 上是 `~/.warp/themes`，Linux 上是 `$XDG_DATA_HOME/warp-terminal/themes`，Windows 上是 `%APPDATA%\warp\Warp\data\themes`），让你挑选要导入哪些 YAML 主题。旁边的 **Import from YAML** 使用同一个选择器，但指向任意包含 Warp 格式 `.yaml`/`.yml` 文件的文件夹——主题不在默认位置时很有用。
 
 导入的主题会出现在主题下拉菜单里，与 Orca 内置主题并列。
+
+## 面向工具的终端能力 {#terminal-capabilities-for-tools}
+
+Orca 桌面终端会渲染 24 位颜色、OSC 8 超链接和内联栅格图片。当 **Settings → Terminal → Inline Images** 开启时，终端的图片渲染器支持 Kitty 图形、Sixel 和 iTerm2 内联图片。
+
+| 信号                        | 含义                                                                                                           |
+| --------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `TERM_PROGRAM=Orca`         | 直接 Orca 终端的身份。启动工具时请保留它。                                                                     |
+| `COLORTERM=truecolor`       | 程序可以发出 24 位颜色。                                                                                       |
+| `FORCE_HYPERLINK=1`         | Orca 可以打开 OSC 8 超链接。尊重该环境变量的工具可以发出它们。                                                 |
+| `ORCA_IMAGE_PROTOCOL=kitty` | 对新打开、已启用内联图片且查看器支持的终端给出的启动提示。Kitty 是栅格图片的首选编码器。                       |
+
+实时检测图片时，优先使用 Kitty 图形查询。在 primary-device-attributes 查询之前发送直接的 `a=q` 查询，并在有界时限内等待图形回复。渲染器就绪时，Orca 会在 primary device attributes 中通告 Sixel。终端设置和查看器可以在启动之后改变。
+
+在无头 Orca 主机上本地启动 CLI 时，不会带上图片提示。稍后附着桌面会按该查看器的设置启用渲染，但正在运行的 shell 会保留启动时的环境。
+
+在 tmux 中，使用多路复用器的能力信息。窗格内的 `TERM_PROGRAM` 描述的是 tmux，从 Orca 客户端继承的环境变量可能在该次附着结束之后仍然存在。对于 OSC 8，请使用支持超链接的 tmux 版本，并为任何支持它的匹配外部终端类型设置 `hyperlinks` 终端特性。`tmux display-message -p '#{client_termname} #{client_termfeatures}'` 会显示已附着客户端的终端类型和特性。tmux 内的 Kitty 图形支持取决于多路复用器及其已附着的查看器。
 
 ## macOS 与 Linux shell {#macos-and-linux-shell}
 

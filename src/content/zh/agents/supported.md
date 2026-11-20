@@ -13,6 +13,8 @@ Orca 可与**任意 CLI agent** 配合——agent combobox 只是在终端里启
 
 若只想为一个 Agent 恢复确认提示，请在 Settings 中编辑该 Agent 的默认参数或环境。Orca 把非空的自定义值视为显式覆盖，并使该 Agent 退出后续的 permission-mode 迁移。
 
+如果某个 Agent 的 CLI 装在 `PATH` 之外，在 **Settings → Agents** 里展开它的行，把可执行文件的完整路径填进 **Command**。只要运行该工作区的主机上这个路径存在，Orca 就会把该 Agent 列为已安装。
+
 | Agent              | 说明                                                                                                                       | 文档                                                                                              |
 | ------------------ | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
 | Claude Code        | 深度集成：用量、热切换、hooks                                                                                              | [Anthropic](https://docs.anthropic.com/claude/docs/claude-code)                                   |
@@ -25,10 +27,10 @@ Orca 可与**任意 CLI agent** 配合——agent combobox 只是在终端里启
 | OMP                | 自动配置、hooks、状态                                                                                                    | [OMP](https://omp.sh)                                                                             |
 | Prime Agent        | 自动配置、hooks、状态、会话历史                                                                                          | [Prime Intellect](https://github.com/PrimeIntellect-ai/prime-agent)                               |
 | Gemini             | 自动配置                                                                                                                 | [Google](https://github.com/google-gemini/gemini-cli)                                             |
-| Antigravity        | 自动配置、hooks、状态                                                                                                    | [Google](https://antigravity.google/docs/cli-overview)                                            |
+| Antigravity        | [安装](/docs/agents/antigravity)、hooks、状态、用量、[账户切换](/docs/agents/antigravity-accounts) | [Google](https://antigravity.google/docs/cli-overview)                                            |
 | Ante               | 自动配置、状态                                                                                                           | [Ante](https://github.com/AntigmaLabs/ante-preview)                                               |
 | Aider              | 自动配置                                                                                                                 | [Aider](https://aider.chat/docs/)                                                                 |
-| Goose              | 自动配置                                                                                                                 | [Block](https://block.github.io/goose/docs/quickstart/)                                           |
+| Goose              | 自动配置                                                                                                                 | [Block](https://goose-docs.ai/docs/quickstart/)                                                   |
 | Amp                | 自动配置                                                                                                                 | [Amp](https://ampcode.com/manual#install)                                                         |
 | Kilocode           | 自动配置                                                                                                                 | [Kilo](https://kilo.ai/docs/cli)                                                                  |
 | Kiro               | 自动配置                                                                                                                 | [Kiro](https://kiro.dev/docs/cli/)                                                                |
@@ -41,9 +43,9 @@ Orca 可与**任意 CLI agent** 配合——agent combobox 只是在终端里启
 | Freebuff           | 自动配置                                                                                                                 | [Freebuff](https://freebuff.com/cli)                                                              |
 | Command Code       | 自动配置、状态                                                                                                           | [Command Code](https://commandcode.ai/docs/quickstart)                                            |
 | Muse               | macOS/Linux；启动时信任工作区                                                                                            | [Meta](https://dev.meta.ai/docs/muse-code)                                                        |
-| DeepSeek Harness   | 通过 `dsh-tui` profile 启动；hooks、状态、提问、恢复                                                                     | [DeepSeek](https://deepseek-harness.github.io/deepseek-harness/)                                  |
+| DeepSeek Harness   | 需要 `@deepseek-ai/dsh` 以及社区的 `@deepseek-harness-tui/dsh-tui`；hooks、状态、提问、恢复                              | [dsh-TUI](https://github.com/ccch1mneyyy/dsh-TUI#quick-start)                                     |
 | ZCode              | 深度集成；需要带 TUI 的 `zcode` CLI（见下方说明）                                                                        | [Z.ai](https://zcode.z.ai/en/docs)                                                                |
-| Continue           | 自动配置                                                                                                                 | [Continue](https://docs.continue.dev/guides/cli)                                                  |
+| Continue           | 自动配置                                                                                                                 | [Continue](https://docs.continue.dev/cli/quickstart)                                              |
 | Cursor CLI         | 深度集成                                                                                                                   | [Cursor](https://cursor.com/cli)                                                                  |
 | Devin              | 自动配置                                                                                                                 | [Devin](https://devin.ai/cli)                                                                     |
 | Droid (Factory)    | 自动配置、hooks、状态                                                                                                    | [Factory](https://docs.factory.ai/cli/getting-started/quickstart)                                 |

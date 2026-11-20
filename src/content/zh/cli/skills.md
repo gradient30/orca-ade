@@ -4,17 +4,18 @@ Orca 提供 **skills**，供 Agent 安装进各自的技能目录。公开安装
 
 ## 可安装的 Orca 技能 {#installable-orca-skills}
 
-用 `npx skills add`，加上公开的 Orca 仓库和技能名。默认 Agent 设置通常会安装 `orca-cli`、`computer-use` 和 `orchestration`。
+用 `npx skills add`，加上公开的 Orca 仓库和技能名。默认 Agent 设置通常会安装 `orca-cli`、`orca-computer-use` 和 `orchestration`。
 
 | 技能                                                | 安装                                                                                      | 用途                                                          |
 | --------------------------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------------------------- |
 | [`orca-cli`](#orca-cli)                             | `npx skills add https://github.com/stablyai/orca --skill orca-cli --global`               | Worktree、终端、文件、自动化、内置浏览器。                    |
 | [`orchestration`](#orchestration)                   | `npx skills add https://github.com/stablyai/orca --skill orchestration --global`          | 多 Agent 的 Run、任务、受监督 worker、消息、决策门。          |
-| [`computer-use`](#computer-use)                     | `npx skills add https://github.com/stablyai/orca --skill computer-use --global`           | 通过无障碍树和安全 UI 操作控制桌面应用。                      |
+| [`orca-computer-use`](#orca-computer-use)           | `npx skills add https://github.com/stablyai/orca --skill orca-computer-use --global`      | 通过无障碍树和安全 UI 操作控制桌面应用。                      |
 | [`orca-linear`](#orca-linear)                       | `npx skills add https://github.com/stablyai/orca --skill orca-linear --global`            | 通过 `orca linear` 读写 Linear 工单。                         |
 | [`orca-emulator`](#orca-emulator)                   | `npx skills add https://github.com/stablyai/orca --skill orca-emulator --global`          | 控制 iOS Simulator。                                          |
 | [`orca-emulator-android`](#orca-emulator-android)   | `npx skills add https://github.com/stablyai/orca --skill orca-emulator-android --global`  | 通过 adb 控制 Android 模拟器/设备。                           |
 | [`orca-per-workspace-env`](#orca-per-workspace-env) | `npx skills add https://github.com/stablyai/orca --skill orca-per-workspace-env --global` | 每工作区环境配方（`orca.yaml`）。                              |
+| [`orca-plugin-authoring`](#orca-plugin-authoring)   | `npx skills add https://github.com/stablyai/orca --skill orca-plugin-authoring --global`  | 构建、调试并发布 Orca 插件。                                  |
 
 ## 混合存根 vs 实时指南 {#hybrid-stubs-vs-the-live-guide}
 
@@ -39,36 +40,33 @@ orca skills get orca-linear --json
 
 ## 保持技能最新 {#keep-skills-up-to-date}
 
-当 Orca 发布了比全局已安装更新的技能包时，应用可以：
+Orca 自己更新自己的技能，不需要 `npx`、Git、Node 或网络。一份拷贝算作 Orca 未改动的拷贝，当它的文件夹里只有 `SKILL.md`，且该文件匹配 Orca 曾经发布过的某个版本。只有这些拷贝会被就地改写（共享的 `~/.agents/skills/<name>`，或 Agent 技能文件夹里的真实文件夹，例如 `~/.claude/skills/<name>`）。其他任何东西都会被留下并报告：**You've changed this copy**，或 **A different skill already uses this name**。Orca 从不会删除一个它没有创建的文件夹。
 
-- 显示 **update available** 提示，针对 Orca 安装的技能（当某份拷贝过期且更新器无法安全改写时，则显示 **Needs attention**）。
-- 打开 **Update skills** —— 列出放置位置和跳过原因，每项技能有一个复选框。Orca 自己的技能默认勾选；从别处安装的同名技能标记为 **Not from Orca** 并默认不勾选。选中的技能会无界面重新安装（不嵌入终端），使用 **`npx --yes skills@1.7.2 add https://github.com/stablyai/orca/tree/<commit> --skill <name>… --global -y`**，固定到当前运行的 Orca 构建所基于的 commit（因此对 hourly、daily、RC 和 stable 构建都适用），并固定到已知的 skills CLI 版本。
-- 把运行保持在 **background**：关闭对话框不会取消它。状态栏一段显示进度（运行时是 spinner，成功时短暂打勾，失败会一直显示直到你处理）。点击该段可重新打开对话框。
-- 在 **Settings → Agents** 上为已安装技能展示新鲜度（全局安装栏），某行需要审查时包括 **Details**。
+当这个 Orca 构建发布了你已安装技能的更新版本时，应用会：
 
-手动等价命令（桌面 Settings 为当前运行构建显示同样的固定形式）：
+- 显示 **update available** 提示和徽章。更新只触及已经持有该技能的位置；它从不会为另一个 Agent 添加该技能。
+- 打开 **Update skills**，其中列出每一个位置以及 Update 在那里做什么：**No change**、**Will update**、**Will link**，或 **Left alone** 并附上原因。被留下的拷贝有一个 **Replace** 选项（默认关闭）；Replace 会先把该拷贝移到 `~/.agents/.orca-skill-backups/`，然后把 Orca 的拷贝放到原处。
+- 精确运行你审查过的计划：如果某个文件夹在你打开对话框之后变了，该技能会报告 **Changed since you reviewed it**，那里什么都不会写入。
+- 按技能显示结果，例如 `Updated · 1 left alone: You've changed this copy`，运行期间状态栏有一段显示。
 
-```bash
-npx skills@1.7.2 add https://github.com/stablyai/orca/tree/<commit> --skill orca-cli --skill orchestration --global
-```
+这覆盖安装在这台计算机上的技能。应用还不会检查 WSL 项目、SSH 宿主或已配对的 Orca 服务器；在那些地方运行 `orca skills update`。
 
-在没有 Settings UI 的无头宿主（SSH、容器、CI、`orca serve`）上，使用本地 CLI 包装——它们解析同一套 `npx` 命令、加上非交互标志，并且 **不** 需要正在运行的 Orca 运行时：
+在无头宿主（SSH、容器、CI、`orca serve`）上使用 CLI。它在运行它的那台机器上运行同一套规划器，并且 **不** 需要正在运行的 Orca 应用：
 
 ```bash
 orca skills install                                      # list installable names
 orca skills install --skill orca-cli --skill orchestration
-orca skills install --skill orca-cli --agent claude-code,codex
-orca skills install --all --dry-run
+orca skills install --skill orca-cli --agent claude,codex
+orca skills update --all --dry-run                       # what would change, and the plan digest
 orca skills update --all
-orca skills update --skill orca-cli --dry-run
+orca skills update --all --force                         # also replace copies left alone (backup kept)
 ```
 
-- 默认范围是 **global**（`--global`）；只针对当前项目时传 `--local`。
-- `install` 针对 Orca 在宿主上检测到的 Agent（外加共享的 `.agents/skills` 目录）。用 `--agent <name>[,<name>…]` 或 `--agent universal` 覆盖；如果没有检测到 Agent，则必须提供 `--agent`。
-- `update` 运行与 `install` 相同的固定 `skills add`。没有检测到 Agent 时，它只针对 `.agents/skills`，而不是拒绝。
-- `--dry-run` 打印解析后的命令；`--json` 只在列出 / `--dry-run` 时有效。
-
-Orca 提供应用内更新器时优先用它，这样应用扫描到的同一批全局放置会被改写。标为 **Skipped** 的行会说明该技能为何无法自动更新（例如缺少源注册）——修好放置位置，然后重新检查。
+- 默认范围是 **global**；只针对当前项目时传 `--local`（Orca 只会链接进该项目已经有的 Agent 文件夹）。
+- 针对 Orca 在宿主上检测到的 Agent，外加共享的 `.agents/skills` 文件夹。用 `--agent <name>[,<name>…]` 来选择（skills CLI 的键，例如 `claude-code`，仍然有效），或用 `--agent universal` 只针对共享文件夹。
+- `update` 只触及已经持有该技能的位置；`install` 会添加它，包括为新检测到的 Agent。
+- `--dry-run` 打印计划及其 digest，不写入。真正的运行会再次规划，并且只在计划仍然匹配时写入。
+- `--json` 对试运行和真正的运行都有效。某个位置失败或在运行期间发生变化时，退出码为 1；被留下的文件夹是警告。
 
 ## 从 Skills 页安装和删除 {#install-and-delete-from-the-skills-page}
 
@@ -107,10 +105,12 @@ npx skills add https://github.com/stablyai/orca --skill orchestration --global
 
 当 Agent 应通过 Run、任务、受监督 worker 和决策门来协调其他 Agent 时使用。见 [编排](/docs/cli/orchestration)。在变更编排状态之前始终加载 `orca skills get orchestration --full` —— 旧的 `orchestration run` 命令已退役。
 
-## computer-use {#computer-use}
+<span id="computer-use" />
+
+## orca-computer-use {#orca-computer-use}
 
 ```bash
-npx skills add https://github.com/stablyai/orca --skill computer-use --global
+npx skills add https://github.com/stablyai/orca --skill orca-computer-use --global
 ```
 
 当 Agent 需要检查并操作本机桌面应用窗口时使用。见 [Computer Use](/docs/cli/computer-use)。
@@ -146,6 +146,14 @@ npx skills add https://github.com/stablyai/orca --skill orca-per-workspace-env -
 ```
 
 在 `orca.yaml` 中设置或调试每工作区环境配方时使用。见 [运行 Orca 的方式](/docs/ways-to-run#4-cloud-vms-per-workspace-environments)。
+
+## orca-plugin-authoring {#orca-plugin-authoring}
+
+```bash
+npx skills add https://github.com/stablyai/orca --skill orca-plugin-authoring --global
+```
+
+当 Agent 应制作、调试、测试或发布 Orca 插件时使用：主题、语法、自定义编辑器、TSX 组件面板和 worker 命令。用 `orca skills get orca-plugin-authoring` 加载它；它的参考（组件、host API、事件、manifest 字段、CLI）由正在运行的 Orca 生成。
 
 ## 发现来源 {#discovery-sources}
 

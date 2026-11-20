@@ -29,14 +29,14 @@
 
 在 [Settings → Browser → Link Routing](/docs/settings) 下，选择来自终端、markdown 和编辑器的 http(s) 链接是在 Orca 每个 worktree 的浏览器中打开，还是在系统浏览器中打开。
 
-在 Orca 中打开的链接会先复用同一工作区、执行宿主与浏览器配置档中指向完全相同目标的已有页面；否则在已显示浏览器的窗格中打开新标签。多个浏览器窗格可见时，聚焦的优先，其次是最近使用的。被其他标签挡住的浏览器标签不会吸引新页面。没有可见浏览器时，会在来源窗格旁新开分屏，并保持其内容可见。显式的 **Open in this group** 操作则使用请求的窗格。
+在 Orca 中打开的链接会先复用同一工作区、执行宿主与浏览器配置档中指向完全相同目标的已有页面；否则在已显示浏览器的窗格中打开新标签。多个浏览器窗格可见时，聚焦的优先，其次是最近使用的。被其他标签挡住的浏览器标签不会吸引新页面。没有可见浏览器时，会在来源窗格旁新开分屏，并保持其内容可见。显式的 **Open in new tab** 操作则使用请求的窗格。
 
 嵌套的 **Hold Shift…** 开关会用平台修饰键把该默认对一次点击反转（macOS 上 `⇧⌘-click`，Windows / Linux 上 `Shift+Ctrl+click`）：
 
 - 当链接在 **Orca** 中打开时，修饰键把这一条链接送到系统浏览器。
 - 当链接在 **system browser** 中打开时，打开该开关，让修饰键改为在 Orca 内置浏览器中打开这一条链接（普通点击仍走系统）。
 
-能力已验证的 paired runtime 可以为其终端链接提供同样的 Orca/系统浏览器选择。SSH 拥有的终端链接和来自较旧 runtime 的链接仍只走系统浏览器。见 [Terminal → Link actions](/docs/terminal#link-actions)。
+能力已验证的 paired runtime 可以为其终端链接提供同样的 Orca/系统浏览器选择；来自较旧 runtime 的链接仍只走系统浏览器。已路由主机的 SSH 链接遵循链接路由。当该主机的 SSH 浏览设为 **This device** 时，只有链接在 Orca 中打开的情况下，它们才会在本机浏览的 Orca 标签里打开；否则仍只走系统浏览器。见 [Terminal → Link actions](/docs/terminal#link-actions)。
 
 ## 下载 {#downloads}
 
@@ -44,7 +44,7 @@
 
 ## 作为 artifact 分享 {#share-as-artifact}
 
-在 worktree 浏览器中打开的本地 HTML 文件可以用工具栏里的 **Share as artifact** 通过你已登录的 Orca 账户铸造公开查看链接（与 Markdown 相同的可选加入门槛和管理表面）。相对 HTML 资源不会上传——分享自包含文件，或使用绝对资源 URL。见 [Settings → Artifacts](/docs/settings#artifacts) 和 [CLI reference → Artifacts](/docs/cli/reference#artifacts)。
+在 worktree 浏览器中打开的本地 HTML 文件可以用工具栏里的 **Share as artifact** 通过你已登录的 Orca 账户铸造公开查看链接（与 Markdown 相同的发布门槛和管理表面）。相对 HTML 资源不会上传——分享自包含文件，或使用绝对资源 URL。见 [Settings → Artifacts](/docs/settings#artifacts) 和 [CLI reference → Artifacts](/docs/cli/reference#artifacts)。
 
 ## 视口尺寸模拟 {#viewport-size-emulation}
 

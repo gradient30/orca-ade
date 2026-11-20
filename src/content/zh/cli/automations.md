@@ -36,9 +36,9 @@ orca automations create \
 
 两个目标标志都省略时，Orca 会在能够判断的情况下，从当前 shell 目录解析出包围它的 worktree。
 
-## 运行前预检查 {#precheck-before-a-run}
+## 计划运行前的预检查 {#precheck-before-a-scheduled-run}
 
-当一次便宜的 shell 探测失败时跳过计划工作（非零退出会记录为一次跳过的运行）：
+用 `--precheck <command>` 只在计划运行之前执行一条 shell 命令。退出码 `0` 继续；其他退出码、错误或超时都会跳过这次运行。用 `--precheck-timeout <seconds>` 设置时限（默认 `60`）。跳过会出现在 Orca 的运行历史里，以及 `orca automations runs --id <automationId> --json` 中，状态为 `skipped_precheck`。
 
 ```bash
 orca automations create \
@@ -119,7 +119,7 @@ orca automations create \
 
 保存的额外参数在每台宿主（包括 Windows）上使用同一套引号：含空格的值用单引号或双引号包起来；要保留路径里的反斜杠时用单引号，例如 `--add-dir 'C:\\work\\my docs'`。Orca 把它们当作字面参数传递，不支持 shell 命令和展开。
 
-额外参数只接受 model 与 effort 选项，以及 Claude 的 `--add-dir`，适用于 Claude、Codex、CodeBuddy、Cursor、Grok 和 OMP。权限、配置、prompt 和会话选项会被拒绝。额外参数要求每次运行都是全新会话，因此不能和 `--reuse-session` 一起用。用 `orca automations edit <automationId> --extra-agent-args=` 清除它们。
+额外参数只接受 model 与 effort 选项，以及 Claude 的 `--add-dir`，适用于 Antigravity、Claude、Codex、CodeBuddy、Cursor、Grok、OMP 和 Pi。Pi 使用 `--model` 和 `--thinking`；默认的 `--provider` 会保留，用来限定模型。权限、配置、prompt 和会话选项会被拒绝。额外参数要求每次运行都是全新会话，因此不能和 `--reuse-session` 一起用。用 `orca automations edit <automationId> --extra-agent-args=` 清除它们。
 
 ## 审查并启用 {#review-and-enable}
 
@@ -142,6 +142,8 @@ orca automations edit <automationId> --enabled --json
 ## 按需运行 {#run-on-demand}
 
 创建自动化之后，先手动触发一次，检查 prompt 和目标，而不必等到下一次计划时间：
+
+Orca 里的 **Run now** 和 `orca automations run` 会故意绕过预检查，方便你测试自动化，或覆盖它的计划条件。
 
 ```bash
 orca automations run <automationId> --json

@@ -6,6 +6,14 @@ Orca 的代码编辑器是 Monaco——VS Code 用的同一编辑器——带一
 
 文件在失焦时以及短暂空闲后保存。没有 "dirty" 点，因为正常流程里没有未保存的改动。
 
+## 文件末尾换行 {#final-newline}
+
+在 [Settings → General → Editor](/docs/settings) 开启 **Insert Final Newline**，会在从代码编辑器保存非空文件时补上缺失的换行。默认关闭，保留文件已有的 LF 或 CRLF，光标位置不变。富 Markdown、笔记本和 CSV 编辑器不受影响。
+
+## 行尾 {#line-endings}
+
+新文件，以及还没有任何换行的文件，使用运行该文件工作区的系统的行尾：Linux 与 macOS 主机、WSL 主机，以及在 WSL 中运行的 Windows 项目用 LF；其他 Windows 情况用 CRLF。在 [Settings → General → Editor](/docs/settings) 的 **End of Line** 里选择 LF 或 CRLF，即可始终使用一种。行尾只在文件最多一行时设定。一旦有了换行，Orca 就不再改它们，因此你键入的行会保持原有行尾。打开时已有换行、或从编辑器外部写入了换行的文件，即使你把它清空，也保留原来的行尾。当带换行的外部文本进入一个最多一行的文件时，文件采用那段文本的行尾。如果远程 SSH 主机或 Orca 服务器还没报上系统，你就已经键入了多行，这些行会保持编辑器开始时的行尾。WSL 主机从一开始就按 Linux 处理，不受此影响。Shell 脚本始终以 LF 开头。
+
 ## 多光标、跳转、查找 {#multi-cursor-go-to-find}
 
 - `Cmd-D` — 选中下一处出现。

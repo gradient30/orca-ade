@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-20",
   "officialRef": "main",
-  "docsTreeSha": "5aa3ba1331cce70ba2e6dddd3fc9be543a801953",
+  "docsTreeSha": "838e3f9890863f703bbe080d137f86eb0753e267",
   "docs": [
     {
       "slug": "activity",
@@ -28,16 +28,16 @@
       "officialPath": "docs/site/content/docs/agents/codex-hot-swap.mdx",
       "size": 2915,
       "lastSeenSha": "bc66a56940961eb81774698852c0a1d48a2dfd1b",
-      "translatedAtSha": "2c00f0cff1a245ee24195210e6368dfd3e220a00"
+      "translatedAtSha": "bc66a56940961eb81774698852c0a1d48a2dfd1b"
     },
     {
       "slug": "agents/codex",
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/codex.mdx",
-      "size": 3598,
-      "lastSeenSha": "91175ac7d7bc6424d16449027d13fc164361edb0",
-      "translatedAtSha": "5ecf8281d2c7f80cfc4faee732e6b9e5d39bdbd6"
+      "size": 3590,
+      "lastSeenSha": "ade5a75a4fe4dcf26da6141bb54146771a26fce2",
+      "translatedAtSha": "ade5a75a4fe4dcf26da6141bb54146771a26fce2"
     },
     {
       "slug": "agents/cursor-cli",
@@ -64,7 +64,7 @@
       "officialPath": "docs/site/content/docs/agents/hibernation.mdx",
       "size": 4442,
       "lastSeenSha": "69d64c570739d3e6881d718ce81a79ab3e0926bf",
-      "translatedAtSha": "4e63d96bfc7dc3586211567ea21329ff7cbe544c"
+      "translatedAtSha": "69d64c570739d3e6881d718ce81a79ab3e0926bf"
     },
     {
       "slug": "agents/hooks-memory",
@@ -80,9 +80,9 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/native-chat.mdx",
-      "size": 6669,
-      "lastSeenSha": "d27343f7d3af2e66818bcff466921399aa8f097a",
-      "translatedAtSha": "ee7a83b000734a8c732480f9e88d4f85cf440e49"
+      "size": 6639,
+      "lastSeenSha": "e283e839177eb6e1d277fa00789983a72482ee13",
+      "translatedAtSha": "e283e839177eb6e1d277fa00789983a72482ee13"
     },
     {
       "slug": "agents/session-history",
@@ -100,7 +100,7 @@
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
       "size": 13429,
       "lastSeenSha": "2e68990f84e43bbebba5bd9c19ec43e7a09867d2",
-      "translatedAtSha": "ecc8cfd1305796f5fea375528aed50ca4cb94458"
+      "translatedAtSha": "2e68990f84e43bbebba5bd9c19ec43e7a09867d2"
     },
     {
       "slug": "agents/usage-tracking",
@@ -109,7 +109,7 @@
       "officialPath": "docs/site/content/docs/agents/usage-tracking.mdx",
       "size": 4297,
       "lastSeenSha": "6c1893bfd0ed7360db8910c3ebbe31215afa7633",
-      "translatedAtSha": "6aa491b4a4a2b4c888fb225cf355e582c519c27c"
+      "translatedAtSha": "6c1893bfd0ed7360db8910c3ebbe31215afa7633"
     },
     {
       "slug": "android-apk",
@@ -118,7 +118,7 @@
       "officialPath": "docs/site/content/docs/android-apk.mdx",
       "size": 1133,
       "lastSeenSha": "62e4957a8aaf05570f50854cb7f7d6797a1640bd",
-      "translatedAtSha": "b262f47ea4b1084d5095a4cfa60fb084cd70472c"
+      "translatedAtSha": "62e4957a8aaf05570f50854cb7f7d6797a1640bd"
     },
     {
       "slug": "browser/design-mode",
@@ -136,7 +136,7 @@
       "officialPath": "docs/site/content/docs/browser/overview.mdx",
       "size": 5551,
       "lastSeenSha": "5edb40f296299ba354e8cbf8dff65d24be786a6e",
-      "translatedAtSha": "e71297a9ba2608360339388e82ddcd37da8cbe74"
+      "translatedAtSha": "5edb40f296299ba354e8cbf8dff65d24be786a6e"
     },
     {
       "slug": "browser/profiles",
@@ -145,7 +145,7 @@
       "officialPath": "docs/site/content/docs/browser/profiles.mdx",
       "size": 2858,
       "lastSeenSha": "ad1e7570b2e0c78b55eefc4184387a77b0771973",
-      "translatedAtSha": "26162fa94bc47c5acd32b30bc0d2bb0bf07ae813"
+      "translatedAtSha": "ad1e7570b2e0c78b55eefc4184387a77b0771973"
     },
     {
       "slug": "cli/automations",
@@ -154,7 +154,7 @@
       "officialPath": "docs/site/content/docs/cli/automations.mdx",
       "size": 7616,
       "lastSeenSha": "c69f367121dc928787d0f83a3709ef86f862cff8",
-      "translatedAtSha": "e7d40386dc95b3dcd6636d5551b55dcb06166e8c"
+      "translatedAtSha": "c69f367121dc928787d0f83a3709ef86f862cff8"
     },
     {
       "slug": "cli/computer-use",
@@ -163,7 +163,7 @@
       "officialPath": "docs/site/content/docs/cli/computer-use.mdx",
       "size": 12187,
       "lastSeenSha": "f6ff8fdf8c29d6e0527415a635635cf68c1f6560",
-      "translatedAtSha": "089600aae0af6516c4f1c02e992b02e7a02f8de1"
+      "translatedAtSha": "f6ff8fdf8c29d6e0527415a635635cf68c1f6560"
     },
     {
       "slug": "cli/orchestration",
@@ -172,7 +172,7 @@
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
       "size": 12553,
       "lastSeenSha": "55fafaea758270574dbff167ea3334c46eae0267",
-      "translatedAtSha": "88355cb8c825d11999fe3cade3017e49b5242495"
+      "translatedAtSha": "55fafaea758270574dbff167ea3334c46eae0267"
     },
     {
       "slug": "cli/overview",
@@ -181,7 +181,7 @@
       "officialPath": "docs/site/content/docs/cli/overview.mdx",
       "size": 5430,
       "lastSeenSha": "55a1f6640e60a0570d545b439bbb40b56fedec85",
-      "translatedAtSha": "b9aecde4fa31d4eb490a58038cce92d772f8c5b6"
+      "translatedAtSha": "55a1f6640e60a0570d545b439bbb40b56fedec85"
     },
     {
       "slug": "cli/reference",
@@ -190,7 +190,7 @@
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
       "size": 31526,
       "lastSeenSha": "63ebcf7baa035812ac6c09ccadd979396b61ae16",
-      "translatedAtSha": "ab20ec7cad66b9bfffc334f16b1048d077b620c0"
+      "translatedAtSha": "63ebcf7baa035812ac6c09ccadd979396b61ae16"
     },
     {
       "slug": "cli/skills",
@@ -199,7 +199,7 @@
       "officialPath": "docs/site/content/docs/cli/skills.mdx",
       "size": 12632,
       "lastSeenSha": "30e07bf2fa35872d474b930fd277779a62f2e75f",
-      "translatedAtSha": "3674c42f07f92cfccc511a546a62f0eda9314d10"
+      "translatedAtSha": "30e07bf2fa35872d474b930fd277779a62f2e75f"
     },
     {
       "slug": "cli/worktree-checkpoints",
@@ -226,7 +226,7 @@
       "officialPath": "docs/site/content/docs/editing/markdown.mdx",
       "size": 4170,
       "lastSeenSha": "32869df4e0793c1a6ccd1cc727c9240e719c7cfd",
-      "translatedAtSha": "a84c39916117f70ad5f75ef96e7251ad3cdbfc78"
+      "translatedAtSha": "32869df4e0793c1a6ccd1cc727c9240e719c7cfd"
     },
     {
       "slug": "editing/monaco",
@@ -235,7 +235,7 @@
       "officialPath": "docs/site/content/docs/editing/monaco.mdx",
       "size": 3117,
       "lastSeenSha": "74b123165e4bafc84c023fc924a4ec449f564021",
-      "translatedAtSha": "2baf82fdfaf51269a9e7d784c6e5ec412184bdd9"
+      "translatedAtSha": "74b123165e4bafc84c023fc924a4ec449f564021"
     },
     {
       "slug": "editing/viewers",
@@ -244,7 +244,7 @@
       "officialPath": "docs/site/content/docs/editing/viewers.mdx",
       "size": 2656,
       "lastSeenSha": "6d55ca37a3eb3de2a67b4b680c49deec56c88750",
-      "translatedAtSha": "2b16d9698873d270ba02025d7a5958789a772ad2"
+      "translatedAtSha": "6d55ca37a3eb3de2a67b4b680c49deec56c88750"
     },
     {
       "slug": "first-session",
@@ -253,7 +253,7 @@
       "officialPath": "docs/site/content/docs/first-session.mdx",
       "size": 3003,
       "lastSeenSha": "d9f9df3cfdf2cfeb5f17e254e9f18c195644a1cc",
-      "translatedAtSha": "1d3cd3c909b0782223fd8cb18e7d5dedaa85b743"
+      "translatedAtSha": "d9f9df3cfdf2cfeb5f17e254e9f18c195644a1cc"
     },
     {
       "slug": "github-errors",
@@ -262,7 +262,7 @@
       "officialPath": "docs/site/content/docs/github-errors.mdx",
       "size": 10784,
       "lastSeenSha": "90a6990ecec5c6a3c8b30b24c9d2f9ba62d0466a",
-      "translatedAtSha": "b6b758f102d36cf2d75ced7353467027cbfcc41b"
+      "translatedAtSha": "90a6990ecec5c6a3c8b30b24c9d2f9ba62d0466a"
     },
     {
       "slug": "index",
@@ -280,16 +280,16 @@
       "officialPath": "docs/site/content/docs/install.mdx",
       "size": 9363,
       "lastSeenSha": "71e60e3a610e51d03b23a2a7c1f0e62370faf27b",
-      "translatedAtSha": "d08e43320ef8da04aa7f794c110a952cfaecfd4d"
+      "translatedAtSha": "71e60e3a610e51d03b23a2a7c1f0e62370faf27b"
     },
     {
       "slug": "mobile",
       "section": "mobile",
       "kind": "official",
       "officialPath": "docs/site/content/docs/mobile.mdx",
-      "size": 16687,
-      "lastSeenSha": "a610c28f2c5d29755899a97aa0bdf82bcb8031bb",
-      "translatedAtSha": "e8fed6790d1777cd58bc4e180964ca2ecb5eea16"
+      "size": 16677,
+      "lastSeenSha": "0955a8aa879c98c659d17f2aa06dcfb8648ea47e",
+      "translatedAtSha": "0955a8aa879c98c659d17f2aa06dcfb8648ea47e"
     },
     {
       "slug": "model/agents-sessions",
@@ -316,7 +316,7 @@
       "officialPath": "docs/site/content/docs/model/quick-open.mdx",
       "size": 4478,
       "lastSeenSha": "3db536e10e46774025db4830e351358cf3ba1097",
-      "translatedAtSha": "e47222f2e8274ca5279f903c35b8a3624c4294e8"
+      "translatedAtSha": "3db536e10e46774025db4830e351358cf3ba1097"
     },
     {
       "slug": "model/session-restore",
@@ -325,7 +325,7 @@
       "officialPath": "docs/site/content/docs/model/session-restore.mdx",
       "size": 3774,
       "lastSeenSha": "5439549344929dc46622994ff1c0dd444a73f298",
-      "translatedAtSha": "c45c6eed70896ce98265421736ae211870774948"
+      "translatedAtSha": "5439549344929dc46622994ff1c0dd444a73f298"
     },
     {
       "slug": "model/tabs-panes-splits",
@@ -343,7 +343,7 @@
       "officialPath": "docs/site/content/docs/model/worktrees.mdx",
       "size": 14925,
       "lastSeenSha": "039ace59984400b05c45654ca07413c7c85dc66e",
-      "translatedAtSha": "52e432c4b6c96946ba075836dd5468eda77e75f8"
+      "translatedAtSha": "039ace59984400b05c45654ca07413c7c85dc66e"
     },
     {
       "slug": "notifications",
@@ -352,7 +352,7 @@
       "officialPath": "docs/site/content/docs/notifications.mdx",
       "size": 2618,
       "lastSeenSha": "e3aa8da76c49720ab4920307b2d10b2f506fbedb",
-      "translatedAtSha": "8d5e02866f75729582434ee0101fa1b8e4b56a08"
+      "translatedAtSha": "e3aa8da76c49720ab4920307b2d10b2f506fbedb"
     },
     {
       "slug": "recipes/design-mode-fix",
@@ -370,7 +370,7 @@
       "officialPath": "docs/site/content/docs/recipes/jump-worktrees.mdx",
       "size": 891,
       "lastSeenSha": "e6c2559e21843dc1043086b70ab60a24a4094350",
-      "translatedAtSha": "8e952c69268370a55c5bf3d8c34649f7d5df8b98"
+      "translatedAtSha": "e6c2559e21843dc1043086b70ab60a24a4094350"
     },
     {
       "slug": "recipes/parallel-agents",
@@ -379,7 +379,7 @@
       "officialPath": "docs/site/content/docs/recipes/parallel-agents.mdx",
       "size": 1121,
       "lastSeenSha": "311da3d261cb30df8fe57319c7f4a495d442ba83",
-      "translatedAtSha": "d6cad767a23859b726d8b8baad12684cbe26d48b"
+      "translatedAtSha": "311da3d261cb30df8fe57319c7f4a495d442ba83"
     },
     {
       "slug": "recipes/remote-worktrees",
@@ -406,7 +406,7 @@
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
       "size": 18718,
       "lastSeenSha": "0b85c58e10a6d83fba585333d4841347ad5480dd",
-      "translatedAtSha": "d9be9701a257c12c1cfad3168544beec1632cbfd"
+      "translatedAtSha": "0b85c58e10a6d83fba585333d4841347ad5480dd"
     },
     {
       "slug": "review/annotate-ai-diff",
@@ -478,7 +478,7 @@
       "officialPath": "docs/site/content/docs/settings.mdx",
       "size": 17494,
       "lastSeenSha": "652b4d6ea661f88216540f4c48eab4e06544d669",
-      "translatedAtSha": "ca656d4c7bf6ac13c828553135209cde0e8d3619"
+      "translatedAtSha": "652b4d6ea661f88216540f4c48eab4e06544d669"
     },
     {
       "slug": "ssh",
@@ -487,7 +487,7 @@
       "officialPath": "docs/site/content/docs/ssh.mdx",
       "size": 13364,
       "lastSeenSha": "1d2fbbca59700146f2f6e61acdac6b11f7a6353a",
-      "translatedAtSha": "e723aceaede3904dea917ae6a400032e0dfa6642"
+      "translatedAtSha": "1d2fbbca59700146f2f6e61acdac6b11f7a6353a"
     },
     {
       "slug": "telemetry",
@@ -496,16 +496,16 @@
       "officialPath": "docs/site/content/docs/telemetry.mdx",
       "size": 8205,
       "lastSeenSha": "c7c503c99019bb12e521f5e26cea68986e966d94",
-      "translatedAtSha": "55334050fdc03d8429256ccad983bd410c5843db"
+      "translatedAtSha": "c7c503c99019bb12e521f5e26cea68986e966d94"
     },
     {
       "slug": "terminal",
       "section": "terminal",
       "kind": "official",
       "officialPath": "docs/site/content/docs/terminal.mdx",
-      "size": 12502,
-      "lastSeenSha": "7c1cd8d513560f5627a1be2bd439b699d49b1088",
-      "translatedAtSha": "6922a6ab6f1b14ce017541ca32beb8c3030d9665"
+      "size": 15709,
+      "lastSeenSha": "f76e7a172dc1971830ba7ca704fb4146b50ea130",
+      "translatedAtSha": "f76e7a172dc1971830ba7ca704fb4146b50ea130"
     },
     {
       "slug": "troubleshooting",
@@ -514,7 +514,7 @@
       "officialPath": "docs/site/content/docs/troubleshooting.mdx",
       "size": 5228,
       "lastSeenSha": "18e4c2a4d9843e42da7830a45c17e8f95dd70af2",
-      "translatedAtSha": "5fb96c33fd9ead50e2aaca72de0eb4da21e1404e"
+      "translatedAtSha": "18e4c2a4d9843e42da7830a45c17e8f95dd70af2"
     },
     {
       "slug": "ways-to-run",
@@ -523,7 +523,7 @@
       "officialPath": "docs/site/content/docs/ways-to-run.mdx",
       "size": 8114,
       "lastSeenSha": "b4b715710bcb77cbeba82bdbf8c385088abe1164",
-      "translatedAtSha": "e35b63eae906e9e88033ec3b60797ea41d2492f0"
+      "translatedAtSha": "b4b715710bcb77cbeba82bdbf8c385088abe1164"
     },
     {
       "slug": "agents/antigravity-accounts",
@@ -532,7 +532,7 @@
       "officialPath": "docs/site/content/docs/agents/antigravity-accounts.mdx",
       "size": 2600,
       "lastSeenSha": "050df5077c31e698e131dcaf36533d695fbc3fa8",
-      "translatedAtSha": null
+      "translatedAtSha": "050df5077c31e698e131dcaf36533d695fbc3fa8"
     },
     {
       "slug": "agents/antigravity",
@@ -541,7 +541,7 @@
       "officialPath": "docs/site/content/docs/agents/antigravity.mdx",
       "size": 6929,
       "lastSeenSha": "9dd985508b26a20f6a90debf5c6594a4d49cbd2e",
-      "translatedAtSha": null
+      "translatedAtSha": "9dd985508b26a20f6a90debf5c6594a4d49cbd2e"
     },
     {
       "slug": "agents/hermes",
@@ -550,43 +550,50 @@
       "officialPath": "docs/site/content/docs/agents/hermes.mdx",
       "size": 3834,
       "lastSeenSha": "262c42ea71819716fd7c74fd70737b651cc9725c",
-      "translatedAtSha": null
+      "translatedAtSha": "262c42ea71819716fd7c74fd70737b651cc9725c"
     }
   ],
   "releases": [
     {
+      "tag": "v1.4.266",
+      "publishedAt": "2026-11-20",
+      "lastSeenBodySha": "b4c4e5530d9e",
+      "translatedAtBodySha": "b4c4e5530d9e",
+      "yanked": false
+    },
+    {
       "tag": "v1.4.265",
       "publishedAt": "2026-11-19",
-      "lastSeenBodySha": "72c48187c574",
-      "translatedAtBodySha": null,
+      "lastSeenBodySha": "b836ddb04ee4",
+      "translatedAtBodySha": "b836ddb04ee4",
       "yanked": false
     },
     {
       "tag": "v1.4.264",
       "publishedAt": "2026-11-19",
       "lastSeenBodySha": "88331443bf14",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "88331443bf14",
       "yanked": false
     },
     {
       "tag": "v1.4.263",
       "publishedAt": "2026-11-18",
       "lastSeenBodySha": "c7c458504761",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "c7c458504761",
       "yanked": false
     },
     {
       "tag": "v1.4.262",
       "publishedAt": "2026-11-17",
       "lastSeenBodySha": "4911d5b50df5",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "4911d5b50df5",
       "yanked": false
     },
     {
       "tag": "v1.4.261",
       "publishedAt": "2026-11-16",
       "lastSeenBodySha": "6dbe356427de",
-      "translatedAtBodySha": null,
+      "translatedAtBodySha": "6dbe356427de",
       "yanked": false
     },
     {
@@ -636,7 +643,7 @@
       "publishedAt": "2026-11-07",
       "lastSeenBodySha": "d31a0cad6b7f",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.252",

@@ -1,12 +1,14 @@
 # Native Chat {#chat-ui-native-chat}
 
-Chat UI 把受支持的 Agent 以结构化聊天打开，并可在聊天或终端中继续同一段对话。终端仍可作为事实来源；Chat UI 提供结构化 transcript + composer。Transcript 解码覆盖 **Claude**、**Codex**、**Grok** 和 **OMP**——OMP 会话会像其他会话一样在 Chat UI 中打开，而不再只停留在原始终端。
+Chat UI 是带有 transcript、composer 和 Agent 控件的对话视图。你选择以聊天方式打开的受支持 Agent，会在 **结构化聊天** 中开始新会话，直接与 Agent 通信，而不是显示终端会话。其他 Agent 以及不受支持的执行环境会在终端中打开。
 
-## 启用 {#enable}
+已有的终端支持聊天是运行在终端里的 Agent 之上的 transcript 视图。它们保持原来的形式；更改某个 Agent 的 Chat 或 CLI 选择不会转换已有会话。
 
-1. 打开 **Settings → Experimental → Chat UI**。
-1. 开启 **Chat UI**。
-1. 打开新的受支持 Agent 标签即可进入结构化聊天。关闭 **Chat UI** 则让新 Agent 在终端中打开。已有聊天仍然可用。
+终端仍可作为事实来源；Chat UI 提供结构化 transcript + composer。Transcript 解码覆盖 **Claude**、**Codex**、**Grok** 和 **OMP**——OMP 会话会像其他会话一样在 Chat UI 中打开，而不再只停留在原始终端。
+
+## 选择聊天或终端 {#choose-chat-or-terminal}
+
+Chat UI 对所有人可用。受支持的 Agent 会继承全局的 Chat 或 Terminal 默认，除非你为某个 Agent 另选。全新安装默认是 Terminal：
 
 你也可以在 **Settings → Agents** 里为每个受支持 Agent 选择打开方式：已安装列表中每一行都有 **Chat | CLI**。选 **CLI** 会让其新会话在终端打开。聊天依赖 Orca 下载的程序的 Agent（例如 Antigravity）展开其行时，会显示该下载与聊天登录。
 
@@ -22,8 +24,8 @@ Chat UI 把受支持的 Agent 以结构化聊天打开，并可在聊天或终�
 
 也可以右键打开的 Agent 标签：
 
-- 在结构化聊天标签上，**Continue with Terminal Agent** 会用该对话的副本启动新的终端 Agent。
-- 在受支持的终端 Agent 标签上，**Continue in Chat UI** 会在新的结构化聊天中打开该对话。终端窗格标题栏上的聊天按钮提供同一操作。
+- 在结构化聊天标签上，**Continue in terminal** 会用该对话的副本启动新的终端 Agent。
+- 在受支持的终端 Agent 标签上，**Continue in chat** 会在新的结构化聊天中打开该对话。终端窗格标题栏上的聊天按钮提供同一操作。
 
 这些续聊操作也适用于支持会话历史恢复的已配对 **Remote Orca Server** 上的对话。聊天及其历史留在该服务器上。没有 Orca 运行时的直连 SSH 工作区不支持此操作。若旧服务器上该操作不可用，请同时更新服务器与客户端。
 
@@ -31,11 +33,11 @@ Chat UI 把受支持的 Agent 以结构化聊天打开，并可在聊天或终�
 
 ## 切换已有的终端支持聊天 {#switch-an-existing-terminal-backed-chat}
 
-结构化聊天标签没有原地终端视图；请改用上方的 **Continue with Terminal Agent**。
+结构化聊天标签没有原地终端视图；请改用上方的 **Continue in terminal**。
 
-终端支持聊天是运行中终端 Agent 之上的视图，因此切换不会创建新会话。用窗格标题栏的 **Show terminal** 按钮，或其标签菜单中的 **Continue with Terminal Agent**，即可回到终端。在受支持的终端窗格内右键可选 **Continue in Chat UI**，会把同一终端会话显示为 transcript，而不是创建新的结构化聊天。
+终端支持聊天是运行中终端 Agent 之上的视图，因此切换不会创建新会话。用窗格标题栏的 **Show terminal** 按钮，或其标签菜单中的 **Continue in terminal**，即可回到终端。在受支持的终端窗格内右键可选 **Continue in chat**，会把同一终端会话显示为 transcript，而不是创建新的结构化聊天。
 
-也可以用 **Settings → Shortcuts** 中的 **Switch between Chat UI and terminal**（macOS 默认 `Cmd+Shift+J`，Windows/Linux 默认 `Ctrl+Shift+J`）切换同一终端支持会话。在 Windows/Linux 上，若 **Switch worktree** 使用相同组合键则优先。可重映射任一快捷键以消除重叠，或在终端输入聚焦时使用 terminal-first 快捷键策略。Terminal-first 不会在 Native Chat 输入中释放该组合键。
+也可以用 **Settings → Shortcuts** 中的 **Switch between Chat UI and terminal**（macOS 默认 `Cmd+Shift+J`，Windows/Linux 默认 `Ctrl+Shift+F11`）切换同一终端支持会话。在 Windows/Linux 上，当 **Search everything** 不使用 `Ctrl+Shift+J` 时，该组合键也会切换；或者在 terminal-first 快捷键策略下，从终端输入进行切换。
 
 ## Composer {#composer}
 
@@ -51,5 +53,5 @@ Chat UI 把受支持的 Agent 以结构化聊天打开，并可在聊天或终�
 
 Chat UI 在桌面上为受支持的本地和远程（已配对服务器）Agent 会话提供。可用的 Agent 与操作取决于执行宿主与客户端能力；较旧的已配对宿主或不支持的启动仍可在终端中打开。[移动伴侣](/docs/mobile) 对配对会话复用 chat 风格的 transcript 模式；上方桌面菜单步骤描述的是桌面应用。
 
-> **实验性**
-> Transcript 保真度、流式传输与终端对等仍在积极调优。需要每一处 OSC/status 细节时，请优先使用原始 TUI。
+> **聊天或终端**
+> 聊天显示对话：消息、工具活动、画面和文件链接。终端显示 Agent 打印的一切，包括每一条状态行。两者都完全受支持，你可以在 **Settings → Agents** 中把任意 Agent 在二者之间切换。

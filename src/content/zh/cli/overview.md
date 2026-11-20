@@ -43,13 +43,13 @@ orca worktree rm --worktree id:<id> --force --json
 ```
 orca terminal list --json
 orca terminal read --json
-orca terminal send --text "continue" --enter --json
+orca terminal send --text "npm test" --enter --json
 orca terminal wait --for tui-idle --timeout-ms 30000 --json
 orca terminal create --worktree path:/projects/app --command "npm test" --json
 orca terminal split --direction vertical --command "npm run dev" --json
 ```
 
-对于有跟踪的多 Agent 工作，请用 [编排](/docs/cli/orchestration)，而不是普通的终端 prompt。
+`terminal send` 面向 shell、开发服务器和 REPL。要给另一个 Agent 发消息，用 `orca orchestration send`；有跟踪的多 Agent 工作请用 [编排](/docs/cli/orchestration)。
 
 ## 文件命令 {#file-commands}
 
@@ -73,7 +73,7 @@ orca file open-changed --mode both
 
 ## Artifacts {#artifacts}
 
-通过已登录的 Orca 账号，把 HTML 或 Markdown 分享为公开查看链接（`orca artifacts share|update|list|delete`）。发布是 **选择加入** 的，在 Settings → Artifacts 下开启。命令细节：[CLI 参考 → Artifacts](/docs/cli/reference#artifacts)。
+通过已登录的 Orca 账号，把 HTML 或 Markdown 分享为公开查看链接（`orca artifacts share|update|list|delete`）。发布遵循 **Settings → Artifacts → Allow publishing public artifact links**：新配置档默认开启，在这项默认生效之前创建的配置档则保留原来的设置。命令细节：[CLI 参考 → Artifacts](/docs/cli/reference#artifacts)。
 
 ## 浏览器自动化 {#browser-automation}
 
@@ -96,7 +96,7 @@ orca screenshot --json
 
 ## 移动模拟器 {#mobile-emulator}
 
-CLI 也可以通过 Orca 的移动模拟器桥接驱动 iOS Simulator。它限定在当前活动的 worktree，因此 Agent 和脚本可以从 `orca emulator list` 附着模拟器、点按归一化坐标、输入文本、发送手势、旋转设备，并在不离开 Orca 的情况下关闭它。
+CLI 也可以通过 Orca 的移动模拟器桥接驱动 iOS Simulator。它限定在当前活动的 worktree，因此 Agent 和脚本可以附着模拟器，用 `orca emulator list` 列出该 worktree 已附着的设备、点按归一化坐标、输入文本、发送手势、旋转设备，并在不离开 Orca 的情况下关闭它。
 
 ```
 orca emulator list --json

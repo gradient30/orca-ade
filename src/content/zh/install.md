@@ -15,7 +15,7 @@ Orca 也以 Homebrew cask 发布，每次稳定版都会自动抬升版本号：
 brew install --cask stablyai/orca/orca
 ```
 
-`brew upgrade --cask orca` 会拿到新的稳定构建。该 cask 跟踪 stable 通道——RC 构建请用上面的 GitHub Releases 链接，或下文 [更新](#updates) 中描述的应用内 **Check for Updates** 流程。
+`brew upgrade --cask stablyai/orca/orca` 会拿到新的稳定构建。务必使用完整名称：单独的 `orca` 是无关的 Plotly cask。该 cask 跟踪 stable 通道——RC 构建请用上面的 GitHub Releases 链接，或下文 [更新](#updates) 中描述的应用内 **Check for Updates** 流程。
 
 ## 首次启动 {#first-launch}
 
@@ -73,7 +73,7 @@ AppImage 每个架构有稳定下载链接——x64 用 [`orca-linux.AppImage`](
 **`.deb` 和 `.rpm` 不会自行更新。** Orca 仍会注意到新版本并下载包，然后给你一个 **Copy Install Command** 按钮。复制它，不要重打：Orca 会把每个程序解析成受信任系统目录下的绝对路径，并用单引号包住包路径，所以你粘贴出来像这样：
 
 ```
-/usr/bin/sudo /usr/bin/apt install -- '/home/you/.cache/orca-updater/pending/orca-ide_1.4.194_amd64.deb'
+/usr/bin/sudo /usr/bin/apt -o Binary::file::APT::Sandbox::User=root install -- '/home/you/.cache/orca-updater/pending/orca-ide_1.4.194_amd64.deb'
 ```
 
 出现哪个包管理器取决于你系统上实际有什么：`.deb` 用 `apt`，否则 `dpkg -i`；`.rpm` 依次是 `zypper`、`dnf`、`yum`，然后 `rpm -Uvh`。下载目录在设置了 `XDG_CACHE_HOME` 时跟它走，未设置则回退到 `~/.cache`。

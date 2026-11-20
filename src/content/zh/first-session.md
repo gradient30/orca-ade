@@ -32,9 +32,9 @@ Orca 在它管理的目录下创建真正的 git worktree，检出分支，然�
 
 把同一份 prompt 贴进每一个。三条分支。三份 diff。同一 prompt。让它们干活。
 
-## 5. 分屏，一次看完 {#5-split-panes-so-you-can-watch-them-all}
+## 5. 同时看三个 Agent {#5-watch-all-three-agents}
 
-把 worktree 的标签拖到窗格右边缘或下边缘即可分屏。你可以同时看着三个 Agent。见 [标签、窗格与分屏](/docs/model/tabs-panes-splits)。
+每个 worktree 保留自己的窗格布局，所以切换 worktree 会换掉整个视图。看侧栏的[状态指示](/docs/model/agents-sessions#state-indicators)，就能知道哪个 Agent 在干活、已完成，或在等你，然后从侧栏或用 `Cmd-J`（macOS）/ `Ctrl-Shift-J`（Windows / Linux）跳过去。在一个 worktree 内部，把标签拖到窗格边缘可以分屏——见 [标签、窗格与分屏](/docs/model/tabs-panes-splits)。
 
 ## 6. 选出赢家，审查 diff，发出去 {#6-pick-a-winner-review-the-diff-ship-it}
 
@@ -43,4 +43,4 @@ Agent 停下来后，打开每个 worktree 的 diff 视图。用 [批注 AI Diff
 直接从 Orca 提交并推送——见 [从 Orca 提交并推送](/docs/review/commit-push)。另外两个 worktree 一键删除，分支一起走。
 
 > **这就是全部**
-> 这个流程——添加 → worktree → Agent → 分屏 → diff → 发出去——就是 Orca 的全部。文档里其他每一页，都是其中某一步的深挖。
+> 这个流程——添加 → worktree → Agent → 看着它 → diff → 发出去——就是 Orca 的全部。文档里其他每一页，都是其中某一步的深挖。

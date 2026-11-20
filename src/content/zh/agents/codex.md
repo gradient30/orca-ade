@@ -18,7 +18,19 @@ Codex 是 OpenAI 的 agentic CLI。Orca 的 Codex 集成是应用中最深的之
 
 ## System default 与额外账户 {#system-default-vs-extra-accounts}
 
-**System default** 使用你真正的 `~/.codex` 登录（与在 Orca 外直接跑 `codex` 所用的 home 相同）。Orca 管理的额外账户在 Orca 的账户数据下拥有各自的 home，使凭证和 rollouts 保持隔离。新的 Codex 启动跟随活动账户；已经在跑的会话会保留启动时的 home，直到你重启它们。
+**System default** 使用你真正的 `~/.codex` 登录（与在 Orca 外直接跑 `codex` 所用的 home 相同）。Orca 管理的额外账户在 Orca 的账户数据下拥有各自的 home，使凭证和 rollouts 保持隔离。新的 Codex 启动跟随活动账户。已打开的 Codex 聊天会在下一条消息之前切到它；已经在跑的终端会话会保留启动时的 home，直到你重启它们。
+
+## 设置 `CODEX_HOME` 的 wrapper 脚本 {#wrapper-scripts-that-set-codex-home}
+
+Orca 在每次启动所用的 home 里安装它的 status hooks：**System default** 用 `~/.codex`，额外账户则用该账户自己的 home（作为 `CODEX_HOME` 传入）。如果 `PATH` 上更靠前的 `codex` wrapper 总是导出另一个 `CODEX_HOME`，Codex 会读取 Orca 没有设置过的 home：status hooks 不会触发，账户切换也没有效果。若要保留自定义 home：
+
+- 让 wrapper 尊重已经设置好的 home，这样额外账户才能继续工作：
+
+  ```bash
+  export CODEX_HOME="${CODEX_HOME:-$HOME/.codex-openai}"
+  ```
+
+- 让 `~/.codex` 指向你的自定义 home（先把已有的 `~/.codex` 移开，再 `ln -s ~/.codex-openai ~/.codex`），这样 System default 和 wrapper 读取的是同一个文件夹。
 
 ## 嵌套的 Task subagents {#nested-task-subagents}
 
@@ -26,7 +38,7 @@ Codex 是 OpenAI 的 agentic CLI。Orca 的 Codex 集成是应用中最深的之
 
 ## 移交给另一个 Agent {#hand-off-to-another-agent}
 
-从 Agent 终端的 header 或上下文菜单选择 **Hand Off to Another Agent**。Orca 启动一个全新的 Agent 会话（相同或不同的 CLI），并从先前的 transcript 或捕获的上下文注入一份篇幅受限的 handoff prompt。原会话不受影响——这不是 `codex resume`。
+从 Agent 终端的 header 或上下文菜单选择 **Hand off to agent**。Orca 启动一个全新的 Agent 会话（相同或不同的 CLI），并从先前的 transcript 或捕获的上下文注入一份篇幅受限的 handoff prompt。原会话不受影响——这不是 `codex resume`。
 
 ## 重启芯片 {#restart-chip}
 
@@ -34,7 +46,7 @@ Codex 退出后，重启芯片会用同一账户重新启动该 Agent。如果�
 
 ## 用量与速率限制 {#usage-rate-limits}
 
-Orca 读取活动账户的本地 Codex 用量状态，并在状态栏展示。见 [用量与速率限制跟踪](/docs/agents/usage-tracking)。
+Orca 使用你现有的 Codex 登录获取活动账户的 Codex 用量，并在状态栏展示。见 [用量与速率限制跟踪](/docs/agents/usage-tracking)。
 
 ## Windows 上的 Codex（WSL） {#codex-on-windows-wsl}
 

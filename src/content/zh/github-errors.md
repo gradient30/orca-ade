@@ -8,7 +8,7 @@ Orca 通过你机器上（或远程 Orca 主机上）的 **GitHub CLI (`gh`)** �
 
 | 你看到的                                                              | 可能原因                                                   | 先试这个                                                                                                         |
 | --------------------------------------------------------------------- | ---------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
-| “GitHub is rate-limiting requests” / “rate limit exceeded (core)”     | 你的用户 GitHub REST（core）配额耗尽                       | 等待重置；停止额外的 `gh` / Agent / Orca 用量；检查 [Settings → Git → GitHub API Budget](/docs/settings)         |
+| “GitHub is rate-limiting requests” / “rate limit exceeded (core)” 或 “(graphql)” | 你的用户 GitHub REST（core）或 GraphQL 配额耗尽            | 等待重置；停止额外的 `gh` / Agent / Orca 用量；检查 [Settings → Git → GitHub API Budget](/docs/settings)         |
 | “GitHub authentication is unavailable” / `gh auth` 提示               | `gh` 未登录、令牌过期，或错误的 `GITHUB_TOKEN`             | `gh auth status`，然后 `gh auth login`                                                                           |
 | “GitHub did not allow access” / HTTP 403（不是速率限制）              | 缺少 scopes 或没有该仓库的访问权限                         | 用 `repo`（以及所需的 org SSO）重新鉴权；确认你能在浏览器中打开该 PR                                             |
 | “repository is unavailable” / HTTP 404                                | 错误的 remote、没有访问权限的私有仓库，或已重命名的仓库    | 检查 `git remote -v` 和浏览器访问                                                                                |
@@ -23,11 +23,11 @@ GitHub 给每个 **已鉴权用户** 一份共享的每小时预算。**该账�
 
 | 桶              | 覆盖什么                                                                     | 典型限额（已鉴权）    |
 | --------------- | ---------------------------------------------------------------------------- | --------------------- |
-| **REST (core)** | 大多数 PR/issue/API 调用（`gh pr view`、checks 元数据、许多 REST 端点）      | 5,000 / 小时          |
-| **GraphQL**     | Project/Tasks 以及一些更丰富的 PR 查询                                       | 5,000 点 / 小时       |
+| **REST (core)** | `gh api` REST 端点：按分支查找 PR、check runs、PR 文件、issue 评论、labels   | 5,000 / 小时          |
+| **GraphQL**     | `gh pr view` / `list` / `checks` / `merge` / `edit`、`gh issue view` / `close` / `reopen` / `edit`、Project/Tasks 查询 | 5,000 点 / 小时       |
 | **Search**      | 由搜索驱动的列表                                                             | 30 / 分钟             |
 
-当主桶耗尽时，GitHub 返回 HTTP **403**，消息类似 `API rate limit exceeded`。Orca 把它归类为已达速率限制，在能够时保留最后已知的 PR 状态，并在短窗口内 **停止再派发 `gh` 调用**，以免一次限额变成一连串失败风暴。
+当主桶耗尽时，REST 调用以 HTTP **403** 和 `API rate limit exceeded` 失败，GraphQL 调用以 `API rate limit already exceeded` 失败。Orca 把二者都归类为已达速率限制，在能够时保留最后已知的 PR 状态，并在短窗口内 **停止再派发 `gh` 调用**，以免一次限额变成一连串失败风暴。
 
 ### 为什么 Settings 看起来 “OK”，PR 面板却被挡住 {#why-settings-can-look-ok-while-the-pr-panel-is-blocked}
 
@@ -47,11 +47,14 @@ GitHub 给每个 **已鉴权用户** 一份共享的每小时预算。**该账�
 # Probe (does not consume quota; can look healthier than reality)
 gh api rate_limit --jq '.resources | {core, graphql, search}'
 
-# Real REST call — this is what PR refresh depends on
+# Real REST call — PR refresh, check runs, PR files, and comments depend on this
 gh api user -i 2>&1 | head -40
+
+# Real GraphQL call — PR details, PR lists, merges, and issue close/reopen depend on this
+gh api graphql -f query='{ viewer { login } }'
 ```
 
-如果 `gh api user` 返回 **403**，带有 `API rate limit exceeded` 和 `X-Ratelimit-Remaining: 0`，该账户的 REST 会被挡住，直到 `X-Ratelimit-Reset`（Unix epoch 秒）。
+如果 `gh api user` 返回 **403**，带有 `API rate limit exceeded` 和 `X-Ratelimit-Remaining: 0`，该账户的 REST 会被挡住，直到 `X-Ratelimit-Reset`（Unix epoch 秒）。如果 GraphQL 调用以 `API rate limit already exceeded` 失败，耗尽的是 GraphQL 桶。
 
 ### 通常是什么在烧掉配额 {#what-usually-burns-the-quota}
 

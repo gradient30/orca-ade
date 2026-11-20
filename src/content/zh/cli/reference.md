@@ -32,6 +32,8 @@ orca open --json
 orca status --json
 ```
 
+`orca open` 会启动 Orca，而不从你正在使用的应用夺走键盘焦点。如果已经有一个 Orca 窗口打开，它什么也不做。
+
 当另一个工具要解析结果时使用 `--json`。人类可读输出用于快速终端检查。
 
 ## 选择器 {#selectors}
@@ -60,27 +62,43 @@ orca host list --json
 
 `--host` 也接受 `name` 列显示的裸名称，在任一轴上——`--host trader-local` 到达与 `--host ssh:ssh-1783599077486-fyasux` 相同的机器。名称仅在唯一时解析：被两个 SSH 目标、两个已配对服务器、或各一个持有的名称会被拒绝，错误会把每个候选的 id 形式交还——SSH 目标用 `--host ssh:<target-id>`，已配对服务器用 `--host runtime:<environment-id>`。用那些来确定，因为 `--environment <server-name>` 无法区分两个同名的服务器。
 
+用 `orca host list` 打印的 id 移除已保存的 SSH 目标：
+
+```bash
+orca host rm --host ssh:<target-id> --json
+```
+
+它以与 Settings 相同的方式移除目标，因此被动的 `~/.ssh/config` 导入不会在下次启动时把别名加回来。它只接受 `ssh:<target-id>` 形式，不接受裸名称，因为它会删除数据。它拒绝 `--host local`、已配对服务器（用 `orca environment rm`），以及这个 Orca 宿主没有的 id。
+
 ## 运行时命令 {#runtime-commands}
 
 ```bash
 orca open --json
 orca status --json
-orca serve --port 6768 --pairing-address 100.64.1.20 --json
+orca serve --port 6768 --bind 100.64.1.20 --pairing-address 100.64.1.20 --json
 ```
 
-`orca serve` 在前台启动运行时服务器，不打开桌面窗口。用于 [远程 Orca 服务器](/docs/remote-servers) 或无头环境，用 `Ctrl-C` 停止。
+`orca serve` 在前台启动运行时服务器，不打开桌面窗口。用于 [远程 Orca 服务器](/docs/remote-servers) 或无头环境，用 `Ctrl-C` 停止。它接受来自 localhost、LAN 和 Tailscale 地址的客户端；加上 `--allow-public` 也接受公网地址。
+用 `--bind <literal-ip>` 选择监听接口；`--pairing-address` 改变向客户端通告的地址。
 
 ## 仓库 {#repos}
 
 ```bash
 orca repo list --json
 orca repo add --path /abs/path/to/repo --json
+orca repo add --path /abs/path/to/folder --kind folder --json
 orca repo show --repo id:<repoId> --json
 orca repo set-base-ref --repo id:<repoId> --ref origin/main --json
 orca repo search-refs --repo id:<repoId> --query main --limit 10 --json
+orca repo hide --repo id:<repoId> --json
+orca repo unhide --repo id:<repoId> --json
 ```
 
 在创建大量 worktree 之前设置仓库的 base ref，这样新任务默认会从正确的位置分出去。
+
+`repo hide` 把项目从侧栏、项目选择器和工作区切换器里拿掉，但不停止任何东西：它的终端、Agent 和自动化继续运行，`repo list` 仍会列出它并带有 `hiddenAt`，点名它的命令仍然有效。隐藏作用于一台宿主上的那份项目；当它在多台机器上设置过时，加上 `--host <host>` 来选择哪一份。在已配对的 Orca 服务器上，该设置存在于那台服务器，因此在那里隐藏项目会对连接到它的每个人隐藏。`repo unhide`，或侧栏底部的 Hidden projects 列表，会再次显示它。
+
+`repo add` 默认是 `--kind git`。用 `--kind folder` 把普通目录（包括含有多个独立 Git 仓库的仓库工具根目录）作为文件夹工作区打开，不使用 Git worktree 或源代码管理。使用 `--environment` 时，用该 Orca 服务器上的绝对路径。
 
 ## Worktrees {#worktrees}
 
@@ -96,6 +114,8 @@ orca worktree rm --worktree id:<worktreeId> --force --json
 ```
 
 当 `worktree create` 从 Orca 管理的 worktree 内部运行时，Orca 在能推断关系的情况下会把新 worktree 记录为子项。传 `--parent-worktree active` 以明确指定，或在新工作独立时传 `--no-parent`。
+
+传 `--branch DAT-111-fix-login` 可以自己命名 Git 分支，而不是套用已配置的分支前缀。`--name` 仍然设置工作区名称，`--base-branch` 仍然设置起始 ref。如果该分支已经存在且不能复用，或者工作区路径已被占用，Orca 会给两者都加上数字后缀，与新建工作区编辑器里一样，因此 `--name task --branch exact` 即使 `exact` 空闲也可能产生分支 `exact-2`。
 
 `worktree set --unread` 会在侧栏的 workspace 上打上未读圆点，与 Agent 完成时 Orca 显示的那个相同；`--read` 清除它。
 
@@ -125,6 +145,26 @@ orca worktree set --worktree active --pr null --gitlab-mr null --json
 
 基于文件夹的仓库可以用这些命令存数字链接，但编号本身不提供 provider 的 host 或 project。没有已有 source context 或已存 remote 时，粘贴的 GitLab URL 会被拒绝，provider 详情或可点击链接也可能不可用。这些标志使用运行时已经支持的字段；早于该字段的旧运行时可能忽略它，写到旧宿主后请用 `worktree show --json` 核对。
 
+### 工作区清理 {#workspace-cleanup}
+
+```bash
+orca workspace cleanup preview --json
+orca workspace cleanup run --json
+orca workspace cleanup report --json
+```
+
+`preview` 显示你的清理规则现在会移除什么，以及为什么其他每个工作区都留下。`run` 现在应用这些规则：每个工作区在移除前都会再次检查，不会强制删除。`report` 列出最近的运行以及下一次何时到期。没有开启任何规则时，什么都不会移除。打开 **Delete agent history when a workspace is deleted**（Settings > Agents）时，`run` 还会删除已不存在的工作区里的 Orca、Claude Code 和 Codex 聊天。规则在 Orca 设置里配置；这些命令从不更改它们。加上 `--environment <id>` 在已配对服务器上运行它们。
+
+## 端口 {#ports}
+
+```bash
+orca ports --json
+orca ports --worktree branch:feature/login --json
+orca ports --all
+```
+
+`ports` 列出 Orca 绑定到某个工作区的监听端口，来自该工作区运行所在的宿主。它默认是包含当前目录的工作区。每一行有 `port`、`pid`、`processName`、`connectHost`、`protocol`、Orca 如何匹配它（`owner.confidence`：`cwd` 或 `command`），以及开发服务器在 Orca 终端里打印过地址时的 `advertisedUrl`。`--all` 列出该宿主上的每一个监听者。原生文件夹工作区需要 `--all`，因为 Orca 不会把端口绑定到它们。如果设置了 `unavailableReason`，扫描无法在该宿主上运行；目前从桌面直接打开的 SSH 工作区会报告这一点，而托管 Orca 服务器上的工作区会在那台服务器上扫描。
+
 ## References {#references}
 
 工作区可以链接多个审查和 issue，包括其仓库之外的来源。
@@ -147,8 +187,8 @@ orca reference find STA-1234 --json
 从 `find` 中选择一个 Agent，然后使用其精确地址：
 
 ```bash
-orca terminal send --terminal '<terminal-from-find>' --text 'Status?' --enter
-orca orchestration send --to '<mailbox-from-find>' --subject 'Status?' --type question
+orca orchestration send --to '<terminal-from-find>' --subject 'Status' --body 'Status?' --type question
+orca orchestration send --to '<mailbox-from-find>' --subject 'Status' --body 'Status?' --type question
 ```
 
 邮箱是 `dispatch:<id>` 或 `orca_session_id:<id>`；`run:<id>` 寻址协调器。Find 从不发送消息或分配所有权。从 shell 添加引用不会把该 shell 与 Agent 关联。
@@ -161,7 +201,7 @@ orca terminal show --terminal <handle> --json
 orca terminal read --terminal <handle> --json
 orca terminal read --terminal <handle> --screen --json
 orca terminal read --terminal <handle> --cursor <cursor> --limit 1000 --json
-orca terminal send --terminal <handle> --text "continue" --enter --json
+orca terminal send --terminal <handle> --text "npm test" --enter --json
 orca terminal wait --terminal <handle> --for tui-idle --timeout-ms 300000 --json
 orca terminal create --worktree active --title "tests" --command "npm test" --json
 orca terminal split --terminal <handle> --direction horizontal --command "npm run dev" --json
@@ -184,6 +224,37 @@ Close 在移除终端的同时停止进程。用 `--terminal <handle>` 针对一
 默认情况下，`terminal read` 返回去掉终端转义后的累积输出流。因此会重绘行的程序可能表现为堆叠的片段。需要当前渲染帧时使用 `--screen`；响应的 `source` 标识 `stream`、`screen` 或 `screen-unavailable`。屏幕读取没有可分页的历史，因此 `--screen` 和 `--cursor` 互斥。
 
 对于长输出，使用 cursor 读取。保存一次流读取的 `nextCursor`，然后用 `--cursor` 传回去，只获取新输出。
+
+## 已安装的 Agent {#installed-agents}
+
+```bash
+orca agent installed --json
+orca agent installed --worktree active
+```
+
+列出 Orca 在宿主上检测到、可以启动的 Agent CLI：在 Settings → Agents 里关掉的 Agent 会被排除，在那里用自定义命令设置的会被包含。每个 `id` 就是 `orca agent launch` 和 `orca worktree create` 里 `--agent` 接受的值，`default` 标出默认 Agent。正在运行的 Agent 用 `agent list`。`--worktree` 检查该工作区在哪里运行 Agent，例如它的 SSH 宿主或 WSL 发行版；已停止的 WSL 发行版不会为了检查而被启动。
+
+## 按 ID 查看 Agent {#agents-by-id}
+
+```bash
+orca agent list --json
+orca agent show orca_session_id:3540ecf3-47c3-4876-b825-81bf5d6b3595 --json
+orca agent read orca_session_id:3540ecf3-47c3-4876-b825-81bf5d6b3595 --limit 10
+orca agent read orca_session_id:3540ecf3-47c3-4876-b825-81bf5d6b3595 --json
+```
+
+每个 Agent，无论聊天还是终端，都有一个 Orca session ID（`orca_session_id:<id>`），也就是 Copy Orca Session ID 所复制的内容。`agent list` 列出这个宿主工作区里的 Agent 及其 ID；终端 Agent 在第一次向 Orca 报告之前不显示 ID。聊天在 `/clear` 之后仍保留其 ID；终端 Agent 会得到一个新的。ID 属于运行该 Agent 的宿主：其他宿主上的 Agent 不会列出，输出会点名那些宿主以及列出它们的 `--environment`。已结束的终端 Agent 在休眠时仍以 `done` 列出，即使 Orca 重启之后也是如此，除非它被重新打开并在做任何新事情之前再次休眠。在一轮进行中被休眠的 Agent 不会列出。重新打开之后，终端 Agent 只有在向 Orca 报告后才会重新出现（对 Codex 来说，是在它的下一轮）。`agent read` 在所有这些情况下仍然能读它。`agent show` 显示已列出的休眠 Agent 的最后状态，以及它的工作区重新打开时在哪里醒来。
+
+`agent read` 读的是对话，不是屏幕：聊天的历史，或终端 Agent 自己的记录。Agent 不必正在运行，读取也从不会启动它。只要 Orca 知道其记录在哪里，就可以读取终端 Agent（它是打开的，或在某个工作区里休眠；在 Windows 上，休眠的 WSL Agent 只有在其标签重新打开后才能读）。读取可以以一个状态开头（`--json` 里的 `state`），对应它自己的历史记录的最新一轮：`working` 表示该历史显示一轮未完成，因此它的回复可能还不在；`done` 表示该轮已结束，回复在这次读取里。在一轮中途退出的终端 Agent 可能继续读出 `working`；用 `orca agent show` 核对。没有状态表示未知，绝不是 done。`agent list` 和 `agent show` 报告 Orca 已知的最后状态，两者可能不同。要给 Agent 发消息，对终端 Agent 用其终端句柄、对聊天用 `orca_session_id:<id>`，通过 `orca orchestration send`，而不是 `orca terminal send`；休眠的终端 Agent 无法被发消息，所以先重新打开它的工作区。
+
+## 聊天 {#chats}
+
+```bash
+orca chat rename --session <sessionId> --name "Release notes" --json
+orca chat rename --name "Migrate auth"
+```
+
+重命名一个聊天标签，与手工重命名相同。`--session` 接受 `orca agent launch` 打印的 `sessionId`。在聊天内部运行时，它默认是该聊天；使用 `--environment` 时则必须提供。
 
 ## 文件 {#files}
 
@@ -211,6 +282,8 @@ orca screenshot --worktree active --json
 ```
 
 诸如 `@e3` 的引用出自 `snapshot`。在导航、切换标签、会改页面的点击，以及任何过期引用错误之后，重新 snapshot。
+
+`snapshot --interactive` 只列出控件和链接，`--delta` 只返回自上次 `--delta` snapshot 以来变化的内容，`--selector <css>` 或 `--depth <n>` 缩小树的范围。`screenshot` 和 `full-screenshot` 把图像保存到 CLI 运行的位置并打印其路径；`screenshot` 在 Orca 桌面浏览器里以 CSS 像素为单位。
 
 标签与捕获命令：
 
@@ -241,6 +314,7 @@ orca screenshot --worktree active --json
 ```bash
 orca computer permissions --json
 orca computer list-apps --json
+orca computer launch-app Safari --json
 orca computer get-app-state --app com.apple.Safari --json
 orca computer click --app com.apple.Safari --element-index 12 --json
 orca computer paste-text --app com.apple.Safari --text "hello" --json
@@ -270,6 +344,17 @@ orca emulator shutdown --worktree active --json
 ## Linear {#linear}
 
 `orca linear` 面是 Agent 通过 `orca-linear` 技能使用的接口（旧安装名 `linear-tickets` 仍然有效）。优先 `--json`。已链接的 worktree 用 `--current` 解析。
+
+### 连接 {#connect}
+
+每个 Orca 宿主保留自己的 Linear 连接。从 shell 连接无头服务器或配方 VM，API key 放在 stdin 上：
+
+```bash
+printf %s "$LINEAR_API_KEY" | orca linear connect
+printf %s "$LINEAR_API_KEY" | orca linear connect --environment build-vm --json
+# PowerShell
+$env:LINEAR_API_KEY | orca linear connect
+```
 
 ### 读取 {#read}
 
@@ -333,7 +418,7 @@ orca skills install --all --dry-run
 orca skills update --all
 ```
 
-`install` / `update` 会 shell 到 Settings 使用的同一套 `npx skills` 命令。它们不联系 Orca 运行时。见 [Orca 技能](/docs/cli/skills#keep-skills-up-to-date)。
+`install` / `update` 在运行它们的那台机器上运行 Orca 自己的技能安装器，与应用的 **Update skills** 使用同一套规划器。它们不联系 Orca 运行时，也不需要 `npx`。见 [Orca 技能](/docs/cli/skills#keep-skills-up-to-date)。
 
 ## 账号（宿主本地运行时） {#account-host-local-runtime}
 
@@ -347,9 +432,21 @@ orca account add --agent codex
 
 `account add` 在宿主的 **这个** 终端里运行 `claude login` / `codex login`，然后把捕获的凭证注册到本地运行时。Codex 使用设备授权，因此浏览器可以在另一台机器上完成。在拥有这些账号的那台机器上运行——不要通过仅客户端的远程会话。
 
+切换新 Agent 启动时使用哪一个已保存账号，适用于任何有已保存账号的 provider（Claude、Codex、OpenCode、Devin、Antigravity）：
+
+```bash
+orca account list                                               # ids, emails/labels, and the active one
+orca account select --agent claude --account you@example.com    # id, email or label
+orca worktree create --name task --agent claude --prompt "..."
+orca account select --agent claude --account system             # back to your own sign-in
+orca account rm --agent codex --account old@example.com         # forget a saved account
+```
+
+一次选择适用于之后在该宿主上启动的该 provider 的每一个 Agent——与状态栏账号菜单是同一个开关——而不是单个工作区。被多个账号共用的邮箱（一次登录属于两个组织）会被拒绝；改传 id。Antigravity 没有 `system` 默认值，`account rm` 也从不会移除 system 凭证。
+
 ## Artifacts {#artifacts}
 
-通过已登录的 Orca 账号发布 HTML 或 Markdown。查看公开链接不需要登录；create/list/update/delete 需要。**发布默认关闭** —— 必须由人在该设备上启用 **Settings → Artifacts → Allow publishing public artifact links**。没有能打开这道门的 CLI 标志。`list`、`unshare` 和 `delete` 仍然可用，以便你在关闭发布之后审计或撤销链接。
+通过已登录的 Orca 账号发布 HTML 或 Markdown。查看公开链接不需要登录；create/list/update/delete 需要。发布遵循设备上的 **Settings → Artifacts → Allow publishing public artifact links**：新配置档默认开启，而在此默认值之前创建的配置档保留原先的设置。只有人能更改它；没有能打开这道门的 CLI 标志。`list`、`unshare` 和 `delete` 仍然可用，以便你在关闭发布之后审计或撤销链接。
 
 ```bash
 orca artifacts share ./report.html --json
@@ -366,6 +463,7 @@ orca artifacts delete <id> --json
 - `list` 是分页的（`nextCursor` → `--cursor`）。`delete` 取 `list` 里的 artifact id，不需要原始文件。
 - 相对 HTML 资源不会上传——分享自包含的 HTML 或绝对资源 URL。
 - 被拒绝的发布/更新以 `artifact_sharing_disabled` 失败；去改 Settings，而不是重试。
+- 无头 Orca 服务器没有 Orca 云登录，因此那里的 artifact 和技能分享命令会以 `sharing_unavailable_on_host` 失败；从桌面应用分享。
 - 桌面：打开本地 HTML 或 Markdown 文件并使用 **Share as artifact**，或从侧栏 **Artifacts** 页管理链接。
 
 ## 自动化、环境与 hooks {#automations-environments-and-hooks}

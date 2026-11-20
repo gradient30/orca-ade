@@ -50,7 +50,7 @@ SSH worktree 可以在 VS Code Remote-SSH 中打开，在 SFTP 允许时下载�
 对于无头 Linux 服务器或由服务管理的虚拟机，用 `orca serve` 作为替代。在 Linux 上 CLI 名为 `orca-ide`，所以首次启动是：
 
 ```bash
-orca-ide serve --pairing-address <reachable-tailscale-ip-or-hostname>
+orca-ide serve --bind <server-tailscale-ip> --pairing-address <server-tailscale-ip>
 ```
 
 完整说明：[远程 Orca 服务器](/docs/remote-servers)。

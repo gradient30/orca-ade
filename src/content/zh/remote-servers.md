@@ -120,6 +120,12 @@ orca serve --pairing-address <server-tailscale-ip-or-hostname>
 orca-ide serve --pairing-address <server-tailscale-ip-or-hostname>
 ```
 
+用 `--bind <literal-ip>` 选择接受运行时连接的接口。对于通过 SSH 隧道或反向代理到达的服务器，绑定到本地；当客户端应直接连接时，使用 Tailscale 或 LAN IP。`--pairing-address` 仍然只控制嵌入配对链接中的地址。`--mobile-pairing` 需要所有接口，因此不要带 `--bind` 使用它，或配合 `--bind 0.0.0.0`。
+
+```bash
+orca-ide serve --bind 127.0.0.1 --pairing-address 127.0.0.1
+```
+
 例如：
 
 ```bash
@@ -137,6 +143,15 @@ orca-ide serve --pairing-address 100.64.1.20
 
 把打印出的配对 URL 粘贴到客户端的 **Settings → Remote Orca Servers → Add Server**。
 
+`orca serve` 接受来自 localhost、LAN 和 Tailscale 地址的客户端，包括落在服务器自身某个网络前缀上的地址（例如同一网络的全局 IPv6 地址）。它拒绝其他公网地址，除非：
+
+- 你传入 `--allow-public`；
+- `--pairing-address` 是主机名或公网 IP；
+- 已配对的客户端已经从公网地址连接过；或
+- 在加入这项检查之前就已配对的客户端仍然处于配对状态。
+
+启动日志会说明适用哪条规则，并且每小时记录第一个被拒绝的公网地址。传入 `--refuse-public` 可在任何情况下都拒绝公网地址，例如在一台较旧的配对原本会继续接受它们的服务器上。
+
 当防火墙、隧道或服务定义需要固定端口时，加上 `--port 6768`：
 
 ```bash
@@ -147,8 +162,25 @@ orca-ide serve --port 6768 --pairing-address 100.64.1.20
 
 同一时间只使用一种主机模式。如果 Orca 桌面应用已经在分享那台计算机，不要为同一套设置再启动第二个 `orca serve` 进程。
 
-`orca serve` 默认跑在 Orca 自己的 Node 服务器（orcad）上。如果 orcad 在这台计算机上无法提供服务，它会改用桌面应用的服务器，并打印一行说明原因。在打包的 macOS 应用上，它目前始终使用桌面应用的服务器，这样已配对客户端仍然可以更新它。若要始终使用桌面应用的服务器，设置 `ORCA_SERVE_RUNTIME=electron`。
+`orca serve` 默认跑在 Orca 自己的 Node 服务器（orcad）上。如果 orcad 在这台计算机上无法提供服务，它会改用桌面应用的服务器，并打印一行说明原因。在打包的 macOS 应用上，它使用桌面应用的服务器，这样已配对客户端仍然可以更新它，除非你设置 `ORCA_SERVE_RUNTIME=orcad`（见 [仅通过 SSH 到达的 Mac](#a-mac-reached-only-over-ssh)）。若要始终使用桌面应用的服务器，设置 `ORCA_SERVE_RUNTIME=electron`。
 
+### 只在 Linux 上安装服务器 {#install-only-the-server-on-linux}
+
+每个版本还会单独发布面向 Linux x64 和 arm64 的服务器：orcad、它所运行的 Node 运行时，以及 `orca-ide` CLI。它不需要桌面包（GTK、X11、Xvfb），因此适合你自己的无头 Linux 服务器、虚拟机和容器。下载大约 60 MB，而 `.deb` 约为 190 MB。下载、校验并解包：
+
+```bash
+arch=$(uname -m | sed 's/x86_64/x64/; s/aarch64/arm64/')
+base=https://github.com/stablyai/orca/releases/latest/download
+curl -fsSLO "$base/orca-server-linux-$arch.tar.gz" -O "$base/orca-server-sha256sums.txt"
+sha256sum --check --ignore-missing orca-server-sha256sums.txt
+sudo mkdir -p /opt/orca-server
+sudo tar -xzf "orca-server-linux-$arch.tar.gz" -C /opt/orca-server --strip-components=1
+/opt/orca-server/bin/orca-ide serve --pairing-address <server-tailscale-ip-or-hostname>
+```
+
+要固定某个版本，把 `latest/download` 替换为 `download/v<version>`，并把该版本的校验和留在脚本里，而不是在归档旁边下载它。服务器需要 glibc 2.28 或更新版本（Ubuntu 20.04、Debian 10、RHEL 8 及更高版本）。
+
+`orca-ide serve` 接受与上面相同的标志，包括服务管理器下的 `--supervise` 以及 `--recipe-json`。要更新，停掉服务器，用更新的版本替换 `/opt/orca-server`，然后再次启动；已配对客户端无法替你更新它。对于 `orca-ide serve service install`，传入 `--command /opt/orca-server/bin/orca-ide`，或把 `/opt/orca-server/bin` 放到 `PATH` 上。仅服务器的安装没有浏览器窗格、口述或已配对的网页客户端，因为那些随桌面应用提供。
 
 ### 限制 Linux 服务器上的终端内存 {#limit-terminal-memory-on-a-linux-server}
 
@@ -178,6 +210,17 @@ orca-ide serve --pairing-address 100.64.1.20
 
 这只会阻止 Orca 主动关闭 GPU。Chromium 仍可能在 Orca 自带的、没有 GPU 的 Xvfb 上以软件渲染；可在浏览器窗格打开 `chrome://gpu` 检查，若报告软件渲染，把 `DISPLAY` 指向有 GPU 的 X 服务器。若用 `orca serve service install` 安装了服务器，请自行把该变量加到服务单元。若设置后服务器无法启动或浏览器窗格崩溃，取消该变量以回到软件渲染。
 
+### 机器镜像的副本 {#copies-of-a-machine-image}
+
+机器镜像的副本共享服务器身份：配对密钥、已配对设备，以及 installation id。在一个副本上撤销某台设备后，它在其他副本上仍然可用，桌面应用也会把所有副本当作同一台服务器。在启动 `orca serve` 的环境中为每个实例设置 `ORCA_INSTANCE_ID`（例如 cloud-init instance id），或在每个副本上运行 `orca serve reset-identity`。
+
+- 设置了 `ORCA_INSTANCE_ID` 时，Orca 会将该值与服务器身份一同记录。如果之后某次启动看到不同的值，Orca 会创建新身份，并移除该副本上的全部已配对设备，以便客户端重新与它配对。
+- Orca 在现有服务器上看到的第一个值只会被记录，因此稍后设置该变量会保留现有配对。请使用在同一实例的多次重启之间保持不变的值；每次启动都变化的值会每次都强制重新配对。
+- 未设置 `ORCA_INSTANCE_ID` 时，Orca 绝不会自行更改身份。
+- 如果 Orca 写不进新身份（例如磁盘已满或只读），它会继续原样提供当前身份的服务，记录一条错误，并在下次启动时再试。
+- `orca serve reset-identity` 会按需做同样的重置。先在那台机器上停掉 Orca；该命令会要求确认，也可以传入 `--yes`。
+- 每次重置都会把被替换的文件移入 Orca 数据目录下 `orca-identity-backups` 中的一个新文件夹（只保留最近五个）。要撤销一次不想要的重置，停掉 Orca，并把该文件夹里的文件复制回数据目录。
+
 ### 从无头服务器用于移动端 {#mobile-from-a-headless-server}
 
 对于 Orca 移动应用，请求移动端范围的二维码和链接：
@@ -189,6 +232,27 @@ orca-ide serve --pairing-address 100.64.1.20 --mobile-pairing
 ```
 
 让手机留在同一个 tailnet 上，打开 Orca Mobile，选择 **Pair**，扫描终端二维码或粘贴打印出的链接。
+
+### 不必重启服务器即可配对 {#pair-without-restarting-the-server}
+
+`orca pair` 向这台机器上已经在运行的 Orca 请求一次新配对，因此你不必停掉服务或重启 `orca serve`。在服务器上、以 Orca 运行所用的用户来运行它：
+
+```bash
+orca pair --mobile --address 100.64.1.20   # 给 Orca Mobile 的二维码和链接
+orca pair --address 100.64.1.20            # 给另一个 Orca 的访问链接
+# Linux
+orca-ide pair --mobile --address 100.64.1.20
+```
+
+它对桌面应用、前台的 `orca serve`，或 `orca serve service install` 效果相同。只有这台机器自己的用户可以运行它；已配对的客户端和手机不能创建配对。
+
+### 仅通过 SSH 到达的 Mac {#a-mac-reached-only-over-ssh}
+
+在打包的 macOS 应用上，`orca serve` 使用桌面应用的服务器，而该服务器需要桌面登录：从无人登录的 SSH 会话中启动时，它会在启动阶段中止。要为这样一台 Mac 提供服务，请改为请求 Orca 的 Node 服务器。它没有应用内更新器，因此请自行更新应用（例如使用 `brew upgrade --cask stablyai/orca/orca`）并重启服务器：
+
+```bash
+ORCA_SERVE_RUNTIME=orcad orca serve --pairing-address 100.64.1.20
+```
 
 ## 桌面应用还是 `orca serve`？ {#desktop-app-or-orca-serve}
 

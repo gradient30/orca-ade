@@ -11,14 +11,27 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.266",
+    "date": "2026-11-20",
+    "dateLabel": "2026年11月20日",
+    "title": "Orca Bot 成为正式队友，Antigravity 可自选登录",
+    "highlights": [
+      "**每个 Bot 会话都有工具和身份。** 托管 Agent 会话不再只限 Claude 和 Codex。Bot 可以像所有者一样分享。Slack 线程会显示这一轮在做什么，长回复整段送达。Gmail 触发器匹配真实发件地址。连接前，访问确认对话框会写明你允许什么。",
+      "**Antigravity 可自选登录。** 可用 Gemini API key 或 Google Agent Platform（ADC）。新聊天跑在已登录的 agy 上，聊天、额度和所选账户一致。主机上没有 OpenCode、Cursor、Copilot、Grok、Kimi Code 或 OMP 时，Orca 会安装自己的副本。",
+      "**配对服务器与更轻的桌面。** SSH 和已配对主机上的 localhost 链接，在该主机的 Orca 浏览器打开。会话保存不会改写未变条目。无头服务器不再宣传它做不到的更新。装桌面版不会更新手机应用。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.266",
+    "href": "/docs/changelog#v1-4-266"
+  },
+  {
     "tag": "v1.4.265",
     "date": "2026-11-19",
     "dateLabel": "2026年11月19日",
-    "title": "Introducing Orca Bots <img src=\"https://raw.gith…",
+    "title": "推出 Orca Bot，繁忙聊天时桌面更轻",
     "highlights": [
-      "**Bots, connectors and access.** Connect a bot through a faster connector picker with category icons, a trimmed Slack connect dialog that shows how to mention the bot 一次 it is installed, and a clearer access-control warning. Other conversations are listed for reference only in Agent's context, so a bot stays focused on the one it was asked about. Finish alerts and worker stop reports carry the reply a transcript read adds, and agents are told which mail type to set, including over `--on`.",
-      "**A lighter desktop for busy chats and terminals.** Long tab strips render only the visible region, session saves write changed entries, new messages get through while other chats stream, and a terminal scroll loop that could freeze the window is fixed.",
-      "**Send while other chats stream.** A 新聊天’s sending work gets priority over background streaming writes. Hidden composers also stop listening to every keystroke, and closed chats release status rows they no longer need. These changes reduce competing work when several conversations are active."
+      "**Bot、连接器与访问。** 连接器选择更快，并带分类图标。Slack 连接对话框更短，装好后说明如何提及 Bot。访问控制警告更清楚。Agent 上下文里的其他对话仅供参考，Bot 只盯住被问到的那一个。",
+      "**繁忙时桌面更轻。** 长标签条只渲染可见区域。会话保存只写改过的条目。其他聊天还在流式输出时，新消息也能发出。修复了可能冻住窗口的终端滚动循环。",
+      "**可以自动更新桌面版。** 在 Settings → General → About 打开 Automatic updates 后，Orca 按你的节奏、通道和延迟下载、安装并重启。默认关闭。若会关掉正在运行的终端、WSL 正在迁移，或窗口状态存不下，自动安装会等待。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.265",
     "href": "/docs/changelog#v1-4-265"
@@ -27,9 +40,10 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.264",
     "date": "2026-11-19",
     "dateLabel": "2026年11月19日",
-    "title": "Chat commands find their workspace ✨",
+    "title": "聊天命令回到这条对话自己的工作区",
     "highlights": [
-      "详见下方完整中文日志。"
+      "**浏览器操作留在这条聊天上。** Chat UI 里的 Agent 若在工作区之外的文件夹运行 Orca 命令，打开浏览器标签这类命令仍使用这条聊天的工作区（含文件夹工作区），而不是当前聚焦的工作区。",
+      "**定位不到就拒绝空目标。** 定位不到聊天工作区时，没有目标的浏览器命令会被拒绝。请在目标文件夹运行，或传 `--worktree`；操作已有页面时也可传 `--page`，ID 来自 `orca tab list --json`。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.264",
     "href": "/docs/changelog#v1-4-264"
@@ -38,10 +52,11 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.263",
     "date": "2026-11-18",
     "dateLabel": "2026年11月18日",
-    "title": "Lighter ch在启动时, Hermes in Chat & browser extensi…",
+    "title": "聊天启动更轻，Hermes 进入 Chat，扩展可开侧栏",
     "highlights": [
-      "**Connect Linear from the command line:** `orca linear connect` accepts an API key through stdin and connects 宿主 you target, including a headless server. Each host keeps its own connection. Linear issue and project lists now return all results 当你 omit `--limit`.",
-      "**Set up agents 在 Windows 上:** Claude and Codex chats offer **Install** when Agent is missing, then **Check again** to detect the installation. `orca agent installed` also lists enabled agent CLIs on the current host for scripts and launch setup."
+      "**在 Chat 里接着聊 Hermes。** 从 New Tab 菜单启动 Hermes，或在 Session History 上选择 Resume in New Chat，在原来的工作区和配置档里继续终端对话。",
+      "**扩展停在页面旁边。** 使用侧栏的 Chrome 扩展可以在 Orca 浏览器里打开可调整大小的面板。点工具栏按钮即可边浏览边用；扩展弹窗接受 Paste、Copy 和 Select All。",
+      "**从命令行连接 Linear。** `orca linear connect` 从 stdin 接受 API key，并连接你指定的主机，包括无头服务器。每个主机保留自己的连接。省略 `--limit` 时，议题和项目列表返回全部结果。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.263",
     "href": "/docs/changelog#v1-4-263"
@@ -50,27 +65,14 @@ export const RELEASES: ReleaseNote[] = [
     "tag": "v1.4.262",
     "date": "2026-11-17",
     "dateLabel": "2026年11月17日",
-    "title": "chat switching, lower memory use & git blame ✨更快…",
+    "title": "切换聊天更快、占用更低，编辑器可看 git blame",
     "highlights": [
-      "**Set up Agent in one card:** Choose Agent, model and supported effort or Fast options together, then use **Open as chat** or **Open as terminal**. Where offered, **Default** effort lets Agent choose its own level.",
-      "**Control interruptions:** Right-click a workspace to mute its notifications while keeping its unread dot. Sleeping workspaces stay asleep after relaunch, and the workspace-card preview lets you try different styles.",
-      "**Use your language and plugins:** Discover community translations in Settings or onboarding. Plugin update reviews name the added access and can group approvals; eligible updates can be approved from their notification."
+      "**同时开很多聊天。** macOS 和 Linux 上，Chat UI 使用更轻的辅助进程。隐藏的聊天视图暂停更新，但保留草稿、阅读位置和编辑器状态；Agent 继续工作。",
+      "**收回磁盘，并看见谁改了这一行。** Settings → Workspace Cleanup 可以删除已删除工作区里的 Orca、Claude Code 和 Codex 聊天，默认关闭。Git blame 状态项显示光标行的作者和日期，Settings → Editor 的 Inline git blame 把标注放在代码旁边。",
+      "**一张卡片里装好 Agent。** 一起选择 Agent、模型和 effort 或 Fast，然后 Open as chat 或 Open as terminal。右键工作区可以静音通知并保留未读点。"
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.262",
     "href": "/docs/changelog#v1-4-262"
-  },
-  {
-    "tag": "v1.4.261",
-    "date": "2026-11-16",
-    "dateLabel": "2026年11月16日",
-    "title": "Major performance improvements, Cursor Chat & a …",
-    "highlights": [
-      "**More room for active work:** Memory Saver also applies to browser tabs on an updated `orca serve` host. Desktop tabs retain their title, history, cookies and saved site data. Settings → Browser lets you change the idle interval or turn Memory Saver off.",
-      "**More agent choices:** Antigravity Chat works 在 Windows 上, and Pi Chat shows subagents. Ordinary Orca CLI commands avoid Electron startup on supported Macs; macOS 13.4 retains the existing launcher.",
-      "**Workspaces at a glance:** Experimental workspace cards show activity, unread results, failures and offline hosts. Choose Classic or Experimental from Workspace options. Agents whose panes are asleep keep showing Done."
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.261",
-    "href": "/docs/changelog#v1-4-261"
   }
 ];
 

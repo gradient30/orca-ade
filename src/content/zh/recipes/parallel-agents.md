@@ -7,7 +7,7 @@
 1. 从同一 start-from ref 创建三个 worktree。命名为 `fix-bug`、`fix-bug-2`、`fix-bug-3`。
 1. 在每一个里启动不同的 Agent——Claude Code、Codex、Cursor CLI。
 1. 把同一份 prompt 贴进全部三个。
-1. 分屏以便看着它们干活——把标签拖到边缘。
+1. 看侧栏的[状态指示](/docs/model/agents-sessions#state-indicators)，并用 `Cmd-J`（macOS）/ `Ctrl-Shift-J`（Windows / Linux）在 worktree 之间跳转——每个 worktree 保留自己的窗格布局。
 1. 完成后审查每一份 diff。在赢家上用 [批注 AI Diff](/docs/review/annotate-ai-diff)。
 1. 从获胜的 worktree 提交、推送、打开 PR。
 1. 删除两个失败者——一键移除 worktree 和分支。

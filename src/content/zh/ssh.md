@@ -15,6 +15,12 @@ Orca 可以通过 SSH 在远程机器上驱动 Agent——适合长时间构建�
 
 未保存的添加/编辑表单会忽略外部点击，以免误点空白处丢掉已填字段；用 Escape、Cancel 或 × 来丢弃。
 
+Orca 不会为已经在 Orca 里的机器再加第二个目标。从 `~/.ssh/config` 导入时（启动时、**Add all**，或从 Settings），它会问 OpenSSH（`ssh -G`）每个新别名连到哪里：host、port、user，以及跳板或 proxy command。解析到与已保存目标同一位置的别名会被跳过，选择器把它标为 **In Orca**。端口、用户、`ProxyJump` 或 `ProxyCommand` 不同，则仍是单独的目标。主机名比较不区分大小写；SSH 用户名保留大小写。没有 `HostName` 的别名连到它自己的名字，因此只有当你把 `HostName` 设成那个 IP 时才会匹配 IP 目标。Orca 不做 DNS 查询。如果没有 `ssh -G`，别名只按名字匹配。
+
+导入只读 `Host` 块。它会加入 `Host` 行上每个具体别名，并跳过带 `*`、`?` 或 `!` 的模式。`Match` 块不会添加目标：`Match` 行会结束它上面的 `Host` 块，导入会忽略其中的行，直到下一个 `Host` 行。自己写 SSH 配置块的工具可以用 `Match originalhost <name>` 代替 `Host <name>`，让这台机器不被导入。Orca 会先就地展开 `Include` 文件再解析，因此被包含文件里的 `Host` 块即使 `Include` 行写在 `Match` 块里也会被导入。
+
+当你移除一个来自 `~/.ssh/config` 的目标（在 Settings 里，或用 `orca host rm`），被动导入（启动时、**Sync ~/.ssh/config** 或 **Add all**）不会把这个别名加回来。Settings → SSH 里的 **Restore removed hosts…** 可以把它找回来。
+
 ## 主机密钥校验 {#host-key-verification}
 
 Orca 会对照你生效的 OpenSSH `known_hosts` 文件以及它先前保存的密钥检查内置 SSH 连接。已有匹配则静默连接。默认策略下，Orca 在首次接触时接受并记住主机，并显示其指纹；`StrictHostKeyChecking yes` 拒绝未知主机，而 `no` / `off` 接受但不保存信任记录。
