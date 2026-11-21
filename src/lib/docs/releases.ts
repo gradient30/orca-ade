@@ -11,6 +11,17 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.269",
+    "date": "2026-11-21",
+    "dateLabel": "2026年11月21日",
+    "title": "Bots on eight more agents, a fuller phone & a qu…",
+    "highlights": [
+      "详见下方完整中文日志。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.269",
+    "href": "/docs/changelog#v1-4-269"
+  },
+  {
     "tag": "v1.4.268",
     "date": "2026-11-21",
     "dateLabel": "2026年11月21日",
@@ -57,18 +68,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.265",
     "href": "/docs/changelog#v1-4-265"
-  },
-  {
-    "tag": "v1.4.264",
-    "date": "2026-11-19",
-    "dateLabel": "2026年11月19日",
-    "title": "聊天命令回到这条对话自己的工作区",
-    "highlights": [
-      "**浏览器操作留在这条聊天上。** Chat UI 里的 Agent 若在工作区之外的文件夹运行 Orca 命令，打开浏览器标签这类命令仍使用这条聊天的工作区（含文件夹工作区），而不是当前聚焦的工作区。",
-      "**定位不到就拒绝空目标。** 定位不到聊天工作区时，没有目标的浏览器命令会被拒绝。请在目标文件夹运行，或传 `--worktree`；操作已有页面时也可传 `--page`，ID 来自 `orca tab list --json`。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.264",
-    "href": "/docs/changelog#v1-4-264"
   }
 ];
 
