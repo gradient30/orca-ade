@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-20",
+  "capturedAt": "2026-11-21",
   "officialRef": "main",
-  "docsTreeSha": "5ec5976038edef656c3162f816a2b2cd2383f68e",
+  "docsTreeSha": "cc2c41968840999c4245bc73a1005902b3e6a7ac",
   "docs": [
     {
       "slug": "activity",
@@ -143,8 +143,8 @@
       "section": "browser",
       "kind": "official",
       "officialPath": "docs/site/content/docs/browser/profiles.mdx",
-      "size": 2858,
-      "lastSeenSha": "ad1e7570b2e0c78b55eefc4184387a77b0771973",
+      "size": 2891,
+      "lastSeenSha": "9a434fa49799fe7a7ef869a2d273547c53e63428",
       "translatedAtSha": "ad1e7570b2e0c78b55eefc4184387a77b0771973"
     },
     {
@@ -555,6 +555,13 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.268",
+      "publishedAt": "2026-11-21",
+      "lastSeenBodySha": "e5f94682a529",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.267",
       "publishedAt": "2026-11-20",
       "lastSeenBodySha": "f0df152e80ec",
@@ -636,7 +643,7 @@
       "publishedAt": "2026-11-09",
       "lastSeenBodySha": "54006768f408",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.254",

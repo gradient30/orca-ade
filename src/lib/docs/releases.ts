@@ -11,6 +11,17 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.268",
+    "date": "2026-11-21",
+    "dateLabel": "2026年11月21日",
+    "title": "Bots on more agents, richer Slack & a faster Orc…",
+    "highlights": [
+      "详见下方完整中文日志。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.268",
+    "href": "/docs/changelog#v1-4-268"
+  },
+  {
     "tag": "v1.4.267",
     "date": "2026-11-20",
     "dateLabel": "2026年11月20日",
@@ -58,19 +69,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.264",
     "href": "/docs/changelog#v1-4-264"
-  },
-  {
-    "tag": "v1.4.263",
-    "date": "2026-11-18",
-    "dateLabel": "2026年11月18日",
-    "title": "聊天启动更轻，Hermes 进入 Chat，扩展可开侧栏",
-    "highlights": [
-      "**在 Chat 里接着聊 Hermes。** 从 New Tab 菜单启动 Hermes，或在 Session History 上选择 Resume in New Chat，在原来的工作区和配置档里继续终端对话。",
-      "**扩展停在页面旁边。** 使用侧栏的 Chrome 扩展可以在 Orca 浏览器里打开可调整大小的面板。点工具栏按钮即可边浏览边用；扩展弹窗接受 Paste、Copy 和 Select All。",
-      "**从命令行连接 Linear。** `orca linear connect` 从 stdin 接受 API key，并连接你指定的主机，包括无头服务器。每个主机保留自己的连接。省略 `--limit` 时，议题和项目列表返回全部结果。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.263",
-    "href": "/docs/changelog#v1-4-263"
   }
 ];
 
