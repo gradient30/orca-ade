@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-22",
+  "capturedAt": "2026-11-23",
   "officialRef": "main",
-  "docsTreeSha": "cc2c41968840999c4245bc73a1005902b3e6a7ac",
+  "docsTreeSha": "73f11576ceac297979174d2bc74d991ed7dc3bd6",
   "docs": [
     {
       "slug": "activity",
@@ -494,8 +494,8 @@
       "section": "privacy",
       "kind": "official",
       "officialPath": "docs/site/content/docs/telemetry.mdx",
-      "size": 8205,
-      "lastSeenSha": "c7c503c99019bb12e521f5e26cea68986e966d94",
+      "size": 8109,
+      "lastSeenSha": "b09f4ddf447cbcc86e0daca12eb09380116b512c",
       "translatedAtSha": "c7c503c99019bb12e521f5e26cea68986e966d94"
     },
     {
@@ -548,8 +548,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/hermes.mdx",
-      "size": 3834,
-      "lastSeenSha": "262c42ea71819716fd7c74fd70737b651cc9725c",
+      "size": 4162,
+      "lastSeenSha": "92e3e31e0c7ff2459e15b7b7a52f4a1d70a78a63",
       "translatedAtSha": "262c42ea71819716fd7c74fd70737b651cc9725c"
     }
   ],
@@ -557,7 +557,7 @@
     {
       "tag": "v1.4.271",
       "publishedAt": "2026-11-22",
-      "lastSeenBodySha": "68dfcae23398",
+      "lastSeenBodySha": "af70794d4d29",
       "translatedAtBodySha": null,
       "yanked": false
     },
