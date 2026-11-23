@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.272",
+    "date": "2026-11-23",
+    "dateLabel": "2026年11月23日",
+    "title": "bots that pick up where they left off ✨更可靠。",
+    "highlights": [
+      "🤖 **Bots recover more reliably after interruptions.** Conversations paused by usage limits can continue automatically after an account switch or restart. Resume works for chats interrupted by a crash or restart, and with **Resume work on restart** enabled, terminal workers can return to their saved conversations even if their terminals were lost. [Usage-limit recovery](https://github.com/stablyai/orca/pull/47221) · [Chat recovery](https://github.com/stablyai/orca/pull/47284) · [Worker recovery](https://github.com/stablyai/orca/pull/46643)",
+      "🌐 **Use the same browser tools across machines.** Extensions such as 1Password now work in SSH workspace tabs and paired-server tabs opened on **This device**. Drop files from your desktop into server-streamed pages, and let agents on SSH 宿主 or 已配对服务器 upload and download files using paths on their own host. [Extensions](https://github.com/stablyai/orca/pull/47347) · [Drag and drop](https://github.com/stablyai/orca/pull/47357) · [SSH files](https://github.com/stablyai/orca/pull/47399) · [Paired-server files](https://github.com/stablyai/orca/pull/47264)",
+      "💬 **Take a quick detour 在聊天中.** On supported agents, type `/btw` or `/side` to mark a draft as a side chat. The composer’s worker count now reflects who’s actively working. [Side chat](https://github.com/stablyai/orca/pull/42129) · [Worker count](https://github.com/stablyai/orca/pull/47432)"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.272",
+    "href": "/docs/changelog#v1-4-272"
+  },
+  {
     "tag": "v1.4.271",
     "date": "2026-11-22",
     "dateLabel": "2026年11月22日",
@@ -53,19 +66,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.267",
     "href": "/docs/changelog#v1-4-267"
-  },
-  {
-    "tag": "v1.4.266",
-    "date": "2026-11-20",
-    "dateLabel": "2026年11月20日",
-    "title": "Orca Bot 成为正式队友，Antigravity 可自选登录",
-    "highlights": [
-      "**每个 Bot 会话都有工具和身份。** 托管 Agent 会话不再只限 Claude 和 Codex。Bot 可以像所有者一样分享。Slack 线程会显示这一轮在做什么，长回复整段送达。Gmail 触发器匹配真实发件地址。连接前，访问确认对话框会写明你允许什么。",
-      "**Antigravity 可自选登录。** 可用 Gemini API key 或 Google Agent Platform（ADC）。新聊天跑在已登录的 agy 上，聊天、额度和所选账户一致。主机上没有 OpenCode、Cursor、Copilot、Grok、Kimi Code 或 OMP 时，Orca 会安装自己的副本。",
-      "**配对服务器与更轻的桌面。** SSH 和已配对主机上的 localhost 链接，在该主机的 Orca 浏览器打开。会话保存不会改写未变条目。无头服务器不再宣传它做不到的更新。装桌面版不会更新手机应用。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.266",
-    "href": "/docs/changelog#v1-4-266"
   }
 ];
 

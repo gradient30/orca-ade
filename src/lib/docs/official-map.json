@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-23",
   "officialRef": "main",
-  "docsTreeSha": "73f11576ceac297979174d2bc74d991ed7dc3bd6",
+  "docsTreeSha": "2ce92699cda0113388df5f31201ed9d78c3b3be6",
   "docs": [
     {
       "slug": "activity",
@@ -170,8 +170,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 12553,
-      "lastSeenSha": "55fafaea758270574dbff167ea3334c46eae0267",
+      "size": 16032,
+      "lastSeenSha": "e3d982f4d4c91c15a133f6cae1a575afcca55a56",
       "translatedAtSha": "55fafaea758270574dbff167ea3334c46eae0267"
     },
     {
@@ -555,6 +555,13 @@
   ],
   "releases": [
     {
+      "tag": "v1.4.272",
+      "publishedAt": "2026-11-23",
+      "lastSeenBodySha": "42f38097449f",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
+    {
       "tag": "v1.4.271",
       "publishedAt": "2026-11-22",
       "lastSeenBodySha": "af70794d4d29",
@@ -636,7 +643,7 @@
       "publishedAt": "2026-11-13",
       "lastSeenBodySha": "886cbc057f5f",
       "translatedAtBodySha": null,
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.257",
