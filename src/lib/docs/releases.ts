@@ -11,6 +11,17 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.273",
+    "date": "2026-11-24",
+    "dateLabel": "2026年11月24日",
+    "title": "Clearer bot items, more controls 在手机上 & smoother…",
+    "highlights": [
+      "详见下方完整中文日志。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.273",
+    "href": "/docs/changelog#v1-4-273"
+  },
+  {
     "tag": "v1.4.272",
     "date": "2026-11-23",
     "dateLabel": "2026年11月23日",
@@ -55,17 +66,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.268",
     "href": "/docs/changelog#v1-4-268"
-  },
-  {
-    "tag": "v1.4.267",
-    "date": "2026-11-20",
-    "dateLabel": "2026年11月20日",
-    "title": "What's new in 1.4.267",
-    "highlights": [
-      "详见下方完整中文日志。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.267",
-    "href": "/docs/changelog#v1-4-267"
   }
 ];
 
