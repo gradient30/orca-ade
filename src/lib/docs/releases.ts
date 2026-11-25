@@ -11,6 +11,18 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.274",
+    "date": "2026-11-24",
+    "dateLabel": "2026年11月24日",
+    "title": "App Rail is 默认开启 for new users",
+    "highlights": [
+      "This minor update enables App Rail for new Orca users. App Rail saves sidebar space by putting app navigation in a compact icon rail. Existing users can turn it on under **Settings > Experimental > App rail**.",
+      "![App Rail in the Orca sidebar](https://github.com/stablyai/orca/releases/download/v1.4.274/app-rail.png)"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.274",
+    "href": "/docs/changelog#v1-4-274"
+  },
+  {
     "tag": "v1.4.273",
     "date": "2026-11-24",
     "dateLabel": "2026年11月24日",
@@ -55,17 +67,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.269",
     "href": "/docs/changelog#v1-4-269"
-  },
-  {
-    "tag": "v1.4.268",
-    "date": "2026-11-21",
-    "dateLabel": "2026年11月21日",
-    "title": "Bots on more agents, richer Slack & a faster Orc…",
-    "highlights": [
-      "详见下方完整中文日志。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.268",
-    "href": "/docs/changelog#v1-4-268"
   }
 ];
 

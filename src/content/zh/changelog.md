@@ -8,13 +8,14 @@
 
 | 版本 | 日期 | 标题 |
 | --- | --- | --- |
+| [v1.4.274](#v1-4-274) | 2026年11月24日 | App Rail is 默认开启 for new users |
 | [v1.4.273](#v1-4-273) | 2026年11月24日 | Clearer bot items, more controls 在手机上 & smoother… |
 | [v1.4.272](#v1-4-272) | 2026年11月23日 | bots that pick up where they left off ✨更可靠。 |
 | [v1.4.271](#v1-4-271) | 2026年11月22日 | Bots across computers, a phone that runs your ag… |
 | [v1.4.269](#v1-4-269) | 2026年11月21日 | Bots on eight more agents, a fuller phone & a qu… |
-| [v1.4.268](#v1-4-268) | 2026年11月21日 | Bots on more agents, richer Slack & a faster Orc… |
 
 更早版本（同步时保留，不删除）：
+| [v1.4.268](#v1-4-268) | — | Bots on more agents, richer Slack & a faster Orc… |
 | [v1.4.267](#v1-4-267) | — | What's new in 1.4.267 |
 | [v1.4.266](#v1-4-266) | — | Orca Bot 成为正式队友，Antigravity 可自选登录 |
 | [v1.4.265](#v1-4-265) | — | 推出 Orca Bot，繁忙聊天时桌面更轻 |
@@ -63,6 +64,20 @@
 | [v1.4.216](#v1-4-216) | — | 窄窗口里状态栏保持单行 |
 
 ## 完整中文日志 {#full-notes}
+
+## v1.4.274 App Rail is 默认开启 for new users {#v1-4-274}
+
+2026年11月24日 发布 · [官方原文](https://github.com/stablyai/orca/releases/tag/v1.4.274)
+
+### App Rail is 默认开启 for new users {#v1-4-274-app-rail-is-for-new-users}
+
+This minor update enables App Rail for new Orca users. App Rail saves sidebar space by putting app navigation in a compact icon rail. Existing users can turn it on under **Settings > Experimental > App rail**.
+
+![App Rail in the Orca sidebar](https://github.com/stablyai/orca/releases/download/v1.4.274/app-rail.png)
+
+### In v1.4.273 {#v1-4-274-in-v1-4-273}
+
+Bot panels show upcoming runs and clearer item questions, the mobile app adds account and group controls, and streamed browser pages scroll more smoothly. [Read the full v1.4.273 release notes](https://github.com/stablyai/orca/releases/tag/v1.4.273).
 
 ## v1.4.273 Clearer bot items, more controls 在手机上 & smoother… {#v1-4-273}
 
