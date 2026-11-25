@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-25",
   "officialRef": "main",
-  "docsTreeSha": "bf65563c5857148a6801b66d21e95f9be4b20f5e",
+  "docsTreeSha": "d7c607744d681b258b7f17cca2a80e9a11977550",
   "docs": [
     {
       "slug": "activity",
@@ -62,8 +62,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/hibernation.mdx",
-      "size": 4442,
-      "lastSeenSha": "69d64c570739d3e6881d718ce81a79ab3e0926bf",
+      "size": 4434,
+      "lastSeenSha": "2426b6b8e1f459e3e1c0d69d6cfc8f2e034c7747",
       "translatedAtSha": "69d64c570739d3e6881d718ce81a79ab3e0926bf"
     },
     {
@@ -89,8 +89,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/session-history.mdx",
-      "size": 4741,
-      "lastSeenSha": "2218cce349b691f75adb7c29f6381d6284c153d4",
+      "size": 4738,
+      "lastSeenSha": "b731ad2415c0d8b05b392e831dc5415205d26ff0",
       "translatedAtSha": "2218cce349b691f75adb7c29f6381d6284c153d4"
     },
     {
@@ -98,8 +98,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
-      "size": 13429,
-      "lastSeenSha": "2e68990f84e43bbebba5bd9c19ec43e7a09867d2",
+      "size": 13172,
+      "lastSeenSha": "f23f846f84d8b7c7f30a0196133385a28dde6f73",
       "translatedAtSha": "2e68990f84e43bbebba5bd9c19ec43e7a09867d2"
     },
     {
@@ -107,8 +107,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/usage-tracking.mdx",
-      "size": 4297,
-      "lastSeenSha": "6c1893bfd0ed7360db8910c3ebbe31215afa7633",
+      "size": 4289,
+      "lastSeenSha": "a741d5e2ddfbdd6a43abaa15a4d38a88aa25c338",
       "translatedAtSha": "6c1893bfd0ed7360db8910c3ebbe31215afa7633"
     },
     {
@@ -170,8 +170,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/orchestration.mdx",
-      "size": 16032,
-      "lastSeenSha": "e3d982f4d4c91c15a133f6cae1a575afcca55a56",
+      "size": 16021,
+      "lastSeenSha": "9e7a3fd9f4e6006232665bd22c4f6763ead32c99",
       "translatedAtSha": "55fafaea758270574dbff167ea3334c46eae0267"
     },
     {
@@ -197,8 +197,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/skills.mdx",
-      "size": 12632,
-      "lastSeenSha": "30e07bf2fa35872d474b930fd277779a62f2e75f",
+      "size": 12697,
+      "lastSeenSha": "29df62e15463394387b500b74ababeb763f7b81b",
       "translatedAtSha": "30e07bf2fa35872d474b930fd277779a62f2e75f"
     },
     {
@@ -296,8 +296,8 @@
       "section": "model",
       "kind": "official",
       "officialPath": "docs/site/content/docs/model/agents-sessions.mdx",
-      "size": 5150,
-      "lastSeenSha": "afa049bccb159337e18d08cd216e3730fcbe72ea",
+      "size": 5128,
+      "lastSeenSha": "3e24d5c428b140f2bdb7d24aa2af783459603ff4",
       "translatedAtSha": "afa049bccb159337e18d08cd216e3730fcbe72ea"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 17494,
-      "lastSeenSha": "652b4d6ea661f88216540f4c48eab4e06544d669",
+      "size": 17479,
+      "lastSeenSha": "0223442610a0c2914f444d14c7dac5ccd68947e2",
       "translatedAtSha": "652b4d6ea661f88216540f4c48eab4e06544d669"
     },
     {
