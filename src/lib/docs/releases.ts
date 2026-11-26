@@ -11,10 +11,21 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.278",
+    "date": "2026-11-26",
+    "dateLabel": "2026年11月26日",
+    "title": "Smoother long replies, Antigravity on agy, six n…",
+    "highlights": [
+      "详见下方完整中文日志。"
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.278",
+    "href": "/docs/changelog#v1-4-278"
+  },
+  {
     "tag": "v1.4.277",
     "date": "2026-11-26",
     "dateLabel": "2026年11月26日",
-    "title": "Cleaner phone screens, easier item answers & per…",
+    "title": "Even better Agy support, cleaner phone screens &…",
     "highlights": [
       "详见下方完整中文日志。"
     ],
@@ -56,17 +67,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.272",
     "href": "/docs/changelog#v1-4-272"
-  },
-  {
-    "tag": "v1.4.271",
-    "date": "2026-11-22",
-    "dateLabel": "2026年11月22日",
-    "title": "Bots across computers, a phone that runs your ag…",
-    "highlights": [
-      "详见下方完整中文日志。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.271",
-    "href": "/docs/changelog#v1-4-271"
   }
 ];
 
