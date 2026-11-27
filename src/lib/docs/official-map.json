@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-26",
+  "capturedAt": "2026-11-27",
   "officialRef": "main",
-  "docsTreeSha": "169e8d269762fb713cd4bb2d892bcccf6668a577",
+  "docsTreeSha": "ef6dc848629ed7f73069c5f17326a64a3a21f38f",
   "docs": [
     {
       "slug": "activity",
@@ -99,7 +99,7 @@
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
       "size": 13172,
-      "lastSeenSha": "f23f846f84d8b7c7f30a0196133385a28dde6f73",
+      "lastSeenSha": "b3b768af1243985c18c350b19ba90d4292ff0513",
       "translatedAtSha": "2e68990f84e43bbebba5bd9c19ec43e7a09867d2"
     },
     {
@@ -107,8 +107,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/usage-tracking.mdx",
-      "size": 4289,
-      "lastSeenSha": "a741d5e2ddfbdd6a43abaa15a4d38a88aa25c338",
+      "size": 4400,
+      "lastSeenSha": "e2bc65bd15a0aace950498252b1202c378c6d057",
       "translatedAtSha": "6c1893bfd0ed7360db8910c3ebbe31215afa7633"
     },
     {
@@ -188,8 +188,8 @@
       "section": "cli",
       "kind": "official",
       "officialPath": "docs/site/content/docs/cli/reference.mdx",
-      "size": 31526,
-      "lastSeenSha": "63ebcf7baa035812ac6c09ccadd979396b61ae16",
+      "size": 31586,
+      "lastSeenSha": "e7b79d564687bc86a25504383436ca3483a08414",
       "translatedAtSha": "63ebcf7baa035812ac6c09ccadd979396b61ae16"
     },
     {
@@ -296,8 +296,8 @@
       "section": "model",
       "kind": "official",
       "officialPath": "docs/site/content/docs/model/agents-sessions.mdx",
-      "size": 5128,
-      "lastSeenSha": "3e24d5c428b140f2bdb7d24aa2af783459603ff4",
+      "size": 5337,
+      "lastSeenSha": "17f0799e94f2a669954d9fbd5f7a1aa5e6f4427e",
       "translatedAtSha": "afa049bccb159337e18d08cd216e3730fcbe72ea"
     },
     {
@@ -404,8 +404,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
-      "size": 19162,
-      "lastSeenSha": "68a2e2fc4999250bc93a88895f6b4586bfa6afce",
+      "size": 22071,
+      "lastSeenSha": "35cf9457ca8c88b2646f9d625b3dc66650684a0d",
       "translatedAtSha": "0b85c58e10a6d83fba585333d4841347ad5480dd"
     },
     {
@@ -476,8 +476,8 @@
       "section": "settings",
       "kind": "official",
       "officialPath": "docs/site/content/docs/settings.mdx",
-      "size": 17479,
-      "lastSeenSha": "0223442610a0c2914f444d14c7dac5ccd68947e2",
+      "size": 17569,
+      "lastSeenSha": "c10bd964b389cf27fdc087daf3f67ba02011e88b",
       "translatedAtSha": "652b4d6ea661f88216540f4c48eab4e06544d669"
     },
     {
@@ -485,8 +485,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/ssh.mdx",
-      "size": 13364,
-      "lastSeenSha": "1d2fbbca59700146f2f6e61acdac6b11f7a6353a",
+      "size": 18188,
+      "lastSeenSha": "022aaf4b2f52b67a56f361403efd5c814ec78b48",
       "translatedAtSha": "1d2fbbca59700146f2f6e61acdac6b11f7a6353a"
     },
     {
@@ -521,8 +521,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/ways-to-run.mdx",
-      "size": 8114,
-      "lastSeenSha": "b4b715710bcb77cbeba82bdbf8c385088abe1164",
+      "size": 8644,
+      "lastSeenSha": "c93bab6006ce831e886da69c46ba0bb0272b0f97",
       "translatedAtSha": "b4b715710bcb77cbeba82bdbf8c385088abe1164"
     },
     {
@@ -530,8 +530,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/antigravity-accounts.mdx",
-      "size": 2600,
-      "lastSeenSha": "050df5077c31e698e131dcaf36533d695fbc3fa8",
+      "size": 2453,
+      "lastSeenSha": "29b04fb3c4664181f4f4bb6a5968bb22b2ea0431",
       "translatedAtSha": "050df5077c31e698e131dcaf36533d695fbc3fa8"
     },
     {
@@ -557,7 +557,7 @@
     {
       "tag": "v1.4.278",
       "publishedAt": "2026-11-26",
-      "lastSeenBodySha": "72d301805a2a",
+      "lastSeenBodySha": "965946cdaad2",
       "translatedAtBodySha": null,
       "yanked": false
     },
