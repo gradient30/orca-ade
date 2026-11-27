@@ -11,6 +11,32 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.280",
+    "date": "2026-11-27",
+    "dateLabel": "2026年11月27日",
+    "title": "Rename bot threads, answer 在聊天中 & grab browser a…",
+    "highlights": [
+      "🧠 **Using Antigravity (agy)? Update to v1.4.280.** Use Antigravity only through the `agy` CLI or in Orca chat. To align with Antigravity’s guidance on supported integrations, this release removes support for using `agy` to check quota in the standalone usage meter, generate bot avatars, or write source control text such as 提交信息.",
+      "🤖 **Make bot spaces your own.** Rename group rooms and threads right from their tabs. A pinned amber gauge makes it easier to see when a bot has paused at its usage limit.",
+      "💬 **Better bot follow-ups in Slack.** Bots can follow up in the thread or DM where you asked them to start background work. Orca also does less work to send everyday replies."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.280",
+    "href": "/docs/changelog#v1-4-280"
+  },
+  {
+    "tag": "v1.4.279",
+    "date": "2026-11-27",
+    "dateLabel": "2026年11月27日",
+    "title": "Cleaner Git review and easier browser annotation…",
+    "highlights": [
+      "Made the Git diff review side panel cleaner, brought Graph into Changes, and made the browser annotation palette movable.",
+      "🔀 **Cleaner Git review:** Find Create PR beside the branch name and file-list controls beside the files they affect. Open Graph from the Changes menu.",
+      "🌐 **Annotate where you work:** Move the annotation palette beside the part of the page you want to discuss, then select an element or draw on a screenshot."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.279",
+    "href": "/docs/changelog#v1-4-279"
+  },
+  {
     "tag": "v1.4.278",
     "date": "2026-11-26",
     "dateLabel": "2026年11月26日",
@@ -43,30 +69,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.274",
     "href": "/docs/changelog#v1-4-274"
-  },
-  {
-    "tag": "v1.4.273",
-    "date": "2026-11-24",
-    "dateLabel": "2026年11月24日",
-    "title": "Clearer bot items, more controls 在手机上 & smoother…",
-    "highlights": [
-      "详见下方完整中文日志。"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.273",
-    "href": "/docs/changelog#v1-4-273"
-  },
-  {
-    "tag": "v1.4.272",
-    "date": "2026-11-23",
-    "dateLabel": "2026年11月23日",
-    "title": "bots that pick up where they left off ✨更可靠。",
-    "highlights": [
-      "🤖 **Bots recover more reliably after interruptions.** Conversations paused by usage limits can continue automatically after an account switch or restart. Resume works for chats interrupted by a crash or restart, and with **Resume work on restart** enabled, terminal workers can return to their saved conversations even if their terminals were lost. [Usage-limit recovery](https://github.com/stablyai/orca/pull/47221) · [Chat recovery](https://github.com/stablyai/orca/pull/47284) · [Worker recovery](https://github.com/stablyai/orca/pull/46643)",
-      "🌐 **Use the same browser tools across machines.** Extensions such as 1Password now work in SSH workspace tabs and paired-server tabs opened on **This device**. Drop files from your desktop into server-streamed pages, and let agents on SSH 宿主 or 已配对服务器 upload and download files using paths on their own host. [Extensions](https://github.com/stablyai/orca/pull/47347) · [Drag and drop](https://github.com/stablyai/orca/pull/47357) · [SSH files](https://github.com/stablyai/orca/pull/47399) · [Paired-server files](https://github.com/stablyai/orca/pull/47264)",
-      "💬 **Take a quick detour 在聊天中.** On supported agents, type `/btw` or `/side` to mark a draft as a side chat. The composer’s worker count now reflects who’s actively working. [Side chat](https://github.com/stablyai/orca/pull/42129) · [Worker count](https://github.com/stablyai/orca/pull/47432)"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.272",
-    "href": "/docs/changelog#v1-4-272"
   }
 ];
 
