@@ -1,7 +1,7 @@
 {
-  "capturedAt": "2026-11-27",
+  "capturedAt": "2026-11-28",
   "officialRef": "main",
-  "docsTreeSha": "fbda0d85776245fea9780bc7694701a6a31b7902",
+  "docsTreeSha": "337abd06aeca74ef3c380388b835e9e737087000",
   "docs": [
     {
       "slug": "activity",
@@ -404,8 +404,8 @@
       "section": "remote",
       "kind": "official",
       "officialPath": "docs/site/content/docs/remote-servers.mdx",
-      "size": 22071,
-      "lastSeenSha": "35cf9457ca8c88b2646f9d625b3dc66650684a0d",
+      "size": 22353,
+      "lastSeenSha": "c04584ddf36840a27990252d64506a99576587b5",
       "translatedAtSha": "0b85c58e10a6d83fba585333d4841347ad5480dd"
     },
     {
