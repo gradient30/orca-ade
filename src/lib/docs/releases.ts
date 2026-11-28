@@ -11,6 +11,19 @@ export type ReleaseNote = {
 /** Latest 5 desktop releases. Refreshed by scripts/sync-releases.ts from GitHub. */
 export const RELEASES: ReleaseNote[] = [
   {
+    "tag": "v1.4.281",
+    "date": "2026-11-28",
+    "dateLabel": "2026年11月28日",
+    "title": "Even better agy support, app rail polish & Phone…",
+    "highlights": [
+      "🚀 **Even better agy support.** Chats and terminals use the agy account you picked, even if an older version restores a previous sign-in.",
+      "🧭 **UI polish across the app rail.** Artifacts, Automations, Skills, Tasks and Plugins share a consistent page style. Turn on the app rail in **Settings → Experimental → App Rail**.",
+      "📱 **Phone app improvements.** Session tabs move into a sidebar, the browser gets a bottom bar, and pairing takes one tap. Terminal keys fit on one row. Search a workspace, comment on diff lines, or continue a Pi terminal 在聊天中."
+    ],
+    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.281",
+    "href": "/docs/changelog#v1-4-281"
+  },
+  {
     "tag": "v1.4.280",
     "date": "2026-11-27",
     "dateLabel": "2026年11月27日",
@@ -57,18 +70,6 @@ export const RELEASES: ReleaseNote[] = [
     ],
     "url": "https://github.com/stablyai/orca/releases/tag/v1.4.277",
     "href": "/docs/changelog#v1-4-277"
-  },
-  {
-    "tag": "v1.4.274",
-    "date": "2026-11-24",
-    "dateLabel": "2026年11月24日",
-    "title": "App Rail is 默认开启 for new users",
-    "highlights": [
-      "This minor update enables App Rail for new Orca users. App Rail saves sidebar space by putting app navigation in a compact icon rail. Existing users can turn it on under **Settings > Experimental > App rail**.",
-      "![App Rail in the Orca sidebar](https://github.com/stablyai/orca/releases/download/v1.4.274/app-rail.png)"
-    ],
-    "url": "https://github.com/stablyai/orca/releases/tag/v1.4.274",
-    "href": "/docs/changelog#v1-4-274"
   }
 ];
 

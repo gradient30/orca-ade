@@ -1,7 +1,7 @@
 {
   "capturedAt": "2026-11-28",
   "officialRef": "main",
-  "docsTreeSha": "337abd06aeca74ef3c380388b835e9e737087000",
+  "docsTreeSha": "0209e93231031294fb2022c1cc0425cf0db743dc",
   "docs": [
     {
       "slug": "activity",
@@ -80,8 +80,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/native-chat.mdx",
-      "size": 6639,
-      "lastSeenSha": "e283e839177eb6e1d277fa00789983a72482ee13",
+      "size": 6621,
+      "lastSeenSha": "82a3280bbd726f1ff3f0a7c8f6af4a98a336c438",
       "translatedAtSha": "e283e839177eb6e1d277fa00789983a72482ee13"
     },
     {
@@ -99,7 +99,7 @@
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/supported.mdx",
       "size": 13172,
-      "lastSeenSha": "b3b768af1243985c18c350b19ba90d4292ff0513",
+      "lastSeenSha": "b721dd0603674b22abda7214d69b0f7561a83bd2",
       "translatedAtSha": "2e68990f84e43bbebba5bd9c19ec43e7a09867d2"
     },
     {
@@ -539,8 +539,8 @@
       "section": "agents",
       "kind": "official",
       "officialPath": "docs/site/content/docs/agents/antigravity.mdx",
-      "size": 6929,
-      "lastSeenSha": "9dd985508b26a20f6a90debf5c6594a4d49cbd2e",
+      "size": 7759,
+      "lastSeenSha": "ca9777a80e843f7c9b6b1f35fd0565cccb18d3a8",
       "translatedAtSha": "9dd985508b26a20f6a90debf5c6594a4d49cbd2e"
     },
     {
@@ -554,6 +554,13 @@
     }
   ],
   "releases": [
+    {
+      "tag": "v1.4.281",
+      "publishedAt": "2026-11-28",
+      "lastSeenBodySha": "0d907ce1a7f9",
+      "translatedAtBodySha": null,
+      "yanked": false
+    },
     {
       "tag": "v1.4.280",
       "publishedAt": "2026-11-27",
@@ -636,7 +643,7 @@
       "publishedAt": "2026-11-20",
       "lastSeenBodySha": "7079f434f6bf",
       "translatedAtBodySha": "b4c4e5530d9e",
-      "yanked": false
+      "yanked": true
     },
     {
       "tag": "v1.4.265",
